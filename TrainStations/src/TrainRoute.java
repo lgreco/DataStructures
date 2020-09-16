@@ -3,7 +3,7 @@
  *
  * PLAN FOR >>> 16 SEP 2020 <<<
  *
- *   In class, team-based work:
+ *   In-class, team-based work:
  *
  *     - write a method to tell if a station exists at a given location
  *     - write a method to insert a station in a location after a given location
