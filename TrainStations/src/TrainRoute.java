@@ -1,5 +1,5 @@
 /**
- * A simple class tp demonstrate the concept of a linked list.
+ * A simple class to demonstrate the concept of a linked list.
  */
 public class TrainRoute {
 
