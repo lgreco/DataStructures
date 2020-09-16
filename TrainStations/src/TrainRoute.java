@@ -5,9 +5,11 @@
  *
  *   In-class, team-based work:
  *
- *     - write a method to tell if a station exists at a given location
- *     - write a method to insert a station in a location after a given location
- *     - write a method to remove a station at a given location
+ *              METHOD NAME  WHAT IT DOES
+ *       ==================  ================================================================
+ *     -      stationExists: method to tell if a station exists at a given location
+ *     - insertAfterStation: method to insert a station in a location after a given location
+ *     -      removeStation: write a method to remove a station at a given location
  *
  *   Homework (due Monday 21 SEP 2020):
  *
@@ -104,7 +106,25 @@ public class TrainRoute {
 
         lincolnService.displayRoute();
 
-        System.out.println(lincolnService.stationExists("Summit"));
-        System.out.println(lincolnService.stationExists("Drama"));
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
