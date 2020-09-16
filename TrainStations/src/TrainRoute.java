@@ -1,7 +1,7 @@
 /**
  * A simple class to demonstrate the concept of a linked list.
  *
- * PLAN FOR 16 SEP 2020
+ * PLAN FOR >>> 16 SEP 2020 <<<
  *
  *   In class, team-based work:
  *
