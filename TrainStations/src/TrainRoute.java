@@ -11,6 +11,14 @@
  *     - insertAfterStation: method to insert a station in a location after a given location
  *     -      removeStation: write a method to remove a station at a given location
  *
+ *     Group assignment:
+ *
+ *     Collins group: Paras, Nguyen, Ahlgren, Collins, Villaraza, Pecoraro.
+ *     Hernandez group: Colgan, Hernandez, Patel, Bacon, Rakotondranoro, Pecho
+ *     Zukauskas group: Zukauskas, bhargvi, Caira, Fletcher, Grinsell, Neuhardt
+ *     Jones group: Xie, Santana, Wassan, Gonzalez, Jones, Anwar
+ *     Shaw group: Alic, Hightower, Shaw, Fister, Scott, Staloch
+ *
  *   Homework (due Monday 21 SEP 2020):
  *
  *     - BONUS question: develop an interface based on class TrainRoute
