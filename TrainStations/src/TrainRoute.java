@@ -13,11 +13,11 @@
  *
  *     Group assignment:
  *
- *       Collins group: Paras,     Nguyen,    Ahlgren, Collins,  Villaraza,      Pecoraro.
- *     Hernandez group: Colgan,    Hernandez, Patel,   Bacon,    Rakotondranoro, Pecho
- *     Zukauskas group: Zukauskas, bhargvi,   Caira,   Fletcher, Grinsell,       Neuhardt
- *         Jones group: Xie,       Santana,   Wassan,  Gonzalez, Jones,          Anwar
- *          Shaw group: Alic,      Hightower, Shaw,    Fister,   Scott,          Staloch
+ *     Col.. group:  Par..,  Ngu..,  Ahl..,  Col..,  Vil..,  Pec..
+ *     Her.. group:  Col..,  Her..,  Pat..,  Bac..,  Rak..,  Pec..
+ *     Zuk.. group:  Zuk..,  bha..,  Cai..,  Fle..,  Gri..,  Neu..
+ *     Jon.. group:  Xie..,  San..,  Was..,  Gon..,  Jon..,  Anw..
+ *     Sha.. group:  Ali..,  Hig..,  Shaw.,  Fis..,  Sco..,  Sta..
  *
  *   Homework (due Monday 21 SEP 2020):
  *
