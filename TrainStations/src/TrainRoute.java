@@ -1,5 +1,19 @@
 /**
  * A simple class to demonstrate the concept of a linked list.
+ *
+ * PLAN FOR 16 SEP 2020
+ *
+ *   In class, team-based work:
+ *
+ *     - write a method to tell if a station exists at a given location
+ *     - write a method to insert a station in a location after a given location
+ *     - write a method to remove a station at a given location
+ *
+ *   Homework (due Monday 21 SEP 2020):
+ *
+ *     - BONUS question: develop an interface based on class TrainRoute
+ *     - write a method to print all stations along a train route in reverse order,
+ *       without modifying class TrainRoute's fields.
  */
 public class TrainRoute {
 
