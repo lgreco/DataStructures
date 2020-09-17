@@ -1,9 +1,8 @@
 /**
  * A simple class to demonstrate the concept of a linked list.
  *
- * PLAN FOR 16 SEP 2020
  *
- *   In-class, team-based work:
+ *   Methods added as during 16 SEP 2020 lab session.
  *
  *              METHOD NAME  WHAT IT DOES
  *       ==================  ================================================================
