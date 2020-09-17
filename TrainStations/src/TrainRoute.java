@@ -22,7 +22,7 @@
  *
  *     - write a method called removeStationsBetween that will remove all stations between
  *       a beginning and an ending location, e.g., in a Route like:
- *         A  -->  B  -->  C  --  >  D  -->  E  -->  F  -->  G  -->  H
+ *         A  -->  B  -->  C  -->  D  -->  E  -->  F  -->  G  -->  H
  *       removeStationsBetween(C,G) shall reduce the route to:
  *         A  -->  B  -->  C  -->  G  -->  H
  *       ie, the boundaries C and G are preserved but everything in-between them
