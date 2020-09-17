@@ -269,8 +269,7 @@ public class TrainRoute {
 
         // Attempt to remove a non existing station from an empty route.
         lincolnService.removeStation("Rockford");
-
-
+        
     }
 }
 
