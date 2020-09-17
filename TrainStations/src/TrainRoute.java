@@ -2,7 +2,7 @@
  * A simple class to demonstrate the concept of a linked list.
  *
  *
- *   Methods added as during 16 SEP 2020 lab session.
+ *   Methods added during 16 SEP 2020 lab session.
  *
  *              METHOD NAME  WHAT IT DOES
  *       ==================  ================================================================
