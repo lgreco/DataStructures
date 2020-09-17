@@ -11,19 +11,23 @@
  *     - insertAfterStation: method to insert a station in a location after a given location
  *     -      removeStation: write a method to remove a station at a given location
  *
- *     Group assignment:
- *
- *     Col.. group:  Par..,  Ngu..,  Ahl..,  Col..,  Vil..,  Pec..
- *     Her.. group:  Col..,  Her..,  Pat..,  Bac..,  Rak..,  Pec..
- *     Zuk.. group:  Zuk..,  bha..,  Cai..,  Fle..,  Gri..,  Neu..
- *     Jon.. group:  Xie..,  San..,  Was..,  Gon..,  Jon..,  Anw..
- *     Sha.. group:  Ali..,  Hig..,  Shaw.,  Fis..,  Sco..,  Sta..
  *
  *   Homework (due Monday 21 SEP 2020):
  *
- *     - BONUS question: develop an interface based on class TrainRoute
- *     - write a method to print all stations along a train route in reverse order,
- *       without modifying class TrainRoute's fields.
+ *     - BONUS question: develop an interface based on class TrainRoute;
+ *       name the interface: Trains.
+ *
+ *     - write a method called reverseRouteDisplay to print all stations along a train route
+ *       in reverse order, without modifying class TrainRoute's fields, and without using
+ *       any other data structures.
+ *
+ *     - write a method called removeStationsBetween that will remove all stations between
+ *       a beginning and an ending location, e.g., in a Route like:
+ *         A  -->  B  -->  C  --  >  D  -->  E  -->  F  -->  G  -->  H
+ *       removeStationsBetween(C,G) shall reduce the route to:
+ *         A  -->  B  -->  C  -->  G  -->  H
+ *       ie, the boundaries C and G are preserved but everything in-between them
+ *       has been removed.
  */
 public class TrainRoute {
 
@@ -70,7 +74,26 @@ public class TrainRoute {
         }
     } // method addStation
 
-
+    /**
+     * Method to determine if a station exists at a specified location
+     * @param location Is there a station here?
+     * @return True if there is a station object at this location
+     */
+    public boolean stationExists(String location) {
+        boolean found;
+        if ( head == null) {
+            found = false; // TrainRoute is empty
+        } else {
+            Station current = head;
+            found = false;
+            while ( !found && current.next != null ) {
+                found = ( current.city.equals(location) ) ? true : found;
+                current = current.next;
+            }
+            found = ( current.city.equals(location) ) ? true : found;
+        }
+        return found;
+    } // method stationExists
 
     /** Quick method to display a train line */
     public void displayRoute() {
@@ -89,10 +112,123 @@ public class TrainRoute {
             // The loop above will not print the last Station, so we
             // have to do it below.
             System.out.println("End of route:\t" + currentStation.city);
+            System.out.println();
         }
     } // method displayRoute
 
+    /**
+     * Method to insert a new station right after a given station. The method
+     * conducts safety checks to determine that the given station exists and
+     * that there is no station already at the existing location.
+     * @param prior Station to add new station after
+     * @param c Name of new station's location
+     * @return true if insertion successful, false otherwise;
+     */
+    public boolean insertAfterStation(String prior, String c) {
+        // Status flag .. that's what we return
+        boolean success = false;
+        // Before we do anything we must ensure that station at
+        // prior location exists and that station at new location
+        // does not exist
+        if ( stationExists(prior) && !stationExists(c) ) {
+            // Prior location exists and new location doesn't; let's create new station.
+            Station newStation = new Station(c);
+            // Find where to place new station;
+            Station current = head;
+            while ( current.next != null & !success) {
+                if ( current.city.equals(prior) ) {
+                    // Prior station located. Insert new Station after it.
+                    newStation.next = current.next;
+                    current.next = newStation;
+                    success = true;
+                }
+                current = current.next;
+            }
 
+            /*
+            At this point we have traversed the TrainRoute linked list except for
+            its last Station. If we have not already located the specified prior
+            location, then it must be the last Station in the list. Why? Because
+            we know that there is a station at the location specified by prior;
+            we were told so by stationExists(prior).
+             */
+            if (!success) {
+                // current is the last Station. We insert the new station after it.
+                current.next = newStation;
+                success = true;
+            }
+        }
+        return success;
+    } // method insertAfterStation
+
+    /**
+     * Method to remove a station from a route.
+     * @param location Name of location to have station removed from.
+     * @return True if removal is successful.
+     */
+    public boolean removeStation(String location) {
+        // Status flag
+        boolean success = false;
+        if ( head != null ) {
+            // Route not empty.
+            if ( stationExists(location) ) {
+                // Station to be removed, exists.
+
+                // Special case: one station only
+                if ( head.next == null ) {
+                    head = null;
+                    success = true;
+                }
+
+                // Special case: two stations only
+                if (!success) {
+                    // We don't need to be here if the previous special case was successful.
+                    if (head.next.next == null) {
+                        // Confirming that the route has two stations only.
+                        if (head.city.equals(location)) {
+                            // Removing the head Station: its next one becomes head.
+                            head = head.next;
+                            head.next = null;
+                        } else {
+                            // Removing the second station: head now has no next.
+                            head.next = null;
+                        }
+                        success = true;
+                    } else {
+                        // General case: three or more stations ...
+                        Station current = head;
+                        while (current.next != null && !success) {
+                            // scan the route to find the station to remove
+                            if (current.next.city.equals(location)) {
+                            /*
+                            Found!
+                            current.next is the Station to remove; its previous
+                            Station (Station current) must be connected with
+                            its next (Station current.next.next) via the assingment
+                            current.next = current.next.next; However we must
+                            ensure first that current.next.next is not null, i.e.,
+                            that current.next is not the last Station in the route.
+                             */
+                                if (current.next.next == null) {
+                                    // current.next is the last Station
+                                    current.next = null;
+                                } else {
+                                    // current.next is not the last Station
+                                    current.next = current.next.next;
+                                }
+                                success = true;
+                            }
+                            // Be careful advancing current to next in case we were dealing
+                            // with the last Station and its next is now null. Check for
+                            // success and if true, we are done!
+                            current = (success) ? current : current.next;
+                        }
+                    }
+                }
+            }
+        }
+        return success;
+    } // method RemoveStation
 
 
     /** Quick demo */
@@ -112,7 +248,29 @@ public class TrainRoute {
         lincolnService.addStation("Alton");
         lincolnService.addStation("St. Louis");
 
+        lincolnService.insertAfterStation("Chicago", "Aurora");
         lincolnService.displayRoute();
+
+        // Attempt to remove a non existing station from a populated route.
+        lincolnService.removeStation("Rockford");
+
+        lincolnService.removeStation("Alton");
+        lincolnService.removeStation("St. Louis");
+        lincolnService.removeStation("Carlinville");
+        lincolnService.removeStation("Springfield");
+        lincolnService.removeStation("Chicago");
+        lincolnService.removeStation("Bloomington-Normal");
+        lincolnService.removeStation("Aurora");
+        lincolnService.removeStation("Joliet");
+        lincolnService.removeStation("Dwight");
+        lincolnService.removeStation("Summit");
+        lincolnService.removeStation("Pontiac");
+        lincolnService.removeStation("Chicago");
+        lincolnService.removeStation("Lincoln");
+
+        // Attempt to remove a non existing station from an empty route.
+        lincolnService.removeStation("Rockford");
+
 
     }
 }
