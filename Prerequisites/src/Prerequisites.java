@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * A simple class to manage course prerequisites. Prerequisites for a course are
  * organized as a product of sums, e.g.,
@@ -12,7 +14,7 @@
  */
 public class Prerequisites {
 
-    private static final int DEFAULT_SIZE = 20;
+    private static final int DEFAULT_SIZE = 25;
     /** For resizing purposes */
     private static final int DEFAULT_INCREMENT = 5;
 
@@ -36,8 +38,8 @@ public class Prerequisites {
     /**
      * Method to initialize underlying arrays.
      *
-     * Array lookupTable is a key-value pair matching array index values to
-     * course names.
+     * Array lookupTable is a key-value pairm immitation matching array index
+     * values to course names.
      *
      * Array prerequisiteMatrix is also initialized to -1, to avoid any
      * possible conflict between a value of 0 and an array index of 0.
@@ -47,6 +49,8 @@ public class Prerequisites {
     void populateMatrix(String[] inputData) {
         int len = inputData.length;
         lookUpTable = inputData;
+        // Sort lookUpTable for easier output
+        Arrays.sort(lookUpTable);
         // This can be done with Arrays.fill but we are trying everything from scratch.
         // We need to fill the array with -1 instead of 0, because 0 has semantic value
         // in this problem.
@@ -73,7 +77,6 @@ public class Prerequisites {
                 System.out.printf("%10s", (prerequisiteMatrix[row][col] == -1) ? "." : prerequisiteMatrix[row][col]);
             }
         }
-        System.out.println();
     } // method displayMatrix
 
     /**
@@ -83,26 +86,12 @@ public class Prerequisites {
      */
     int courseIndex(String course) {
         int index = 0;
-        while ( !lookUpTable[index].equals(course) ) {
+        int len = lookUpTable.length;
+        while ( index < len-1 && ! lookUpTable[index].equals(course) ) {
             index++;
         }
         return index;
     } // method courseIndex
-
-    /**
-     * Method to add conjunctive prerequisites, in the form
-     *   COMP 270 prerequisites 118 and 141.
-     * @param courses Array of course dependencies with the course of interest in [0]
-     *                and its prerequisites as subsequent elements.
-     */
-    void conjunctiveGroup(String... courses) {
-        int len = courses.length;
-        int thisCourse = courseIndex(courses[0]);
-        for ( int i = 1; i < len; i++ ) {
-            int hasPrerequisite = courseIndex(courses[i]);
-            prerequisiteMatrix[thisCourse][hasPrerequisite] = hasPrerequisite;
-        }
-    } // method conjunctiveGroup
 
     /**
      * Method to add disjunctive prerequisites, in the form
@@ -120,7 +109,7 @@ public class Prerequisites {
      * @param courses Array of course dependencies with the course of interest in [0]
      *                and its prerequisites as subsequent elements.
      */
-    void disjunctiveGroup(String... courses) {
+    void addPrerequisites(String... courses) {
         int len = courses.length;
         int thisCourse = courseIndex(courses[0]);
         int firstCourse = courseIndex(courses[1]);
@@ -131,7 +120,7 @@ public class Prerequisites {
             prerequisiteMatrix[thisCourse][hasPrerequisite] = associatedWith;
         }
         prerequisiteMatrix[thisCourse][lastCourse] = firstCourse;
-    } // method disjunctiveGroup
+    } // method addPrerequisites
 
     /**
      * Method to report prerequisites for a given course.
@@ -202,9 +191,14 @@ public class Prerequisites {
      */
     public static void main(String[] args) {
         String[]   testData = {
-                "COMP118", "COMP125", "COMP141", "COMP150",
-                "COMP163", "COMP170", "COMP215", "COMP263",
-                "COMP271", "COMP272"
+                "COMP 141", "COMP 163", "COMP 170", "COMP 264", "COMP 272",
+                "COMP 271", "COMP 310", "COMP 317", "COMP 363", "COMP 371",
+                "STAT 203", "COMP 313",
+                "MATH 118", "COMP 125", "COMP 150",
+                "COMP 215",
+                "MATH 201", "MATH 131", "MATH 161",
+                "COMP 313",
+                "MATH 132", "MATH 162"
         };
 
         int len = testData.length;
@@ -212,20 +206,22 @@ public class Prerequisites {
 
         demo.populateMatrix(testData);
 
-        demo.conjunctiveGroup("COMP272", "COMP141");
-        demo.disjunctiveGroup("COMP272", "COMP163", "COMP170", "COMP215");
-        demo.disjunctiveGroup("COMP272", "COMP263", "COMP271");
-
-        demo.conjunctiveGroup("COMP163", "COMP118");
+        demo.addPrerequisites("COMP 170", "MATH 118", "COMP 215", "COMP 150", "COMP 163");
+        demo.addPrerequisites("COMP 264", "COMP 170", "COMP 215");
+        demo.addPrerequisites("COMP 272", "COMP 163", "MATH 201");
+        demo.addPrerequisites("COMP 272", "MATH 131", "MATH 161");
+        demo.addPrerequisites("COMP 272", "COMP 170", "COMP 215");
+        demo.addPrerequisites("COMP 272", "COMP 271");
+        demo.addPrerequisites("COMP 271", "COMP 170", "COMP 215");
+        demo.addPrerequisites("COMP 271", "COMP 141");
+        demo.addPrerequisites("COMP 310", "COMP 264");
+        demo.addPrerequisites("COMP 310", "COMP 271");
 
         demo.displayMatrix();
 
-        demo.showPrerequisites("COMP272");
-
-        demo.showPrerequisites("COMP163");
-
-        demo.showPrerequisites("COMP118");
-
+        for ( int i = 0; i < demo.lookUpTable.length; i++ ) {
+            demo.showPrerequisites(demo.lookUpTable[i]);
+        }
 
     } // method main
 }
