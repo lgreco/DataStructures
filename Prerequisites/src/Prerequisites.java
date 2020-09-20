@@ -21,6 +21,8 @@ import java.util.Arrays;
  *  - descriptive statistics: how many courses without prereqs; foundation
  *    courses (ie courses that are required prior to taking many other
  *    courses), etc.
+ *  - Stylized output (e.g., no hanging ANDs and ORs; option to print only
+ *    courses with prereqs, or those without prereqs, or both), etc.
  *
  */
 public class Prerequisites {
