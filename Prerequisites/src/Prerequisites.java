@@ -206,6 +206,7 @@ public class Prerequisites {
 
         demo.populateMatrix(testData);
 
+        // Data below based on www.cs.luc.edu as of Sept 2020
         demo.addPrerequisites("COMP 170", "MATH 118", "COMP 215", "COMP 150", "COMP 163");
         demo.addPrerequisites("COMP 264", "COMP 170", "COMP 215");
         demo.addPrerequisites("COMP 272", "COMP 163", "MATH 201");
