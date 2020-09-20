@@ -123,16 +123,45 @@ public class Prerequisites {
      *                and its prerequisites as subsequent elements.
      */
     void addPrerequisites(String... courses) {
+
+        // How many courses are we passing into this method?
         int len = courses.length;
+
+        // the course at [0] is the one for which we are specifying prereqs
         int thisCourse = courseIndex(courses[0]);
-        int firstCourse = courseIndex(courses[1]);
-        int lastCourse = courseIndex(courses[len-1]);
+
+        /*
+         The courses at [1] and above are prereqs for the course at [0].
+         Of particular interest is the first prerequisite (at [1]) because we
+         need it to mark the end of the maxterms that correspond to this group
+         of courses.
+         */
+        int firstPrerequisite = courseIndex(courses[1]);
+
+        /*
+        Also the last prerequisite (at [len-1]) is of particular interest for
+        the same reason as above.
+         */
+        int lastPrerequisite = courseIndex(courses[len-1]);
+
+        /*
+        The loop below will execute only if there are 2 or more prerequisites, ie, if
+        the length of courses[] is greater than 3. If the length of that array is
+        exactly 2, the course in [0] has only one prerequisite (at [1]).
+
+        The loop below creates a linked path from one prerequisite to the other;
+        After the loop, the last prerequisite is associated with the first prerequisite,
+        thus closing the cyclic path. This provides a verifiable termination for
+        this group of prerequisites.
+         */
         for ( int i = 1; i < len-1; i++ ) {
             int hasPrerequisite = courseIndex(courses[i]);
             int associatedWith = courseIndex(courses[i+1]);
             prerequisiteMatrix[thisCourse][hasPrerequisite] = associatedWith;
         }
-        prerequisiteMatrix[thisCourse][lastCourse] = firstCourse;
+
+        // First prerequisite matched to last prerequisite for the given course.
+        prerequisiteMatrix[thisCourse][lastPrerequisite] = firstPrerequisite;
     } // method addPrerequisites
 
     /**
