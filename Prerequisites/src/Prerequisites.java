@@ -7,7 +7,7 @@ import java.util.Arrays;
  * means that the prerequisites are:
  *     (x1 or x2 or x3) and (x4 or x5) and (x6 or x7 or x8) etc
  * The class is based on a correlation matrix (array prerequisiteMatrix)
- * that captures disjunctive groups and reports them in conjunctive terms.
+ * that captures the conjunctive normal form (CNF).
  *
  * @author leo@cs.luc.edu
  *
@@ -94,10 +94,10 @@ public class Prerequisites {
     } // method courseIndex
 
     /**
-     * Method to add disjunctive prerequisites, in the form
+     * Method to add CNF maxterms, in the form
      *      *   COMP 270 prerequisites are 118 or 141.
      *
-     * Because disjunctive terms are the basis of this class, we treat insertion as a
+     * Because maxterms are the basis of this class, we treat insertion as a
      * cyclic path; e.g., if COMP 270 prerequisites are 163 OR 170 OR 215, we map as
      * follows:
      *
