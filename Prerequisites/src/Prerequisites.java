@@ -3,13 +3,24 @@ import java.util.Arrays;
 /**
  * A simple class to manage course prerequisites. Prerequisites for a course are
  * organized as a product of sums, e.g.,
- *     (x1+x2+x3)(x4+x5)(x6+x7+x8)...
- * means that the prerequisites are:
- *     (x1 or x2 or x3) and (x4 or x5) and (x6 or x7 or x8) etc
+ *     (x1+x2+x3)(x4+x5)(x6+x7+x8)(x9)...
+ *  when parenthesized terms above are maxterms in a Conjuctive Normal Form (CNF)
+ *  expression.The CNF above means that the prerequisites are:
+ *     (x1 or x2 or x3) and (x4 or x5) and (x6 or x7 or x8) and (x9) etc
  * The class is based on a correlation matrix (array prerequisiteMatrix)
- * that captures the conjunctive normal form (CNF).
+ * that captures the CNF.
  *
  * @author leo@cs.luc.edu
+ *
+ * Items to implement in future revisions:
+ *
+ *  - dynamic resizing of arrays as more courses added;
+ *  - removal of prerequisites
+ *  - validation of arguments (e.g. is "WZYZ 123" a valid course? are we addinng
+ *    a duplicate?)
+ *  - descriptive statistics: how many courses without prereqs; foundation
+ *    courses (ie courses that are required prior to taking many other
+ *    courses), etc.
  *
  */
 public class Prerequisites {
