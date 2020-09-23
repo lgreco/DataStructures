@@ -265,6 +265,5 @@ public class Prerequisites {
         for ( int i = 0; i < demo.lookUpTable.length; i++ ) {
             demo.showPrerequisites(demo.lookUpTable[i]);
         }
-
     } // method main
 }
