@@ -14,7 +14,7 @@ Write a class called **BBQ** to implements the Q interface. Your BBQ class shoul
 
 ## Second part
 
-One your BBQ class is ready, you will use it to model a random process, specifically a car wash. Before you start writing code, let's agree on some requirements.
+Once your BBQ class is ready, you will use it to model a random process, specifically a car wash. Before you start writing code, let's agree on some requirements.
 
 * The car wash simulation should be a class called CarWash.
 
