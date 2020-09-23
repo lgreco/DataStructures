@@ -24,7 +24,7 @@ One your BBQ class is ready, you will use it to model a random process, specific
   * The time it takes to wash a car (in minutes) and assumming that there is only one wash option.
   * The rate of arrivals of cars at the car wash, expressed as minutes it takes for a next car to arrive. This is a bit tricky. In reality, arrivals are random events. As such they are easily realized with `Random.nextInt()`. However, to keep things simple in the beginning, you may assume a constant arrival rate, e.g. 2 minutes. This means that a car arrives every two minutes. Such predictable arrival rate may tempt you to use simple arithmetic to simulate the car wash. Do not!
   
-* The length of the simulation: how long will you be observing the car wash? Plan for a length that is 250 times longer than the car wash cycle.
+* The length of the simulation: how long will you be observing the car wash? Plan for a length that is between 250 and 500 times longer than the car wash cycle.
 
   
 With these requirements in place -- and any clarifications we will develop during class time -- **write your CarWash.java to compute the minimum, average, and maximum wait time for a car wash of your choice.** Your choice determines the capacity of the car wash and its washing time. The arrival rate will be ultimately obtained from `Random.nextInt()`; initially you may use a constant rate to simplify your coding. 
