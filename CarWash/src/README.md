@@ -8,7 +8,7 @@ We start with a simple interface, `Q.java` (where is it? Look above!)
 
 Interface Q contains five methods. Any class that implements this interface must implement all its methods, in addition to any other methods you may wish to include (e.g., a `main()` for testing purposes). Q's methods are very specific: you cannot add a new element anywhere in your data structure. New elements must be added at the back. Departures are always from the front.
 
-The interface does not dictate the underlying data structure mechanism. You may use an array, a List, a radio link to Mars, even a file to store the elements of the queue. There is one restriction however: as line 17 implies, your implementing class must use Strings as data.
+The interface does not dictate the underlying data structure mechanism. You may use an array, a List, a radio link to Mars, even a file to store the elements of the queue. There is one restriction however: as line 21 implies, your implementing class must use Strings as data.
 
 Write a class called **BBQ** to implements the Q interface. Your BBQ class should be tested using class `Grill`, provided above.
 
