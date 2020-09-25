@@ -16,18 +16,19 @@ Write a class called **BBQ** to implements the Q interface. Your BBQ class shoul
 
 Once your BBQ class is ready, you will use it to model a random process, specifically a car wash. Before you start writing code, let's agree on some requirements.
 
-* The car wash simulation should be a class called CarWash.
+* The car wash simulation should be a class called CarWashNotForAssignment.
 
 * A car wash is defined by the following characteristics:
  
   * Its capacity, i.e., how many cars can wait outside the wash bay?
+  * The number of cars in the queue.
   * The time it takes to wash a car (in minutes) and assuming that there is only one wash option.
   * The rate of arrivals of cars at the car wash, expressed as minutes it takes for a next car to arrive. This is a bit tricky. In reality, arrivals are random events. As such they are easily realized with `Random.nextInt()`. However, to keep things simple in the beginning, you may assume a constant arrival rate, e.g. 2 minutes. This means that a car arrives every two minutes. Such predictable arrival rate may tempt you to use simple arithmetic to simulate the car wash. Do not!
   
 * The length of the simulation: how long will you be observing the car wash? Plan for a length that is between 250 and 500 times longer than the car wash cycle.
 
   
-With these requirements in place -- and any clarifications we will develop during class time -- **write your CarWash.java to compute the minimum, average, and maximum wait time for a car wash of your choice.** The capacity of the car wash and its washing time, should be parameters that you determine when you start the simulation. The arrival rate will be ultimately obtained from `Random.nextInt()`; initially you may use a constant rate to simplify your coding. 
+With these requirements in place -- and any clarifications we will develop during class time -- **write your CarWashNotForAssignment.java to compute the minimum, average, and maximum wait time for a car wash of your choice.** The capacity of the car wash and its washing time, should be parameters that you determine when you start the simulation. The arrival rate will be ultimately obtained from `Random.nextInt()`; initially you may use a constant rate to simplify your coding. 
 
 Again, do not let this initial simplicity trick you into an arithmetic solution to the problem. It is easy to be tempted to think that if a car wash cycle is 3 minutes and a car arrives every 2 minutes and the capacity is 4 cars, the min waiting time is 0, the max is 12, and the average is somewhere in-between. It may work for the initial simplified assumption of constant arrival rate but ultimately you will have to use actual random arrivals. Plan for it.
 
