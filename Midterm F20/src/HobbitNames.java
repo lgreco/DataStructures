@@ -21,9 +21,8 @@
  * including class fields, should be private.
  *
  * For a list of herbs, spices, body parts, and landforms, you may use (via URL objects)
- * the following files:
- *
- *    lgreco@github: spices.txt
+ * the following files, from <a href="https://github.com/lgreco/DataStructures/tree/master/Midterm%20F20/src">Leo's Github repository</a>:
+ *                   spices.txt
  *                   drinks.txt
  *                   baked_goods.txt
  *                   body_parts.txt
