@@ -7,10 +7,10 @@
  *
  *   The Hobbit last name can be either:
  *      the name of a favorite drink + the name of a baked good
- *   or
+ *   or<br>
  *      the name of an organ or body part (keep it decent!) +
  *      the name of a landform,
- *   e.g., LeftArmPit (Left arm + pit ).
+ *   e.g., ArmPit (arm + pit ).
  *
  * Name this public method:
  *    public String hobbitName(String name) {...}
@@ -21,12 +21,13 @@
  * including class fields, should be private.
  *
  * For a list of herbs, spices, body parts, and landforms, you may use (via URL objects)
- * the following files, from <a href="https://github.com/lgreco/DataStructures/tree/master/Midterm%20F20/src">Leo's Github repository</a>:
- *                   spices.txt
- *                   drinks.txt
- *                   baked_goods.txt
- *                   body_parts.txt
- *                   landforms.txt
+ * the following files, from
+ *    https://github.com/lgreco/DataStructures/tree/master/Midterm%20F20/src:
+ *    spices.txt
+ *    drinks.txt
+ *    baked_goods.txt
+ *    body_parts.txt
+ *    landforms.txt
  */
 public class HobbitNames {
 }
