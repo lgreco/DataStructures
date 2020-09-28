@@ -2,6 +2,5 @@
 *.iml
 out/
 .DS_Store
-BBQ.java
-HobbitNames_Solution.java
-HelloChain_Solution.java
+BBQ.*
+*_Solution.*
