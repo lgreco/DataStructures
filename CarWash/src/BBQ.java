@@ -4,19 +4,19 @@
  */
 public class BBQ implements Q {
 
-    /** How many clients can the queue hold */
+    /* How many clients can the queue hold */
     private int capacity;
 
-    /** How many clients are already in the queue */
+    /* How many clients are already in the queue */
     private int size;
 
-    /** The million dollar question: underlying structure? */
+    /* The million dollar question: underlying structure? */
     private String[] q; // let's go with an array
 
-    /** Index position of the back of the q */
+    /* Index position of the back of the q */
     private int b;
 
-    /** Index position of the front of the q */
+    /* Index position of the front of the q */
     private int f;
 
     /** Default constructor sets capacity to 5 and queue is empty */
@@ -41,12 +41,8 @@ public class BBQ implements Q {
     }
 
     /** Accessor for capacity */
-    public int getCapacity() {
-        return capacity;
-    }
+    public int getCapacity() { return capacity; }
 
-    /** Accessor for the back of the queue */
-    public int getB() { return b; }
 
     /** Accessor for the front of the queue */
     public int getF() { return f; }
@@ -111,6 +107,9 @@ public class BBQ implements Q {
         return successfulDeparture;
     } // method departure
 
+    /**
+     * Method to display queue description and contents
+     */
     public void displayQ() {
         System.out.println("\nQueue status");
         System.out.printf("Capacity %d, size %d, back at [%d], front at [%d]: \n", q.length, size, b, f);
@@ -121,14 +120,16 @@ public class BBQ implements Q {
         System.out.println();
     } // method displayQ
 
+    /** Method for simple queue visualization */
     public void miniDisplayQ() {
         for (int i = 0; i < q.length; i++) {
             String element = q[i] == null ? " " : "#" ;
             System.out.print(element);
         }
         System.out.println();
-    }
+    } // method miniDisplayQ
 
+    /** Local main for quick testing */
     public static void main(String[] args) {
         BBQ q = new BBQ(4);
         q.displayQ();
@@ -164,6 +165,11 @@ public class BBQ implements Q {
         qq.displayQ();
     }
 
+    /**
+     * Alternative method to add element to queue in O(1) time instead of O(n)
+     * @param s value of string to add
+     * @return true if s is added to the queue; false if there is no room for it.
+     */
     public boolean efficientArrival(String s) {
         boolean successfulArrival = false;
         if ( size < capacity ) {
@@ -175,6 +181,11 @@ public class BBQ implements Q {
         return successfulArrival;
     } // method efficientArrival
 
+    /**
+     * Method to remove element fron Q consistent with the mapping used by
+     * method efficientArrival.
+     * @return true if removal successful; false if there is nothing to remove
+     */
     public boolean efficientDeparture() {
         boolean successfulDeparture = false;
         if ( size > 0 ) {
@@ -184,5 +195,5 @@ public class BBQ implements Q {
             f = (f+1) % capacity;
         }
         return successfulDeparture;
-    }
+    } // method efficientDeparture
 }
