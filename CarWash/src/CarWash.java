@@ -57,7 +57,7 @@ public class CarWash {
     private Random rng = new Random();
 
     /**
-     *
+     * The principal method of the class.
      */
     public void simulator() {
 
