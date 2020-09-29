@@ -163,7 +163,7 @@ public class BBQ implements Q {
         qq.displayQ();
         qq.efficientDeparture();
         qq.displayQ();
-    }
+    } // method main
 
     /**
      * Alternative method to add element to queue in O(1) time instead of O(n)
