@@ -54,15 +54,16 @@ public class CarWash {
         averageWait = carCountJoining = carCountRejected = carCountTotal = 0;
     } // parametric constructor CarWash
 
-    private Random rng = new Random();
-
     /**
      * The principal method of the class.
      */
-    public void simulator() {
+    private void simulator() {
 
         // Obtain a queue object
         BBQ myQ = new BBQ(queueCapacity);
+
+        // Set up random number generator
+        Random rng = new Random();
 
         /* Initialize method variables */
         int nextCarAt = rng.nextInt(arrivalInterval); // first car arrival in the simulation
