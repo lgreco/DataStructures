@@ -166,7 +166,19 @@ public class BBQ implements Q {
     } // method main
 
     /**
-     * Alternative method to add element to queue in O(1) time instead of O(n)
+     * Alternative method to add element to queue in O(1) time instead of O(n).
+     * If there is room in the queue, the new item is added to the back of the
+     * queue and the back position is pushed one element backwards. The % operator
+     * ensures that we remain within array bounds. The technique is simpler than
+     * it looks: we use the array to hold the items that are in line. We remove
+     * from the front of the line (wherever that front may be situated along
+     * the array, as indicated by int f) and we add items to the back of the queue
+     * (wherever int b points to).
+     *
+     * In an abundance of caution we should include logic to make sure that as
+     * the back of the queue (int b) is moved backwards (b++ % capacity), it does
+     * not collide with a position marked by int f. Maybe in a future version ...
+     *
      * @param s value of string to add
      * @return true if s is added to the queue; false if there is no room for it.
      */
@@ -183,7 +195,9 @@ public class BBQ implements Q {
 
     /**
      * Method to remove element fron Q consistent with the mapping used by
-     * method efficientArrival.
+     * method efficientArrival. Here we set the array element corresponding
+     * to the queue departing item to null, and advanced the front of the line
+     * to the next position. We use % because, well array bounds.
      * @return true if removal successful; false if there is nothing to remove
      */
     public boolean efficientDeparture() {
