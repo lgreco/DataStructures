@@ -61,6 +61,7 @@ public class CarWash {
      */
     public void simulator() {
 
+        // Obtain a queue object
         BBQ myQ = new BBQ(queueCapacity);
 
         /* Initialize method variables */
@@ -79,7 +80,10 @@ public class CarWash {
 
             // if car arrives during this iteration, add it to the queue
             if ( timeIndex == nextCarAt ) {
+
                 carCountTotal++;
+
+                // Name the car because the Q arrival method requires a string parameter.
                 String carName = "Car" + String.format("%05d", timeIndex);
 
                 // determine the next car arrival
@@ -112,6 +116,7 @@ public class CarWash {
                     //                washed first                          wash in progress
 
                     waitingTimeSum = waitingTimeSum + waitingTime;
+
                     carCountJoining++;
 
                     // Max waiting time update.
