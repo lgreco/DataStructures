@@ -1,6 +1,8 @@
 import java.util.Random;
 
-
+/**
+ * A simulator for a car wash based on the simple FIFO queue class BBQ.
+ */
 public class CarWash {
 
     private final static int DEFAULT_CAR_WASH_DURATION = 3;
@@ -9,29 +11,32 @@ public class CarWash {
     private final static int LENGTH_MULTIPLIER = 500;
     private final static int DEFAULT_SIMULATION_LENGTH = 720;
 
-    /** How long to run the simulation; determined upon instantiation, as 500 * carWashDuration */
+    /* How long to run the simulation; determined upon instantiation, as 500 * carWashDuration */
     private final int simulationLength;
 
-    /** Random arrival interval upper bound; lower is 0 */
+    /* Random arrival interval upper bound; lower is 0 */
     private final int arrivalInterval;
 
-    /** How long is the wash cycle */
+    /* How long is the wash cycle */
     private final int carWashDuration;
 
-    /** Queue capacity, passed to class BBQ */
+    /* Queue capacity, passed to class BBQ */
     private final int queueCapacity;
 
-    /** The following fields are computed during the simulation */
+    /* The following fields are computed during the simulation */
     private double averageWait;
+    private double averageMinWait;
+    private int maxWaitingTime;
     private int carCountJoining;
     private int carCountRejected;
     private int carCountTotal;
 
-    /** Various accessors; not sure all all needed, but don't they look cute? */
-    public double getAverageWait()      { return averageWait; }      // accessor getAverageWait
-    public int    getCarCountJoining()  { return carCountJoining; }  // accessor getCarCount
-    public int    getCarCountRejected() { return carCountRejected; } // accessor carCountRejected
-    public int    getCarCountTotal()    { return carCountTotal; }    // accessor CarCountTotal
+
+    /* Various accessors; not sure all all needed, but don't they look cute? */
+    private double getAverageWait()      { return averageWait; }      // accessor getAverageWait
+    private int    getCarCountJoining()  { return carCountJoining; }  // accessor getCarCount
+    private int    getCarCountRejected() { return carCountRejected; } // accessor carCountRejected
+    private int    getCarCountTotal()    { return carCountTotal; }    // accessor CarCountTotal
 
     public CarWash() {
         carWashDuration = DEFAULT_CAR_WASH_DURATION;
@@ -49,17 +54,25 @@ public class CarWash {
         averageWait = carCountJoining = carCountRejected = carCountTotal = 0;
     } // parametric constructor CarWash
 
-    Random rng = new Random();
+    private Random rng = new Random();
 
+    /**
+     *
+     */
     public void simulator() {
 
         BBQ myQ = new BBQ(queueCapacity);
 
-        int nextCarAt = rng.nextInt(arrivalInterval);
-        int waitingTime = 0;
-        int timeForNextWash = 0;
+        /* Initialize method variables */
+        int nextCarAt = rng.nextInt(arrivalInterval); // first car arrival in the simulation
+        int waitingTimeSum = 0; // sum accumulator for average wait time
+        int minWaitingTimeSum = 0; // sum accumulator for average MIN wait time
+        int timeForNextWash = 0; // Time when next wash begins -- assume that first wash can begin now.
         int timeWashStarts = 0; // captures the timeIndex when car enters bay;
         int timeUntilWashEnds;  // calculates wash time in progress when car joins queue
+
+        /* Initialize class variables */
+        maxWaitingTime = 0; // reports longest waiting time
 
         /** main loop */
         for ( int timeIndex = 0; timeIndex < simulationLength; timeIndex++ ) {
@@ -83,9 +96,27 @@ public class CarWash {
                      */
                     timeUntilWashEnds = Math.max(0, timeWashStarts + carWashDuration - timeIndex);
 
-                    /* Now we can update the waiting time */
-                    waitingTime = waitingTime + (myQ.getSize()-1) * carWashDuration + timeUntilWashEnds;
+                    // If this is the only car in line, update the min waiting time.
+                    if ( myQ.getSize() == 1 ) {
+
+                        // We keep adding these min times because we want to compute an avg at the end.
+                        minWaitingTimeSum = minWaitingTimeSum + timeUntilWashEnds;
+                    }
+
+                    // Waiting time for the car just joining queue:
+                    int waitingTime = (myQ.getSize()-1) * carWashDuration + timeUntilWashEnds;
+                    //                =================                     =================
+                    //                number of cars in                     remaining
+                    //                front of it -- must                 + time
+                    //                wait for them to be                   for the
+                    //                washed first                          wash in progress
+
+                    waitingTimeSum = waitingTimeSum + waitingTime;
                     carCountJoining++;
+
+                    // Max waiting time update.
+                    maxWaitingTime = ( waitingTime > maxWaitingTime ) ? waitingTime : maxWaitingTime;
+
                 } else {
                     carCountRejected++;
                 }
@@ -98,7 +129,11 @@ public class CarWash {
              */
             if ( timeIndex == timeForNextWash ) {
                 if ( myQ.departure() ) {
+
+                    // A new wash cycle starts now.
                     timeWashStarts = timeIndex;
+
+                    // This wash cycle will end at
                     timeForNextWash = timeWashStarts + carWashDuration;
                 } else {
                     /*
@@ -111,19 +146,27 @@ public class CarWash {
         } // end of main simulation loop
 
         /* Computer avg wait time; straight-forward! */
-        averageWait = ( (double) waitingTime) / ( (double) carCountJoining);
+        averageWait = ( (double) waitingTimeSum) / ( (double) carCountJoining);
+
+        /* Compute avg min wait time */
+        averageMinWait = ( (double) minWaitingTimeSum ) / ( (double) carCountJoining);
 
     } // method simulator
 
+    /**
+     * Main method.
+     */
     public static void main(String... args) {
-        // Using a builder patter for easy references to parameters
-        CarWash demo = new CarWash(5,5,5);
+        CarWash demo = new CarWash(4,15,4); // duration, arrival interval, capacity
         demo.simulator();
         demo.reportResults();
     }
 
+    /**
+     * Method to printout results in a nice 1980s style.
+     */
     public void reportResults() {
-        System.out.println("************************************************************");
+        System.out.println("\n************************************************************");
         System.out.println("*\tL E O ' S     C A R     W A S H     S I M U L A T O R  *");
         System.out.println("************************************************************");
         System.out.printf("\n\tQueue capacity: ...................... %5d cars\n", queueCapacity);
@@ -133,7 +176,9 @@ public class CarWash {
         System.out.printf("\n\tNumber of cars admitted: ............. %5d", carCountJoining);
         System.out.printf("\n\tNumber of cars rejected: ............. %5d", carCountRejected);
         System.out.printf("\n\tTotal number of cars: ................ %5d\n", carCountTotal);
-        System.out.printf("\n\tAverage waiting time: ................ %8.2f minutes.\n\n", averageWait);
+        System.out.printf("\n\tAverage waiting time: ................ %8.2f minutes", averageWait);
+        System.out.printf("\n\tAverage min. waiting time: ........... %8.2f minutes", averageMinWait);
+        System.out.printf("\n\tMax. waiting time: ................... %5d minutes\n\n", maxWaitingTime);
         System.out.println("************************************************************\n");
     }
 }
