@@ -20,7 +20,7 @@ Write a class with a public method that accepts a name as input and produces a H
  * body_parts.txt
  * landforms.txt
  
-Your class `hobbitName` should access the text files above over the web and not rely on local copies. (In other words, use the URL class.)
+Your class `hobbitName` should access the text files above over the web and not rely on local copies. (In other words, use the [URL class](https://docs.oracle.com/javase/7/docs/api/java/net/URL.html).)
 
 Before you start, you should look over the data files, understand their contents and plan your code accordingly. 
 
