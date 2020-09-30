@@ -69,9 +69,9 @@ public class CarWash {
         int nextCarAt = rng.nextInt(arrivalInterval); // first car arrival in the simulation
         int waitingTimeSum = 0; // sum accumulator for average wait time
         int minWaitingTimeSum = 0; // sum accumulator for average MIN wait time
-        int timeForNextWash = 0; // Time when next wash begins -- assume that first wash can begin now.
+        int timeForNextWash = 0; // Time when next wash begins -- assume that we can have one as early as now.
         int timeWashStarts = 0; // captures the timeIndex when car enters bay;
-        int timeUntilWashEnds;  // calculates wash time in progress when car joins queue
+        int timeUntilWashEnds;  // calculates remaining time of wash-in-progress when car joins queue
 
         /* Initialize class variables */
         maxWaitingTime = 0; // reports longest waiting time
