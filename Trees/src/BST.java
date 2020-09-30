@@ -43,7 +43,7 @@ public class BST {
 
         // Add to tree. If .root is null make that word the tree's root; otherwise use insert.
         for (String word: words) {
-            sycamore.insert(word)
+            sycamore.insert(word);
         }
 
         // Display tree contents, in-Order.
