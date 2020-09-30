@@ -20,7 +20,7 @@ public class BST {
 
     /*
             WEDNESDAY 30 SEP 2020 LAB SESSION
-            FLESH OUT THE FOLLOWING THREE METHODS
+            FLESH OUT THE FOLLOWING TWO METHODS
      */
     public boolean insert(String s)   { return true; } // *** method insert
     public boolean contains(String s) { return true; } // *** method contains
