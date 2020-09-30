@@ -17,6 +17,11 @@ public interface Sapling {
      */
     boolean contains(String s);
 
+    /**
+     * In-order traversal of the tree
+     */
+    void inOrder();
+
     /*
     Methods to consider adding:
       - remove an element from the tree
