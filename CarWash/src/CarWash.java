@@ -28,8 +28,8 @@ public class CarWash {
     private double averageMinWait; // avg min. time a car waits in line
     private int maxWaitingTime;    // max time car waits in line
     private int carCountJoining;   // total cars showing up in simulation =
-    private int carCountRejected;  //     cars rejected because queue full
-    private int carCountTotal;     //   + cars joining queue successfully
+    private int carCountRejected;  //       cars rejected because queue full
+    private int carCountTotal;     //    +  cars joining queue successfully
 
 
     /* Various accessors; not sure all all needed, but don't they look cute? */
