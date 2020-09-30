@@ -41,7 +41,7 @@ public class BST {
         // Split soliloquy into separate words (converting to lower case for uniformity).
         String[] words = text.toLowerCase().split(" ");
 
-        // Add to tree. If .root is null make that word the tree's root; otherwise use insert.
+        // Add to tree.
         for (String word: words) {
             sycamore.insert(word);
         }
