@@ -1,14 +1,22 @@
 
-public class TreeNode {
+public class NOTFORUSETreeNode {
 
     private String s;
-    private TreeNode leftChild;
-    private TreeNode rightChild;
+    private NOTFORUSETreeNode leftChild;
+    private NOTFORUSETreeNode rightChild;
 
-    public TreeNode(String s) {
+    public NOTFORUSETreeNode(String s) {
         this.s = s;
         leftChild = null;
         rightChild = null;
+    }
+
+    public void setLeftChild(NOTFORUSETreeNode leftChild) {
+        this.leftChild = leftChild;
+    }
+
+    public void setRightChild(NOTFORUSETreeNode rightChild) {
+        this.rightChild = rightChild;
     }
 
     public void describeNode() {
