@@ -3,7 +3,8 @@
  */
 public class BST implements Sapling {
 
-    TreeNode root;
+    // A tree is just a root, really! Everything grows from here.
+    private TreeNode root;
 
     /*
             WEDNESDAY 30 SEP 2020 LAB SESSION
