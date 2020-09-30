@@ -23,13 +23,13 @@ public class CarWash {
     /* Queue capacity, passed to class BBQ */
     private final int queueCapacity;
 
-    /* The following fields are computed during the simulation */
-    private double averageWait;
-    private double averageMinWait;
-    private int maxWaitingTime;
-    private int carCountJoining;
-    private int carCountRejected;
-    private int carCountTotal;
+    /* The following class fields are computed during the simulation */
+    private double averageWait;    // avg time car waits in line before wash
+    private double averageMinWait; // avg min. time a car waits in line
+    private int maxWaitingTime;    // max time car waits in line
+    private int carCountJoining;   // total cars showing up in simulation =
+    private int carCountRejected;  //     cars rejected because queue full
+    private int carCountTotal;     //   + cars joining queue successfully
 
 
     /* Various accessors; not sure all all needed, but don't they look cute? */
@@ -82,12 +82,29 @@ public class CarWash {
             // if car arrives during this iteration, add it to the queue
             if ( timeIndex == nextCarAt ) {
 
+                /*
+                 carCountTotal = carCountJoining + carCountRejected
+                 Counting all three in the simulation is a superfluous; we only need the
+                 count for joining and rejected. However, it's a good sanity check to
+                 verify that the sum carCountJoining + carCountRejected matches
+                 the actual carCountTotal
+                 */
                 carCountTotal++;
 
-                // Name the car because the Q arrival method requires a string parameter.
+                /*
+                Give the car a name because the Q arrival method requires a string parameter.
+                We can call every car just "Car" and it should be sufficient. A sequential car
+                name, e.g., Car00001, Car00002, etc creates distinguishable items in the queue.
+                This is useful for debugging and visualization, if needed.
+                 */
                 String carName = "Car" + String.format("%05d", timeIndex);
 
-                // determine the next car arrival
+                /*
+                Determine the next car arrival time. We are adding +1 to ensure that the
+                arrival time will not be the same as the time index.  This can happen when
+                .nextInt() returns a 0. The +1 below ensures that in case of such 0,
+                the next car will arrival at timeIndex+0+1.
+                 */
                 nextCarAt = timeIndex + rng.nextInt(arrivalInterval) + 1;
 
                 if ( myQ.arrival(carName) ) {
@@ -116,14 +133,18 @@ public class CarWash {
                     //                wait for them to be                   for the
                     //                washed first                          wash in progress
 
+                    // Waiting time accumulator -- we need this running sum for averaging waiting time.
                     waitingTimeSum = waitingTimeSum + waitingTime;
 
+                    // Update count of cars that have joined the queue so far.
                     carCountJoining++;
 
                     // Max waiting time update.
                     maxWaitingTime = ( waitingTime > maxWaitingTime ) ? waitingTime : maxWaitingTime;
 
                 } else {
+
+                    // Update count of cars that have been rejected so far because queue was full
                     carCountRejected++;
                 }
             }
