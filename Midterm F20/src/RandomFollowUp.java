@@ -13,7 +13,7 @@ public class RandomFollowUp {
 
         /**
          * Individuals are shown by first and last name initials, and the
-         * last digit of their university ID number.
+         * last digit of their university ID number if necessary.
          */
         String[] individuals = new String[]
                 {
