@@ -7,16 +7,17 @@ import java.util.List;
 public class BST {
 
     // A tree is just a root, really! Everything grows from here.
-    private TreeNode root;
+    private TreeNode root; // what's a TreeNode? See below.
 
+    // And here's what a TreeNode looks like.
     class TreeNode {
-        String s;
-        TreeNode leftChild;
-        TreeNode rightChild;
+        String value; // The String we store in this node
+        TreeNode leftChild; // left child
+        TreeNode rightChild; // right child
 
-        public TreeNode(String s) {
-            this.s = s;
-            leftChild = rightChild = null;
+        public TreeNode(String s) { // basic constructor
+            this.value = s; // assigns content to String
+            leftChild = rightChild = null; // makes pointers to children null
         } // constructor TreeNode
     } // class TreeNode
 
@@ -29,35 +30,28 @@ public class BST {
      */
     public boolean insert(String s) {
         boolean success = false;
-        if (!contains(s)) {
-            success = true;
-            // This is the node we wish to insert
-            TreeNode newNode = new TreeNode(s);
-            if (root == null) {
-                root = newNode;
-            } else {
-
-                // Start our search from the root
-                TreeNode currentNode = root;
-
-                // flag to control loop
-                boolean keepTrying = true;
-
-                while (keepTrying) {
-
-                    if (s.compareTo(currentNode.s) > 0) {
-                        if (currentNode.rightChild == null) {
-                            currentNode.rightChild = newNode;
-                            keepTrying = false;
-                        } else {
-                            currentNode = currentNode.rightChild;
+        if (!contains(s)) { // Value is not stored in tree already; we can add it
+            success = true; // Method will return this value to indicate successful insertion
+            TreeNode newNode = new TreeNode(s); // Node with new value to be inserted
+            if (root == null) { // If tree is empty,
+                root = newNode; // new node becomes its root.
+            } else { // Start our search from the root to find where to place new node.
+                TreeNode currentNode = root; // We start our search from the root.
+                boolean keepTrying = true; // Control variable from the principal loop, below.
+                while (keepTrying) {  // Principal loop; exits only when keepTrying becomes false.
+                    if (s.compareTo(currentNode.value) > 0) { // New value is greater than current node; go RIGHT
+                        if (currentNode.rightChild == null) { // If right child is null
+                            currentNode.rightChild = newNode; // place new value here
+                            keepTrying = false; // Flag to exit the principal loop.
+                        } else { // Right child is not null
+                            currentNode = currentNode.rightChild; // Make right child the current node and try again.
                         }
-                    } else {
-                        if (currentNode.leftChild == null) {
-                            currentNode.leftChild = newNode;
-                            keepTrying = false;
-                        } else {
-                            currentNode = currentNode.leftChild;
+                    } else { // New value is less than current node; go LEFT
+                        if (currentNode.leftChild == null) { // If left child is null
+                            currentNode.leftChild = newNode; // place new value here.
+                            keepTrying = false; // Flag to exit the principal loop.
+                        } else { // Left child is not null.
+                            currentNode = currentNode.leftChild; // Make left child the current node and try again.
                         }
                     }
                 }
@@ -66,77 +60,106 @@ public class BST {
         return success;
     } // method insert
 
+
     /**
-     * Find if value s exists in the tree
+     * Find if String searchForMe exists in the tree, in an iterative scan
      *
-     * @param s Value to search for
-     * @return true if s found; false otherwise
+     * @param searchForMe Value to search for
+     * @return true if searchForMe found; false otherwise
      */
-    public boolean contains(String s) {
-        boolean success = false;
-        if (root != null) {
-
-            // Start searching from the top.
-            TreeNode currentNode = root;
-
-            // Loop control flag
-            boolean keepTrying = true;
-
+    public boolean contains(String searchForMe) {
+        boolean success = false; // Assume String is not in the tree.
+        if (root != null) { // Start searching from the top.
+            TreeNode currentNode = root; // initialize iterative node
+            boolean keepTrying = true; // Loop control flag
             while (keepTrying) {
-
-                if (currentNode.s.compareTo(s) == 0) {
-                    success = true;
-                    keepTrying = false;
-                } else if (s.compareTo(currentNode.s) > 0) {
-                    // Go right
-                    if (currentNode.rightChild == null) {
-                        keepTrying = false;
-                    } else {
-                        currentNode = currentNode.rightChild;
+                if (currentNode.value.compareTo(searchForMe) == 0) { // found!
+                    success = true; // flag success
+                    keepTrying = false; // get out of the while loop
+                } else if (searchForMe.compareTo(currentNode.value) > 0) { // Go right
+                    if (currentNode.rightChild == null) { // end of tree; no luck
+                        keepTrying = false; // exit while loop
+                    } else { // keep pushing right
+                        currentNode = currentNode.rightChild; // new value for next iteration
                     }
-                } else {
-                    // Go left
-                    if (currentNode.leftChild == null) {
-                        keepTrying = false;
-                    } else {
-                        currentNode = currentNode.leftChild;
+                } else { // Go left
+                    if (currentNode.leftChild == null) { // end of tree; no luck
+                        keepTrying = false; // exit while loop
+                    } else { // keep pushing left
+                        currentNode = currentNode.leftChild; // new value for next iteration
                     }
                 }
             }
         }
         return success;
-    } // *** method contains
+    } // method contains
 
+    /**
+     * Recursive method to search for node with specified value
+     * @param currentNode entry note to begin search from; on initial call: root
+     * @param searchForMe value to search for
+     * @return null if not found; node with value otherwise
+     */
+    public TreeNode containsRecursively(TreeNode currentNode, String searchForMe) {
+        if ( currentNode == null || currentNode.value.equals(searchForMe) ) {
+            return currentNode;
+        }
+        if ( currentNode.value.compareTo(searchForMe) > 1 ) { // go left
+            return containsRecursively(currentNode.leftChild, searchForMe);
+        }
+        return containsRecursively(currentNode.rightChild, searchForMe); // go right
+    } // method containsRecursively
+
+    /**
+     * Wrapper method for containsRecursively, that converts the output to a boolean
+     * @param searchForMe String to look for
+     * @return true if String found in tree; false otherwise
+     */
+    public boolean containsRecursivelyWrapper(String searchForMe) {
+        return containsRecursively(root,searchForMe) != null;
+    } // method containsRecursivelyWrapper
+
+    /**
+     * Iterative in-Order traversal of the tree
+     */
     public void inOrder() {
         if (root == null) {
             System.out.println("Tree is empty");
         } else {
-
             // LIFO .. (we dont "know" about stacks yet).
             List<TreeNode> lifo = new ArrayList<TreeNode>();
-
             // Start from the top
             TreeNode currentNode = root;
             int lineCount = 1;
-
             while ( currentNode != null || lifo.size() > 0 ) {
                 while (currentNode != null) {
                     lifo.add(0,currentNode);
                     currentNode = currentNode.leftChild;
                 }
-
                     currentNode = lifo.get(0);
-                    System.out.printf("%15s ", currentNode.s);
+                    System.out.printf("%15s ", currentNode.value);
                     if ( lineCount % 5 == 0) {
-                        System.out.println();
+                        System.out.println(); // print 5 nodes per line
                     }
                     lineCount++;
                     lifo.remove(0);
-
                     currentNode = currentNode.rightChild;
             }
         }
     } // method inOrder
+
+    public void inOrderRecursively(TreeNode currentNode) {
+        if ( root == null ) { // Nothing to see here
+            System.out.println("The tree is empty");
+        }
+        if ( currentNode.leftChild != null ) { // process LEFT
+            inOrderRecursively(currentNode.leftChild);
+        }
+        System.out.println(currentNode.value); // process NODE
+        if ( currentNode.rightChild != null ) { // process RIGHT
+            inOrderRecursively(currentNode.rightChild);
+        }
+    } // method inOrderRecursively
 
     /** Quick testing */
     public static void main (String[]args){
@@ -160,6 +183,18 @@ public class BST {
 
         // Display tree contents, in-Order.
         sycamore.inOrder();
+        System.out.println();
+
+        // Test the recursive in-Order
+        sycamore.inOrderRecursively(sycamore.root);
+        System.out.println();
+
+        // Check iterative contains
+        System.out.println(sycamore.contains("the"));
+        System.out.println();
+
+        // Check recursive contains
+        System.out.println(sycamore.containsRecursivelyWrapper("the"));
 
     } // method main
 } // class BST

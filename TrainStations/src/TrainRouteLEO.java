@@ -28,7 +28,7 @@
  *       ie, the boundaries C and G are preserved but everything in-between them
  *       has been removed.
  */
-public class TrainRoute {
+public class TrainRouteLEO {
 
     /**
      * The only field of this class is a Station object named head.
@@ -229,83 +229,11 @@ public class TrainRoute {
         return success;
     } // method RemoveStation
 
-    /**
-     * Method to print the reverse of the train route
-     */
-    public void reverseRouteDisplay(){
-        if ( head == null ) { // If the route is empty, print that it is empty
-            System.out.println("The route is empty.");
-        }
-        else if (head.next == null){ // If there is only one station, print the station
-            System.out.println("Start and end of route:\t" + head.city);
-        }
-        else{ // There is more than one station
-            Station currentStation = head;
-            while (currentStation.next != null){
-                currentStation = currentStation.next; // Finds the last station in the route
-            }
-            System.out.println("End of route:\t" + currentStation.city); // Print the last station
-            String outputPrefix = "\t\t\t\t"; // For formatting
-            Station previousStation = head;
-            while (previousStation.next != null){ //Iterate through the stations until you find ths station before the current station
-                if (previousStation.next == currentStation){
-                    System.out.println(outputPrefix + previousStation.city); // Print the station before the current station
-                    currentStation = previousStation; // Set the current station equal to the station just printed
-                    previousStation = head; // Reset previousStation to find the station before the one just printed
-                }
-                previousStation = previousStation.next;
-            }
-            System.out.println("Start of route:\t" + head.city); // Print the head station at the end
-        }
-    } // method reverseRouteDisplay
-
-    /**
-     * Method to remove the stations between two given stations,
-     * while preserving the beginning and end stations
-     * @param beginning Name of station to start at
-     * @param end Name of station to end at
-     * @return true if successful removal
-     */
-    public boolean removeStationsBetween(String beginning, String end){
-        Station currentStation = head;
-        Station beginningStation = new Station("");
-        Station endStation = new Station("");
-        while (currentStation.next != null){
-            if (currentStation.city.equals(beginning)){ // Find the beginning station
-                beginningStation = currentStation;
-            }
-            currentStation = currentStation.next;
-        }
-        if (currentStation.city.equals(beginning)){ // If the last station is equal to the beginning argument
-            return false; // Cannot use the last station as the beginning station
-        }
-
-        currentStation = head; // Reset current station
-        if (currentStation.city.equals(end)){
-            return false; // Cannot use first station as the end station
-        }
-        currentStation = currentStation.next;
-        while (currentStation.next != null){
-            if (currentStation.city.equals(end)){ // Find the end station
-                endStation = currentStation;
-            }
-            currentStation = currentStation.next;
-        }
-        if (currentStation.city.equals(end)){ // Accounts for the last station
-            endStation = currentStation;
-        }
-
-        while(beginningStation.next != endStation){
-            removeStation(beginningStation.next.city); // Remove the station after beginning until you reach the end station
-        }
-        return true; // Successful removal
-    }
-
 
     /** Quick demo */
     public static void main(String[] args) {
         // Instantiate class TrainRoute to model Amtrak's Lincoln Service
-        TrainRoute lincolnService = new TrainRoute();
+        TrainRouteLEO lincolnService = new TrainRouteLEO();
 
         lincolnService.addStation("Chicago"); // Becomes head station
         lincolnService.addStation("Summit");
@@ -319,10 +247,28 @@ public class TrainRoute {
         lincolnService.addStation("Alton");
         lincolnService.addStation("St. Louis");
 
-        lincolnService.reverseRouteDisplay();
-
-        lincolnService.removeStationsBetween("Summit", "Lincoln");
+        lincolnService.insertAfterStation("Chicago", "Aurora");
         lincolnService.displayRoute();
+
+        // Attempt to remove a non existing station from a populated route.
+        lincolnService.removeStation("Rockford");
+
+        lincolnService.removeStation("Alton");
+        lincolnService.removeStation("St. Louis");
+        lincolnService.removeStation("Carlinville");
+        lincolnService.removeStation("Springfield");
+        lincolnService.removeStation("Chicago");
+        lincolnService.removeStation("Bloomington-Normal");
+        lincolnService.removeStation("Aurora");
+        lincolnService.removeStation("Joliet");
+        lincolnService.removeStation("Dwight");
+        lincolnService.removeStation("Summit");
+        lincolnService.removeStation("Pontiac");
+        lincolnService.removeStation("Chicago");
+        lincolnService.removeStation("Lincoln");
+
+        // Attempt to remove a non existing station from an empty route.
+        lincolnService.removeStation("Rockford");
 
     }
 }
