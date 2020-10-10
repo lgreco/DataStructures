@@ -59,7 +59,7 @@ public class TrainRoute {
         Station newStation = new Station(c);
 
         // Find where to place the the new station
-        if (head == null) {
+        if ( head == null ) {
             // Train line is empty; make the new station the head station
             head = newStation;
         } else {
@@ -80,7 +80,7 @@ public class TrainRoute {
      */
     public boolean stationExists(String location) {
         boolean found;
-        if ( head == null) {
+        if ( head == null ) {
             found = false; // TrainRoute is empty
         } else {
             Station current = head;
@@ -151,7 +151,7 @@ public class TrainRoute {
             we know that there is a station at the location specified by prior;
             we were told so by stationExists(prior).
              */
-            if (!success) {
+            if ( !success ) {
                 // current is the last Station. We insert the new station after it.
                 current.next = newStation;
                 success = true;
@@ -260,96 +260,95 @@ public class TrainRoute {
     } // method reverseRouteDisplay
 
     /**
-     * Method to remove the stations between two given stations while preserving the beginning and end stations.
-     * The method first the beginning station and tarts removing each station thereafter until it arrives at the end station.
-     * @param beginning Name of station to start at
-     * @param end Name of station to end at
+     * Method to remove the stations between two given stations while preserving the fromCity and toCity stations.
+     * The method first the fromCity station and tarts removing each station thereafter until it arrives at the toCity station.
+     * @param fromCity Name of station to start at
+     * @param toCity Name of station to toCity at
      * @return true if successful removal
      */
-    public boolean removeStationsBetween_1(String beginning, String end){
-        Station beginningStation = null;
-        Station endStation = null;
-        // Find the station at the beginning of the segment to delete
+    public boolean removeStationsBetween_1(String fromCity, String toCity){
+        Station deleteFromHere = null, deleteToHere = null;
+        // Find the station at the fromCity of the segment to delete
         Station currentStation = head;
         while (currentStation.next != null){
-            if (currentStation.city.equals(beginning)){ // Found beginning station
-                beginningStation = currentStation;
+            if (currentStation.city.equals(fromCity)){ // Found fromCity station
+                deleteFromHere = currentStation;
             }
-            currentStation = currentStation.next; // We continue scanning just in case the beginning station is the last station in the route.
+            currentStation = currentStation.next; // We continue scanning just in case the fromCity station is the last station in the route.
         }
-        if (currentStation.city.equals(beginning)){ // If the last station is equal to the beginning argument
-            return false; // Cannot use the last station as the beginning station
+        if (currentStation.city.equals(fromCity)){ // If the last station is equal to the fromCity argument
+            return false; // Cannot use the last station as the fromCity station
         }
 
-        // Find the end station
+        // Find the toCity station
         currentStation = head; // Reset current station
-        if (currentStation.city.equals(end)){
-            return false; // Cannot use first station as the end station
+        if (currentStation.city.equals(toCity)){
+            return false; // Cannot use first station as the toCity station
         }
         currentStation = currentStation.next; // possible bug: what if .next == null?
         while (currentStation.next != null){
-            if (currentStation.city.equals(end)){ // Found the end station
-                endStation = currentStation;
+            if (currentStation.city.equals(toCity)){ // Found the toCity station
+                deleteToHere = currentStation;
             }
             currentStation = currentStation.next;
         }
-        if (currentStation.city.equals(end)){ // Accounts for the last station
-            endStation = currentStation;
+        if (currentStation.city.equals(toCity)){ // Accounts for the last station
+            deleteToHere = currentStation;
         }
 
-        // Now that we have the beginning and end stations marked, we can
+        // Now that we have the fromCity and toCity stations marked, we can
         // traverse between them, removing each station along the way.
 
-        while(beginningStation.next != endStation){
-            removeStation(beginningStation.next.city); // Remove the station after beginning until you reach the end station
+        while(deleteFromHere.next != deleteToHere){
+            removeStation(deleteFromHere.next.city); // Remove the station after fromCity until you reach the toCity station
         }
         return true; // Successful removal
     } // method removeStationsBetween_1
 
     /**
-     * This msthod deletes a route segment between a beginning and end station, by simply
-     * chaining the two stations together. But first it finds the beginning and end stations,
+     * This method deletes a route segment between a fromCity and toCity station, by simply
+     * chaining the two stations together. But first it finds the fromCity and toCity stations,
      * verify that they are connected with a number of stations in between them, and then
-     * connects them, effectively dereferencing the inbetween stations, committing them to
+     * connects them, effectively dereferencing the in-between stations, committing them to
      * the oblivion of garbage collection.
-     * @param beginning
-     * @param end
-     * @return
+     * @param fromCity Starting point for deletions
+     * @param toCity Ending point for deletions
+     * @return true if successful; false otherwise
      */
-    public boolean removeStationsBetween_2(String beginning, String end) {
-        Station deleteFromHere =null, deleteToHere = null;
+    public boolean removeStationsBetween_2(String fromCity, String toCity) {
+        Station deleteFromHere = null, deleteToHere = null;
         boolean success = false;
-        if ( stationExists(beginning) && stationExists(end) ) { // stations exist
+        if ( stationExists(fromCity) && stationExists(toCity) ) { // stations exist
             // Let's make sure there is a ocntinuous route between them
             boolean continuousRoute = false;
             Station current = head;
-            boolean scanRoute = true; // flag to scan route for the beginning station
+            boolean scanRoute = true; // flag to scan route for the fromCity station
             while (scanRoute) {
-                if (current.city == beginning) {
+                if (current.city.equals(fromCity)) {
                     deleteFromHere = current;
-                    // scan from here to see if there is direct connection to end
-                    scanRoute = false; // no need to continue scanning the route looking for the beginning station; we found it.
-                    // determine if there is a direct path from here to the end station
+                    // scan from here to see if there is direct connection to toCity
+                    scanRoute = false; // no need to continue scanning the route looking for the fromCity station; we found it.
+                    // determine if there is a direct path from here to the toCity station
                     while ( current.next != null ) {
-                        if ( current.city == end) {
+                        if ( current.city.equals(toCity)) {
                             continuousRoute = true; // a continuous route was found
-                            deleteToHere = current; // and this is the end station
+                            deleteToHere = current; // and this is the toCity station
                         }
                         current = current.next;
                     }
-                    if ( current.city == end ) { // special case to check on the end node
+                    if ( current.city.equals(toCity) ) { // special case to check on the toCity node
                         continuousRoute = true; // because it's outside the scope of the
                         deleteToHere = current; // while loop above.
                     }
-                } else { // let's try the next node to see if it's the beginning of the segment to delete
+                } else { // let's try the next node to see if it's the fromCity of the segment to delete
                     if ( current.next == null ) { // last node on the route; even if this station matches the
-                        scanRoute = false; // beginning value, there is nothing after it to delete, so end the scanRoute
+                        scanRoute = false; // fromCity value, there is nothing after it to delete, so toCity the scanRoute
                     } else {
                         current = current.next; // try the next station
                     }
                 }
             }
-            // At this point continuousRoute tells us if there is a path from beginning to end
+            // At this point continuousRoute tells us if there is a path from fromCity to toCity
             if ( continuousRoute ) {
                 success = true;
                 // resect the stations in between
@@ -358,6 +357,78 @@ public class TrainRoute {
         }
         return success;
     } // method removeStationsBetween_2
+
+
+    /**
+     * This method is a variation of removeStationsBetween_2, only the code to tell if there is
+     * a connection between the two stations is moved to a separate method called connectionExists().
+     * We still have to traverse the route and mark the boundaries of the segment.
+     * @param fromCity
+     * @param toCity
+     * @return
+     */
+    public boolean removeStationsBetween_3(String fromCity, String toCity) {
+        Station deleteFromHere = null, deleteToHere = null;
+        boolean success = false;
+        if ( stationExists(fromCity) && stationExists(toCity) && connectionExists(fromCity,toCity) ) {
+            success = true;
+            // Find stations
+            Station current = head;
+            while ( current.next != null ) {
+                if ( current.city.equals(fromCity) ) {
+                    deleteFromHere = current;
+                }
+                if ( current.city.equals(toCity) ) {
+                    deleteToHere = current;
+                }
+                current = current.next;
+            }
+            // special case for last station on route
+            deleteFromHere = ( current.city.equals(fromCity) ) ? current : deleteFromHere;
+            deleteToHere   =  ( current.city.equals(toCity) )  ? current : deleteToHere;
+            // resect the stations in between
+            deleteFromHere.next = deleteToHere;
+        }
+        return success;
+    } // method removeStationsBetween_3
+
+
+
+    public boolean connectionExists(String fromCity, String toCity) {
+        Station traverseFromHere = null, traverseToHere = null;
+        boolean continuousRoute = false;
+        if ( stationExists(fromCity) && stationExists(toCity) ) { // stations exist
+            // Let's make sure there is a continuous route between them
+            Station current = head;
+            boolean scanRoute = true; // flag to scan route for the fromCity station
+            while (scanRoute) {
+                if (current.city.equals(fromCity)) {
+                    traverseFromHere = current;
+                    // scan from here to see if there is direct connection to toCity
+                    scanRoute = false; // no need to continue scanning the route looking for the fromCity station; we found it.
+                    // determine if there is a direct path from here to the toCity station
+                    while (current.next != null) {
+                        if (current.city.equals(toCity)) {
+                            continuousRoute = true; // a continuous route was found
+                            traverseToHere = current; // and this is the toCity station
+                        }
+                        current = current.next;
+                    }
+                    if (current.city.equals(toCity)) { // special case to check on the toCity node
+                        continuousRoute = true; // because it's outside the scope of the
+                        traverseToHere = current; // while loop above.
+                    }
+                } else { // let's try the next node to see if it's the fromCity of the segment to delete
+                    if (current.next == null) { // last node on the route; even if this station matches the
+                        scanRoute = false; // fromCity value, there is nothing after it to delete, so toCity the scanRoute
+                    } else {
+                        current = current.next; // try the next station
+                    }
+                }
+            }
+        }
+        return continuousRoute;
+    } // method connectionExists
 
 
     /** Quick demo */
