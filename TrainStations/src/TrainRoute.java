@@ -260,33 +260,35 @@ public class TrainRoute {
     } // method reverseRouteDisplay
 
     /**
-     * Method to remove the stations between two given stations,
-     * while preserving the beginning and end stations
+     * Method to remove the stations between two given stations while preserving the beginning and end stations.
+     * The method first the beginning station and tarts removing each station thereafter until it arrives at the end station.
      * @param beginning Name of station to start at
      * @param end Name of station to end at
      * @return true if successful removal
      */
-    public boolean removeStationsBetween(String beginning, String end){
+    public boolean removeStationsBetween_1(String beginning, String end){
+        Station beginningStation = null;
+        Station endStation = null;
+        // Find the station at the beginning of the segment to delete
         Station currentStation = head;
-        Station beginningStation = new Station("");
-        Station endStation = new Station("");
         while (currentStation.next != null){
-            if (currentStation.city.equals(beginning)){ // Find the beginning station
+            if (currentStation.city.equals(beginning)){ // Found beginning station
                 beginningStation = currentStation;
             }
-            currentStation = currentStation.next;
+            currentStation = currentStation.next; // We continue scanning just in case the beginning station is the last station in the route.
         }
         if (currentStation.city.equals(beginning)){ // If the last station is equal to the beginning argument
             return false; // Cannot use the last station as the beginning station
         }
 
+        // Find the end station
         currentStation = head; // Reset current station
         if (currentStation.city.equals(end)){
             return false; // Cannot use first station as the end station
         }
-        currentStation = currentStation.next;
+        currentStation = currentStation.next; // possible bug: what if .next == null?
         while (currentStation.next != null){
-            if (currentStation.city.equals(end)){ // Find the end station
+            if (currentStation.city.equals(end)){ // Found the end station
                 endStation = currentStation;
             }
             currentStation = currentStation.next;
@@ -295,11 +297,67 @@ public class TrainRoute {
             endStation = currentStation;
         }
 
+        // Now that we have the beginning and end stations marked, we can
+        // traverse between them, removing each station along the way.
+
         while(beginningStation.next != endStation){
             removeStation(beginningStation.next.city); // Remove the station after beginning until you reach the end station
         }
         return true; // Successful removal
-    }
+    } // method removeStationsBetween_1
+
+    /**
+     * This msthod deletes a route segment between a beginning and end station, by simply
+     * chaining the two stations together. But first it finds the beginning and end stations,
+     * verify that they are connected with a number of stations in between them, and then
+     * connects them, effectively dereferencing the inbetween stations, committing them to
+     * the oblivion of garbage collection.
+     * @param beginning
+     * @param end
+     * @return
+     */
+    public boolean removeStationsBetween_2(String beginning, String end) {
+        Station deleteFromHere =null, deleteToHere = null;
+        boolean success = false;
+        if ( stationExists(beginning) && stationExists(end) ) { // stations exist
+            // Let's make sure there is a ocntinuous route between them
+            boolean continuousRoute = false;
+            Station current = head;
+            boolean scanRoute = true; // flag to scan route for the beginning station
+            while (scanRoute) {
+                if (current.city == beginning) {
+                    deleteFromHere = current;
+                    // scan from here to see if there is direct connection to end
+                    scanRoute = false; // no need to continue scanning the route looking for the beginning station; we found it.
+                    // determine if there is a direct path from here to the end station
+                    while ( current.next != null ) {
+                        if ( current.city == end) {
+                            continuousRoute = true; // a continuous route was found
+                            deleteToHere = current; // and this is the end station
+                        }
+                        current = current.next;
+                    }
+                    if ( current.city == end ) { // special case to check on the end node
+                        continuousRoute = true; // because it's outside the scope of the
+                        deleteToHere = current; // while loop above.
+                    }
+                } else { // let's try the next node to see if it's the beginning of the segment to delete
+                    if ( current.next == null ) { // last node on the route; even if this station matches the
+                        scanRoute = false; // beginning value, there is nothing after it to delete, so end the scanRoute
+                    } else {
+                        current = current.next; // try the next station
+                    }
+                }
+            }
+            // At this point continuousRoute tells us if there is a path from beginning to end
+            if ( continuousRoute ) {
+                success = true;
+                // resect the stations in between
+                deleteFromHere.next = deleteToHere;
+            }
+        }
+        return success;
+    } // method removeStationsBetween_2
 
 
     /** Quick demo */
@@ -319,9 +377,10 @@ public class TrainRoute {
         lincolnService.addStation("Alton");
         lincolnService.addStation("St. Louis");
 
+        System.out.println("\n\nReverse route:\n");
         lincolnService.reverseRouteDisplay();
-
-        lincolnService.removeStationsBetween("Summit", "Lincoln");
+        System.out.println("\n\nAfter removals:\n");
+        lincolnService.removeStationsBetween_2("Summit", "Lincoln");
         lincolnService.displayRoute();
 
     }
