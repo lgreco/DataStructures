@@ -392,8 +392,13 @@ public class TrainRoute {
         return success;
     } // method removeStationsBetween_3
 
-
-
+    /**
+     * Finds if two stations are connected (either directly or with a number of
+     * other stations inbetween.
+     * @param fromCity
+     * @param toCity
+     * @return true if connection exists.
+     */
     public boolean connectionExists(String fromCity, String toCity) {
         Station traverseFromHere = null, traverseToHere = null;
         boolean continuousRoute = false;
