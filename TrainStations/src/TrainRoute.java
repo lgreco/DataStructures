@@ -261,7 +261,7 @@ public class TrainRoute {
 
     /**
      * Method to remove the stations between two given stations while preserving the fromCity and toCity stations.
-     * The method first the fromCity station and tarts removing each station thereafter until it arrives at the toCity station.
+     * The method finds the fromCity station and starts removing each station thereafter until it arrives at the toCity station.
      * @param fromCity Name of station to start at
      * @param toCity Name of station to toCity at
      * @return true if successful removal
