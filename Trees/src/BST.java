@@ -11,13 +11,13 @@ public class BST {
 
     // And here's what a TreeNode looks like.
     class TreeNode {
-        String value; // The String we store in this node
-        TreeNode leftChild; // left child
-        TreeNode rightChild; // right child
-
-        public TreeNode(String s) { // basic constructor
+        String value; // The data we store in this node
+        TreeNode left; // left child
+        TreeNode right; // right child
+        // basic constructor
+        public TreeNode(String s) {
             this.value = s; // assigns content to String
-            leftChild = rightChild = null; // makes pointers to children null
+            left = right = null; // makes pointers to children null
         } // constructor TreeNode
     } // class TreeNode
 
@@ -40,18 +40,18 @@ public class BST {
                 boolean keepTrying = true; // Control variable from the principal loop, below.
                 while (keepTrying) {  // Principal loop; exits only when keepTrying becomes false.
                     if (s.compareTo(currentNode.value) > 0) { // New value is greater than current node; go RIGHT
-                        if (currentNode.rightChild == null) { // If right child is null
-                            currentNode.rightChild = newNode; // place new value here
+                        if (currentNode.right == null) { // If right child is null
+                            currentNode.right = newNode; // place new value here
                             keepTrying = false; // Flag to exit the principal loop.
                         } else { // Right child is not null
-                            currentNode = currentNode.rightChild; // Make right child the current node and try again.
+                            currentNode = currentNode.right; // Make right child the current node and try again.
                         }
                     } else { // New value is less than current node; go LEFT
-                        if (currentNode.leftChild == null) { // If left child is null
-                            currentNode.leftChild = newNode; // place new value here.
+                        if (currentNode.left == null) { // If left child is null
+                            currentNode.left = newNode; // place new value here.
                             keepTrying = false; // Flag to exit the principal loop.
                         } else { // Left child is not null.
-                            currentNode = currentNode.leftChild; // Make left child the current node and try again.
+                            currentNode = currentNode.left; // Make left child the current node and try again.
                         }
                     }
                 }
@@ -59,33 +59,6 @@ public class BST {
         }
         return success;
     } // method insert
-
-    private TreeNode insertRecursively(TreeNode currentNode, String value) {
-        if (currentNode == null ) { // found an empty !
-            currentNode = new TreeNode(value); // place the new value here
-            return currentNode;
-        }
-        if ( value.compareTo(currentNode.value) < 0 ) { // go left
-            currentNode.leftChild = insertRecursively(currentNode.leftChild, value);
-        } else { // go right
-            currentNode.rightChild = insertRecursively(currentNode.rightChild, value);
-        }
-        return currentNode;
-    } // method insertRecursively
-
-    public boolean insertRecursivelyWrapper(String value) {
-        boolean success = false;
-        if ( !valueExists(value) ) {
-            success = true;
-            if ( root == null ) {
-                root = new TreeNode(value);
-            } else {
-                root = insertRecursively(root, value);
-            }
-        }
-        return success;
-    } // method insertRecursivelyWrapper
-
 
     /**
      * Find if String searchForMe exists in the tree, in an iterative scan
@@ -103,131 +76,103 @@ public class BST {
                     success = true; // flag success
                     keepTrying = false; // get out of the while loop
                 } else if (searchForMe.compareTo(currentNode.value) > 0) { // Go right
-                    if (currentNode.rightChild == null) { // end of tree; no luck
+                    if (currentNode.right == null) { // end of tree; no luck
                         keepTrying = false; // exit while loop
                     } else { // keep pushing right
-                        currentNode = currentNode.rightChild; // new value for next iteration
+                        currentNode = currentNode.right; // new value for next iteration
                     }
                 } else { // Go left
-                    if (currentNode.leftChild == null) { // end of tree; no luck
+                    if (currentNode.left == null) { // end of tree; no luck
                         keepTrying = false; // exit while loop
                     } else { // keep pushing left
-                        currentNode = currentNode.leftChild; // new value for next iteration
+                        currentNode = currentNode.left; // new value for next iteration
                     }
                 }
             }
         }
         return success;
-    } // method contains
-
-    /**
-     * Recursive method to search for node with specified value
-     * @param currentNode entry note to begin search from; on initial call: root
-     * @param searchForMe value to search for
-     * @return null if not found; node with value otherwise
-     */
-    private TreeNode containsRecursively(TreeNode currentNode, String searchForMe) {
-        if ( currentNode == null || currentNode.value.equals(searchForMe) ) {
-            return currentNode;
-        }
-        if ( currentNode.value.compareTo(searchForMe) > 1 ) { // go left
-            return containsRecursively(currentNode.leftChild, searchForMe);
-        }
-        return containsRecursively(currentNode.rightChild, searchForMe); // go right
-    } // method containsRecursively
-
-    /**
-     * Wrapper method for containsRecursively, that converts the output to a boolean
-     * @param searchForMe String to look for
-     * @return true if String found in tree; false otherwise
-     */
-    public boolean containsRecursivelyWrapper(String searchForMe) {
-        return containsRecursively(root,searchForMe) != null;
-    } // method containsRecursivelyWrapper
+    } // method valueExists
 
     /**
      * Iterative in-Order traversal of the tree
      */
     public void inOrder() {
-        if (root == null) {
+        if (root == null) { // empty tree
             System.out.println("Tree is empty");
         } else {
-            // LIFO .. (we dont "know" about stacks yet).
-            List<TreeNode> lifo = new ArrayList<TreeNode>();
+            System.out.println("\n\nIn-Order traversal of your tree:\n");
+            int wordCount = 1; // tracks how many words are printed before new line
+            int wordPerLine = 5; // I want this may words per line
+            List<TreeNode> nodesToProcess = new ArrayList<TreeNode>(); // Simple "stack"
             // Start from the top
             TreeNode currentNode = root;
-            int lineCount = 1;
-            while ( currentNode != null || lifo.size() > 0 ) {
+            // The following loop traverses while there are items in the "stack"
+            while ( currentNode != null || nodesToProcess.size() > 0 ) {
                 while (currentNode != null) {
-                    lifo.add(0,currentNode);
-                    currentNode = currentNode.leftChild;
+                    nodesToProcess.add(0,currentNode);
+                    currentNode = currentNode.left; // Go as left as you can
                 }
-                    currentNode = lifo.get(0);
-                    System.out.printf("%15s ", currentNode.value);
-                    if ( lineCount % 5 == 0) {
-                        System.out.println(); // print 5 nodes per line
-                    }
-                    lineCount++;
-                    lifo.remove(0);
-                    currentNode = currentNode.rightChild;
+                currentNode = nodesToProcess.get(0); // When no more left, print what's on top of the stack
+                System.out.printf("%-15s ",currentNode.value);
+                if ( wordCount%wordPerLine==0 ) {
+                    System.out.printf("\n");
+                }
+                wordCount++;
+                nodesToProcess.remove(0); // remove the current node from the stack
+                currentNode = currentNode.right; // go right
             }
         }
     } // method inOrder
 
-    public TreeNode successor(TreeNode node) {
-        if ( node.rightChild != null ) {
-            return minNode(node.rightChild);
-        } else {
-            return null;
-        }
-        /*
-        TreeNode parentNode = node.parent
-        while ( parentNode != null && node == p.right ) {
-          node = parentNode;
-          parentNode = parentNode.parent;
-        }
-        return parentNode;
-         */
-    } // method successor
-
+    /**
+     * Method to find the smallest node of a tree (or subtree). The smallest node is the
+     * left-most node of the tree (or subtree).
+     * @param node the root of the tree or subtree we wish to scan
+     * @return the node with the smallest value
+     */
     public TreeNode minNode(TreeNode node) {
         TreeNode current = node;
-        while ( current.leftChild != null) {
-            current = current.leftChild;
+        while ( current.left != null) { // Keep going left until no more
+            current = current.left;
         }
-        return current;
+        return current; // this is the smallest node
     } // method minNode
 
-    public String successorWithChildrenOnly(String value) {
-        TreeNode node = new TreeNode(value);
-        if ( node.rightChild != null ) {
-            return minNode(node.rightChild).value;
-        }
-        // start from the top
-        TreeNode successor = null;
-        TreeNode current = root;
-        while ( current != null) {
-            if ( node.value.compareTo(current.value) < 0) {
-                successor = current;
-                current = current.leftChild;
-            } else // if ( node.value.compareTo(current.value) > 0 ) {
-                current = current.rightChild;
-            }
-        return (successor == null) ? "/* END OF TREE */" : successor.value;
-    }
-
-    public void inOrderRecursively(TreeNode currentNode) {
-        if ( root == null ) { // Nothing to see here
-            System.out.println("The tree is empty");
-        }
-        if ( currentNode.leftChild != null ) { // process LEFT
-            inOrderRecursively(currentNode.leftChild);
-        }
-        System.out.println(currentNode.value); // process NODE
-        if ( currentNode.rightChild != null ) { // process RIGHT
-            inOrderRecursively(currentNode.rightChild);
-        }
-    } // method inOrderRecursively
+    /**
+     * Method successor finds, iteratively, the node with the next highest value from the
+     * node provided. If the node whose successor we seek has a right subtree, the successor
+     * is the smallest node of that subtree. Otherwise, we start from the root, towards
+     * the node whose successor we seek. Every time we go left at a node, we mark that
+     * node as the successor.
+     * @param ofThisNode Node whose successor we are seeking.
+     * @return The node's successor; null if it has no successor
+     */
+    public TreeNode successor(TreeNode ofThisNode) {
+        TreeNode succ = null;
+        if ( ofThisNode.right != null) { // Node whose successor we seek, has a right subtree.
+            succ = minNode(ofThisNode.right); // Successor is smallest node of right subtree.
+        } else { //
+            TreeNode current = root; // Start from root and go towards node whose successor we seek.
+            boolean keepTraversing = true; // Switch to exit the while loop when done
+            while (keepTraversing) {
+                if ( ofThisNode.value.compareTo(current.value ) < 0 ) { // Node whose successor we seek should be to the left.
+                    if ( current.left != null ) { // Can we go left?
+                        succ = current; // Mark this node as successor
+                        current = current.left; // Go left
+                    } else { // We can no longer go left -- end of tree?
+                        keepTraversing = false; // Signal to exit the while loop.
+                    }
+                } else { // Node whose successor we seek should be to the right.
+                    if ( current.right != null ) { // Can we go right?
+                        current = current.right; // Go right
+                    } else { // We can no longer go right -- end of tree?
+                        keepTraversing = false; // Signal to exit while loop.
+                    }
+                } // Done deciding left/right as we search for the node whose successor we seek.
+            } // Done traversing the tree
+        } // Done looking for the successor; we have it (or we end up with null, ie, end of tree).
+        return succ;
+    } // method successor
 
     /** Quick testing */
     public static void main (String[]args){
@@ -235,10 +180,10 @@ public class BST {
         // Instantiate a binary search tree.
         BST sycamore = new BST();
 
-        // Favorite soliloquy
-        String text = "Now is the winter of our discontent\n" +
-                "Made glorious summer by this sun of York; \n" +
-                "And all the clouds that lour'd upon our house\n" +
+        // Favorite soliloquy to be used as content for the tree
+        String text = "Now is the winter of our discontent " +
+                "Made glorious summer by this sun of York; " +
+                "And all the clouds that lour'd upon our house " +
                 "In the deep bosom of the ocean buried.";
 
         // Split soliloquy into separate words (converting to lower case for uniformity).
@@ -249,17 +194,9 @@ public class BST {
             sycamore.insert(word);
         }
 
-        System.out.printf("\n\nThe root of the tree is %s\n\nIts left child is %s and its right child is %s\n\n",
-                sycamore.root.value,
-                sycamore.root.leftChild.value,
-                sycamore.root.rightChild.value);
-
-        System.out.printf("Going left, then right from root, we expect the word OF: %s\n\n",sycamore.root.rightChild.leftChild.value);
-
-        // Display tree contents, in-Order.
+        // Print the tree using the in-Order traversal
         sycamore.inOrder();
-        System.out.println();
-
 
     } // method main
+
 } // class BST
