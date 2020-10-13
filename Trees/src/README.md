@@ -27,6 +27,8 @@ Write a method with signature<br>
 `boolean deleteNode(TreeNode deleteMe)`<br>
 that implements the deletion algorithm as discussed in class. The deletion algorithm is as follows:
 
-* If node to delete has zero children, just dereference it from its parent.
-* If node to delete has one child only, its child is "adopted" by its parent.
-* If the node to be deleted has two children, swap it with its successor, reducing the case to one of the previous two.
+* If node-to-delete has zero children, just dereference it from its parent.
+* If node-to-delete has one child only, its child is "adopted" by its parent.
+* If the node-to-delete has two children, swap it with its successor, reducing the case to one of the previous two.
+
+For this problem use the `parent` field in class `TreeNode`.
