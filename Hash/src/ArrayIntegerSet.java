@@ -8,13 +8,16 @@ public class ArrayIntegerSet {
     private int[] setElement; // array to hold elements of our set
     private int size; // how many elements in the set?
     public ArrayIntegerSet() { // default constructor
-        setElement = new int[10000];
+        setElement = new int[10];
         size = 0;
     }
 
     /** Simple method to check is a value is already a set element */
     public boolean contains(int value) {
         boolean found = false; // assume value is not in the set
+        /*
+        lab assignment 1: convert this to a while loop for more efficient performance
+         */
         for ( int i = 0; i < size; i++ ) {
             if ( setElement[i] == value ) { found = true; }
         }
@@ -25,7 +28,7 @@ public class ArrayIntegerSet {
     public boolean add(int value) {
         boolean success = false; // assume insertion failed
         if (!contains(value)) {
-            if (size <= setElement.length) {
+            if (size < setElement.length) {
                 setElement[size] = value;
                 size++;
                 success = true;
