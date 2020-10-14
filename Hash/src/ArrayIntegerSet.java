@@ -1,5 +1,3 @@
-import java.util.Random;
-
 /**
  * A naive implementation of a mathematical set based on an array. A set observes the following
  * principles:
@@ -7,10 +5,10 @@ import java.util.Random;
  *  - no duplicates are allowed
  */
 public class ArrayIntegerSet {
-    private int[] setElements; // array to hold elements of our set
+    private int[] setElement; // array to hold elements of our set
     private int size; // how many elements in the set?
     public ArrayIntegerSet() { // default constructor
-        setElements = new int[10000];
+        setElement = new int[10000];
         size = 0;
     }
 
@@ -18,7 +16,7 @@ public class ArrayIntegerSet {
     public boolean contains(int value) {
         boolean found = false; // assume value is not in the set
         for ( int i = 0; i < size; i++ ) {
-            if ( setElements[i] == value ) { found = true; }
+            if ( setElement[i] == value ) { found = true; }
         }
         return found;
     } // method contains
@@ -27,8 +25,8 @@ public class ArrayIntegerSet {
     public boolean add(int value) {
         boolean success = false; // assume insertion failed
         if (!contains(value)) {
-            if (size <= setElements.length) {
-                setElements[size] = value;
+            if (size <= setElement.length) {
+                setElement[size] = value;
                 size++;
                 success = true;
             }
@@ -62,8 +60,8 @@ public class ArrayIntegerSet {
     public void displaySet() {
         System.out.printf("\n\nYour set:\n\t{");
         for ( int i = 0; i < size-1; i++ ) {
-            System.out.printf("%d, ", setElements[i]);
+            System.out.printf("%d, ", setElement[i]);
         }
-        System.out.printf("%d}\n\n",setElements[size-1]);
+        System.out.printf("%d}\n\n", setElement[size-1]);
     } // method displaySet
 }
