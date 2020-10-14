@@ -26,7 +26,7 @@ public class ArrayIntegerSet {
 
     /** Method to add a value in the set */
     public boolean add(int value) {
-        boolean success = false; // assume insertion failed
+        boolean success = false; // assume insertion failS
         if (!contains(value)) {
             if (size < setElement.length) {
                 setElement[size] = value;
@@ -40,7 +40,7 @@ public class ArrayIntegerSet {
     /** Method to remove element */
     public boolean remove(int value) {
         boolean success = false; // assume removal fails
-        if ( contains(value) ) { // element is present and can be removed
+        if (contains(value)) { // element is present and can be removed
             // but how to remove it efficiently?
             // After removing it:
             //                     adjust size to reflect one less element;
