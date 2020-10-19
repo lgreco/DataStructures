@@ -44,7 +44,9 @@ public class HashFromScratch {
      * social security numbers and corresponding names, we may have multiple individuals
      * named John Smith (ie, it's ok to have duplicate values), but each one of them
      * has (or should have) a unique SSN (ie, no duplicate keys). So we need to demonstrate
-     * how to avoid duplicate entries with this example.
+     * how to avoid duplicate entries with this example. For now we do this using the
+     * data / value field of the HashEntry object. Eventually, we'll redesign the object
+     * as a key-value class and the contains method will be applied for the key field.
      * @param value Data to check if already exists
      * @return true is already in data structure, false otherwise.
      */
