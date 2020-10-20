@@ -1,5 +1,5 @@
 # Data Structures
 
-This is a repository for various projects and ideas I use my in data structures courses.
+This is a repository for various projects and ideas I use in my data structures courses.
 
 `lgreco@gmail.com`
