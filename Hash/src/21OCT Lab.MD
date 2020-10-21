@@ -29,8 +29,7 @@ We decide to resize the underlying array every time the saturation reaches 75%, 
 ```
 
 The new `capacity` is now 5. This value redefines our hash function. When we try to access value `4` in the array
-, the hash function tells us to look at `4%capacity`, which is position `[4]`. That position contains the list `9, 5
-`; no 4!
+, the hash function tells us to look at `4%capacity`, which is position `[4]`. That position contains an empty list; no 4!
 
 Clearly, resizing is not enough. After resizing we need to rehash every element in the array.
 
