@@ -34,7 +34,7 @@ public class HashFromScratch {
      * @return map output
      */
     private int hashFunction(int value) {
-        return Math.abs(value) % hashMap.length; // Ensure non-negative values.
+        return Math.abs(value) % hashMap.length; // abs ensures non-negative values.
     } // method hashFunction
 
     /**
