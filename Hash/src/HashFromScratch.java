@@ -1,4 +1,3 @@
-import javax.print.attribute.HashAttributeSet;
 import java.util.Random;
 
 /**
@@ -13,14 +12,14 @@ public class HashFromScratch {
     private static final double REHASH_FACTOR = 2; // Multiplicative factor for new size of underlying array
     private static final double REHASH_THRESHOLD = 0.75; // Rehash once past this threshold
     /**
-     * The class comprises two fields: an underlying array of linked lists built
-     * with notes that are defined as an inner class here, and a count of items
-     * stored among these lists.
+     * The class comprises three fields: an underlying array of linked lists built
+     * with nodes that are defined as an inner class here, and a count of items
+     * stored among these lists that is essentially the size of our structure. A second count
+     * called occupancy indicates how many elements of the underlying array are occupied.
      */
     private HashEntry[] hashMap = new HashEntry[DEFAULT_CAPACITY]; // array of linked lists
     private int size = 0; // number of items stored among the linked lists.
     private int occupancy = 0; // number of occupied elements in underlying array
-    private int steps = 0; // Naive complexity counter
 
     class HashEntry{ // The linked list class used here
         private int data; // We are working with integer values
@@ -42,6 +41,17 @@ public class HashFromScratch {
      */
     private int hashFunction(int value) {
         return Math.abs(value) % hashMap.length; // abs ensures non-negative values.
+    } // method hashFunction
+
+    /**
+     * Overloaded hash Function; original one uses the class's hashMap
+     * array as denominator, but this one uses a custom denominator int base
+     * @param value
+     * @param base
+     * @return
+     */
+    private int hashFunction(int value, int base) {
+        return Math.abs(value) % base;
     } // method hashFunction
 
     /**
@@ -78,7 +88,6 @@ public class HashFromScratch {
      * @return occupancy/array.length
      */
     private double saturationLevel(HashEntry[] underlyingArray, int occupancy) {
-        // return ((double) underlyingArray.length) / ((double) occupancy);
         return ((double) occupancy) / ((double) underlyingArray.length);
     } // method saturationLevel
 
@@ -90,15 +99,13 @@ public class HashFromScratch {
     public void insert(int value) {
         if (!contains(value)) { // Contains executes in linear time, everything else O(1)
             int bucket = hashFunction(value);
-            if ( hashMap[bucket] == null) { occupancy++;  } // We are using a new element in the underlying
-            // array
+            if ( hashMap[bucket] == null) {
+                occupancy++;  // We are using this element for the first time, so let's update the occupancy count
+            }
             hashMap[bucket] = new HashEntry(value, hashMap[bucket]); // LIFO
-            size++;
-            if ( saturationLevel(hashMap,occupancy) > REHASH_THRESHOLD ) {
-                // REHASH
-                System.out.printf("\nRehashing... with saturation %.2f", saturationLevel(hashMap,occupancy));
+            size++; // update the size of the data structure
+            if ( saturationLevel(hashMap,occupancy) > REHASH_THRESHOLD ) { // time to resize and rehash
                 hashMap = rehash(hashMap);
-                return;
             }
         }
     } // method insert
@@ -109,60 +116,36 @@ public class HashFromScratch {
      * @return Resized array with all its objects rehashed accordingly
      */
     private HashEntry[] rehash(HashEntry[] underlyingArray) {
-        int newLength = (int) (underlyingArray.length * REHASH_FACTOR);
-        steps++;
-        HashEntry[] newArray = new HashEntry[newLength];
-        steps++;
-        System.out.printf("\n\tNew array has size %d up from %d", newArray.length, underlyingArray.length);
-        /*
-        Things to contemplate in class:
-        1 - copy old array elements to new array, and then go through
-        each linked list and re-hash accordingly, or
-        2 - go through all linked lists and rehash at the same time?
-        3 - code deficiencies: hashFunction- poorly parameterized; improve? how?         */
-
-        for ( int i = 0; i < underlyingArray.length; i++ ) {
-            System.out.printf("\n\t Underlying position %d",i);
-            if ( underlyingArray[i] != null ) {
-                System.out.printf("\n\t\tNot null, scanning: from [%d] with (%d): ",i,underlyingArray[i].data);
-                HashEntry current = underlyingArray[i];
-                steps++;
-                while ( current.next != null ) {
-                    int newBucket = hashFunction( current.data, newLength );
-                    steps++;
-                    System.out.printf(" (%d) to [%d] ",current.data, newBucket);
-                    newArray[newBucket] = new HashEntry(current.data,newArray[newBucket]);
-                    steps++;
+        int newLength = (int) (underlyingArray.length * REHASH_FACTOR); // size of new array
+        HashEntry[] newArray = new HashEntry[newLength]; // initialize new array
+        occupancy = 0; // reset count for occupied positions since we are dealing with a new array
+        for ( int i = 0; i < underlyingArray.length; i++ ) { // scan old array to transfer items to new array
+            if ( underlyingArray[i] != null ) { // for every non-null linked list in old array
+                HashEntry current = underlyingArray[i]; // start from the head node
+                while ( current != null ) { // traverse the list
+                    int newBucket = hashFunction(current.data, newLength); // map value to new bucket
+                    if (newArray[newBucket]==null) {
+                        occupancy++; // if bucket is used for the first time, increase occupancy count
+                    }
+                    newArray[newBucket] = new HashEntry(current.data,newArray[newBucket]); // store new node in linked list
                     current = current.next;
-                    steps++;
                 }
             }
         }
         return newArray;
     } // method rehash
 
-    /**
-     * Overloaded hash Function; original one uses the class's hashMap
-     * array as denominator, but this one uses a custom denominator int base
-     * @param value
-     * @param base
-     * @return
-     */
-    private int hashFunction(int value, int base) {
-        return value%base;
-    }
-
     /** Quick display method */
     public void displayHash() {
-        System.out.printf("\n\nThe following hash map has %d buckets, %.2f occupancy, and %d values", hashMap.length, ((double) occupancy)/ ((double) hashMap.length), size);
+        System.out.printf("\n\nThe following hash map has %d buckets of which %d are occupied (%.2f), and %d values\n", hashMap.length, occupancy, ((double) occupancy)/ ((double) hashMap.length), size);
         for (int i = 0; i < hashMap.length; i++) {
-            System.out.printf("\nList for element at [%d]: ", i);
+            System.out.printf("\nList at position [%d]: ", i);
             if (hashMap[i] == null) {
                 System.out.printf("EMPTY!");
             } else {
                 HashEntry current = hashMap[i];
                 while (current != null) {
-                    System.out.printf("( %d ) ", current.data);
+                    System.out.printf("( %d )  ", current.data);
                     current = current.next;
                 }
             }
@@ -173,13 +156,9 @@ public class HashFromScratch {
     public static void main(String[] args) {
         HashFromScratch demo = new HashFromScratch();
         Random r = new Random();
-        for (int i = 1; i <=10; i++) {
-            demo.insert(r.nextInt(99));
-        }
-        demo.displayHash();
-
-        for (int i=1;i<=10;i++){
-            demo.insert(r.nextInt(99));
+        int numberOfElementsToAdd = 50;
+        for (int i = 1; i <=numberOfElementsToAdd; i++) {
+            demo.insert(r.nextInt(2*numberOfElementsToAdd));
         }
         demo.displayHash();
     }

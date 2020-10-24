@@ -1,6 +1,6 @@
 # Lab session of 21 October 2020
 
-Given the `HashFromScratch` class, develop a method that will allow the class's underlying array to resize, everytime it exceeds a certain saturation level. We define *saturation level* as the fraction: occupied/capacity, where `occupied` is the number of array elements presently occupied and `capacity` is the length of the array.
+Given the `MagicDoubling` class, develop a method that will allow the class's underlying array to resize, everytime it exceeds a certain saturation level. We define *saturation level* as the fraction: occupied/capacity, where `occupied` is the number of array elements presently occupied and `capacity` is the length of the array.
   
 Resizing the array may appear easy -- and to a great extent it is. But, resizing the array by itself is not enough. Consider the following example, with an underlying array initially set to `capacity=4`, for which we use the integer remainder as the hash function:
    
