@@ -99,7 +99,7 @@ public class HashFromScratch {
     public void insert(int value) {
         if (!contains(value)) { // Contains executes in linear time, everything else O(1)
             int bucket = hashFunction(value);
-            if ( hashMap[bucket] == null) {
+            if (hashMap[bucket] == null) {
                 occupancy++;  // We are using this element for the first time, so let's update the occupancy count
             }
             hashMap[bucket] = new HashEntry(value, hashMap[bucket]); // LIFO
@@ -119,10 +119,15 @@ public class HashFromScratch {
         int newLength = (int) (underlyingArray.length * REHASH_FACTOR); // size of new array
         HashEntry[] newArray = new HashEntry[newLength]; // initialize new array
         occupancy = 0; // reset count for occupied positions since we are dealing with a new array
-        for ( int i = 0; i < underlyingArray.length; i++ ) { // scan old array to transfer items to new array
-            if ( underlyingArray[i] != null ) { // for every non-null linked list in old array
+        for (int i = 0; i < underlyingArray.length; i++) { // scan old array to transfer items to new array
+            /////////////////////////////////////////////////////////////////////
+            //                                                                 //
+            //        REDUNDANT CODE AHEAD ... CAN WE AVOID IT?  HOW?          //
+            //                                                                 //
+            /////////////////////////////////////////////////////////////////////
+            if (underlyingArray[i] != null) { // for every non-null linked list in old array
                 HashEntry current = underlyingArray[i]; // start from the head node
-                while ( current != null ) { // traverse the list
+                while (current != null) { // traverse the list
                     int newBucket = hashFunction(current.data, newLength); // map value to new bucket
                     if (newArray[newBucket]==null) {
                         occupancy++; // if bucket is used for the first time, increase occupancy count

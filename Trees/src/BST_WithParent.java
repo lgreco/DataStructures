@@ -119,7 +119,9 @@ public class BST_WithParent {
                 }
                 currentNode = nodesToProcess.get(0); // When no more left, print what's on top of the stack
                 String v = (currentNode==root)? "("+currentNode.value+")" : currentNode.value;
-                System.out.printf("%-15s ",v);
+                String s = (successor(currentNode)==null)? "null" : successor(currentNode).value;
+                String o = v + " --> " + s;
+                System.out.printf("%-25s ",o);
                 if ( wordCount%wordPerLine==0 ) {
                     System.out.printf("\n");
                 }
@@ -181,27 +183,28 @@ public class BST_WithParent {
     } // method successor
 
     /**
-     * !! Method to find successor of a node, using parent pointers
-     * @param ofThisNode
-     * @return
+     * !! Method to find successor of a node, using parent pointers. The code is intentionally
+     * garrulous, to illustrate the search logic.
+     * @param ofThisNode Node whose successor we seek
+     * @return the node successor (can be null, if no successor is found).
      */
     public TreeNode successorP(TreeNode ofThisNode) {
-        TreeNode succ = null;
-        if ( ofThisNode.right != null) { // Node whose successor we seek, has a right subtree.
-            succ = minNode(ofThisNode.right); // Successor is smallest node of right subtree.
-        } else { //
-            if (ofThisNode.parent!=null); { // if null, this may be root with no right child, ie end of tree
-                boolean keepTrying = true;
+        TreeNode succ = null; // Assume that successor is null
+        if ( ofThisNode.right != null) { // If node has a right tree,
+            succ = minNode(ofThisNode.right); // its successor is smallest node of right subtree.
+        } else { // Node has no right child ...
+            if (ofThisNode.parent!=null); { // ... and if no parent either, then root w/o successor ...
+                boolean keepTrying = true; // ... otherwise, we'll loop from parent to parent.
                 TreeNode current = ofThisNode.parent;
                 if (current.parent != null) {
-                    if (current.parent.left == current) {
-                        succ = current.parent;
-                        keepTrying = false;
+                    if (current.parent.left == current) { // first parent we encounter that has a left child
+                        succ = current.parent; // is the successor we look for.
+                        keepTrying = false; // And we can end the loop.
                     } else {
                         current = current.parent;
                     }
                 } else {
-                    keepTrying = false;
+                    keepTrying = false; // It's unlikely we'll ever need this (can you explain why?)
                 }
             }
         } // Done looking for the successor; we have it (or we end up with null, ie, end of tree).
