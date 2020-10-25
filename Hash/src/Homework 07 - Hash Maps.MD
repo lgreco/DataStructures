@@ -26,6 +26,7 @@ In terms of Java, these pairs are linked-list objects of the following form:
   private String tailNumber; // key
   private String model; // value
   private Airplane next; // next pair in list
+  ...
   }
 ```
 (The actual `HashMap` class in the Java Collections Framework uses generics that allow us to implement key-value pairs of any reference type. For our example here, we use Strings.)
