@@ -1,6 +1,6 @@
 # Homework 07 - Hash maps
 
-In this assignment, you need to work with class `HashFromScratch`. For problem 1 you may type your answer in the textbox below (or attach a text file). For problem 2, you are expected to provide a .java file.
+In this assignment, you need to work with class `HashFromScratch`. For problem 1 you may type your answer in the Sakai textbox (or attach a text file in Sakai). For problem 2, you are expected to provide a .java file as an attachment in Sakai.
 
 ## Problem 1
 First, observe that method `rehash` uses redundant code that repeats more or less what the `insert` method does. How would you modify these two methods to reduce code redundancy as much as possible? **Do not** rewrite the methods; just provide a short paragraph describing how you'd go about it.
