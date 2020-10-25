@@ -19,7 +19,7 @@ This is better illustrated with an example. The table below lists 4 key-value pa
 | N5266D | Piper Archer   |
 | N21175 | Cessna Skyhawk |
 
-In terms of Java, these pairs are linked list objects of the following form:
+In terms of Java, these pairs are linked-list objects of the following form:
 
 ```java
 ... class Airplane { // class name reflects example above
@@ -28,5 +28,24 @@ In terms of Java, these pairs are linked list objects of the following form:
   private Airplane next; // next pair in list
   }
 ```
+(The actual `HashMap` class in the Java Collections Framework uses generics that allow us to implement key-value pairs of any reference type. For our example here, we use Strings.)
 
+Write your own class, called `AirplaneRegistry`, that provides a hash-based data structure for airplane records as illustrate above.
 
+### `AirplaneRegistry` specification 1
+
+The `AirplaneRegistry` should comprise the following fields: An array of `Airplane` objects (specified below); a count of objects stored in (an instance of) the class; a count of the underlying array elements utilized.
+
+### `AirplaneRegistry` specification 2
+
+Contains an *inner* class `Airplane` with the key-value pair shown in the example above. The class should be completed with the constructors for `(tailNumber, model)` and `(tailNumber, model, next)`.
+
+### `AirplaneRegistry` specification 3
+
+Develop your own hash function for the *key* field. Since we are no longer dealing with `int` content, we cannot use modulo arithmetic; at least not right away.
+
+### `AirplaneRegistry` specification 4
+
+An insert method that prevents duplicate tail numbers. You may want to consider a `boolean` reference type for this method, to indicate successful or failed insertion. 
+
+*Notice that we are not interested in resizing and rehashing the data structure, yet*.
