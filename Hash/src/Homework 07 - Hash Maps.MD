@@ -50,3 +50,5 @@ Develop your own hash function for the *key* field. Since we are no longer deali
 An insert method that prevents duplicate tail numbers. You may want to consider a `boolean` reference type for this method, to indicate successful or failed insertion. (Hint: plan your `insert` method in a way that you can call it when, eventually, you have to resize and rehash the structure.) 
 
 *Notice that we are not interested in resizing and rehashing the data structure, yet*.
+
+#### Notes for lab session: from Hash Maps to Tree Maps; use of generics.
