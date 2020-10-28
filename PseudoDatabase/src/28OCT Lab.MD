@@ -77,10 +77,10 @@ o1.equals(o2)
 or 
 
 ```java
-o1.comparesTo(o2)
+o1.compareTo(o2)
 ```
 
-because `String` implements the `Comparable` interface already. But the classes `Student` and `Course` do not, and you have to implement it explicitly, **i.e., write a `comparesTo()` method in each of these classes.**
+because `String` implements the `Comparable` interface already. But the classes `Student` and `Course` do not, and you have to implement it explicitly, **i.e., write a `compareTo()` method in each of these classes.**
 
 ### Write the "database" class
 Write a 
