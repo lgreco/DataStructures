@@ -80,7 +80,7 @@ or
 o1.comparesTo(o2)
 ```
 
-because `String` implements the `Comparable` interface already. But the classes `Student` and `Course` do not, and you have to implement it explicitly, **at the very least for the `comparesTo()` method.**
+because `String` implements the `Comparable` interface already. But the classes `Student` and `Course` do not, and you have to implement it explicitly, **i.e., write a `comparesTo()` method in each of these classes.**
 
 ### Write the "database" class
 Write a 
