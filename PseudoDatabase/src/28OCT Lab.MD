@@ -68,7 +68,7 @@ Complete these two classes with the necessary constructors, accessors (`get`), a
 ### Implement the `Comparable` interface for both classes
 Consider two `Student` (or `Course`) objects, `o1` and `o2`. How would you compare them to tell if they are equal? (For example, how can you tell if two course registrations, both for the same student "John Smith", refer to the same individual?) How would you sort students when you generate a nicely formatted output if their names are identical? 
 
-If `o1` and `o2` where strings, you could write
+If `o1` and `o2` where `Strings`, you could write
 
 ```java
 o1.equals(o2)
