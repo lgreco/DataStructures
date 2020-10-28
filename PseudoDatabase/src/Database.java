@@ -27,4 +27,24 @@ public class Database {
      */
     private int hashFunction(String key) {
     }
+
+    public boolean createNewStudentRecord(...) {
+        boolean success = false;
+        // Some awesome code from the best section of COMP 271 ever
+        return success;
+    }
+
+    public void forceNewStudentRecord(...) {
+        // more amazing code ... By the way, do we need two separate methods to
+        // create and force a new student record, really?
+    }
+
+    public void createNewCourseRecord() {}
+
+    public void perStudentReport() {
+        // HINT:
+        // Students should be listed in alphabetical order by last name; before we get there
+        // let's just list them in the way we can get them to get some functionality
+        // going. Then add the alphabetical ordering sophistication.
+    }
 }
