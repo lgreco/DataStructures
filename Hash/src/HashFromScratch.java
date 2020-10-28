@@ -41,6 +41,10 @@ public class HashFromScratch {
      */
     private int hashFunction(int value) {
         return Math.abs(value) % hashMap.length; // abs ensures non-negative values.
+        /*
+        Alternatively we can call hashFunction(value,hashMap.length) from within
+        this method, to preserve code integrity.
+         */
     } // method hashFunction
 
     /**

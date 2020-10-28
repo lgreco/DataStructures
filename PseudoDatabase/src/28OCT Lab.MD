@@ -62,7 +62,7 @@ Java allows us to write classes whose object types can be parameterized -- these
 ## Lab assignment
 
 
-### Flesh out `Student` and `Class`
+### Flesh out `Student` and `Course` classes
 Complete these two classes with the necessary constructors, accessors (`get`), and mutators (`set`). These classes should be written as **linkable** objects, so don't forget the `Student next` and `Course next` fields.
 
 ### Implement the `Comparable` interface for both classes
