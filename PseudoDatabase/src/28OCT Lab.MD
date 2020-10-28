@@ -60,8 +60,9 @@ Java allows us to write classes whose object types can be parameterized -- these
 
 ## Lab assignment
 
+
 ### Flesh out `Student` and `Class`
-Complete these two classes with the necessary constructors, accessors (`get`), and mutators (`set`).
+Complete these two classes with the necessary constructors, accessors (`get`), and mutators (`set`). These classes should be written as **linkable** objects, so don't forget the `Student next` and `Course next` fields.
 
 ### Implement the `Comparable` interface for both classes
 Consider two `Student` (or `Course`) objects, `o1` and `o2`. How would you compare them to tell if they are equal? (For example, how can you tell if two course registrations, both for the same student "John Smith", refer to the same individual?) How would you sort students when you generate a nicely formatted output if their names are identical? 
@@ -86,9 +87,9 @@ Write a
 public class Database {...}
 ```
 with the following functionality:
-* Create a new student record -- if student name exists, the creation method must indicate so and reject the process (a boolean type method may be a good idea).
+* Create a new student record -- if student name exists, the creation method must indicate so and reject the process (a boolean type method may be a good idea). Student records shall be kept in a `Student[10]` array, using a hash function of your own design.
 * Force a new student record -- if you have reason to create a student record even though the person's name already exists (for example, you are registering multiple student with a very common name like *Irakliotis*).
-* Create a new course record
+* Create a new course record. Course records shall be kept in a `Course[10]` array, using a hash function of your own design.
 * Register a student for a course. The registration transaction should lead to a **unique** ordered pair of the form `(studentID, courseCode)` for every registration. (Hint: you may want to put together a simple data structure for these registrations, as an inner class in your `Database` class).
 * Display a *per-student* report, like so (using the data from the tables above):
  ```text
