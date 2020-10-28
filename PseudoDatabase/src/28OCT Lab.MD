@@ -82,6 +82,16 @@ o1.compareTo(o2)
 
 because `String` implements the `Comparable` interface already. But the classes `Student` and `Course` do not, and you have to implement it explicitly, **i.e., write a `compareTo()` method in each of these classes.**
 
+Technically speaking, you do not have to implement the Comparable interface. You can create your own method, still call it `compareTo`, and direct how two student or course objects are to be compared. For that matter, you can can write a method like this:
+```java
+boolean areTheyTheSame(Student s1, Student s2) {
+  boolean objectsAreTheSame = false;
+  // ... magical stuff ...
+  return objectsAreTheSame;
+}
+```
+By implementing the Comparable interface, i.e., by writing a `compareTo` method that returns an `int` value of -1, 0, or 1, you are making your student and course objects consistent with one of the most popular interfaces in Java, and therefore reusable by code that relies on that interface.
+
 ### Write the "database" class
 Write a 
 ```java
