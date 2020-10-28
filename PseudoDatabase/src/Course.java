@@ -7,7 +7,7 @@ public class Course implements Comparable<Course>{
      * Method to return student information in a string like
      *   courseCode courseTitle
      * @param courseCode courseCode that we wish to obtain information about
-     * @returnn String with student information courseCode+" "+courseTitle
+     * @returnn String with course information courseCode+" "+courseTitle
      */
     public String getCourseInformation(String courseCode){
     }
