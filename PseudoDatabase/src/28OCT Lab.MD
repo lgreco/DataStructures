@@ -43,7 +43,8 @@ public class Student {
 ...
 public class Course {
   private String courseCode;
-  private String courseName}
+  private String courseName
+...}
 ```
 
 Classes `Student` and `Course` have identical structures and in general this is the structure of a key-value pair:
