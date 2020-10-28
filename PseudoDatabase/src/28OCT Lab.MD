@@ -114,9 +114,9 @@ Arthur Hastings (LUC002): COMP170 Intro to OOP
 Felicity Lemon (LUC003):  COMP271 Data Structures
                            COMP363 Algorithms
 
-Ariadne  Oliver (LUC004): COMP271 Data Structures
+Ariadne Oliver (LUC004):  COMP271 Data Structures
                            COMP163 Discrete Structures
 
-Hercule  Poirot (LUC001): COMP271 Data Structures
+Hercule Poirot (LUC001):  COMP271 Data Structures
                            COMP363 Algorithms
 ```
