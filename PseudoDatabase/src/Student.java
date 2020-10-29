@@ -13,7 +13,7 @@ public class Student implements Comparable<Student>{
     }
 
     /**
-     * Implementation of the Comparable interface to compares students.
+     * Implementation of the Comparable interface to compare students.
      *   student1.comparesTo(student2) is
      *     -1 if student1 less than student2
      *      0 if student1 same as student2

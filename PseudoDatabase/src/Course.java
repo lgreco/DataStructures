@@ -13,7 +13,7 @@ public class Course implements Comparable<Course>{
     }
 
     /**
-     * Implementation of the Comparable interface to compares students.
+     * Implementation of the Comparable interface to compare courses.
      *   course1.comparesTo(course2) is
      *     -1 if course1 less than course2
      *      0 if course1 same as course2
