@@ -65,13 +65,17 @@ public class ImprovedDatabase {
          * Creates a new record for a student whose name is not alreay in the
          * database; if a student with same name exists, method does not create
          * a record and returns false.
-         * @param studentName
+         * @param newStudentName
          * @return true if recorded created; false if student name already in database
          */
-        public boolean createNewStudentRecord(String studentName) {
+        public boolean createNewStudentRecord(String newStudentName) {
             boolean success = false;
-            if (contains(studentName)) {
-
+            if (!contains(newStudentName)) {
+                success = true;
+                String newStudentID = generateStudentID();  // DISCUSS IN CLASS IMPLE IDEAS ... ID "key" in db class? Scan highest value in table then increment?
+                // hash this newStudent into array students[]
+                int bucket = hashFunction(newStudentName.hashCode(),students.length);
+                students[bucket] = new Student(newStudentID, newStudentName, students[bucket]);
             }
             return success;
         }

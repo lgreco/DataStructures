@@ -4,7 +4,12 @@ public class Student implements Comparable<Student>{
     private String studentName;
     Student next;
 
-
+    /** Full constructor */
+    public Student(String studentID, String studentName, Student next) {
+        this.studentID = studentID;
+        this.studentName = studentName;
+        this.next = next;
+    }
 
     /**
      * Method to return student information in a string like
