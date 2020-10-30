@@ -60,10 +60,24 @@ public class Database {
         return Math.abs(key.hashCode()) % base;
     }
 
+    /**
+     * Creates a new record for a student whose name is not alreay in the
+     * database; if a student with same name exists, method does not create
+     * a record and returns false.
+     * @param studentName
+     * @return true if recorded created; false if student name already in database
+     */
     public boolean createNewStudentRecord(String studentName) {
         boolean success = false;
-        // Some awesome code from the best section of COMP 271 ever
+        if (contains(studentName)) {
+
+        }
         return success;
+    }
+
+    private boolean contains(String studentName) {
+        boolean c = false;
+        for ()
     }
 
     public void forceNewStudentRecord(...) {
