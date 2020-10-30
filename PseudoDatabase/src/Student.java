@@ -2,6 +2,9 @@ public class Student implements Comparable<Student>{
 
     private String studentID;
     private String studentName;
+    Student next;
+
+
 
     /**
      * Method to return student information in a string like
@@ -10,6 +13,10 @@ public class Student implements Comparable<Student>{
      * @returnn String with student information studentID+" "+studentName
      */
     public String getStudentInformation(String studentID){
+    }
+
+    public String getStudentName() {
+        return studentName;
     }
 
     /**
