@@ -2,7 +2,7 @@ public class Student implements Comparable<Student>{
 
     private String studentID;
     private String studentName;
-    Student next;
+    private Student next;
 
     /** Full constructor */
     public Student(String studentID, String studentName, Student next) {
@@ -18,10 +18,26 @@ public class Student implements Comparable<Student>{
      * @returnn String with student information studentID+" "+studentName
      */
     public String getStudentInformation(String studentID){
+        return studentID + " " + studentName;
     }
 
+    /**
+     * Accessor for student's name
+     * @return studentName
+     */
     public String getStudentName() {
         return studentName;
+    }
+
+    public String getStudentID() {
+        return studentID;
+    }
+    /**
+     * Accessor for next
+     * @return next Student
+     */
+    public Student next() {
+        return next;
     }
 
     /**
@@ -36,5 +52,6 @@ public class Student implements Comparable<Student>{
      */
     @Override
     public int compareTo(Student student) {
+        return studentName.compareTo(student.studentName);
     }
 }

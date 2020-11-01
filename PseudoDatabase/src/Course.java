@@ -2,14 +2,38 @@ public class Course implements Comparable<Course>{
 
     private String courseCode;
     private String courseTitle;
+    private Course next;
+
+    /** Full constructor */
+    public Course(String courseCode, String courseTitle, Course next) {
+        this.courseCode = courseCode;
+        this.courseTitle = courseTitle;
+        this.next = next;
+    }
 
     /**
      * Method to return student information in a string like
      *   courseCode courseTitle
-     * @param courseCode courseCode that we wish to obtain information about
      * @returnn String with course information courseCode+" "+courseTitle
      */
-    public String getCourseInformation(String courseCode){
+    public String getCourseInformation(){
+        return courseCode + " " + courseTitle;
+    }
+
+    public String getCourseTitle(){
+        return courseTitle;
+    }
+
+    public String getCourseCode() {
+        return courseCode;
+    }
+
+    /**
+     * Accessor for field next
+     * @return next Courae
+     */
+    public Course next() {
+        return next;
     }
 
     /**
@@ -24,5 +48,6 @@ public class Course implements Comparable<Course>{
      */
     @Override
     public int compareTo(Course course) {
+        return courseCode.compareTo(course.courseCode);
     }
 }

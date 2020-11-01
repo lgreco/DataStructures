@@ -26,15 +26,16 @@ public class Database {
      * with that or you may ignore it completely).
      */
     private int hashFunction(String key) {
+        return 1;
     }
 
-    public boolean createNewStudentRecord(...) {
+    public boolean createNewStudentRecord() {
         boolean success = false;
         // Some awesome code from the best section of COMP 271 ever
         return success;
     }
 
-    public void forceNewStudentRecord(...) {
+    public void forceNewStudentRecord() {
         // more amazing code ... By the way, do we need two separate methods to
         // create and force a new student record, really?
     }
