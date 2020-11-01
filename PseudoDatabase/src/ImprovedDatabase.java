@@ -1,4 +1,9 @@
+import java.util.Arrays;
+
 public class ImprovedDatabase {
+
+    /** Local tools */
+    private static final String SPACE = " ";
 
     /**
      * Improves earlier code by removing a "magic number"
@@ -19,6 +24,13 @@ public class ImprovedDatabase {
      * Underlying array for registration transactions
      */
     Registration[] registrations = new Registration[DEFAULT_CAPACITY];
+
+    /**
+     * Counts for objects stored in underying arrays
+     */
+    private int studentCount = 0;
+    private int courseCount = 0;
+    private int registrationCount = 0;
 
     /**
      * Current state for student ID generator
@@ -70,6 +82,7 @@ public class ImprovedDatabase {
         boolean success = false;
         if (!studentExists(newStudentName)) {
             success = true;
+            studentCount++;
             String newStudentID = generateStudentID();
             // hash this newStudent into array students[]
             int bucket = hashFunction(newStudentName, students.length);
@@ -113,6 +126,18 @@ public class ImprovedDatabase {
         return found;
     }
 
+
+    /**
+     * Create a new student record without checking if name exists
+     */
+    public void forceNewStudentRecord(String newStudentName) {
+        String newStudentID = generateStudentID();
+        studentCount++;
+        // hash this newStudent into array students[]
+        int bucket = hashFunction(newStudentName, students.length);
+        students[bucket] = new Student(newStudentID, newStudentName, students[bucket]);
+    }
+
     /**
      * Hash-agnostic method to tell if a course exists.
      * @param courseTitle Search by course title
@@ -136,15 +161,6 @@ public class ImprovedDatabase {
     }
 
 
-    /**
-     * Create a new student record without checking if name exists
-     */
-    public void forceNewStudentRecord(String newStudentName) {
-        String newStudentID = generateStudentID();
-        // hash this newStudent into array students[]
-        int bucket = hashFunction(newStudentName, students.length);
-        students[bucket] = new Student(newStudentID, newStudentName, students[bucket]);
-    }
 
     /**
      * Create new course record
@@ -152,6 +168,7 @@ public class ImprovedDatabase {
      * @param courseTitle
      */
     public void createNewCourseRecord(String courseCode, String courseTitle) {
+        courseCount++;
         int bucket = hashFunction(courseTitle, courses.length);
         courses[bucket] = new Course(courseCode, courseTitle, courses[bucket]);
     }
@@ -166,6 +183,7 @@ public class ImprovedDatabase {
             String studentID = lookUpStudent(studentName);
             String courseCode = lookUpCourse(courseTitle);
             if (!registrationExists(studentID,courseCode)) {
+                registrationCount++;
                 int bucket = hashFunction(studentID+courseCode, registrations.length);
                 registrations[bucket] = new Registration(courseCode, studentID, registrations[bucket]);
             }
@@ -221,7 +239,7 @@ public class ImprovedDatabase {
      * @return true if found; false otherwise
      */
     private boolean registrationExists(String studentID, String courseCode) {
-        boolean found = false();
+        boolean found = false;
         int bucket = 0;
         while (!found && bucket < registrations.length) {
             Registration r = registrations[bucket];
@@ -237,17 +255,81 @@ public class ImprovedDatabase {
         return found;
     }
 
+    /**
+     * Rudimentary report
+     */
     public void perStudentReport() {
+        // System.out.printf("*** Debug report:\n\tThere are %d students, %d courses, and %d registrations.\n", studentCount, courseCount, registrationCount);
         // HINT:
         // Students should be listed in alphabetical order by last name; before we get there
         // let's just list them in the way we can get them to get some functionality
         // going. Then add the alphabetical ordering sophistication.
-        for (int bucket = 0; bucket<registrations.length; bucket++) {
-            Registration r = registrations[bucket];
-            while (r != null) {
-                System.out.printf("\n%s: %s", r.getCourseCode(), r.getStudentID());
-                r = r.next();
+
+        // Prepare an array with student objects to be sorted
+        Student[] sortedStudents = new Student[studentCount];
+        int sortedIndex = 0;
+        int longestNameLength = 0;
+        int longestIDLength = 0;
+        // Populate this array
+        // Also get length for longest student name
+        for (int bucket = 0; bucket < students.length; bucket++) {
+            Student s = students[bucket];
+            while (s != null) {
+                longestNameLength = (s.getStudentName().length() > longestNameLength) ? s.getStudentName().length() : longestNameLength;
+                longestIDLength = (s.getStudentID().length() > longestIDLength) ? s.getStudentID().length() : longestIDLength;
+                sortedStudents[sortedIndex] = s;
+                sortedIndex++;
+                s = s.next();
             }
         }
-    }
+        // Sort the array:
+        Arrays.sort(sortedStudents);
+        // System.out.printf("\n*** students sorted\n");
+
+        // Scan the sorted array, pull registered courses for each student, print them.
+        String formatting = "%" + longestIDLength + "s %" + longestNameLength + "s: ";
+        for (int index = 0; index < sortedStudents.length; index++) {
+            Student s = sortedStudents[index];
+            String reportBlock = String.format(formatting, s.getStudentID(), s.getStudentName());
+            String coursesRegisteredFor = "No courses found"; // Just in case
+            // Scan the entire registration table and find all the courses for this student
+            int thisStudentCoursesIndex = 0;
+            String[] coursesForThisStudent = new String[courseCount];
+            for ( int bucket = 0; bucket < registrations.length; bucket++) {
+                // System.out.printf("\n*** Scanning registration bucket %d for student id %s\n", bucket, s.getStudentID());
+                Registration r = registrations[bucket];
+                while (r != null) {
+                    // System.out.printf("***\tLooking at transaction (%s, %s).\n", r.getStudentID(), r.getCourseCode());
+                    if (r.getStudentID().equals(s.getStudentID())) {
+                        // System.out.printf("***\t It's a MATCH!\n");
+                        coursesForThisStudent[thisStudentCoursesIndex] = r.getCourseCode();
+                        thisStudentCoursesIndex++;
+                    }
+                    r = r.next();
+                }
+
+            }
+            // System.out.printf("*** Wrap-up for %s ... found %d course registrations\n\n", s.getStudentID(), thisStudentCoursesIndex);
+            // Resize the array of courses for this student:
+            String sortedCourses[] = new String[thisStudentCoursesIndex];
+            for (int i=0; i < thisStudentCoursesIndex; i++) {
+                sortedCourses[i] = coursesForThisStudent[i];
+            }
+            // System.out.printf("*** Found %d courses for %s\n", sortedCourses.length, s.getStudentName());
+            Arrays.sort(sortedCourses);
+            if (sortedCourses.length > 0) {
+                String registeredCourseName = lookUpCourse(sortedCourses[0]);
+                reportBlock += String.format("%s %s\n", sortedCourses[0], registeredCourseName);
+                if (sortedCourses.length > 1) {
+                    for (int courseIndex = 1; courseIndex < sortedCourses.length; courseIndex++) {
+                        registeredCourseName = lookUpCourse(sortedCourses[courseIndex]);
+                        reportBlock += String.format("%s %s %s", SPACE.repeat(longestIDLength + longestNameLength + 2), sortedCourses[courseIndex], registeredCourseName);
+                    }
+                }
+            }
+            reportBlock += String.format("\n");
+            System.out.println(reportBlock);
+        }
+    } // method perStudentReport
+
 }
