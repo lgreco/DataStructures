@@ -54,7 +54,7 @@ public class ImprovedDatabase {
         underlying array.
          */
         return hashFunction(key, DEFAULT_CAPACITY);
-    }
+    } // method hashFunction
 
     /**
      * Overloaded hashFunction that uses a specific base for modulo. It is
@@ -67,7 +67,7 @@ public class ImprovedDatabase {
      */
     private int hashFunction(String key, int base) {
         return Math.abs(key.hashCode()) % base;
-    }
+    } // method hashFunction
 
 
     /**
@@ -89,7 +89,7 @@ public class ImprovedDatabase {
             students[bucket] = new Student(newStudentID, newStudentName, students[bucket]);
         }
         return success;
-    }
+    } // method createNewStudentRecord
 
     /**
      * Increments current value of studentID state variable by specified step;
@@ -100,7 +100,7 @@ public class ImprovedDatabase {
     private String generateStudentID() {
         studentIDState += studentIDstep;
         return String.format("LUC%05d", studentIDState);
-    }
+    } // method generateStudentID
 
     /**
      * This is a hash-agnostic method, i.e., it does not take it for granted that student
@@ -124,7 +124,7 @@ public class ImprovedDatabase {
             bucket++;
         }
         return found;
-    }
+    } // method studentExists
 
 
     /**
@@ -136,7 +136,7 @@ public class ImprovedDatabase {
         // hash this newStudent into array students[]
         int bucket = hashFunction(newStudentName, students.length);
         students[bucket] = new Student(newStudentID, newStudentName, students[bucket]);
-    }
+    } // method forceNewStudentRecord
 
     /**
      * Hash-agnostic method to tell if a course exists.
@@ -158,9 +158,7 @@ public class ImprovedDatabase {
             bucket++;
         }
         return found;
-    }
-
-
+    } // method courseExists
 
     /**
      * Create new course record
@@ -171,7 +169,7 @@ public class ImprovedDatabase {
         courseCount++;
         int bucket = hashFunction(courseTitle, courses.length);
         courses[bucket] = new Course(courseCode, courseTitle, courses[bucket]);
-    }
+    } // method createNewCourseRecord
 
     /**
      * Registers a student (by name) for a course (by title)
@@ -188,7 +186,7 @@ public class ImprovedDatabase {
                 registrations[bucket] = new Registration(courseCode, studentID, registrations[bucket]);
             }
         }
-    }
+    } // method courseRegistration
 
     /**
      * Obtains the student's ID (search by name)
@@ -209,7 +207,7 @@ public class ImprovedDatabase {
             }
         }
         return studentID;
-    }
+    } // method lookUpStudent
 
     /**
      * Obtains a course's code (search by title)
@@ -230,7 +228,7 @@ public class ImprovedDatabase {
             }
         }
         return courseCode;
-    }
+    } // method lookUpCourse
 
     /**
      * Checks if a registration for a given (student, course) exists
@@ -253,25 +251,43 @@ public class ImprovedDatabase {
             bucket++;
         }
         return found;
-    }
+    } // method registrationExists
 
     /**
-     * Rudimentary report
+     * Rudimentary report (imitates SQL's GROUP BY clause). The method executes in three parts.
+     *
+     * First, it creates an alphabetically sorted list of all students. To accomplish that, it
+     * unravels the hashmap from students[] into an array sortedStudents[]. The hashmap students[]
+     * is an array of linked lists. Array sortedStudents has no linked lists in it; or if you prefer,
+     * each element of sortedStudents[] is a linked list with one node only. So we can apply
+     * Array.sort() on sortedStudents[] and get an alphabetical re-ordering of its elements. Method
+     * Array.sort() works on this array because its building block, class Student, implements the
+     * Comparable interface. Arrays.sort() presupposes the implementation of the Comparable interface.
+     *
+     * Second, the method goes student-by-student through the sorted array, and for each student
+     * pulls the corresponding courses codes from the registrations[] hashmap. It places these codes
+     * in a String array (remember, courseCodes are Strings), and sorts them alphabetically.
+     *
+     * And third, for each course code, we pull the course title, compose and output string, and
+     * when we are done with each student, print that string, and repeat with the next student.
      */
     public void perStudentReport() {
-        // System.out.printf("*** Debug report:\n\tThere are %d students, %d courses, and %d registrations.\n", studentCount, courseCount, registrationCount);
-        // HINT:
-        // Students should be listed in alphabetical order by last name; before we get there
-        // let's just list them in the way we can get them to get some functionality
-        // going. Then add the alphabetical ordering sophistication.
 
-        // Prepare an array with student objects to be sorted
-        Student[] sortedStudents = new Student[studentCount];
-        int sortedIndex = 0;
-        int longestNameLength = 0;
-        int longestIDLength = 0;
-        // Populate this array
-        // Also get length for longest student name
+        /*
+        First part:
+        Unravel the students[] hashmap into a linear array, by moving every node
+        from every linked list into an individual position in the new array. While at it,
+        we are looking for the longest student name and the longest ID number; we'll
+        need these to format our output and accommodate names.
+
+        One more thought about this first part: it can be its own method, and reused
+        for other hashmaps.
+         */
+        Student[] sortedStudents = new Student[studentCount]; // linear array
+        int sortedIndex = 0; // index for linear array
+        int longestNameLength = 0; // student name max length
+        int longestIDLength = 0; // student ID max length
+        // copy every node from students[] to studentsSorted[] in a linear fashion
         for (int bucket = 0; bucket < students.length; bucket++) {
             Student s = students[bucket];
             while (s != null) {
@@ -279,56 +295,86 @@ public class ImprovedDatabase {
                 longestIDLength = (s.getStudentID().length() > longestIDLength) ? s.getStudentID().length() : longestIDLength;
                 sortedStudents[sortedIndex] = s;
                 sortedIndex++;
-                s = s.next();
+                s = s.next(); // .next() ??? Well yes. See class Student for details.
             }
         }
         // Sort the array:
         Arrays.sort(sortedStudents);
-        // System.out.printf("\n*** students sorted\n");
 
-        // Scan the sorted array, pull registered courses for each student, print them.
+        /*
+        Second part:
+        Go through array sortedStudents[] one student at a time, pull the student's
+        registration record, sort those courses alphabetically, and produce an output
+        string to print, before repeating the process for the next student. This part
+        includes the method's third part as well.
+         */
+
+        // Use information about longest name and ID to create a formatting directing
+        //    "%Ns %Ms: "
+        // where N and M are the lengths of the longest name and ID respectively.
         String formatting = "%" + longestIDLength + "s %" + longestNameLength + "s: ";
+
         for (int index = 0; index < sortedStudents.length; index++) {
             Student s = sortedStudents[index];
-            String reportBlock = String.format(formatting, s.getStudentID(), s.getStudentName());
-            String coursesRegisteredFor = "No courses found"; // Just in case
-            // Scan the entire registration table and find all the courses for this student
+
+            // Begin building the output string for this student; use the formatting string from above
+            // to ensure the proper spacing.
+            String outputForThisStudent = String.format(formatting, s.getStudentID(), s.getStudentName());
+
+            /*
+            Scan the entire registration table and find all the courses for this student. The code block
+            below essentially repeats the "linearization" functionality of the first part. The array here
+            is just a String because we are pulling courseCodes only from the registrations[] hashmap.
+            The array is initialized to [courseCount] because it is unlikely that a student would be signed
+            up for more courses than those available. It is expected that we will not fill this array, so
+            we'll have to trim it later, before sorting it -- otherwise there will be many NULL courses.
+             */
             int thisStudentCoursesIndex = 0;
             String[] coursesForThisStudent = new String[courseCount];
             for ( int bucket = 0; bucket < registrations.length; bucket++) {
-                // System.out.printf("\n*** Scanning registration bucket %d for student id %s\n", bucket, s.getStudentID());
                 Registration r = registrations[bucket];
                 while (r != null) {
-                    // System.out.printf("***\tLooking at transaction (%s, %s).\n", r.getStudentID(), r.getCourseCode());
                     if (r.getStudentID().equals(s.getStudentID())) {
-                        // System.out.printf("***\t It's a MATCH!\n");
                         coursesForThisStudent[thisStudentCoursesIndex] = r.getCourseCode();
                         thisStudentCoursesIndex++;
                     }
-                    r = r.next();
+                    r = r.next(); // .next() ??? Yes, see class Registration for details.
                 }
 
             }
-            // System.out.printf("*** Wrap-up for %s ... found %d course registrations\n\n", s.getStudentID(), thisStudentCoursesIndex);
-            // Resize the array of courses for this student:
+            // Resize the array of courses for this student to the number of courses found (which is
+            // the last value of thisStudentCoursesIndex
             String sortedCourses[] = new String[thisStudentCoursesIndex];
             for (int i=0; i < thisStudentCoursesIndex; i++) {
                 sortedCourses[i] = coursesForThisStudent[i];
             }
-            // System.out.printf("*** Found %d courses for %s\n", sortedCourses.length, s.getStudentName());
+
+            // Now we can sor course codes alphabetically
             Arrays.sort(sortedCourses);
+
+            /*
+            Third part:
+            Go through the course codes for this student, pull the matching course title from hashmap courses[],
+            complete the output string, and print it.
+             */
             if (sortedCourses.length > 0) {
+                // Formatting for first course is always different because it's printed next to student name.
                 String registeredCourseName = lookUpCourse(sortedCourses[0]);
-                reportBlock += String.format("%s %s\n", sortedCourses[0], registeredCourseName);
+                outputForThisStudent += String.format("%s %s\n", sortedCourses[0], registeredCourseName);
                 if (sortedCourses.length > 1) {
+                    // Subsequent courses require approapriate spacing provided by longestIDLength+longestNameLength
                     for (int courseIndex = 1; courseIndex < sortedCourses.length; courseIndex++) {
                         registeredCourseName = lookUpCourse(sortedCourses[courseIndex]);
-                        reportBlock += String.format("%s %s %s", SPACE.repeat(longestIDLength + longestNameLength + 2), sortedCourses[courseIndex], registeredCourseName);
+                        outputForThisStudent += String.format("%s %s %s", SPACE.repeat(longestIDLength + longestNameLength + 2), sortedCourses[courseIndex], registeredCourseName);
                     }
                 }
+            } else { // No courses ...
+                outputForThisStudent += String.format("%s", "No courses found");
             }
-            reportBlock += String.format("\n");
-            System.out.println(reportBlock);
+
+            // Print it!
+            outputForThisStudent += String.format("\n");
+            System.out.println(outputForThisStudent);
         }
     } // method perStudentReport
 

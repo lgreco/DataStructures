@@ -7,6 +7,7 @@ public class Driver {
         demo.createNewStudentRecord("Arthur Hastings");
         demo.createNewStudentRecord("Felicity Lemon");
         demo.createNewStudentRecord("Ariadne Oliver");
+        demo.createNewStudentRecord("Leo Irakliotis");
 
         demo.createNewCourseRecord("COMP271","Data Structures");
         demo.createNewCourseRecord("COMP163","Discrete Structures");
