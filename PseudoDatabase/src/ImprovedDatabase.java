@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.Arrays; // Enables .sort() calls -- too much to write our own!
 
 public class ImprovedDatabase {
 
@@ -26,7 +26,7 @@ public class ImprovedDatabase {
     Registration[] registrations = new Registration[DEFAULT_CAPACITY];
 
     /**
-     * Counts for objects stored in underying arrays
+     * Counts for objects stored in underlying arrays
      */
     private int studentCount = 0;
     private int courseCount = 0;
@@ -217,7 +217,7 @@ public class ImprovedDatabase {
         boolean found = false;
         int bucket = hashFunction(courseTitle,courses.length);
         Course c = courses[bucket];
-        while (!found & c != null) {
+        while (!found && c != null) {
             if (c.getCourseTitle().equals(courseTitle)) {
                 courseCode = c.getCourseCode();
                 found = true;
