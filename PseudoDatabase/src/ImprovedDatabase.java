@@ -69,7 +69,6 @@ public class ImprovedDatabase {
         return Math.abs(key.hashCode()) % base;
     } // method hashFunction
 
-
     /**
      * Creates a new record for a student whose name is not alreay in the
      * database; if a student with same name exists, method does not create
@@ -125,7 +124,6 @@ public class ImprovedDatabase {
         }
         return found;
     } // method studentExists
-
 
     /**
      * Create a new student record without checking if name exists
@@ -253,8 +251,6 @@ public class ImprovedDatabase {
         }
         return courseTitle;
     } // method obtainCourseTitle
-
-
 
     /**
      * Checks if a registration for a given (student, course) exists
