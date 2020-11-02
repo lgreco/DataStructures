@@ -179,7 +179,7 @@ public class ImprovedDatabase {
     public void courseRegistration(String studentName, String courseTitle) {
         if (studentExists(studentName) && courseExists(courseTitle)) {
             String studentID = lookUpStudent(studentName);
-            String courseCode = lookUpCourse(courseTitle);
+            String courseCode = obtainCourseCode(courseTitle);
             if (!registrationExists(studentID,courseCode)) {
                 registrationCount++;
                 int bucket = hashFunction(studentID+courseCode, registrations.length);
@@ -214,7 +214,7 @@ public class ImprovedDatabase {
      * @param courseTitle
      * @return
      */
-    private String lookUpCourse(String courseTitle) {
+    private String obtainCourseCode(String courseTitle) {
         String courseCode = "NOT FOUND";
         boolean found = false;
         int bucket = hashFunction(courseTitle,courses.length);
@@ -228,7 +228,33 @@ public class ImprovedDatabase {
             }
         }
         return courseCode;
-    } // method lookUpCourse
+    } // method obtainCourseCode
+
+    /**
+     * Obtains a course's title (search by code)
+     * @param courseCode
+     * @return
+     */
+    private String obtainCourseTitle(String courseCode) {
+        String courseTitle = "NOT FOUND";
+        boolean found = false;
+        int bucket = 0;
+        while (!found && bucket < courses.length) {
+            Course c = courses[bucket];
+            while (!found && c != null) {
+                if (c.getCourseCode().equals(courseCode)) {
+                    courseTitle = c.getCourseTitle();
+                    found = true;
+                } else {
+                    c = c.next();
+                }
+            }
+            bucket++;
+        }
+        return courseTitle;
+    } // method obtainCourseTitle
+
+
 
     /**
      * Checks if a registration for a given (student, course) exists
@@ -357,14 +383,14 @@ public class ImprovedDatabase {
             Go through the course codes for this student, pull the matching course title from hashmap courses[],
             complete the output string, and print it.
              */
-            if (sortedCourses.length > 0) {
+            if (sortedCourses.length > 0) { // If length == 0, no courses
                 // Formatting for first course is always different because it's printed next to student name.
-                String registeredCourseName = lookUpCourse(sortedCourses[0]);
+                String registeredCourseName = obtainCourseTitle(sortedCourses[0]);
                 outputForThisStudent += String.format("%s %s\n", sortedCourses[0], registeredCourseName);
                 if (sortedCourses.length > 1) {
-                    // Subsequent courses require approapriate spacing provided by longestIDLength+longestNameLength
+                    // Subsequent courses require appropriate spacing provided by longestIDLength+longestNameLength
                     for (int courseIndex = 1; courseIndex < sortedCourses.length; courseIndex++) {
-                        registeredCourseName = lookUpCourse(sortedCourses[courseIndex]);
+                        registeredCourseName = obtainCourseTitle(sortedCourses[courseIndex]);
                         outputForThisStudent += String.format("%s %s %s", SPACE.repeat(longestIDLength + longestNameLength + 2), sortedCourses[courseIndex], registeredCourseName);
                     }
                 }
@@ -377,5 +403,4 @@ public class ImprovedDatabase {
             System.out.println(outputForThisStudent);
         }
     } // method perStudentReport
-
-}
+} // class ImprovedDatabase
