@@ -20,16 +20,20 @@ public class Course implements Comparable<Course>{
         return courseCode + " " + courseTitle;
     }
 
+    /** Accessor for courseTitle */
     public String getCourseTitle(){
         return courseTitle;
     }
 
+    /** Accessor for courseCode */
     public String getCourseCode() {
         return courseCode;
     }
 
     /**
-     * Accessor for field next
+     * Accessor for field next. It is necessary because all class fields are
+     * private and access to .next is essential when traversing a linked list
+     * of objects from this class.
      * @return next Courae
      */
     public Course next() {

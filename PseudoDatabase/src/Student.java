@@ -23,18 +23,25 @@ public class Student implements Comparable<Student>{
 
     /**
      * Accessor for student's name
-     * @return studentName
+     * @return String with studentName
      */
     public String getStudentName() {
         return studentName;
     }
 
+    /**
+     * Accessor for student ID
+     * @return String with studentID
+     */
     public String getStudentID() {
         return studentID;
     }
+
     /**
-     * Accessor for next
-     * @return next Student
+     * Accessor for field next.
+     *  It is necessary because all class fields are private and access to .next
+     *  is essential when traversing a linked list of objects from this class.
+     * @return next object
      */
     public Student next() {
         return next;

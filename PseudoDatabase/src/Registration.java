@@ -21,12 +21,22 @@ public class Registration {
         this.next = next;
     }
 
+    /** Accessor for courseCode */
     public String getCourseCode() {
         return courseCode;
     }
+
+    /** Accessor for studentID */
     public String getStudentID() {
         return studentID;
     }
+
+    /**
+     * Accessor for field next.
+     *  It is necessary because all class fields are private and access to .next
+     *  is essential when traversing a linked list of objects from this class.
+     * @return next object
+     */
     public Registration next() {
         return next;
     }
