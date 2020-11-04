@@ -85,6 +85,7 @@ public class ImprovedDatabase {
             String newStudentID = generateStudentID();
             // hash this newStudent into array students[]
             int bucket = hashFunction(newStudentName, students.length);
+            // add newStudent to the front of the linked list (constant time insertion)
             students[bucket] = new Student(newStudentID, newStudentName, students[bucket]);
         }
         return success;
@@ -133,6 +134,7 @@ public class ImprovedDatabase {
         studentCount++;
         // hash this newStudent into array students[]
         int bucket = hashFunction(newStudentName, students.length);
+        // add newStudent to the front of the linked list (constant time insertion)
         students[bucket] = new Student(newStudentID, newStudentName, students[bucket]);
     } // method forceNewStudentRecord
 
@@ -166,11 +168,14 @@ public class ImprovedDatabase {
     public void createNewCourseRecord(String courseCode, String courseTitle) {
         courseCount++;
         int bucket = hashFunction(courseTitle, courses.length);
+        // add new course to the front of the linked list (constant time insertion)
         courses[bucket] = new Course(courseCode, courseTitle, courses[bucket]);
     } // method createNewCourseRecord
 
     /**
-     * Registers a student (by name) for a course (by title)
+     * Registers a student (by name) for a course (by title). Registration transaction comprises
+     * the studentID and the courseCode. The transaction is hashed into hashmap registrations
+     * using the hashcode of the concatenation of studentID and courseCode.
      * @param studentName
      * @param courseTitle
      */
@@ -181,6 +186,7 @@ public class ImprovedDatabase {
             if (!registrationExists(studentID,courseCode)) {
                 registrationCount++;
                 int bucket = hashFunction(studentID+courseCode, registrations.length);
+                // add registration to the front of the linked list (constant time insertion)
                 registrations[bucket] = new Registration(courseCode, studentID, registrations[bucket]);
             }
         }
