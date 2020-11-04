@@ -29,4 +29,7 @@ public class Airplane {
         this.passengers = passengers;
     }
 
+    public String getManufacturer() {
+        return manufacturer;
+    }
 }

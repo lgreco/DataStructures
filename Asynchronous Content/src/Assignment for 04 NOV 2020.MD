@@ -47,9 +47,9 @@ You may [read more about `enum` on the Java documentation site](https://docs.ora
 
 ## Back to the Airplane class now.
 
-Notice that the class has a single constructor, and a fully loaded at that. For brevity, I have ommitted the various `get` methods but you can auto-generate them in your IDE (from IntelliJ's menu: Code .. Generate). Instantiatig Aircraft objects using such a long constructor can be tricky: you have to remember, which argument goes were. And when you don't need a field, you must provide a `null` or a `0` (as would be the case with a glider, an airplane with no engine and, therefore, no fuel requirements).
+Notice that the class has a single constructor, and a fully loaded at that. For brevity, I have omitted the various `get` methods, except one. You can auto-generate the remaining in your IDE (from IntelliJ's menu: Code .. Generate). Instantiating Aircraft objects using such a long constructor can be tricky: you have to remember, which argument goes were. When you don't need a field, you must provide a `null` or a `0` (as would be the case with a glider, an airplane with no engine and, therefore, no fuel requirements).
 
-Of course you can write a partial constructor for such airplanes, and then you may decide to write partial constructors for any combination of fields. That would be **a lot** of constructors to write. And you may end up with two or more constructors with identical signatures, which is not allowed.
+Of course, you can write a partial constructor for such airplanes, and then you may decide to write partial constructors for any combination of fields. That would be **a lot** of constructors to write. You may end up with two or more constructors with identical signatures, which is not allowed.
 
 ## Let's work around this.
 
@@ -85,7 +85,7 @@ This class should have all the fields of `Aiplane`. It should also have as many 
 ```
 
 ### Put it together
-Let's write a driver class, and call it **Hangar**. Its sole purpose is to configure 2-3 airplanes by calling `AirplaneBuilder` methods.
+Let's write a driver class, and call it **Hangar**. Its sole purpose is to configure airplanes by calling `AirplaneBuilder` methods. I am showing an example below, building a Cessna 172 (C172) without populating every field in the class.
 
 ```java
 public class Hangar { 
@@ -99,6 +99,7 @@ public class Hangar {
         Hangar ourHangar = new Hangar();
         AirplaneBuilder builder = new AirplaneBuilder();
         ourHangar.C172(builder);
+        Airplane mySkyhawk = builder.fetch();
     }
 }
 ```
