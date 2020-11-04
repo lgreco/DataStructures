@@ -104,4 +104,4 @@ public class Hangar {
 ```
 
 ### What have you done?
-Describe what you think you have done, **without** using the word "pattern".
+Describe what you think you have done, **without** using the word "pattern"!
