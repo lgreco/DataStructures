@@ -100,6 +100,8 @@ public class Hangar {
         AirplaneBuilder builder = new AirplaneBuilder();
         ourHangar.C172(builder);
         Airplane mySkyhawk = builder.fetch();
+        String m = mySkyhawk.getManufacturer();
+        System.out.println("Can you explain this value for the airplanes manufacturer? "+m);
     }
 }
 ```
