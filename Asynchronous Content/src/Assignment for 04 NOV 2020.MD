@@ -74,7 +74,7 @@ public class AirplaneBuilder implements Builder {
     ...
 }
 ```
-This class should have all the fields of `Aiplane`. It should also have as many methods as those of the interface it implements, *plus one more!* Add a method to fetch a **new** Airplane, in the `AirplaneBuilder` class, like so:
+This class should have all the fields of `Aiplane`. It should also have as many methods as those of the interface it implements, *plus one more!* Add a method to fetch a **new** Airplane, in the `AirplaneBuilder` class by invoking the sole and full constructor, like so:
 
 ```java
     public Airplane fetch() {
