@@ -19,6 +19,7 @@ public class EnumDemo {
                 break;
             case AUTUMN:
                 System.out.println("Autumn is the best season");
+                break;
         }
     }
 
