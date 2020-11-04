@@ -11,7 +11,7 @@ public class Airplane {
     private Fuel fuel;
     private int passengers;
 
-    // full constructor
+    // full constructor only
     public Airplane(String tailNumber, String manufacturer,
                     Wings wings, Landing gear, boolean tailWheel,
                     int engines, PowerPlant powerPlant, int powerPerEngine,

@@ -1,3 +1,3 @@
 public enum Wings {
-    LOW, HIGH, BIPLANE
+    LOW, HIGH, BIPLANE, SWEPT
 }
