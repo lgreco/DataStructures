@@ -1,3 +1,6 @@
+/**
+ * A simple Airplane concept, with "only" ten fields.
+ */
 public class Airplane {
 
     private String tailNumber;
@@ -29,6 +32,7 @@ public class Airplane {
         this.passengers = passengers;
     }
 
+    // Sample accessor
     public String getManufacturer() {
         return manufacturer;
     }

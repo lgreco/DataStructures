@@ -1,3 +1,7 @@
+/**
+ * Interface based on the structure (fields) of class Airplane.
+ * The interface specifies one mutator for each field.
+ */
 public interface Builder {
 
     void setTailNumber(String tailNumber);
