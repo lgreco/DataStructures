@@ -8,7 +8,7 @@ public enum Season {
 }
 ```
 
-Enumerated content can be access with the dot operator, e.g.,
+Enumerated content can be accessed with the dot operator, e.g.,
 ```java
 Season myFavoriteTimeOfTheYear = Season.AUTUMN
 ```
