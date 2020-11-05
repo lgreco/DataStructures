@@ -28,14 +28,14 @@ public class EnumDemo {
                  System.out.println("Winter is lovely.");
                  break;
             case SPRING:
-                 System.out.println("Spring is nice");
+                 System.out.println("Spring is nice.");
                  break;
             case SUMMER:
-                 System.out.println("Summer is meh");
+                 System.out.println("Summer is meh.");
                  break;
             case AUTUMN:
                 System.out.println("Autumn is the best season");
-                break;
+                break; // Seriously? Seriously!
         }
     }
 
