@@ -145,16 +145,17 @@ public class Gazillion {
      *    RecursiveMultiplication:
      *     Input: x, y with N digits (N is a power of 2)
      *    Output: the product of x and y as a Gazillion object
+     *      Note: ^ is not the correct way for exponentiation in Java!!!
      *
      *    if ( N==1 ):
      *       return new Gazillion(Integer.toString(x[0]*y[0])
      *    else:
      *      a, b <--- first and second halves of x (both are Gazillion objects)
      *      c, d <--- first and second halves of y (both are Gazillion objects)
-     *      ac <--- RecursiveMultiplication(a,c);
-     *      ad <--- RecursiveMultiplication(a,d);
-     *      bc <--- RecursiveMultiplication(b,c);
-     *      bd <--- RecursiveMultiplication(b,d);
+     *      ac <--- RecursiveMultiplication(a,c);   //---------------------------//
+     *      ad <--- RecursiveMultiplication(a,d);   //  REMEMBER: ALL THESE ARE  //
+     *      bc <--- RecursiveMultiplication(b,c);   //  GAZILLION OBJECTS        //
+     *      bd <--- RecursiveMultiplication(b,d);   //---------------------------//
      *      return (as Gazillion object) 10^N * ac + 10^(N/2) * (ad+bc) + bd
      *
      *  Notice that for very large values of N (e.g., N=100), the quantities 10^N (ten to the
@@ -162,6 +163,18 @@ public class Gazillion {
      *  to express them as Gazillion objects. You may do so, or you may simply pad the underlying
      *  ArrayLists with the necessary number of 0s.
      *
+     *  Notice also that the expression in the recursive return involves Gazillion objects
+     *
+     *    10^N * ac + 10^(N/2) * (ad+bc) + bd
+     *
+     *  Each operand above is a Gazillion object:
+     *    10^N * ac
+     *    10^(N/2) * (ad+bc)
+     *    bd
+     *  and so are the operands in (ad+bc).
+     *
+     *  In other words, every "+" in the return expression corresponds to a call to
+     *  method add.
      *
      * @param x Gazillion operand
      * @param y Gazillion operand

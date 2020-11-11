@@ -51,16 +51,24 @@ int recursiveMultiplication(int x, int x):
     return powerOfTen*powerOfTen*ac + powerOfTen*(ad+bc) + bd 
 ```
 
-Karatsuba's algorithm achieves the same results but with only 3 instead of 4 recursive calls. Anatoly Karatsuba observed that once you have the quantities `ac` and `bd` calculated, you need one more recursive call to obtain the value of sum `ad+bc`. Specifically, asked if there is a quantity `pq` such that: 
+Karatsuba's algorithm achieves the same results but with only 3 instead of 4 recursive calls. Anatoly Karatsuba observed that once you have the quantities `ac` and `bd` calculated, you need one more recursive call to obtain the value of sum `ad+bc`. Specifically, he looked if there is a quantity `pq` such that: 
 ```
 ad + bc = pq - ac - bd
+-------   --   --   --
+      |    |    |    |
+      |    |    |    +---> already computed
+      |    |    +--------> already computed too
+      |    +-------------> unknown quantity
+      +------------------> two recursive calls, one for ad
+                           and one for bc, that we would like
+                           to substitute with one if we can!
 ```
-and further such that it can be obtained with one recursive multiplication. From the equation above, we can solve for `pq`:
+which can be obtained with only one more recursive multiplication. From the equation above, we can solve for `pq`:
 
 ```
 pq = a*d + b*c + a*c + b*d // writing variables as products 
-   = a*(c+d) + b*(c+d)     // for clarity to illustrate the
-   = (a+b)*(c+d)           // factoring leading to pq
+   = a*(c+d) + b*(c+d)     // for clarity, to illustrate the
+   = (a+b)*(c+d)           // factoring leading to one multiplication!
 ```
 which is the product of two sums, and thus needs one recursive multiplication call:
 
