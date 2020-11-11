@@ -24,3 +24,14 @@ Modify the method to print a Gazillion object more realistically. Right now the 
 for a Gazillion object with the number `345611`. Your improvement should print just numbers, using commas to separate 1000s, e.g.,
 
 `"345,611"`
+
+## Karatsuba algorithm 
+
+The recursive algorithm we reviewed in class, takes two large numbers, x and y, each with N digits, cuts them in half, and works with those halves.
+
+```
+ Input: integers x, y; each N digits long; N is power of 2
+Output: product of x, y
+
+int RecursiveMultiplication(int x, int x):
+```

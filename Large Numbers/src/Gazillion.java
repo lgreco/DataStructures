@@ -168,7 +168,7 @@ public class Gazillion {
      * @param y Gazillion operand
      * @return product x*y as a Gazillion object
      */
-    public Gazillion RecursiveMultiplication(Gazillion x, Gazillion y) {
+    public Gazillion recursiveMultiplication(Gazillion x, Gazillion y) {
         Gazillion product = null;
         // work you code magic here!
         return product;
