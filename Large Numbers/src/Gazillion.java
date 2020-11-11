@@ -137,7 +137,7 @@ public class Gazillion {
      * x and y, representing numbers written as:
      *
      *      x = 10^N * a + b
-     *      y = 10^N * c + b
+     *      y = 10^N * c + d
      *
      * where N is an int primitive and correspond to the number of digits in x and y;
      * (we assume that x and y have the same number of digits),  and a, b, c, and d
