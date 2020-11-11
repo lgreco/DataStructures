@@ -7,6 +7,7 @@ Class `Gazillion` provides a simple mechanism for representing large integer num
 ## Multiply
 Complete this class by writing a method to multiply two very large integers:
 
+
 `public void multiply(Gazillion gazillion){...}`.
 
 You may want to brush up a bit on multiplication algorithms. There is an awesome multiplication algorithm written by A. Karatsuba (see PDF file in this folder). You do not need to implement this algorithm. The good old [grade school multiplication algorithm](https://en.wikipedia.org/wiki/Multiplication_algorithm#Long_multiplication) is all you need.

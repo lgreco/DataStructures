@@ -152,10 +152,10 @@ public class Gazillion {
      *    else:
      *      a, b <--- first and second halves of x (both are Gazillion objects)
      *      c, d <--- first and second halves of y (both are Gazillion objects)
-     *      ac <-- RecursiveMultiplication(a,c);
-     *      ad <-- RecursiveMultiplication(a,d);
-     *      bc <-- RecursiveMultiplication(b,c);
-     *      bd <-- RecursiveMultiplication(b,d);
+     *      ac <--- RecursiveMultiplication(a,c);
+     *      ad <--- RecursiveMultiplication(a,d);
+     *      bc <--- RecursiveMultiplication(b,c);
+     *      bd <--- RecursiveMultiplication(b,d);
      *      return (as Gazillion object) 10^N * ac + 10^(N/2) * (ad+bc) + bd
      *
      *  Notice that for very large values of N (e.g., N=100), the quantities 10^N (ten to the
