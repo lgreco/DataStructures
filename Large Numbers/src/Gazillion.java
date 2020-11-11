@@ -144,7 +144,7 @@ public class Gazillion {
      * are Gazillion objects. As discussed in class, the pseudocode is:
      *
      *    RecursiveMultiplication:
-     *     Input: x, y with N digits
+     *     Input: x, y with N digits (N is a power of 2)
      *    Output: the product of x and y as a Gazillion object
      *
      *    if ( N==1 ):
