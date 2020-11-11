@@ -160,7 +160,8 @@ public class Gazillion {
      *
      *  Notice that for very large values of N (e.g., N=100), the quantities 10^N (ten to the
      *  power N) and 10^(N/2) may be beyond Java's range for long primitives and you may have
-     *  to express them as Gazillion objects.
+     *  to express them as Gazillion objects. You may do so, or you may simply pad the underlying
+     *  ArrayLists with the necessary number of 0s.
      *
      *
      * @param x Gazillion operand
