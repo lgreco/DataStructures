@@ -15,23 +15,22 @@ public class Gazillion {
      * @param s String representation of big number, e.g., s = "1234...."
      */
     public Gazillion(String s) {
-
         final char LOWEST_DIGIT = '0';
         digits = new ArrayList<Integer>(s.length()); // Initialize class field to size of given String
         char c;
         int digit;
         boolean numericDigitDetected = false; // flag in case passed argument s contains no numerical digits
-
+        // Copy string contents to ArrayList
         for (int i = 0; i < s.length(); i++) {
             c = s.charAt(i); // scan passed argument s, one character at a time.
             if (Character.isDigit(c)) { // is this character a number digit?
                 digit = c - LOWEST_DIGIT; // compute its value; should be 0, 1, ..., 9
                 digits.add(digit); // add it to the digits ArrayList
                 numericDigitDetected = true; // flag that we have at least one numeric digit!
-            } // fi
-        } // rof
-
-        if (!numericDigitDetected) { // If no numeric digit found in String s, we have a problem!
+            }
+        }
+        // If no numeric digit found in String s, we have a problem!
+        if (!numericDigitDetected) {
             throw new IllegalArgumentException();
         }
     } // constructor with string parameter
