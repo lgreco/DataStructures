@@ -124,13 +124,59 @@ public class Gazillion {
      *
      */
     public void multiply(Gazillion gazillion) {
-        // your inspiring code goes here
+        int smallestSize;
+        if (digits.size() < gazillion.digits.size()) {
+            smallestSize = digits.size();
+        } else {
+            smallestSize = gazillion.digits.size();
+        }
     } // method multiply
+
+    /**
+     * A recursive implementation of the multiplication operation for two Gazillion objects
+     * x and y, representing numbers written as:
+     *
+     *      x = 10^N * a + b
+     *      y = 10^N * c + b
+     *
+     * where N is an int primitive and correspond to the number of digits in x and y;
+     * (we assume that x and y have the same number of digits),  and a, b, c, and d
+     * are Gazillion objects. As discussed in class, the pseudocode is:
+     *
+     *    RecursiveMultiplication:
+     *     Input: x, y with N and M digits respectively
+     *    Output: the product of x and y as a Gazillion object
+     *
+     *    if ( N==1 ):
+     *       return new Gazillion(Integer.toString(x[0]*y[0])
+     *    else:
+     *      a, b <--- first and second halves of x (both are Gazillion objects)
+     *      c, d <--- first and second halves of y (both are Gazillion objects)
+     *      ac <-- RecursiveMultiplication(a,c);
+     *      ad <-- RecursiveMultiplication(a,d);
+     *      bc <-- RecursiveMultiplication(b,c);
+     *      bd <-- RecursiveMultiplication(b,d);
+     *      return (as Gazillion object) 10^N * ac + 10^(N/2) * (ad+bc) + bd
+     *
+     *  Notice that for very large values of N (e.g., N=100), the quantities 10^N (ten to the
+     *  power N) and 10^(N/2) may be beyond Java's range for long primitives and you may have
+     *  to express them as Gazillion objects.
+     *
+     *
+     * @param x Gazillion operand
+     * @param y Gazillion operand
+     * @return product x*y as a Gazillion object
+     */
+    public Gazillion RecursiveMultiplication(Gazillion x, Gazillion y) {
+        Gazillion product = null;
+        // work you code magic here!
+        return product;
+    } // method RecursiveMultiplication
 
     /** Driver */
     public static void main(String[] args) {
-        Gazillion a = new Gazillion("998");
-        Gazillion b = new Gazillion("4");
+        Gazillion a = new Gazillion("9798298283984209823944820970792685297384298249828402");
+        Gazillion b = new Gazillion("2424245242988922424339283493752037827348728782472787");
         a.add(b);
         System.out.println(a.toString());
     }
