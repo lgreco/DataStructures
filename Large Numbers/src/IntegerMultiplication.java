@@ -1,6 +1,7 @@
 /**
  * Demo class to illustrate 4- and 3-call recursive methods for integer multiplication.
- * The 3-call recursion is based on Karatsuba's algorithm.
+ * The 3-call recursion is based on Karatsuba's algorithm. This is based on the lab
+ * session of 11/11/2020.
  */
 public class IntegerMultiplication {
 
