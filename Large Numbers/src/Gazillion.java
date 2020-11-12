@@ -47,7 +47,7 @@ public class Gazillion {
      * Method to add two big integers. Usage:
      *   Gazillion a = new Gazillion("123...");
      *   Gazillion b = new Gazillion("987...");
-     *   a.add(b); // a now is assigned to a+b
+     *   a.add(b); // a+b now assigned to a
      * From basic arithmetic, remember that for single digit numbers x and y:
      *   sum(x,y) = (x+y) % BASE
      *   carry(x,y) = (x+y) // BASE, where // is an integer division
