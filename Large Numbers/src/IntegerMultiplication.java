@@ -63,7 +63,7 @@ public class IntegerMultiplication {
     public static void main(String[] args) {
         int x = 5678;
         int y = 1234;
-        System.out.printf("\n\nGrade school technique: %d times %d is %d", x,y, RecursiveMultiplication(x,y));
-        System.out.printf("\n\n   Karatsuba technique: %d times %d is %d\n\n", x,y, RecursiveKaratsuba(x,y));
+        System.out.printf("\n\n Standard technique: %d times %d is %d", x,y, RecursiveMultiplication(x,y));
+        System.out.printf("\n\nKaratsuba technique: %d times %d is %d\n\n", x,y, RecursiveKaratsuba(x,y));
     }
 }
