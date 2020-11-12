@@ -99,6 +99,8 @@ public class Gazillion {
     } // method least
 
     /**
+     * BRUTE FORCE MULTIPLICATION BASED ON GRADE SCHOOL TECHNIQUE
+     *
      * Multiply this number with passed gazillion. Usage:
      *   Gazillion a = new Gazillion(" ... ");
      *   Gazillion b = new Gazillion(" ... ");
@@ -132,6 +134,8 @@ public class Gazillion {
     } // method multiply
 
     /**
+     * STANDARD RECURSIVE MULTIPLICATION
+     *
      * A recursive implementation of the multiplication operation for two Gazillion objects
      * x and y, representing numbers written as:
      *
