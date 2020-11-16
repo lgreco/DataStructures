@@ -13,11 +13,15 @@ public class IntegerMultiplication {
      */
     public static int RecursiveMultiplication(int x, int y) {
         int product;
-        int n = 1 + (int) Math.log10((double) x); // number of digits
+        int n = 1 + (int) Math.log10( x); // number of digits
+        System.out.printf("\nn from log operation: %d\n",n);
         if ( n==1 ) { // base case
             product = x*y;
         } else { // recursive calls
             int powerOf10 = (int) Math.pow(10, n/2); // compute once, use multiple times
+            System.out.println(n/2);
+            System.out.println(Math.pow(10, n/2));
+            System.out.println(powerOf10);
             int a = x / powerOf10; // left half of x
             int b = x - a*powerOf10; // right half of x
             int c = y / powerOf10; // left half of y
@@ -61,8 +65,8 @@ public class IntegerMultiplication {
 
     /** Quick test */
     public static void main(String[] args) {
-        int x = 5678;
-        int y = 1234;
+        int x = 510;
+        int y = 129;
         System.out.printf("\n\n Standard technique: %d times %d is %d", x,y, RecursiveMultiplication(x,y));
         System.out.printf("\n\nKaratsuba technique: %d times %d is %d\n\n", x,y, RecursiveKaratsuba(x,y));
     }
