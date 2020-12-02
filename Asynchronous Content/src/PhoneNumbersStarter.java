@@ -80,7 +80,7 @@ public class PhoneNumbersStarter
                     System.out.printf("\n*** %s is in position [%d] and you may proceed with changing the number ***\n",personLookingFor,i);
                 }
             }
-        } while (!personLookingFor.equals(terminatingString)); // terminating condition for reading data from keyboard
+        } while ( !personLookingFor.equals(terminatingString) ); // terminating condition for reading data from keyboard
         return false;
     }
 
