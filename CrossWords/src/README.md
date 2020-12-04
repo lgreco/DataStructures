@@ -47,6 +47,12 @@ Down:
 ## A driver method
 In addition to the methods `importWords`, `buildCrossword`, and `showCrossword`, write a driver method to demonstrate your system. The driver method should be named **driver**, be void, and return no values. It should provide interactivity with the user, as follows:
 ```java
+/**
+ * Class to test COMP 271 final exam code.
+ * The class expects that the words.txt file resides
+ * either at @lgreco's GH repository or in the ./
+ * folder (ie same folder as this java file).
+ */
 public void driver() {
     boolean keepRunning = true;
     while (keepRunning) {
