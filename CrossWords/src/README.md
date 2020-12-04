@@ -8,7 +8,13 @@ Functionally, your **class Crossword** should produce crosswords with N rows and
 
 Here's what you should include in your **class Crossword.**
 
- * **importWords:** a method to read a dictionary file either from local storage or from a website. This is a text file with english words listed alphabetically. One obvious choice is to use an array or an ArrayList for the words imported from the dictionary. A *better* choice would be to use a hash map from the Java Collections Framework to store the imported words according to their length. A sample text file with about 450,000 words is available here (`words.txt`).
+ * **importWords:** a method to read a dictionary file either from local storage or from a website. 
+   
+   * This is a text file with english words listed alphabetically.
+   * One obvious choice is to use an array or an ArrayList for the words imported from the dictionary.
+   * A *better* choice would be to use a hash map from the Java Collections Framework to store the imported words according to their length.
+   * A sample text file with about 450,000 words is available here (`words.txt`).
+   * If your code reads the text file as a URL, use a link to this repository (remember to look for the link to the raw file). If your code reads the file from local storage, it should be read from the same folder as your .java file.
 
 
 * **buildCrossword:** a method to build a puzzle, by selecting an imported word at random and placing it in the middle row of the puzzle, so that its middle letter is at the center column of the puzzle. The most critical requirements here are:
