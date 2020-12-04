@@ -120,4 +120,4 @@ If your code fails to compile or to execute with the class above, it will not be
 
 ## Technical support
 
-I will maintain Student Hours (office hours) during the week of 12/7. Emails with the course code (COMP 271) will be answered faster when possible. You must email me your code at least an hour prior to any appointment during the week of 12/7 (or, if you want to meet for any other reason, please email me saying so). When sending an email with a question about the final, attach your code (actual java file; no screenshots).
+I will maintain Student Hours (office hours) during the week of 12/7. Emails with the course code (COMP 271) in the subject header will be answered faster when possible. You must email me your code at least an hour prior to any appointment during the week of 12/7 (or, if you want to meet for any other reason, please email me saying so). When sending an email with a question about the final, attach your code (actual java file; no screenshots).
