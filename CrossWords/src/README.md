@@ -23,6 +23,7 @@ Here's what you should include in your **class Crossword.**
   * Words cannot be repeated in a puzzle.
   * Every word in the puzzle must be a *legal* word, i.e., a word imported from the provided file.
   * No word with less than 2 letters is allowed.
+  * Every word in the puzzle must be selected at random. As you build the puzzle you will begin to be limited by the size of words you can select, but always select them at random.
   
 
 * **showCrossword:** a method to display the puzzle, followed by its clues: first the *across* clues and then the *down* clues. The method should also provide a summary for the puzzle: its size (e.g., 10 lines by 15 columns), the number of words it contains, and the percentage of squares that are blocked.  For now, you can use the word itself as its clue, as shown below. Notice that the letters in the puzzle grid are shown as upper case only, while in the cues they appear in mixed case. Also notice that blocked cells are marked with `#`'s
