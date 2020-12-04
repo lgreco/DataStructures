@@ -124,6 +124,6 @@ I will maintain Student Hours (office hours) during the week of 12/7. Emails wit
 
 ## You. Can. Do. This.
 
-You withstood uniquely memorable circumstances to enrich your skills and further your education. You defied a pandemic and the gloom it brought, and you plowed ahead with your endeavors for learning, satisfying your curiosity, discovering a few things about data structures and in doing so you also inspired me to be a better teacher. 
+You withstood uniquely memorable circumstances to enrich your skills and further your education. You defied a pandemic, and the gloom it brought, and you plowed ahead with your endeavors for learning, satisfying your curiosity, discovering a few things about data structures and in doing so, you also inspired me to be a better teacher. 
 
 You can *easily* do this assignment!
