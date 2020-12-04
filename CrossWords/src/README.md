@@ -1,7 +1,8 @@
 # The crossword puzzle as a data structure
 
 For this **final assignment** we'll be looking at the [classic crossword puzzle](https://en.wikipedia.org/wiki/Crossword). The assignment can be simply stated as follows:
-<center>Write a class to produce crossword puzzles</center>
+
+*Write a class to produce crossword puzzles.*
 
 Functionally, your **class Crossword** should produce crosswords with N rows and M columns.
 
