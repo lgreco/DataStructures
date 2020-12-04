@@ -92,6 +92,7 @@ public void driver() {
 * It is up to you to determine the return type of the methods above, as well as any parameters that you wish to pass to them.
 * Your code must be clean, neat, and well documented.
 * You should not be asking how to deal with puzzles that have an even number of columns, or where is the middle of a word with an even number of letters. Make a judgement call and document your choice in comments.
+* The instructor reserves the right to update these ground rules up to 48 hours prior to the deadline assigment.
 
 ## Test class
 
