@@ -85,7 +85,7 @@ public void driver() {
 
 ## BONUS
 
-**obtainCues:** a method to ask users to type cues for every word in the puzzle, then save the words and their corresponding cues in a local text file, one pair per line, with word and cue separated by a comma. This should be a cumulative file, i.e., a user should be asked for a word definition only if that word is not in the file already. Name the file `crosswords_dictionary.txt`. Be mindful that the file may not exist the first time you run the program.
+**obtainCues:** a method to ask users to type clues for every word in the puzzle, then save the words and their corresponding cues in a local text file, one pair per line, with word and cue separated by a comma. This should be a cumulative file, i.e., a user should be asked for a word definition only if that word is not in the file already. Name the file `crosswords_dictionary.txt`. Be mindful that the file may not exist the first time you run the program.
 
 
 ## Ground rules
@@ -129,3 +129,5 @@ I will maintain Student Hours (office hours) during the week of 12/7. Emails wit
 You withstood uniquely memorable circumstances to enrich your skills and further your education. You defied a pandemic, and the gloom it brought, and you plowed ahead with your endeavors for learning, satisfying your curiosity, discovering a few things about data structures and in doing so, you also inspired me to be a better teacher. 
 
 You can *easily* do this assignment!
+
+## Clarifications
