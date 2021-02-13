@@ -40,7 +40,7 @@ public class ArraysAreFun {
         }
         System.out.printf("\n\nThe min temperature recorded is %.2f and the max is %.2f", minTemperature,maxTemperature);
 
-        RobertString rs = new RobertString();
+        pdRobertString rs = new RobertString();
         for (char ccc:rs.value) {
             System.out.println(ccc);
         }
