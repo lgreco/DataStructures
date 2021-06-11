@@ -31,10 +31,10 @@ public class Plots {
     public static double yStepping; // y-stepping --- do we really need it?
     public static int rows, columns; // the "resolution" of our plot
     public static String plotCharacter = "*", // character to use for plot
-                         horizontalAxis = "-", // character for horizontal line
-                         verticalAxis = "|", // character for vertical line
-                         intersection = "+", // character for h/v crossings
-                         spaceCharacter = " "; // obvious but informative
+            horizontalAxis = "-", // character for horizontal line
+            verticalAxis = "|", // character for vertical line
+            intersection = "+", // character for h/v crossings
+            spaceCharacter = " "; // obvious but informative
 
     public static double f(double x) {
         return Math.sin(x);
@@ -104,8 +104,8 @@ public class Plots {
         each of its cells
          */
 
-        for (int i = 0; i < rows; i++) { // loop over each row
-            for (int j = 0; j < columns; j++) { // loop over each column
+        for (int j = 0; j < columns; j++) { // loop over each column (why columns first?) :-)
+            for (int i = 0; i < rows; i++) { // loop over each row
                 /*
                 WRITE SOME NICE CODE HERE!
 
