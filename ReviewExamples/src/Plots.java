@@ -105,7 +105,7 @@ public class Plots {
          */
 
         for (int j = 0; j < columns; j++) { // loop over each column (why columns first?) :-)
-            for (int i = 0; i < rows; i++) { // loop over each row
+            for (int i = 0; i < rows; i++) { // loop over each row (do we need this loop?) 
                 /*
                 WRITE SOME NICE CODE HERE!
 
