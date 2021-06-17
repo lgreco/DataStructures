@@ -11,7 +11,7 @@ public class FixedWing {
     private int operationalCeiling; // in feet
     private String manufacturer; // e.g., Cessna
     private String modelCode; // e.g., C172,    P28A,   SF50, etc
-    private String modelName; // e.g., Skyhawk, Archer, Visio Jet
+    private String modelName; // e.g., Skyhawk, Archer, Vision Jet
     private int yearManufactured;
 
     /**
