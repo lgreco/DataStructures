@@ -50,7 +50,7 @@ public class COMP271_Flyers {
         leoFligfhtSchool[3].setModelCode("C172S");
         leoFligfhtSchool[3].setManufacturer("Cessna Aviation");
         leoFligfhtSchool[3].setYearManufactured(1986);
-
+        
         System.out.printf("\n\nFleet of aircraft after mutations.\n\n");
         for (FixedWing aircraft:leoFligfhtSchool) {
             System.out.printf("%s\n\n", aircraft.toString());
