@@ -190,7 +190,7 @@ public class Plots {
         /*
         We now traverse the screen array and determine what to place in
         each of its cells. The loop runs over columns so that we
-        compute y=f(x) once per row.
+        compute y=f(x) once.
          */
         double x = fromX; // this is where we plot from
         for (int j = 0; j < columns; j++) { // loop over each column
