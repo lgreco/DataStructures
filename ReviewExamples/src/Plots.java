@@ -58,7 +58,6 @@ public class Plots {
         toX = xt;
         rows = r;
         columns = c;
-        derive();
     } // method setUp (lazy version)
 
     /**
@@ -76,7 +75,6 @@ public class Plots {
         rows = s.nextInt();
         System.out.printf("And how many columns? ");
         columns = s.nextInt();
-        derive();
     } // method Setup
 
     /**
