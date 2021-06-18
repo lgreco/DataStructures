@@ -184,7 +184,7 @@ public class Plots {
             for (int j = 0; j < columns; j++) {
                 screen[zeroRow][j] = horizontalAxis;
             }
-        }
+        } // if y crosses 0
 
 
         /*
@@ -226,7 +226,7 @@ public class Plots {
 
     /** Driver method */
     public static void main(String[] args) {
-        setUp(0.0, 6.5, 24, 80); // quick data entry, no typing same stuff every time
+        setUp(0.0, 6.5, 24, 80); // quick (lazy) data entry, no typing same stuff every time
         derive();
         findMinMax();
         plot();
