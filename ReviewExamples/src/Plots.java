@@ -178,9 +178,10 @@ public class Plots {
          */
         if (minY < 0 && maxY > 0) { // zero cross confirmed
             // zeroRow corresponds to y=0
-            int zeroRow = (int) Math.floor((rows-1) * (maxY)/(maxY-minY));
+            double y = 0; // superfluous but illustrative
+            int zeroRow = (int) Math.floor((rows-1) * (maxY-y)/(maxY-minY));
             // go over every character in this row and add a horizontal mark
-            for (int j = 0; j <columns; j++) {
+            for (int j = 0; j < columns; j++) {
                 screen[zeroRow][j] = horizontalAxis;
             }
         }
@@ -232,5 +233,5 @@ public class Plots {
         displayPlot();
     } // method main
 
-    
+
 } // class Plot
