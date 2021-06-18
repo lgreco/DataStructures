@@ -45,6 +45,7 @@ public class Plots {
         return Math.sin(x);
     } // method (function) f
 
+
     /**
      * Lazy setUp method so that I don't have to type the same data every time
      * I run the code
@@ -59,6 +60,7 @@ public class Plots {
         rows = r;
         columns = c;
     } // method setUp (lazy version)
+
 
     /**
      * Obtain from/to values, rowXcol resolution, and
@@ -77,6 +79,7 @@ public class Plots {
         columns = s.nextInt();
     } // method Setup
 
+
     /**
      * Method that performs computations to calculate the x-step as
      * the function's min/max.
@@ -84,7 +87,6 @@ public class Plots {
     public static void derive() {
         xStepping = Math.abs(fromX - toX) / ((double) columns); // derive x stepping
     } // method derive
-
 
 
     /**
@@ -103,6 +105,7 @@ public class Plots {
             maxY = (y>maxY) ? y : maxY; // assess max
         }
     } // method findMinMax
+
 
     /**
      * The principal method of this class and the subject of this week's
@@ -206,6 +209,7 @@ public class Plots {
         }
     } // method plot
 
+
     /**
      * Display the plot contained in array screen[][]
      */
@@ -218,6 +222,7 @@ public class Plots {
         }
     } // method displayPlot
 
+
     /** Driver method */
     public static void main(String[] args) {
         setUp(0.0, 6.5, 24, 80); // quick data entry, no typing same stuff every time
@@ -227,4 +232,5 @@ public class Plots {
         displayPlot();
     } // method main
 
+    
 } // class Plot
