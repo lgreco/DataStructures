@@ -206,7 +206,7 @@ public class Plots {
              */
             int yRow = (int) Math.floor((rows-1) * (maxY-y)/(maxY-minY));
             screen[yRow][j] = plotCharacter; // plot the function at this row/column
-            x += xStepping; //step to the next x
+            x += xStepping; //step to the next x ... also int-for-loop with double variables!
         }
     } // method plot
 
