@@ -1,43 +1,58 @@
 /**
- * A class with some ... interesting techniques
+ * A class with a static method to increase, on demand, the length of
+ * a String array
  */
 public class MagicStaticArrays {
 
     /**
-     * Principal method to resize an array to a given size.
-     * @param inputArray Array to resize
-     * @param numberOfAdditionalElements Size to resize to
-     * @return Resized array
+     * Principal method to makeLonger an array to a given size. The method checks to
+     * ensure that the proposed new size is greater than the current length of
+     * the array -- there is no point making the array smaller, is there? If the
+     * requested new size is not larger, then the method automatically adds just
+     * one more element to the array.
+     *
+     * @param arrayToResize Array to lengthen
+     * @param newLength New length to makeLonger to
+     * @return Longer array
      */
-    private static String[] resize(String[] inputArray, int numberOfAdditionalElements) {
-        String temporary[] = new String[numberOfAdditionalElements];
-        for (int i = 0; i < inputArray.length; i++) {
-            temporary[i] = inputArray[i];
+    private static String[] makeLonger(String[] arrayToResize, int newLength) {
+        /*
+         If newLength is not greater than the current length of the array,
+         make sure it is, even by one element.
+         */
+        if (newLength <= arrayToResize.length) {
+            newLength = arrayToResize.length + 1; /
         }
-        return temporary;
+        // At this point newLength > .length
+        String longer[] = new String[newLength];
+        // Copy array to be resized into longer array
+        for (int i = 0; i < arrayToResize.length; i++) {
+            longer[i] = arrayToResize[i];
+        }
+        return longer;
     }
 
     /**
-     * Helper method to resize to twice existing size
-     * @param inputArray Array to resize
-     * @return Array with 2X elements
+     * Helper method, resizes automatically to twice current length
+     * @param arrayToMakeLonger Array to makeLonger
+     * @return Longer array with 2X elements
      */
-    public static String[] resize(String[] inputArray) {
-        return resize(inputArray, 2*inputArray.length);
+    public static String[] makeLonger(String[] arrayToMakeLonger) {
+        return makeLonger(arrayToMakeLonger, 2*arrayToMakeLonger.length);
     }
 
     /**
-     * Helper method to resize array to current size + specific number of eleemnts
+     * Helper method to makeLonger array to current size + specific number of elements
+     *
      * @param additionalElements How many elements to add?
-     * @param inputArray Array to resize
-     * @return Resized array with additional elements.
+     * @param arrayToMakeLonger Array to makeLonger
+     * @return Longer array with additional elements.
      */
-     public static String[] resize(int additionalElements, String[] inputArray) {
-        return resize(inputArray,inputArray.length+additionalElements);
+     public static String[] makeLonger(int additionalElements, String[] arrayToMakeLonger) {
+        return makeLonger(arrayToMakeLonger,arrayToMakeLonger.length+additionalElements);
     }
 
-
-
+    /** Driver method (aka main) **/
     public static void main(String[] args) {
         String myImaginaryFriends[] = new String[3];
         myImaginaryFriends[0] = "Frodo";
@@ -46,15 +61,7 @@ public class MagicStaticArrays {
 
         System.out.printf("\n\nThere are %d elements in your array", myImaginaryFriends.length);
 
-        /*
-        String temporary[] = new String[myImaginaryFriends.length*3];
-        for (int i = 0; i < myImaginaryFriends.length; i++) {
-            temporary[i] = myImaginaryFriends[i];
-        }
-        myImaginaryFriends = temporary;
-         */
-
-        myImaginaryFriends = resize(myImaginaryFriends);
+        myImaginaryFriends = makeLonger(myImaginaryFriends);
 
         System.out.printf("\n\nThere are %d elements in your array", myImaginaryFriends.length);
 
@@ -63,10 +70,9 @@ public class MagicStaticArrays {
         myImaginaryFriends[4] = "Tom";
         myImaginaryFriends[5] = "Pipin";
 
-        myImaginaryFriends = resize(myImaginaryFriends);
+        myImaginaryFriends = makeLonger(myImaginaryFriends);
 
         System.out.printf("\n\nThere are %d elements in your array", myImaginaryFriends.length);
-
 
         myImaginaryFriends[6] = "Gandalf";
 
