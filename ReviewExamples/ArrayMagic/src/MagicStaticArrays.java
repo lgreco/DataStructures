@@ -21,7 +21,7 @@ public class MagicStaticArrays {
          make sure it is, even by one element.
          */
         if (newLength <= arrayToResize.length) {
-            newLength = arrayToResize.length + 1; /
+            newLength = arrayToResize.length + 1;
         }
         // At this point newLength > .length
         String longer[] = new String[newLength];
@@ -76,5 +76,5 @@ public class MagicStaticArrays {
 
         myImaginaryFriends[6] = "Gandalf";
 
-    }
+    } // method main
 }
