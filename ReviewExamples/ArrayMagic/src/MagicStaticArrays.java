@@ -30,7 +30,7 @@ public class MagicStaticArrays {
             longer[i] = arrayToResize[i];
         }
         return longer;
-    }
+    } // method makeLonger
 
     /**
      * Helper method, resizes automatically to twice current length
@@ -39,7 +39,7 @@ public class MagicStaticArrays {
      */
     public static String[] makeLonger(String[] arrayToMakeLonger) {
         return makeLonger(arrayToMakeLonger, 2*arrayToMakeLonger.length);
-    }
+    } // method makeLonger
 
     /**
      * Helper method to makeLonger array to current size + specific number of elements
@@ -50,7 +50,7 @@ public class MagicStaticArrays {
      */
      public static String[] makeLonger(int additionalElements, String[] arrayToMakeLonger) {
         return makeLonger(arrayToMakeLonger,arrayToMakeLonger.length+additionalElements);
-    }
+    } // method makeLonger
 
     /** Driver method (aka main) **/
     public static void main(String[] args) {
