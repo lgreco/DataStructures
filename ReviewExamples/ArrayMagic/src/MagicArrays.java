@@ -87,6 +87,7 @@ public class MagicArrays {
                 loop without separating comma.
                  */
                 for (int i = 1; i < a.length-1; i++) {
+                    // We print a fixed number of items per line, them move to next line
                     if (itemCount > itemsPerLine ) {
                         itemCount = 0; // reset counter
                         System.out.printf("\n\t  "); // new line and spacing
@@ -96,10 +97,9 @@ public class MagicArrays {
                 }
                 // And finally print the last element of the array
                 System.out.printf("%s",a[a.length-1]);
-            }
+            } // if length>1
             System.out.printf(" }\n");
-        }
-
+        } // if length==0
     } // method printMagicArray
 
     public static void main(String[] args) {
@@ -113,7 +113,7 @@ public class MagicArrays {
         ourFirstRealDataStructure.addElement("Faramir");
         ourFirstRealDataStructure.addElement("Boromir");
         ourFirstRealDataStructure.addElement("Pipin");
-        ourFirstRealDataStructure.addElement("Leo"); 
+        ourFirstRealDataStructure.addElement("Leo");
         ourFirstRealDataStructure.addElement("Tom");
         ourFirstRealDataStructure.addElement("Gandalf");
         ourFirstRealDataStructure.addElement("Legolas");
