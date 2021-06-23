@@ -104,7 +104,7 @@ public class MagicArrays {
 
     /** Driver method */
     public static void main(String[] args) {
-        // Instantiate magic MagicArrays object
+        // Instantiate MagicArrays object
         MagicArrays magic = new MagicArrays();
         // Populate the object
         magic.addElement("Frodo"); magic.addElement("Sam"); magic.addElement("Galadriel");
