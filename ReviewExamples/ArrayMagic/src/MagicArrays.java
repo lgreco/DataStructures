@@ -102,28 +102,18 @@ public class MagicArrays {
         } // if length==0
     } // method printMagicArray
 
+    /** Driver method */
     public static void main(String[] args) {
-        MagicArrays ourFirstRealDataStructure = new MagicArrays();
-
-        ourFirstRealDataStructure.addElement("Frodo");
-        ourFirstRealDataStructure.addElement("Sam");
-        ourFirstRealDataStructure.addElement("Galadriel");
-        ourFirstRealDataStructure.addElement("Gimli");
-        ourFirstRealDataStructure.addElement("Eowyn");
-        ourFirstRealDataStructure.addElement("Faramir");
-        ourFirstRealDataStructure.addElement("Boromir");
-        ourFirstRealDataStructure.addElement("Pipin");
-        ourFirstRealDataStructure.addElement("Leo");
-        ourFirstRealDataStructure.addElement("Tom");
-        ourFirstRealDataStructure.addElement("Gandalf");
-        ourFirstRealDataStructure.addElement("Legolas");
-        ourFirstRealDataStructure.addElement("Bilbo");
-        ourFirstRealDataStructure.addElement("Denethor");
-        ourFirstRealDataStructure.addElement("Elrond");
-        ourFirstRealDataStructure.addElement("Saruman");
-        ourFirstRealDataStructure.addElement("Smeagol",5);
-
-        ourFirstRealDataStructure.printMagicArray();
-    }
-
-}
+        // Instantiate magic MagicArrays object
+        MagicArrays magic = new MagicArrays();
+        // Populate the object
+        magic.addElement("Frodo"); magic.addElement("Sam"); magic.addElement("Galadriel");
+        magic.addElement("Gimli"); magic.addElement("Eowyn"); magic.addElement("Faramir");
+        magic.addElement("Boromir"); magic.addElement("Pipin"); magic.addElement("Leo");
+        magic.addElement("Tom"); magic.addElement("Gandalf"); magic.addElement("Legolas");
+        magic.addElement("Bilbo"); magic.addElement("Denethor"); magic.addElement("Elrond");
+        magic.addElement("Saruman"); magic.addElement("Smeagol",5);
+        // Display the object
+        magic.printMagicArray();
+    } // method main
+} // class MagicArrays
