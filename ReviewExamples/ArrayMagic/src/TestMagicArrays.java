@@ -1,7 +1,7 @@
 /**
  * Testing class for the Magic Arrays assignment. The class contains just a main
  * method that instantiates MagicArrays as object named "test". The object is
- * populated with 16 elements. Then we conduct two tests of the contains()
+ * populated with elements. Then we conduct two tests of the contains()
  * method. And then we conducted three tests of the removeElement() method.
  */
 public class TestMagicArrays {
