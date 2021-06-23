@@ -7,7 +7,7 @@ public class MagicArrays {
     /** The last and currently occupied position */
     private int lastPosition = -1;
     /** Print this number of elements per line */
-    private final static int itemsPerLine = 5;
+    private final static int ITEMS_PER_LINE = 5; // FINAL VARIABLES IN UPPER CASE
 
     /**
      * Method to add an element the array, increasing length (and size) by 1
@@ -88,7 +88,7 @@ public class MagicArrays {
                  */
                 for (int i = 1; i < a.length-1; i++) {
                     // We print a fixed number of items per line, them move to next line
-                    if (itemCount > itemsPerLine ) {
+                    if (itemCount > ITEMS_PER_LINE) {
                         itemCount = 0; // reset counter
                         System.out.printf("\n\t  "); // new line and spacing
                     }
