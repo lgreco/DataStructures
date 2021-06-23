@@ -109,7 +109,7 @@ public class MagicArrays {
         ourFirstRealDataStructure.addElement("Sam");
         ourFirstRealDataStructure.addElement("Galadriel");
         ourFirstRealDataStructure.addElement("Gimli");
-        ourFirstRealDataStructure.addElement("Eowen");
+        ourFirstRealDataStructure.addElement("Eowyn");
         ourFirstRealDataStructure.addElement("Faramir");
         ourFirstRealDataStructure.addElement("Boromir");
         ourFirstRealDataStructure.addElement("Pipin");

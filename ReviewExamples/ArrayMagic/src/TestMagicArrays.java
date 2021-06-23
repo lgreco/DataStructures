@@ -11,11 +11,11 @@ public class TestMagicArrays {
         MagicArrays test = new MagicArrays();
         // Populate test object
         test.addElement("Frodo"); test.addElement("Sam"); test.addElement("Galadriel");
-        test.addElement("Gimli"); test.addElement("Eowen"); test.addElement("Faramir");
+        test.addElement("Gimli"); test.addElement("Eowyn"); test.addElement("Faramir");
         test.addElement("Boromir"); test.addElement("Pipin"); test.addElement("Leo");
         test.addElement("Tom"); test.addElement("Gandalf"); test.addElement("Legolas");
         test.addElement("Bilbo"); test.addElement("Denethor"); test.addElement("Elrond");
-        test.addElement("Saruman"); test.addElement("Smegol",4);
+        test.addElement("Saruman"); test.addElement("Smeagol",4);
 
         test.printMagicArray();
 
@@ -24,7 +24,7 @@ public class TestMagicArrays {
         System.out.printf("\n\nArray contains Thomas: %b", test.contains("Thomas"));
 
         // Test the removeElement() method
-        System.out.printf("\n\nElement at position 4 removed? %b", test.removeElement(4)); // Eowen
+        System.out.printf("\n\nElement at position 4 removed? %b", test.removeElement(4)); // Eowyn
         System.out.printf("\n\nElement Bilbo removed? %b", test.removeElement("Bilbo"));
         System.out.printf("\n\nElement Irakliotis removed? %b\n\n",test.removeElement("Irakliotis"));
 
