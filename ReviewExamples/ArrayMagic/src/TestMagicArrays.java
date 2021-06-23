@@ -1,4 +1,4 @@
-public class TestMagicArray {
+public class TestMagicArrays {
 
     public static void main(String[] args) {
         MagicArrays test = new MagicArrays();
