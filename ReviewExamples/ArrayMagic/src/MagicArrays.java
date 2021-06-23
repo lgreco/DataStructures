@@ -1,6 +1,6 @@
 public class MagicArrays {
 
-    /** The main field of the class, is a string array we call "a" **/
+    /** The main field of the class, the underlying array we call "a" **/
     private String[] a = new String[0];
     /** How many elements are occupied **/
     private int size = 0;
