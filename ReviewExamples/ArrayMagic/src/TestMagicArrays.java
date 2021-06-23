@@ -7,8 +7,10 @@
 public class TestMagicArrays {
 
     public static void main(String[] args) {
-        // Instantiate test object
+
+        // Instantiate test object from MagicArrays class
         MagicArrays test = new MagicArrays();
+
         // Populate test object
         test.addElement("Frodo"); test.addElement("Sam"); test.addElement("Galadriel");
         test.addElement("Gimli"); test.addElement("Eowyn"); test.addElement("Faramir");
@@ -17,16 +19,17 @@ public class TestMagicArrays {
         test.addElement("Bilbo"); test.addElement("Denethor"); test.addElement("Elrond");
         test.addElement("Saruman"); test.addElement("Smeagol",4);
 
+        // Display test object
         test.printMagicArray();
 
         // Test the contains() method
-        System.out.printf("\n\nArray contains Elrond: %b", test.contains("Elrond"));
-        System.out.printf("\n\nArray contains Thomas: %b", test.contains("Thomas"));
+        System.out.printf("\n\nArray contains Elrond: %b", test.contains("Elrond")); // true
+        System.out.printf("\n\nArray contains Thomas: %b", test.contains("Thomas")); // false
 
         // Test the removeElement() method
-        System.out.printf("\n\nElement at position 4 removed? %b", test.removeElement(4)); // Eowyn
-        System.out.printf("\n\nElement Bilbo removed? %b", test.removeElement("Bilbo"));
-        System.out.printf("\n\nElement Irakliotis removed? %b\n\n",test.removeElement("Irakliotis"));
+        System.out.printf("\n\nElement at position 4 removed? %b", test.removeElement(4)); // true, Eowyn
+        System.out.printf("\n\nElement Bilbo removed? %b", test.removeElement("Bilbo")); // true, Bilbo
+        System.out.printf("\n\nElement Irakliotis removed? %b\n\n",test.removeElement("Irakliotis")); // false
 
         // Visually verify removals
         test.printMagicArray();
