@@ -103,27 +103,27 @@ public class MagicArrays {
     } // method printMagicArray
 
     public static void main(String[] args) {
-        MagicArrays ourFirstRealDataStructure = new MagicArrays();
+        MagicArrays a = new MagicArrays();
 
-        ourFirstRealDataStructure.addElement("Frodo");
-        ourFirstRealDataStructure.addElement("Sam");
-        ourFirstRealDataStructure.addElement("Galadriel");
-        ourFirstRealDataStructure.addElement("Gimli");
-        ourFirstRealDataStructure.addElement("Eowyn");
-        ourFirstRealDataStructure.addElement("Faramir");
-        ourFirstRealDataStructure.addElement("Boromir");
-        ourFirstRealDataStructure.addElement("Pipin");
-        ourFirstRealDataStructure.addElement("Leo");
-        ourFirstRealDataStructure.addElement("Tom");
-        ourFirstRealDataStructure.addElement("Gandalf");
-        ourFirstRealDataStructure.addElement("Legolas");
-        ourFirstRealDataStructure.addElement("Bilbo");
-        ourFirstRealDataStructure.addElement("Denethor");
-        ourFirstRealDataStructure.addElement("Elrond");
-        ourFirstRealDataStructure.addElement("Saruman");
-        ourFirstRealDataStructure.addElement("Smeagol",5);
+        a.addElement("Frodo");
+        a.addElement("Sam");
+        a.addElement("Galadriel");
+        a.addElement("Gimli");
+        a.addElement("Eowyn");
+        a.addElement("Faramir");
+        a.addElement("Boromir");
+        a.addElement("Pipin");
+        a.addElement("Leo");
+        a.addElement("Tom");
+        a.addElement("Gandalf");
+        a.addElement("Legolas");
+        a.addElement("Bilbo");
+        a.addElement("Denethor");
+        a.addElement("Elrond");
+        a.addElement("Saruman");
+        a.addElement("Smeagol",5);
 
-        ourFirstRealDataStructure.printMagicArray();
+        a.printMagicArray();
     }
 
 }
