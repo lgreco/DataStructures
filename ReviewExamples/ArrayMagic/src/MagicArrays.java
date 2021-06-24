@@ -102,7 +102,9 @@ public class MagicArrays {
         } // if length==0
     } // method printMagicArray
 
+    /** Driver method */
     public static void main(String[] args) {
+<<<<<<< HEAD
         MagicArrays a = new MagicArrays();
 
         a.addElement("Frodo");
@@ -127,3 +129,18 @@ public class MagicArrays {
     }
 
 }
+=======
+        // Instantiate MagicArrays object
+        MagicArrays magic = new MagicArrays();
+        // Populate the object
+        magic.addElement("Frodo"); magic.addElement("Sam"); magic.addElement("Galadriel");
+        magic.addElement("Gimli"); magic.addElement("Eowyn"); magic.addElement("Faramir");
+        magic.addElement("Boromir"); magic.addElement("Pipin"); magic.addElement("Leo");
+        magic.addElement("Tom"); magic.addElement("Gandalf"); magic.addElement("Legolas");
+        magic.addElement("Bilbo"); magic.addElement("Denethor"); magic.addElement("Elrond");
+        magic.addElement("Saruman"); magic.addElement("Smeagol",5);
+        // Display the object
+        magic.printMagicArray();
+    } // method main
+} // class MagicArrays
+>>>>>>> 2d155e396bbc1023511a5ceb76d030d6bec8b70e
