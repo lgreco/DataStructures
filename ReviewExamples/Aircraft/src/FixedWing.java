@@ -5,7 +5,7 @@
 public class FixedWing {
 
     private int numberOfEngines; // 1, 2, 3, 4
-    private boolean isGearRetractable; // true, false
+    private boolean gearIsRetractable; // true, false
     private String tailNumber; // N-registration, e.g., N4335K
     private int airSpeed; // in knots
     private int operationalCeiling; // in feet
@@ -38,8 +38,8 @@ public class FixedWing {
         this.numberOfEngines = numberOfEngines;
     }
 
-    public void setGearRetractable(boolean gearRetractable) {
-        isGearRetractable = gearRetractable;
+    public void setGearIsRetractable(boolean gearIsRetractable) {
+        this.gearIsRetractable = gearIsRetractable;
     }
 
     public void setTailNumber(String tailNumber) {
@@ -80,8 +80,8 @@ public class FixedWing {
         return numberOfEngines;
     }
 
-    public boolean isGearRetractable() {
-        return isGearRetractable;
+    public boolean gearIsRetractable() {
+        return gearIsRetractable;
     }
 
     public String getTailNumber() {

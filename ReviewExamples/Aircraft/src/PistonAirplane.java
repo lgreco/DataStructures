@@ -27,10 +27,10 @@ public class PistonAirplane extends FixedWing {
     @Override
     public String toString() {
         String gear = "fixed";
-        if (isGearRetractable()) { gear = "retractable"; }
+        if (gearIsRetractable()) { gear = "retractable"; }
         return String.format("%S is a piston-powered airplane with %d engine(s) and %s gear.\n" +
                         "This %s (%s) was manufactured by %s in %d.",
-                getTailNumber(), getNumberOfEngines(), gear(),
+                getTailNumber(), getNumberOfEngines(), gear,
                 getModelName(), getModelCode(), getManufacturer(), getYearManufactured());
 
     } // method toString

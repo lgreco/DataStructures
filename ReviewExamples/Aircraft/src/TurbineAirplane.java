@@ -7,7 +7,7 @@ public class TurbineAirplane extends FixedWing {
      */
     public TurbineAirplane(int numberOfEngines, String tailNumber, String modelName) {
         super(numberOfEngines, tailNumber, modelName);
-        super.setGearRetractable(true); // all jets have retractable gear
+        super.setGearIsRetractable(true); // all jets have retractable gear
     } // constructor TurbineAirplane
 
     /**
