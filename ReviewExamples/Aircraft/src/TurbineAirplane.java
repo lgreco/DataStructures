@@ -10,9 +10,11 @@ public class TurbineAirplane extends FixedWing {
         super.setGearRetractable(true); // all jets have retractable gear
     } // constructor TurbineAirplane
 
-
     /**
-     * @return descriptive string for this aircraft
+     * @return descriptive string for this aircraft.
+     * UPDATE FOR HOMEWORK 6/24/21: THERE IS NO NEED TO SIMPLIFY THIS TOSTRING().
+     * THE RETRACTABLE GEAR IS HARDCODED IN THE RETURN STATEMENT BECAUSE EVERY
+     * TURBINE AIRCRAFT HAS SUCH GEAR.
      */
     @Override
     public String toString() {

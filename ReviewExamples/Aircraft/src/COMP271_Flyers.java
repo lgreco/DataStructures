@@ -55,6 +55,41 @@ public class COMP271_Flyers {
         for (FixedWing aircraft:leoFligfhtSchool) {
             System.out.printf("%s\n\n", aircraft.toString());
         }
+
+        /*
+        HERES' THE SECOND FLIGHT SCHOOL, FOR THE 6/24/21 ASSIGNMENT
+         */
+
+        FixedWing twoSevenOneFlightSchool[] = new FixedWing[2]; // we only need two aircraft
+
+        /*
+        First aircraft: 1992 Skyhawk 172SP, single-engine airplane with fixed landing gear,
+        tail number N87JA, manufactured by Cessna
+         */
+        twoSevenOneFlightSchool[0] = new PistonAirplane(1,"N87JA","Skyhawk");
+        twoSevenOneFlightSchool[0].setYearManufactured(1992);
+        twoSevenOneFlightSchool[0].setManufacturer("Cessna");
+        twoSevenOneFlightSchool[0].setModelCode("C172SP");
+
+        /*
+        Second aircraft: 2019 Citation M2 jet, code C25A, twin turbofan, with tail number N2RF,
+        manufactured by Textron Aviation.
+         */
+        twoSevenOneFlightSchool[1] = new TurbineAirplane(2,"N2RF", "Citation M2");
+        twoSevenOneFlightSchool[1].setYearManufactured(2019);
+        twoSevenOneFlightSchool[1].setManufacturer("Textron Aviation");
+        twoSevenOneFlightSchool[1].setModelCode("C25A");
+        temporary = (TurbineAirplane) twoSevenOneFlightSchool[1];
+        temporary.setTurbineType("turbofan");
+        leoFligfhtSchool[1] = temporary;
+
+        /*
+        Loop to print aircraft for second school
+         */
+        System.out.printf("\n\nThe fleet for the second flight school is as follows:\n\n");
+        for (FixedWing f:twoSevenOneFlightSchool) {
+            System.out.printf("%s\n\n",f.toString());
+        }
     }
 
 }

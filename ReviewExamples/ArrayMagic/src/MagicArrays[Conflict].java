@@ -104,10 +104,8 @@ public class MagicArrays {
 
     /** Driver method */
     public static void main(String[] args) {
-
         // Instantiate MagicArrays object
         MagicArrays magic = new MagicArrays();
-
         // Populate the object
         magic.addElement("Frodo"); magic.addElement("Sam"); magic.addElement("Galadriel");
         magic.addElement("Gimli"); magic.addElement("Eowyn"); magic.addElement("Faramir");
@@ -115,7 +113,6 @@ public class MagicArrays {
         magic.addElement("Tom"); magic.addElement("Gandalf"); magic.addElement("Legolas");
         magic.addElement("Bilbo"); magic.addElement("Denethor"); magic.addElement("Elrond");
         magic.addElement("Saruman"); magic.addElement("Smeagol",5);
-
         // Display the object
         magic.printMagicArray();
     } // method main

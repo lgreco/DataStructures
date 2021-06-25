@@ -28,6 +28,24 @@ public class FixedWing {
         this.modelName = modelName;
     } // constructor FixedWing
 
+    /**
+     * Method to return String with the type of gear. This method solves, partially,
+     * the class assignment due 6/24/21.
+     *
+     * @return String with gear type
+     */
+    public String getGear() {
+        return (isGearRetractable) ? "Retractable" : "Fixed" ;
+        /*
+        Show-off use of ternary operator above is equivalent to the following lines:
+             String gear = "Fixed";
+             if (isGearRetractable) {
+               gear = "Retractable";
+             }
+             return gear;
+         */
+    }
+
     /*
     AUTOMAGICALLY GENERATED CODE: MUTATORS (SETTERS)
     Methods to change the value of variables in existing objects
