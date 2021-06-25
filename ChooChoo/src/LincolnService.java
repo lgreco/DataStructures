@@ -21,7 +21,16 @@ public class LincolnService {
          */
         Route lincolnService = new Route();
         lincolnService.addStation(chi); // first station added to Route object becomes head
-        // Continue adding objects
+        /*
+        Now, every time we add a new Station to the Route we call lincolnService,
+        the station goes to the end of the line and becomes its last station. In
+        other words, method addStation goes to the beginning of the Route and moves
+        along until it finds its last station. This is quite easy to implement
+        since the beginning Station has a special name "head". The we follow the
+        chain of station (along the path indicated by the Station object's "next"
+        field) until we encounter an object whose "next" is null. That's the end
+        of the line and that's where the new station will be added.
+         */
         lincolnService.addStation(smt);
         lincolnService.addStation(jol);
         lincolnService.addStation(dwi);

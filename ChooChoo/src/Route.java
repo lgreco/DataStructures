@@ -45,6 +45,14 @@ public class Route {
             newStation after it. To find the last Station in the Route, we go to
             its beginning, i.e., its head, and we traverse from one next pointer
             to the other until we reach a Station whose next pointer is null.
+
+            In other words, method addStation goes to the beginning of the Route
+            and moves along until it finds its last station. This is quite easy
+            to implement since the beginning Station has a special name "head".
+            Then we follow the chain of station (along the path indicated by the
+            Station object's "next" field) until we encounter an object whose "next"
+            is null. That's the end of the line and that's where the new station
+            will be added.
              */
             Station current = head; // Start the traversal by going to the beginning
             while (current.next != null) {
