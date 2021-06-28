@@ -44,7 +44,6 @@ public class LincolnService {
         lincolnService.addStation(stl);
         // Route completed
 
-
         System.out.println(lincolnService.contains("CHI"));
     }
 }
