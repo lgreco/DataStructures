@@ -31,6 +31,7 @@ public class LincolnService {
         field) until we encounter an object whose "next" is null. That's the end
         of the line and that's where the new station will be added.
          */
+
         lincolnService.addStation(smt);
         lincolnService.addStation(jol);
         lincolnService.addStation(dwi);
@@ -42,5 +43,8 @@ public class LincolnService {
         lincolnService.addStation(aln);
         lincolnService.addStation(stl);
         // Route completed
+
+
+        System.out.println(lincolnService.contains("CHI"));
     }
 }

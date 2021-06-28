@@ -24,6 +24,7 @@
 public class Route {
 
     Station head; // the beginning of the Route
+    Station last;
 
     /**
      * Simple method to place a Station object in this Route. The method accepts
@@ -70,4 +71,47 @@ public class Route {
             current.next = newStation;
         }
     } // method addStation
+
+    /**
+     * Finds a Station object given a search parameter. We assume that the
+     * three-letter code is a unique identifier for each Station object.
+     *
+     *    When we discussed this method in class we conducted the search
+     *    in three parts: check the head object, check the chain of objects,
+     *    and check the last object. The code below simplifies the search
+     *    in two steps: first we search the chain of objects beginning from
+     *    the first object (head). If this search yields no results, it means
+     *    that the object we are looking for maybe the last object.
+     *
+     * @param searchForCode The three letter designation of the Station, e.g. DWI
+     * @return true if such Station exists in Route; false otherwise
+     */
+    public boolean contains (String searchForCode) {
+        boolean found = false; // Assume station does not exist
+        Station current = head; // Start at the top
+        /*
+        The while-loop below checks every object in the chain except the last
+        one. The condition to check an object is if it is followed by another
+        object, i.e., the current object's next pointer is not null. Every
+        object in the chain meets this condition except the last one. We'll
+        check the last one -- if we have to -- after the loop.
+
+        The loop ends when one of these conditions are met:
+           - we find an object that meeds the search condition, or
+           - we reach a Station whose .next is null
+         */
+        while (!found && current.next !=null ) {
+            found = current.code.equals(searchForCode); // Station .code matches search argument?
+            current = current.next;
+        }
+        /*
+        Check the last Station but only if the loop above failed to find a
+        Station with the code we are looking for.
+         */
+        if (!found) { // Still not found what we are looking for ... one more to check
+            found = current.code.equals(searchForCode); // Station .code matches search argument?
+        }
+        // At this point, boolean found has the answer to our search
+        return found;
+    } // method contains
 }
