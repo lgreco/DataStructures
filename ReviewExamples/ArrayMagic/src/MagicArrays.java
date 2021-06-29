@@ -102,9 +102,6 @@ public class MagicArrays {
         } // if length==0
     } // method printMagicArray
 
-
-
-
     /** Driver method */
     public static void main(String[] args) {
 
