@@ -70,6 +70,23 @@ public class FixedWing {
         this.yearManufactured = yearManufactured;
     }
 
+    /**
+     * Method to return String with the type of gear. This method solves, partially,
+     * the class assignment due 6/24/21.
+     *
+     * @return String with gear type
+     */
+    public String getGear() {
+        return (gearIsRetractable) ? "retractable" : "fixed" ;
+        /*
+        Show-off use of ternary operator above is equivalent to the following lines:
+             String gear = "Fixed";
+             if (isGearRetractable) {
+               gear = "Retractable";
+             }
+             return gear;
+         */
+    } // method getGear
 
     /*
     AUTOMAGICALLY GENERATED CODE: ACCESSORS (GETTERS)
@@ -80,7 +97,7 @@ public class FixedWing {
         return numberOfEngines;
     }
 
-    public boolean gearIsRetractable() {
+    public boolean isGearRetractable() {
         return gearIsRetractable;
     }
 
