@@ -27,4 +27,11 @@ public class Station {
         this.town = town;
         this.state = state;
     } // constructor Station
+
+    public Station(String name, String town, String state) {
+        this.code = code;
+        this.name = name;
+        this.town = town;
+        this.state = state;
+    } // constructor Station
 } // class Station
