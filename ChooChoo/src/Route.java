@@ -108,7 +108,7 @@ public class Route {
         Check the last Station but only if the loop above failed to find a
         Station with the code we are looking for.
          */
-        if (!found) { // Still not found what we are looking for ... one more to check
+        if (!found) { // Still not found what we are looking for... Ok, we can check one more Station
             found = current.code.equals(searchForCode); // Station .code matches search argument?
         }
         // At this point, boolean found has the answer to our search
