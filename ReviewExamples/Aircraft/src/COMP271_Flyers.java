@@ -9,7 +9,7 @@ public class COMP271_Flyers {
         /*
         Let's consider a small flight school with 4 training FixedWing aircraft.
         Three airplanes are piston-powered, one is a small jet. Can we manage
-        the airplane information in a single array of "disimilar" objects? Yes
+        the airplane information in a single array of "dissimilar" objects? Yes
         we can!
 
         The array below is typed as FixedWing. But then it's populated with
