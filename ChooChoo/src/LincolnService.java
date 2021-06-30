@@ -20,7 +20,7 @@ public class LincolnService {
         of class Route and make chi its head.
          */
         Route lincolnService = new Route();
-        lincolnService.addStation(chi); // first station added to Route object becomes head
+        lincolnService.addElement(chi); // first station added to Route object becomes head
         /*
         Now, every time we add a new Station to the Route we call lincolnService,
         the station goes to the end of the line and becomes its last station. In
@@ -32,16 +32,16 @@ public class LincolnService {
         of the line and that's where the new station will be added.
          */
 
-        lincolnService.addStation(smt);
-        lincolnService.addStation(jol);
-        lincolnService.addStation(dwi);
-        lincolnService.addStation(pon);
-        lincolnService.addStation(bnl);
-        lincolnService.addStation(lcn);
-        lincolnService.addStation(spi);
-        lincolnService.addStation(crv);
-        lincolnService.addStation(aln);
-        lincolnService.addStation(stl);
+        lincolnService.addElement(smt);
+        lincolnService.addElement(jol);
+        lincolnService.addElement(dwi);
+        lincolnService.addElement(pon);
+        lincolnService.addElement(bnl);
+        lincolnService.addElement(lcn);
+        lincolnService.addElement(spi);
+        lincolnService.addElement(crv);
+        lincolnService.addElement(aln);
+        lincolnService.addElement(stl);
         // Route completed
 
         System.out.println(lincolnService.contains("CHI"));

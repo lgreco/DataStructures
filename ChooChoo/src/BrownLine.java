@@ -27,7 +27,7 @@ public class BrownLine {
         Station las = new Station("LaSalle/Van Buren", "Chicago", "IL");
         Station har = new Station("Harold Washington Library – State/Van Buren", "Chicago", "IL");
         Station ada = new Station("Adams/Wabash", "Chicago", "IL");
-        Station wab = new Station("Washington/\u200BWabash", "Chicago", "IL");
+        Station wab = new Station("Washington/Wabash", "Chicago", "IL");
         Station sta = new Station("State/Lake", "Chicago", "IL");
         Station cla = new Station("Clark/Lake", "Chicago", "IL");
     }

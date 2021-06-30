@@ -21,7 +21,7 @@
  * at a station whose next pointer is null.
  *
  */
-public class Route {
+public class Route implements COMP271_Sequential_DataStructures {
 
     Station head; // the beginning of the Route
     Station last;
@@ -37,7 +37,7 @@ public class Route {
      *
      * @param newStation Station object to add to the end of the Route
      */
-    void addStation(Station newStation) {
+    public void addElement(Station newStation) {
         if (head == null) { // Route is empty
             head = newStation; // make new Station the head of the Route
         } else {
