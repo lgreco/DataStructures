@@ -87,6 +87,6 @@ Merc).
 Reflect how to traverse a CTA line, like the Brown line: beginning at Kimball
 and returning to Kimball. What do you have to check at every station? Try 
 this on paper first, using the simplified map above. Start from Kimball and 
-find your way back to Kimball? How do you do it? Can you put things in code?
+find your way back to Kimball? How do you do it? Can you put things in simple code?
 
 
