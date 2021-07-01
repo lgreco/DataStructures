@@ -14,4 +14,6 @@ After
 they go around the loop, trains return to the Merc, and travel towards 
 Kimball, where their run ends.
 
-<img src="BrownLine.png" alt="drawing" width="666" />
+<img src="BrownLine.png" alt="drawing" width="400" align="right" />
+A simpified map of the Brown Line is shown to the Lab. The dotted lines 
+indicate stations we are omitting for simplicity. 
