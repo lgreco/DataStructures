@@ -26,6 +26,31 @@ trains
 going in both directions (outbound and inbound). Other stations, like Quincy,
 are traversed only by outbound trains. <br/>
 
-<img src="BrownLineAlternative.png" alt="drawing" width="500" align="left"/>
-It may be easier to visualize a route where some stations have duplicates 
-and the train travels in a single direction. This concept is shown to the left.
+Our challenge for today is to derive two classes, one for CTA stations and 
+one for CTA lines.
+
+## Part 1: conceptualization
+_20 minutes, individually_
+
+Timing is important for this step. Use a timer, or an alarm on your watch, 
+phone, computer, sundial, hourglass, etc, but do time your work. Spend **15 
+minutes** on reflecting, **5 minutes** on drafting a memo with your thoughts.
+
+Reflect how you will change the design of class Station to meet the 
+requirements for CTA stations. The basic property here is that some 
+stations have inbound and outbound trains, while others have only outbound.
+
+Reflect how you can put these new station objects together in a class to 
+represent a CTA line. How will you connect two stations with both outbound 
+and inbound trains? How will you connect stations with outbound service only?
+How can you connect a station with outbound only to a station with 
+bidirectional service?
+
+Reflect, think, draw, and finally put your ideas together on a simple note 
+and email it to leo@cs.luc.edu. Your note can be a piece of paper with 
+drawings and writing, or a typed up message. It does not have to be too 
+technical, just conceptual at this level. What I am looking for is evidence 
+that you have internalized this week's designs, and you can see the 
+differences for the new requirements today. Demonstrate professionalism and 
+keep your notes neat. A photo of your drawings with your handwritten thoughts 
+is perfectly acceptable as is a typed up message. Neatness counts.
