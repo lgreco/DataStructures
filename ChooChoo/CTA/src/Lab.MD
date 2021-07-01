@@ -18,7 +18,7 @@ Kimball, where their run ends.
 
 
 
-A simplified map of the Brown Line is shown to the Lab (you may click on the 
+A simplified map of the Brown Line is shown to the left (you may click on the 
 image for a larger version). The CTA website has a 
 [complete map of the Brown Line](https://www.transitchicago.com/brownline/#map).
 Wikipedia has also some [interesting facts](https://en.wikipedia.org/wiki/Brown_Line_(CTA)) 
