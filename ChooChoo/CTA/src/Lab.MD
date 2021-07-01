@@ -24,4 +24,6 @@ path shows the route once the train returns to the Merc station and start
 the inbound trip back to Kimball. Some stations, like Kedzie, are traversed by 
 trains 
 going in both directions (outbound and inbound). Other stations, like Quincy,
-are traversed only by outbound trains.
+are traversed only by outbound trains. <br/>
+
+<img src="BrownLineAlternative.png" alt="drawing" width="500" align="right"/>
