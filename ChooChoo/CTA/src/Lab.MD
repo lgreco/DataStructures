@@ -21,6 +21,7 @@ image for a larger version). The CTA website has a
 [complete map of the Brown Line](https://www.transitchicago.com/brownline/#map).
 Wikipedia has also some [interesting facts](https://en.wikipedia.org/wiki/Brown_Line_(CTA)) 
 about this line.
+
 The dotted lines 
 indicate stations we are omitting for simplicity. The path colors indicate 
 direction of travel. The orange path shows the outbound travel. The blue 
