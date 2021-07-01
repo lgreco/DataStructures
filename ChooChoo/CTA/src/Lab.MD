@@ -65,7 +65,7 @@ is a typed up message. Neatness counts.
 
 ## Part 2: rough cut
 
-_20 minutes, in group; random spokesperson to be selected by Leo_
+_20 minutes, in group; group spokesperson to be selected randomly by Leo_
 
 Write a `public class CTAStation` and a `public class CTALine` that **do not**
 extend or implement any other classes or interfaces. Your classes must include
@@ -77,7 +77,7 @@ Be prepared and comfortable to discuss the choice of fields and their purpose.
 
 ## Part 3: simple implementation
 
-_30 minutes, in group; random spokesperson to be selected by Leo_
+_20 minutes, in group; group spokesperson to be selected randomly by Leo_
 
 Focus on `class CTALine`. Design a method that adds stations to it. Consider
 both bidirectional and unidirectional scenarios. Consider how to connect a
