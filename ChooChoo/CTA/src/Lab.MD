@@ -14,4 +14,4 @@ After
 they go around the loop, trains return to the Merc, and travel towards 
 Kimball, where their run ends.
 
-<img src="BrownLine.png" alt="drawing"  />
+<img src="BrownLine.png" alt="drawing" width="400" />
