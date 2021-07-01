@@ -17,6 +17,6 @@ Kimball, where their run ends.
 <img src="BrownLine.png" alt="drawing" width="500" align="right" />
 A simpified map of the Brown Line is shown to the Lab. The dotted lines 
 indicate stations we are omitting for simplicity. The path colors indicate 
-direction of travel. The purple path shows the outbound travel. The orange 
+direction of travel. The orange path shows the outbound travel. The blue 
 path shows the route once the train returns to the Merc station and start 
 the inbound trip back to Kimball.
