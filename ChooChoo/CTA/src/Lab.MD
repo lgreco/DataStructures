@@ -7,6 +7,9 @@ is an interesting problems -- in algorithms it involves the study of
 _directed cyclical graphs_. Today, we'll focus on a more realistic paradigm:
 **Chicago's Brown Line.**
 
+<img src="BrownLine.png" alt="drawing" width="500" align="right" />
+
+
 Brown line trains begin and end at the Kimball Station. The train starts at
 Kimball, travels south to the Loop area, circles the Loop, and returns to
 Kimball. Trains enter the Loop area after the Merchandise Mart (Merc) stop.
@@ -14,7 +17,6 @@ After they go around the loop, trains return to the Merc, and travel towards
 Kimball, where their run ends.
 
 
-<img src="BrownLine.png" alt="drawing" width="500" align="right" />
 
 A simplified map of the Brown Line is shown to the Lab (you may click on the 
 image for a larger version). The CTA website has a 
