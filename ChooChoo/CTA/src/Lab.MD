@@ -21,4 +21,7 @@ The dotted lines
 indicate stations we are omitting for simplicity. The path colors indicate 
 direction of travel. The orange path shows the outbound travel. The blue 
 path shows the route once the train returns to the Merc station and start 
-the inbound trip back to Kimball.
+the inbound trip back to Kimball. Some stations, like Kedzie, are traversed by 
+trains 
+going in both directions (outbound and inbound). Other stations, like Quincy,
+are traversed only by outbound trains.
