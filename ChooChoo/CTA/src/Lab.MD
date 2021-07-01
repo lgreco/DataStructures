@@ -1,4 +1,4 @@
-#Lab session of July 1, 2021
+# Lab session of July 1, 2021
 
 For this session we will explore and reinvent doubly linked lists. To make 
 things interesting, we'll try to connect a singly-linked list that forms a 
