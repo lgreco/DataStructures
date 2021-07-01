@@ -54,3 +54,33 @@ that you have internalized this week's designs, and you can see the
 differences for the new requirements today. Demonstrate professionalism and 
 keep your notes neat. A photo of your drawings with your handwritten thoughts 
 is perfectly acceptable as is a typed up message. Neatness counts.
+
+## Part 2: rough cut
+_20 minutes, in group; random spokesperson to be selected by Leo_
+
+Write a `public class CTAStation` and a `public class CTALine` that **do not** 
+extend or implement any other classes or interfaces. Your classes must 
+include all the fields (variables) that you feel necessary. The fields must 
+be `private`. Include constructors if needed. Do not worry about getters and 
+setters; we can generate them later and automatically in IDE.
+
+Be 
+prepared and 
+comfortable to 
+discuss the 
+choice of 
+fields 
+and their purpose. 
+
+## Part 3: simple implementation
+_30 minutes, in group; random spokesperson to be selected by Leo_
+
+Focus on `class CTALine`. Design a method that adds stations to it. Consider 
+both bidirectional and unidirectional scenarios. Consider how to connect a 
+unidirectional station to a bidirectional one (for example Clark/Lake back 
+to Merc.)
+
+Reflect how to traverse a CTA line, like the Brown line: beginning at 
+Kimball and returning at Kimball. What do you have to check at every station?
+
+
