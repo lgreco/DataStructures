@@ -79,7 +79,7 @@ Be prepared and comfortable to discuss the choice of fields and their purpose.
 
 _20 minutes, in group; group spokesperson to be selected randomly by Leo_
 
-Focus on `class CTALine`. Design a method that adds stations to it. Consider
+Focus on the new `class CTALine`. Design a method that adds stations to it. Consider
 both bidirectional and unidirectional scenarios. Consider how to connect a
 unidirectional station to a bidirectional one (for example Clark/Lake back to
 Merc).
