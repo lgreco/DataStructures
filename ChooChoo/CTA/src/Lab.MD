@@ -26,4 +26,6 @@ trains
 going in both directions (outbound and inbound). Other stations, like Quincy,
 are traversed only by outbound trains. <br/>
 
-<img src="BrownLineAlternative.png" alt="drawing" width="500" align="right"/>
+<img src="BrownLineAlternative.png" alt="drawing" width="500" align="left"/>
+It may be easier to visualize a route where some stations have duplicates 
+and the train travels in a single direction. This concept is shown to the left.
