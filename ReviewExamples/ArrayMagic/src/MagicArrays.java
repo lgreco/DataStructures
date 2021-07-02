@@ -9,6 +9,7 @@ public class MagicArrays {
     /** Print this number of elements per line */
     private final static int ITEMS_PER_LINE = 5; // FINAL VARIABLES IN UPPER CASE
 
+
     /**
      * Method to add an element the array, increasing length (and size) by 1
      *
@@ -34,6 +35,7 @@ public class MagicArrays {
         }
         size++; // increase size
     } // method addElement
+
 
     /**
      * Adds a new element after given position and moves everything downstream
@@ -62,6 +64,7 @@ public class MagicArrays {
             a = temporary; // copy temporary back to array a[]
         }
     } // method addElement
+
 
     /** Prints a nicely formatted rendering of the array */
     public void printMagicArray() {
@@ -102,6 +105,85 @@ public class MagicArrays {
         } // if length==0
     } // method printMagicArray
 
+
+    /**
+     * Method to find if there is at least one occurrence of a String in array
+     *
+     * @param s String to search for
+     * @return true if string found
+     */
+    public boolean contains(String s) {
+        /*
+        Set up a while loop to scan the array. Why while? Because we'd like to
+        exit the loop as soon as at least one occurrence is found. No need to
+        keep scanning the array after one occurrence has been found.
+         */
+        boolean found = false; // assume not found
+        int i = 0 ;
+        while (!found && i<a.length) {
+            found = a[i].equals(s);
+            i++;
+        }
+        return found;
+    } // method contains
+
+
+    /**
+     * Method to remove an element by positional reference. After removal the
+     * array is resized by -1.
+     *
+     * @param position position of element to remove
+     * @return true if removal successful
+     */
+    public boolean removeElement(int position) {
+        boolean success = false;
+        if (position > -1 && position < a.length) { // position checks
+            // Set up a temporary array, one element shorter
+            String[] temporary = new String[a.length-1];
+            // Copy all elements to temporary except the one to delete
+            int temporaryIndex = 0;
+            for (int i=0; i<a.length; i++) {
+                if (i != position) {
+                    temporary[temporaryIndex] = a[i];
+                    temporaryIndex++;
+                }
+            }
+            a=temporary;
+            size--; // update size
+            success = true;
+        }
+        return success;
+    } // method removeElement
+
+
+    /**
+     * Method to remove element by content reference. After removal the
+     * array is resized by -1.
+     *
+     * @param s value to be removed
+     * @return true if removal succesful
+     */
+    public boolean removeElement(String s) {
+        boolean success = false;
+        if (contains(s)) {
+            // Set up a temporary array, one element shorter
+            String[] temporary = new String[a.length-1];
+            // Copy all elements to temporary except the one to delete
+            int temporaryIndex = 0;
+            for (int i=0; i<a.length; i++) {
+                if (!a[i].equals(s)) {
+                    temporary[temporaryIndex] = a[i];
+                    temporaryIndex++;
+                }
+            }
+            a=temporary;
+            size--; // update size
+            success = true;
+        }
+        return success;
+    } // method removeElement
+
+    
     /** Driver method */
     public static void main(String[] args) {
 
