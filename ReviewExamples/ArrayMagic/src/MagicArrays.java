@@ -183,7 +183,7 @@ public class MagicArrays {
         return success;
     } // method removeElement
 
-    
+
     /** Driver method */
     public static void main(String[] args) {
 

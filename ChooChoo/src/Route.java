@@ -21,7 +21,7 @@
  * at a station whose next pointer is null.
  *
  */
-public class Route implements COMP271_Sequential_DataStructures {
+public class Route {
 
     Station head; // the beginning of the Route
     Station last;
