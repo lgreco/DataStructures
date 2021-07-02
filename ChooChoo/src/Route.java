@@ -23,8 +23,8 @@
  */
 public class Route {
 
-    Station head; // the beginning of the Route
-    Station last;
+    Station head; // The beginning of the Route
+    Station last; // For future use.
 
     /**
      * Simple method to place a Station object in this Route. The method accepts
