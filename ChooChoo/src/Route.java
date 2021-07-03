@@ -27,7 +27,7 @@ public class Route {
     Station head;
 
     /** Reserved for future use. */
-    Station last; // For future use.
+    Station last; 
 
 
     /**
