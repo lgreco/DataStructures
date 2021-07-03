@@ -1,11 +1,12 @@
 /**
  * A Node with two pointers and a String value.
  *
- *                          +------+
- *                          |      | --- next --->
- *                          | Node |
- *        <--- previous --- |      |
- *                          +------+
+ *
+ *                          +---Node---+
+ *                          |          | --- next --->
+ *                          |  content |
+ *        <--- previous --- |          |
+ *                          +----------+
  *
  */
 public class Node {
