@@ -12,7 +12,7 @@ public class LincolnService {
         Station lcn = new Station("LCN", "Lincoln Amtrak Station", "Lincoln", "IL");
         Station spi = new Station("SPI", "Springfield Amtrak Station", "Springfield", "IL");
         Station crv = new Station("CRV", "Carlinville Amtrak Station", "Carlinville", "IL");
-        Station aln = new Station("ALN", "Alton Amtrak Station", "", "IL");
+        Station aln = new Station("ALN", "Alton Amtrak Station", "Alton", "IL");
         Station stl = new Station("STL", "Gateway Multimodal Transportation Center", "Saint Louis", "MO");
         /*
         So far we have 11 Station objects (named chi, smt, jol, ...) but without
