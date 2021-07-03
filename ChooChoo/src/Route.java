@@ -23,8 +23,12 @@
  */
 public class Route {
 
-    Station head; // The beginning of the Route
+    /** The beginning of the Route. */
+    Station head;
+
+    /** Reserved for future use. */
     Station last; // For future use.
+
 
     /**
      * Simple method to place a Station object in this Route. The method accepts
@@ -72,6 +76,7 @@ public class Route {
         }
     } // method addStation
 
+
     /**
      * Finds a Station object given a search parameter. We assume that the
      * three-letter code is a unique identifier for each Station object.
@@ -114,4 +119,4 @@ public class Route {
         // At this point, boolean found has the answer to our search
         return found;
     } // method contains
-}
+} // class Route
