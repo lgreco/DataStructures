@@ -72,6 +72,6 @@ Node nodeWithC = new Node("C");
 
 Consinder a single-linked list, much like the one we studied in class `Route` and the implementation of the _Lincoln Service_ train line. In general, a single-linked list is a chain of nodes. Each node has a `next` pointer.
 
-<div style="text-align:center"><img src="images/SLL.png" width="66%"/></div>
+<div style="text-align:center"><img src="images/SLL.png" width="66%"></div>
 
 Consider the single-linked list above. We would like to remove the node with content `"C"`. How can we accomplish this?
