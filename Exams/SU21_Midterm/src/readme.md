@@ -10,4 +10,4 @@ For this problem use the following classes:
 
 * [Demo](Demo.java): a class that implements a DoubleLinkedList object.
 
-<img src = "images/DDL.png" align="center"/>
+<img src = "DDL.png" />
