@@ -10,7 +10,10 @@ public class Demo {
      */
     public static void main(String[] args) {
         DoubleLinkedList demo = new DoubleLinkedList();
-        //* Being silly with for loops and char primitives
+        /*
+         Being silly with for loops and char primitives while building a
+         double-linked list with 5 nodes.
+         */
         for (char c = 'A'; c < 'F'; c++) { // c++, get it? :-
             // Convert char to String, make string content of new node to add to list
             demo.add(String.valueOf(c));

@@ -59,4 +59,22 @@ public class DoubleLinkedList {
             newNode.setPrevious(current); // newNode.previous:  | current |   <----| newNode |
         }
     } // method add
+
+    /**
+     * DEVELOP THE METHOD display() SO THAT IT TRAVERSES A DOUBLE-LINKED LIST FROM
+     * THE HEAD NODE TO THE RIGHTMOST NODE AND THEN BACK TO HEAD, PRINTING THE
+     * STRING CONTENT OF EACH NODE ALONG THE WAY. THE METHOD SHALL USE THE NEXT
+     * POINTERS TO MOVE TO THE RIGHT AND THE PREVIOUS POINTERS TO MOVE TO THE LEFT.
+     * ASSUME THAT EACH NODE IS DOUBLE-LINKED, I.E., IT HAS A NON-NULL NEXT NODE AND
+     * A NON-NULL PREVIOUS NODE. THE ONLY EXCEPTIONS ARE THE HEAD NODE THAT HAS A
+     * NULL PREVIOUS, AND THE RIGHTMOST NODE THAT HAS A NULL NEXT.
+     *
+     * THE FORMAT OF THE METHOD'S OUTPUT SHALL BE
+     *
+     *   [A] [B] ... [B] [A]
+     *
+     * EVERY NODE APPEARS TWICE IN THIS DISPLAY. ONLY THE RIGHTMOST NODE MAY APPEAR ONCE.
+     */
+    public void display() {
+    } // method display
 } // class DoubleLinkedList
