@@ -60,6 +60,7 @@ public class DoubleLinkedList {
         }
     } // method add
 
+
     /**
      * DEVELOP THE METHOD display() SO THAT IT TRAVERSES A DOUBLE-LINKED LIST FROM
      * THE HEAD NODE TO THE RIGHTMOST NODE AND THEN BACK TO HEAD, PRINTING THE
@@ -73,8 +74,21 @@ public class DoubleLinkedList {
      *
      *   [A] [B] ... [B] [A]
      *
-     * EVERY NODE APPEARS TWICE IN THIS DISPLAY. ONLY THE RIGHTMOST NODE MAY APPEAR ONCE.
+     * EVERY NODE APPEARS TWICE IN THIS DISPLAY. ONLY THE RIGHTMOST NODE MAY
+     * APPEAR ONCE.
      */
     public void display() {
     } // method display
+
+    /**
+     * DEVELOP THE METHOD remove BELOW SO THAT IS FINDS THE FIRST NODE IN THE
+     * LIST THAT CONTAINS STRING content, REMOVES IT, AND RETURNS IT TO THE
+     * CALLING PART OF THE PROGRAM.
+     *
+     * @param content Contents of node to remove
+     * @return removed Node object
+     */
+    public Node removeNode(String content) {
+        return new Node("test"); // REPLACE THIS WITH THE ACTUAL OBJECT TO RETURN
+    } // method removeNode
 } // class DoubleLinkedList
