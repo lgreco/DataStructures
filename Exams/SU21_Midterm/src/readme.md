@@ -8,7 +8,7 @@ This exam uses the following classes.
 
 * [Demo](Demo.java): a class that implements a DoubleLinkedList object.
 
-<img src="DDL.png" width="33%" align="right"/>
+<img src="DLL.png" width="33%" align="right"/>
 
 The figure to the right shows a small double-linked list with three nodes: A, B, C. The **head** node is A. In a double-linked list, every node is required to be linked to a previous and a next node. There are two exceptions: the head node has no previous node. The rightmost node has no next node. You can think of the double-linked list as two single lists put together. One list moves from A to B to C. The other from C, to B, to A.
 
