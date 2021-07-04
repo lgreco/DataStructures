@@ -11,3 +11,4 @@ For this problem use the following classes:
 * [Demo](Demo.java): a class that implements a DoubleLinkedList object.
 
 <img src="DDL.png" width="33%" align="right"/>
+The figure to the right shows 
