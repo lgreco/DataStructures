@@ -81,3 +81,21 @@ First, let's try to show the removal, pictorially:
 <p align="center"><img src="images/SLL-removal.png" width="66%"></p>
 
 That's pretty easy: we take the `next` pointer from the node before `"C"` and we direct it to the node after `"C"`. For a good measure, we also take the `next` pointer from `"C"` and we direct it to `null`. How can we do this in Java? Well, that's something for the final exam but suffice to say it is not as easy as dealing with a double-linked node!
+
+## Problem 3
+
+Write a method
+
+```java
+public int countNodes() {...}
+```
+
+that returns a non-negative number with the number of nodes in a `DoubleLinkedList` object.
+
+## Problem 4
+
+Write a method 
+```java
+public String toString() {...}
+```
+that returns the contents of a `DoubleLinkedList` in reverse order by traversing the list only once from the `head` node to the rightmost node. (Hint: pretend that nodes do not have a `previous` pointer).
