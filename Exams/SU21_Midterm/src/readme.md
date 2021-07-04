@@ -75,3 +75,9 @@ Consinder a single-linked list, much like the one we studied in class `Route` an
 <p align="center"><img src="images/SLL.png" width="66%"></p>
 
 Consider the single-linked list above. We would like to remove the node with content `"C"`. How can we accomplish this?
+
+First, let's try to show the removal, pictorially:
+
+<p align="center"><img src="images/SLL-removal.png" width="66%"></p>
+
+That's pretty easy: we can the `next` pointer from the node before `"C"` and we direct it to the node after `"C"`. For a good measure, we also take the `next` pointfer from `"C"` and we direct it to `null`.
