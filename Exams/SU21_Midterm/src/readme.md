@@ -70,14 +70,14 @@ Node nodeWithC = new Node("C");
 
 ### Hint 2
 
-Consinder a single-linked list, much like the one we studied in class `Route` and the implementation of the _Lincoln Service_ train line. In general, a single-linked list is a chain of nodes. Each node has a `next` pointer.
+Consider a single-linked list, much like the one we studied in class `Route` and the implementation of the _Lincoln Service_ train line. In general, a single-linked list is a chain of nodes. Each node has a `next` pointer.
 
 <p align="center"><img src="images/SLL.png" width="66%"></p>
 
-Consider the single-linked list above. We would like to remove the node with content `"C"`. How can we accomplish this?
+The figure above shows a simple single-linked list. We would like to remove the node with content `"C"`. How can we accomplish this?
 
 First, let's try to show the removal, pictorially:
 
 <p align="center"><img src="images/SLL-removal.png" width="66%"></p>
 
-That's pretty easy: we can the `next` pointer from the node before `"C"` and we direct it to the node after `"C"`. For a good measure, we also take the `next` pointfer from `"C"` and we direct it to `null`.
+That's pretty easy: we take the `next` pointer from the node before `"C"` and we direct it to the node after `"C"`. For a good measure, we also take the `next` point from `"C"` and we direct it to `null`.
