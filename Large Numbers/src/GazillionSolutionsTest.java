@@ -1,4 +1,4 @@
-import static org.junit.jupiter.ap f.Assertions.*;
+import static org.junit.jupiter.ap  f.Assertions.*;
 
 class GazillionSolutionsTest {
 

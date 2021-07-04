@@ -1,5 +1,10 @@
 # COMP 271 Midterm Summer 2021
 
+The exam comes in two flavors
+
+* Problems 1 and 2, or
+* Problems 1, 3, and 4.
+  
 This exam uses the following classes.
 
 * [Node](Node.java): a class of nodes with pointers to their previous and next nodes. Think of nodes as a form of the train stations we used in our previous examples. The objects described by class `Node` have a pointer to their next node and also a pointer to their previous node.
@@ -14,7 +19,7 @@ The figure to the right shows a small double-linked list with three nodes: A, B,
 
 For the problems below, your code must be neat, clean, and thoroughly documented with comments. Neat and clean code means no superfluous or inconsistent spacing, suitably named variables, etc.
 
-## Problem 1
+## Problem 1 (3 points)
 
 Write a void method `display()` for class `DoubleLinkedList` that traverses the list from head to rightmost node and back to head, printing the contents of each node along the way. For the list of the figure above, the output will be:
 
@@ -22,7 +27,7 @@ Write a void method `display()` for class `DoubleLinkedList` that traverses the 
 
 Notice that the contents of each node appear inside a pair of square brackets.
 
-## Problem 2
+## Problem 2 (6 points)
 
 Write a method `removeNode` with the signature shown in the `DoubleLinkedList` class. The method removes a Node from the list and returns it to the calling part of the program, e.g.
 
@@ -82,7 +87,7 @@ First, let's try to show the removal, pictorially:
 
 That's pretty easy: we take the `next` pointer from the node before `"C"` and we direct it to the node after `"C"`. For a good measure, we also take the `next` pointer from `"C"` and we direct it to `null`. How can we do this in Java? Well, that's something for the final exam but suffice to say it is not as easy as dealing with a double-linked node!
 
-## Problem 3
+## Problem 3 (3 points)
 
 Write a method
 
@@ -92,7 +97,7 @@ public int countNodes() {...}
 
 that returns a non-negative number with the number of nodes in a `DoubleLinkedList` object.
 
-## Problem 4
+## Problem 4 (3 points)
 
 Write a method 
 ```java
