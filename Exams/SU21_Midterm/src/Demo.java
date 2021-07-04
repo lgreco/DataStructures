@@ -11,7 +11,7 @@ public class Demo {
     public static void main(String[] args) {
 
         // Set up demo list
-        DoubleLinkedList demo = new DoubleLinkedList();
+        NFS_Solutions demo = new NFS_Solutions();
 
         /*
          Being silly with for loops and char primitives while building a
@@ -22,18 +22,25 @@ public class Demo {
         }
 
         /*
-        Call the display method. The output, when running the code, should be:
-
+        Call the display method. The output, when running the code, should be
         [A] [B] [C] [D] [E] [D] [C] [B] [A]
          */
         demo.display();
 
         //Test removeNode method -- DO NOT MODIFY THE CODE BELOW
-        System.out.printf("\n\nRemoval of non-existing node: %b (expecting true)", demo.removeNode("Z")==null); // should print true
-        System.out.printf("\nRemoval of node \"C\": %b (expecting true)",demo.removeNode("C").getContent().equals("C")); // should print true
-        System.out.printf("\nRemoval of node \"A\": %b (expecting true)", demo.removeNode("A").getContent().equals("A")); // should print true
-        System.out.printf("\nRemoval of node \"E\": %b (expecting true)", demo.removeNode("E").getContent().equals("E")); // should print true
+
+        final String PASS = "Pass", FAIL = "Failed";
+        String removeZ = (demo.removeNode("Z")==null) ? PASS : FAIL;
+        String removeC = (demo.removeNode("C").getContent().equals("C")) ? PASS : FAIL;
+        String removeA = (demo.removeNode("A").getContent().equals("A")) ? PASS : FAIL;
+        String removeE = (demo.removeNode("E").getContent().equals("E")) ? PASS : FAIL;
+
+        System.out.printf("\nRemoval of node \"Z\": %s", removeZ);
+        System.out.printf("\nRemoval of node \"C\": %s", removeC);
+        System.out.printf("\nRemoval of node \"A\": %s", removeA);
+        System.out.printf("\nRemoval of node \"E\": %s", removeE);
         demo.display(); // should print [B] [D] [B] only
+
         // DO NOT MODIFY THE CODE ABOVE
 
     }
