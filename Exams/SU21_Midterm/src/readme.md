@@ -37,7 +37,7 @@ Removing a node is a bit complicated, so the following two hints will come handy
 
 ### Hint 1
 
-Do not start coding right away. Solve the problem on paper, using circles to represent nodes and arrows to represent points. Come up with a step-by-step description of your technique. For example, do not just state:
+Before start coding, solve the problem on paper, using circles to represent nodes and arrows to represent points. Come up with a step-by-step description of your technique. For example, do not just state:
 
 `find the node with content "B"`
 
@@ -66,8 +66,12 @@ Node nodeWithB = new Node("B");
 Node nodeWithC = new Node("C");
 ```
 
-**To summarize this hint:** conceptualize the process using simple desing and study class `Node` very carefully!
+**To summarize this hint:** conceptualize the process using simple design and study class `Node` very carefully!
 
 ### Hint 2
 
-Removal from SLL
+Consinder a single-linked list, much like the one we studied in class `Route` and the implementation of the _Lincoln Service_ train line. In general, a single-linked list is a chain of nodes. Each node has a `next` pointer.
+
+<div style="text-align:center"><img src="images/SLL.png" width="33%"/></div>
+
+Consider the single-linked list above. We would like to remove the node with content `"C"`. How can we accomplish this?
