@@ -17,7 +17,7 @@ This exam uses the following classes.
 
 <img src="images/DLL.png" width="33%" align="right"/>
 
-The figure to the right shows a small double-linked list with three nodes: A, B, C. The **head** node is A. In a double-linked list, every node is required to be linked to a previous and a next node. There are two exceptions: the head node has no previous node. The rightmost node has no next node. You can think of the double-linked list as two single lists put together. One list moves from A to B to C. The other from C, to B, to A.
+The figure to the right shows a small double-linked list with three nodes: A, B, C. (You may click on the image for a larger rendering). The **head** node is A. In a double-linked list, every node is required to be linked to a previous and a next node. There are two exceptions: the head node has no previous node. The rightmost node has no next node. You can think of the double-linked list as two single lists put together. One list moves from A to B to C. The other from C, to B, to A.
 
 For the problems below, your code must be neat, clean, and thoroughly documented with comments. Neat and clean code means no superfluous or inconsistent spacing, suitably named variables, etc.
 

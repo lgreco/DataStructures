@@ -80,6 +80,7 @@ public class DoubleLinkedList {
     public void display() {
     } // method display
 
+
     /**
      * DEVELOP THE METHOD remove BELOW SO THAT IS FINDS THE FIRST NODE IN THE
      * LIST THAT CONTAINS STRING content, REMOVES IT, AND RETURNS IT TO THE
@@ -91,4 +92,24 @@ public class DoubleLinkedList {
     public Node removeNode(String content) {
         return new Node("test"); // REPLACE THIS WITH THE ACTUAL OBJECT TO RETURN
     } // method removeNode
+
+
+    /**
+     *
+     * @return
+     */
+    public int countNodes() {
+        int count = 0;
+        return count;
+    } // method countNodes
+
+
+    /**
+     *
+     * @return
+     */
+    public String toString() {
+        String listInReverse = "";
+        return listInReverse;
+    } // method toString
 } // class DoubleLinkedList
