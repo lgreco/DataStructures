@@ -19,8 +19,8 @@ public class Demo {
     public static void main(String[] args) {
 
         // Set up demo list
-        NFS_Solutions demo = new NFS_Solutions();
-        NFS_Solutions zero = new NFS_Solutions();
+        DoubleLinkedList demo = new DoubleLinkedList();
+        DoubleLinkedList zero = new DoubleLinkedList();
 
         /*
          Being silly with for loops and char primitives while building a
@@ -34,6 +34,7 @@ public class Demo {
         Call the display method. The output, when running the code, should be
         [A] [B] [C] [D] [E] [D] [C] [B] [A]
          */
+        System.out.printf("\n\nProblem 1\nExpected:\n[A] [B] [C] [D] [E] [D] [C] [B] [A]\nActual:");
         demo.display();
 
         // Testing removals (Problem 2)
@@ -43,7 +44,8 @@ public class Demo {
         String removeA = (demo.removeNode("A").getContent().equals("A")) ? PASS : FAIL;
         String removeE = (demo.removeNode("E").getContent().equals("E")) ? PASS : FAIL;
 
-        System.out.printf("\n\nRemoval of node \"Z\": %s", removeZ);
+        System.out.printf("\n\nProblem 2");
+        System.out.printf("\nRemoval of node \"Z\": %s", removeZ);
         System.out.printf("\nRemoval of node \"C\": %s", removeC);
         System.out.printf("\nRemoval of node \"A\": %s", removeA);
         System.out.printf("\nRemoval of node \"E\": %s", removeE);
@@ -51,19 +53,26 @@ public class Demo {
 
         // Testing counting (Problem 3)
         String countCorrectly = (demo.countNodes()==2) ? PASS : FAIL;
-        System.out.printf("\n\nNode counting: %s",countCorrectly);
+        System.out.printf("\n\nProblem 3");
+        System.out.printf("\nNode counting: %s",countCorrectly);
         countCorrectly = (zero.countNodes()==0) ? PASS : FAIL;
         System.out.printf("\nNode counting, empty list: %s",countCorrectly);
 
         // Testing reverse printing (Problem 4)
-        System.out.printf("\n\nList in reverse: %s", demo.toString());
-        System.out.printf("\nEmpty list in reverse: %s\n", zero.toString());
+        String reverseNonEmpty = (demo.toString().equals("[D] [B] ")) ? PASS : FAIL;
+        String reverseEmpty = (zero.toString().equals("List is empty")) ? PASS : FAIL;
+        System.out.printf("\n\nProblem 4");
+        System.out.printf("\nList in reverse: %s", reverseNonEmpty);
+        System.out.printf("\nEmpty list in reverse: %s", reverseEmpty);
 
         //Testing unique add (Problem 5)
         String addUniqueD = (!demo.addUnique("D")) ? PASS : FAIL; // ! for reverse logic
         String addUniqueL = (demo.addUnique("L")) ? PASS : FAIL;
-        System.out.printf("\n\nAdd node with \"D\": %s", addUniqueD);
+        System.out.printf("\n\nProblem 5");
+        System.out.printf("\nAdd node with \"D\": %s", addUniqueD);
         System.out.printf("\nAdd node with \"L\": %s", addUniqueL);
+
+        System.out.printf("\n\n--- End of Assessment --- ");
     } // method main
     /*
                      DO NOT MODIFY THE CONTENTS OF METHOD MAIN ABOVE
