@@ -1,9 +1,11 @@
 # COMP 271 Midterm Summer 2021
 
-The exam comes in two flavors
+The exam comes in two flavors:
 
-* Problems 1 and 2, or
-* Problems 1, 3, and 4.
+* **Peach flavor:** Problems 1 and 2, or
+* **apricot flavor:** Problems 1, 3, and 4.
+
+You only need to complete one of the two flavors.
   
 This exam uses the following classes.
 
@@ -85,7 +87,7 @@ First, let's try to show the removal, pictorially:
 
 <p align="center"><img src="images/SLL-removal.png" width="66%"></p>
 
-That's pretty easy: we take the `next` pointer from the node before `"C"` and we direct it to the node after `"C"`. For a good measure, we also take the `next` pointer from `"C"` and we direct it to `null`. How can we do this in Java? Well, that's something for the final exam but suffice to say it is not as easy as dealing with a double-linked node!
+That's pretty easy: we take the `next` pointer from the node before `"C"` and we direct it to the node after `"C"`. For a good measure, we also take the `next` pointer from `"C"` and we direct it to `null`. How can we do this in Java? Well, that's something for the final exam but suffice to say it is not as easy as dealing with a double-linked node! But suffice to say this: if we have a way to tell which node is before `"C"`, we can take that node's `next` pointer and move it from `"C"` to `"D"`.
 
 ## Problem 3 (3 points)
 
