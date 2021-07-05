@@ -146,4 +146,41 @@ public class DoubleLinkedList {
         return  success;
     } // method addUnique
 
+
+    /** Driver method to test your work. You may modify this method as you see fit.
+     * The code below offers a few suggestions for how to test the methods you develop
+     */
+    public static void main(String[] args) {
+
+        // Create a double-linked list object
+        DoubleLinkedList listForMidterm = new DoubleLinkedList();
+
+        // Add some data to that object
+        listForMidterm.add("Hello");
+        listForMidterm.add("World");
+        listForMidterm.add("!");
+
+        // Test the display method on your list object
+        listForMidterm.display();
+
+        // If you are working on PEACH, test the remove method
+        listForMidterm.removeNode("World");
+        listForMidterm.display(); // can we see that it has been removed?
+
+        // If you are working on APRICOT, test your other methods
+        int numberOfNodes = listForMidterm.countNodes();
+        System.out.println("Number of nodes in my list: " + numberOfNodes);
+
+        String inReverse = listForMidterm.toString();
+        System.out.println("Node contents in reverse: " + inReverse);
+
+        String newContent = "Hello";
+        boolean successfullyAdded = listForMidterm.addUnique(newContent);
+        System.out.println("Was " + newContent + " successfully added? " + successfullyAdded);
+        newContent = "bythometry";
+        successfullyAdded = listForMidterm.addUnique(newContent);
+        System.out.println("Was " + newContent + " successfully added? " + successfullyAdded);
+
+    } // method main
+
 } // class DoubleLinkedList
