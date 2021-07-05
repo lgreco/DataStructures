@@ -13,6 +13,14 @@
  */
 public class DoubleLinkedList {
 
+    /*
+    CHANGE THE FOLLOWING STRING TO
+      PEACH ..... IF YOU ARE SUBMITTING SOLUTIONS TO PROBLEMS 1 + 2
+      APRICOT ... IF YOU ARE SUBMITTING SOLUTIONS TO PROBLEMS 1 + 3 + 4 + 5
+     */
+    public final String FLAVOR = ""; // MUST BE PEACH OR APRICOT
+
+
     /** The head node of a double linked list */
     Node head;
 
@@ -62,6 +70,8 @@ public class DoubleLinkedList {
 
 
     /**
+     * PROBLEM 1
+     *
      * DEVELOP THE METHOD display() SO THAT IT TRAVERSES A DOUBLE-LINKED LIST FROM
      * THE HEAD NODE TO THE RIGHTMOST NODE AND THEN BACK TO HEAD, PRINTING THE
      * STRING CONTENT OF EACH NODE ALONG THE WAY. THE METHOD SHALL USE THE NEXT
@@ -82,6 +92,8 @@ public class DoubleLinkedList {
 
 
     /**
+     * PROBLEM 2
+     *
      * DEVELOP THE METHOD remove BELOW SO THAT IS FINDS THE FIRST NODE IN THE
      * LIST THAT CONTAINS STRING content, REMOVES IT, AND RETURNS IT TO THE
      * CALLING PART OF THE PROGRAM.
@@ -95,8 +107,11 @@ public class DoubleLinkedList {
 
 
     /**
+     * PROBLEM 3
      *
-     * @return
+     * DEVELOP A METHOD THAT COUNTS THE NUMBER OF NODES IN A LIST
+     *
+     * @return non negative integer with number of nodes.
      */
     public int countNodes() {
         int count = 0;
@@ -105,8 +120,11 @@ public class DoubleLinkedList {
 
 
     /**
+     * PROBLEM 4
      *
-     * @return
+     * DEVELOP A METHOD TO ARRANGE NODE CONTENT IN REVERSE ORDER
+     *
+     * @return String with node contents in reverse order
      */
     public String toString() {
         String listInReverse = "";
@@ -115,9 +133,13 @@ public class DoubleLinkedList {
 
 
     /**
+     * PROBLEM 5
      *
-     * @param s
-     * @return
+     * DEVELOP A METHOD TO ADD NODE TO LIST ONLY IF THERE IS NO OTHER NODE
+     * WITH SAME CONTENT
+     *
+     * @param s String content of new node
+     * @return true if addition successful; false otherwise
      */
     public boolean addUnique(String s) {
         boolean success = false;
