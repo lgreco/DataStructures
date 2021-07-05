@@ -112,4 +112,16 @@ public class DoubleLinkedList {
         String listInReverse = "";
         return listInReverse;
     } // method toString
+
+
+    /**
+     *
+     * @param s
+     * @return
+     */
+    public boolean addUnique(String s) {
+        boolean success = false;
+        return  success;
+    } // method addUnique
+
 } // class DoubleLinkedList

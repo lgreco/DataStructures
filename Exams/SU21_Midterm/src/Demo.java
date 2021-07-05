@@ -58,5 +58,14 @@ public class Demo {
         // Testing reverse printing (Problem 4)
         System.out.printf("\n\nList in reverse: %s", demo.toString());
         System.out.printf("\nEmpty list in reverse: %s\n", zero.toString());
+
+        //Testing unique add (Problem 5)
+        String addUniqueD = (!demo.addUnique("D")) ? PASS : FAIL; // ! for reverse logic
+        String addUniqueL = (demo.addUnique("L")) ? PASS : FAIL;
+        System.out.printf("\n\nAdd node with \"D\": %s", addUniqueD);
+        System.out.printf("\nAdd node with \"L\": %s", addUniqueL);
     } // method main
+    /*
+                     DO NOT MODIFY THE CONTENTS OF METHOD MAIN ABOVE
+     */
 }

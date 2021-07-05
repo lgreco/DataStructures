@@ -3,7 +3,7 @@
 The exam comes in two flavors:
 
 * **Peach flavor:** Problems 1 and 2, or
-* **apricot flavor:** Problems 1, 3, and 4.
+* **apricot flavor:** Problems 1, 3, 4, and 5.
 
 You only need to complete one of the two flavors.
   
@@ -89,7 +89,7 @@ First, let's try to show the removal, pictorially:
 
 That's pretty easy: we take the `next` pointer from the node before `"C"` and we direct it to the node after `"C"`. For a good measure, we also take the `next` pointer from `"C"` and we direct it to `null`. How can we do this in Java? Well, that's something for the final exam but suffice to say it is not as easy as dealing with a double-linked node! But suffice to say this: if we have a way to tell which node is before `"C"`, we can take that node's `next` pointer and move it from `"C"` to `"D"`.
 
-## Problem 3 (3 points)
+## Problem 3 (1 points)
 
 Write a method
 
@@ -106,3 +106,13 @@ Write a method
 public String toString() {...}
 ```
 that returns the contents of a `DoubleLinkedList` in reverse order by traversing the list only once from the `head` node to the rightmost node. (Hint: pretend that nodes do not have a `previous` pointer).
+
+## Problem 5 (2 points)
+
+Write a variation of the `add` method in `DoubleLinkedList` with signature
+
+```java
+public boolean addUnique(String s)
+```
+
+that adds a new node at the right end of the list only if there is no other node already in the list with the same content (`String s`).
