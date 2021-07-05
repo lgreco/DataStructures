@@ -87,7 +87,7 @@ First, let's try to show the removal, pictorially:
 
 <p align="center"><img src="images/SLL-removal.png" width="66%"></p>
 
-That's pretty easy: we take the `next` pointer from the node before `"C"` and we direct it to the node after `"C"`. For a good measure, we also take the `next` pointer from `"C"` and we direct it to `null`. How can we do this in Java? Well, that's something for the final exam but suffice to say it is not as easy as dealing with a double-linked node! But suffice to say this: if we have a way to tell which node is before `"C"`, we can take that node's `next` pointer and move it from `"C"` to `"D"`.
+That's pretty easy: we take the `next` pointer from the node before `"C"` and we direct it to the node after `"C"`. For a good measure, we also take the `next` pointer from `"C"` and we direct it to `null`. How can we do this in Java? Well, that's something for the final exam; removal from a single-linked list is not as easy as dealing with a double-linked node! But suffice to say this: if we have a way to tell which node is before `"C"`, we can take that node's `next` pointer and move it from `"C"` to `"D"`.
 
 ## Problem 3 (1 points)
 
