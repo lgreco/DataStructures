@@ -18,7 +18,7 @@ public class DoubleLinkedList {
       PEACH ..... IF YOU ARE SUBMITTING SOLUTIONS TO PROBLEMS 1 + 2
       APRICOT ... IF YOU ARE SUBMITTING SOLUTIONS TO PROBLEMS 1 + 3 + 4 + 5
      */
-    public final String FLAVOR = ""; // MUST BE PEACH OR APRICOT
+    public final String FLAVOR = "APRICOT"; // MUST BE PEACH OR APRICOT
 
 
     /** The head node of a double linked list */

@@ -1,6 +1,11 @@
 /**
  * Implementation class with double-linked lists.
  *
+ * Updates: 2021 JUL 06 1530 - METHODS FOR PROBLEMS 3, 4 UPDATED TO
+ *                             REFLECT CORRECT NUMBER OF NODES IN
+ *                             THE LIST -- SINCE PROBLEM 2 METHOD
+ *                             IS NOT INVOKED IN APRICOT BRANCH.
+ *
  * **********************************************************************
  * **********************************************************************
  * *                                                                   **
@@ -14,8 +19,8 @@ public class Demo {
     static final String PASS = "Pass", FAIL = "Failed";
 
     // Set up demo lists
-    static DoubleLinkedList demo = new DoubleLinkedList();
-    static DoubleLinkedList zero = new DoubleLinkedList();
+    static NFS_Solutions demo = new NFS_Solutions();
+    static NFS_Solutions zero = new NFS_Solutions();
 
     /**
      * Main method creates an instance of the DoubleLinkedList, populates
@@ -89,7 +94,7 @@ public class Demo {
 
     public static void problem3() {
         // Testing counting (Problem 3)
-        String countCorrectly = (demo.countNodes() == 2) ? PASS : FAIL;
+        String countCorrectly = (demo.countNodes() == 5) ? PASS : FAIL;
         System.out.printf("\n\nProblem 3");
         System.out.printf("\nNode counting: %s", countCorrectly);
         countCorrectly = (zero.countNodes() == 0) ? PASS : FAIL;
@@ -99,7 +104,7 @@ public class Demo {
 
     public static void problem4() {
         // Testing reverse printing (Problem 4)
-        String reverseNonEmpty = (demo.toString().equals("[D] [B] ")) ? PASS : FAIL;
+        String reverseNonEmpty = (demo.toString().equals("[E] [D] [C] [B] [A] ")) ? PASS : FAIL;
         String reverseEmpty = (zero.toString().equals("List is empty")) ? PASS : FAIL;
         System.out.printf("\n\nProblem 4");
         System.out.printf("\nList in reverse: %s", reverseNonEmpty);
