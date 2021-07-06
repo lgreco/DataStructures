@@ -19,8 +19,8 @@ public class Demo {
     static final String PASS = "Pass", FAIL = "Failed";
 
     // Set up demo lists
-    static NFS_Solutions demo = new NFS_Solutions();
-    static NFS_Solutions zero = new NFS_Solutions();
+    static DoubleLinkedList demo = new DoubleLinkedList();
+    static DoubleLinkedList zero = new DoubleLinkedList();
 
     /**
      * Main method creates an instance of the DoubleLinkedList, populates
