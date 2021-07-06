@@ -27,7 +27,7 @@ Write a void method `display()` for class `DoubleLinkedList` that traverses the 
 
 `[A] [B] [C] [B] [A]`
 
-Notice that the contents of each node appear inside a pair of square brackets.
+Notice that the contents of each node appear inside a pair of square brackets that the program (i.e., you) adds.
 
 ## Problem 2 (6 points)
 
