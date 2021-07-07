@@ -3,7 +3,7 @@
  *
  * Updates:
  *
- *          2021 JUL 07 1520 - METHOD FOR PROBLEM 4 UPDATE TO IGNORE
+ *          2021 JUL 07 1520 - METHOD FOR PROBLEM 4 UPDATED TO IGNORE
  *                             ANY EMPTY SPACES AT THE END OF THE
  *                             REVERSE STRING.
  *

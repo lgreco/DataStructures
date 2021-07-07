@@ -2,9 +2,34 @@ import java.util.Random;
 
 public class Simulator {
 
-    private static final int MINUTES_PER_HOUR = 60;
     private static Random rng = new Random();
-    private static WaitingArea w = new WaitingArea(10);
+    private static WaitingArea w;
+    private static int totalWaitTime = 0;
+    private static int carCount = 0;
+    private static int hours;
+    private static int durationOfCarWash;
+    private static double arrivalProbability;
+    private static double avgWait;
+
+    private static final int MINUTES_PER_HOUR = 60;
+
+
+    /** Default constructor */
+    public Simulator() {
+        w = new WaitingArea(10);
+        hours = 12;
+        durationOfCarWash = 5;
+        arrivalProbability = 0.5;
+    } // Default constructor Simulator
+
+
+    /** Full constructor */
+    public Simulator(int capacity, int hours, int durationOfCarWash, double arrivalProbability) {
+        w = new WaitingArea(capacity);
+        this.hours = hours;
+        this.durationOfCarWash = durationOfCarWash;
+        this.arrivalProbability = arrivalProbability;
+    } // Full constructor Simulator
 
 
     /**
@@ -29,60 +54,46 @@ public class Simulator {
 
 
     /**
+     * This is the principal method. It runs through the specified time period
+     * and collects data about arrivals and departures at the car wash.
      *
-     * @param hours
-     * @param durationOfCarWash
      */
-    public void simulate(int hours, int durationOfCarWash) {
+    public void simulate() {
 
         boolean washingBayFree = true; // assume that the bay is free
         int minutesInSimulation = hours * MINUTES_PER_HOUR;
 
         int carWashTimer = 0;
-        int carCount = 0;
-
 
         for (int timeIndex = 0; timeIndex < minutesInSimulation; timeIndex++) {
 
-            System.out.printf("\n\nAt time index %06d:",timeIndex);
 
-            if (carArriving(0.5)) {
-                System.out.printf("\n\tA car is arriving. There are %d/%d cars in line.", w.getSize(), w.getCapacity());
+            if (carArriving(arrivalProbability)) {
                 String arrivingCar = String.format("Car_%06d",timeIndex);
                 if (w.addCar(arrivingCar)) {
-                    System.out.printf("\n\t\tCat labeled %s has been added to the queue.", arrivingCar);
-                    System.out.printf("\n\t\tThere are now %d/%d cars in line.", w.getSize(), w.getCapacity());
                     carCount++; // increase car count
                     int waitingTimeForThisCar = w.getSize()*durationOfCarWash + (durationOfCarWash-carWashTimer);
-                } else {
-                    System.out.printf("\n\t\tQueue is full with %d/%d cars. Arriving car leaves.", w.getSize(), w.getCapacity());
+                    totalWaitTime += waitingTimeForThisCar;
                 }
             }
 
             if (washingBayFree) {
-                System.out.printf("\n\tCarwash bay is available.");
                 if (w.getSize() > 0){
-                    System.out.printf("\n\t\tAnd the line is not empty.");
                     washingBayFree = false; // occupy carwash bay
                     carWashTimer = 0; // reset carwash timer
-                    String carBeingWshed = w.moveCartoWashingBay();
-                    System.out.printf("\n\t\t%s is moved to the carwash bay, and wash timer is restarted.", carBeingWshed);
-                } else {
-                    System.out.printf("\n\t\tBut there is no one in line. Oh well!");
+                    String carBeingWashed = w.moveCartoWashingBay();
                 }
-            } else {
-                System.out.printf("\n\t\tCar wash in progress, time lapsed %d/%d", carWashTimer, durationOfCarWash);
             }
 
             carWashTimer++; // update timer
 
             if (carWashTimer==durationOfCarWash) {
-                System.out.printf("\n\tCarwash cycle completed. Bay is again available.");
                 carWashTimer = 0;
                 washingBayFree = true;
             }
 
         }
+
     } // method simulate
 
 }
