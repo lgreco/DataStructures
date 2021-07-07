@@ -1,7 +1,13 @@
 /**
  * Implementation class with double-linked lists.
  *
- * Updates: 2021 JUL 06 1530 - METHODS FOR PROBLEMS 3, 4 UPDATED TO
+ * Updates:
+ *
+ *          2021 JUL 07 1520 - METHOD FOR PROBLEM 4 UPDATE TO IGNORE
+ *                             ANY EMPTY SPACES AT THE END OF THE
+ *                             REVERSE STRING.
+ *
+ *          2021 JUL 06 1530 - METHODS FOR PROBLEMS 3, 4 UPDATED TO
  *                             REFLECT CORRECT NUMBER OF NODES IN
  *                             THE LIST -- SINCE PROBLEM 2 METHOD
  *                             IS NOT INVOKED IN APRICOT BRANCH.
@@ -104,7 +110,7 @@ public class Demo {
 
     public static void problem4() {
         // Testing reverse printing (Problem 4)
-        String reverseNonEmpty = (demo.toString().equals("[E] [D] [C] [B] [A] ")) ? PASS : FAIL;
+        String reverseNonEmpty = (demo.toString().trim().equals("[E] [D] [C] [B] [A]")) ? PASS : FAIL;
         String reverseEmpty = (zero.toString().equals("List is empty")) ? PASS : FAIL;
         System.out.printf("\n\nProblem 4");
         System.out.printf("\nList in reverse: %s", reverseNonEmpty);
