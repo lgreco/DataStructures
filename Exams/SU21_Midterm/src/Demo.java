@@ -24,6 +24,13 @@ public class Demo {
 
     static final String PASS = "Pass", FAIL = "Failed";
 
+    /*
+    Correct answers for problem 3 and 4; when running for full solutions flavor these
+    answers need to change (main() modifies them).
+     */
+    static int countForProblem3 = 5;
+    static String stringForProblem4 = "[E] [D] [C] [B] [A]";
+
     // Set up demo lists
     static DoubleLinkedList demo = new DoubleLinkedList();
     static DoubleLinkedList zero = new DoubleLinkedList();
@@ -36,8 +43,17 @@ public class Demo {
     public static void main(String[] args) {
 
         // Ensure that FLAVOR has been assigned in DoubleLinkedList
-        if (demo.FLAVOR.equalsIgnoreCase("PEACH") || demo.FLAVOR.equalsIgnoreCase("APRICOT")) {
+        if (demo.FLAVOR.equalsIgnoreCase("PEACH") || demo.FLAVOR.equalsIgnoreCase("APRICOT") || demo.FLAVOR.equalsIgnoreCase("SOLUTIONS")) {
             System.out.printf("\n\nTHIS CLASS SOLVES THE %S FLAVOR OF THE EXAM", demo.FLAVOR);
+
+            /*
+            Adjust some answers for FLAVOR = SOLUTIONS because the list content may be different.
+             */
+
+            if (demo.FLAVOR.equalsIgnoreCase("SOLUTIONS")) {
+                countForProblem3 = 2;
+                stringForProblem4 = "[D] [B]";
+            }
 
             // Add a few nodes
             for (char c = 'A'; c < 'F'; c++) { // c++ get it? :-)
@@ -48,12 +64,12 @@ public class Demo {
             problem1();
 
             // Run PEACH flavor -- problem 2
-            if (demo.FLAVOR.equalsIgnoreCase("PEACH")) {
+            if (demo.FLAVOR.equalsIgnoreCase("PEACH") || demo.FLAVOR.equalsIgnoreCase("SOLUTIONS")) {
                 problem2();
             }
 
             // Run APRICOT flavor -- problems 3, 4, 5
-            if (demo.FLAVOR.equalsIgnoreCase("APRICOT")) {
+            if (demo.FLAVOR.equalsIgnoreCase("APRICOT") || demo.FLAVOR.equalsIgnoreCase("SOLUTIONS")) {
                 problem3();
                 problem4();
                 problem5();
@@ -100,7 +116,7 @@ public class Demo {
 
     public static void problem3() {
         // Testing counting (Problem 3)
-        String countCorrectly = (demo.countNodes() == 5) ? PASS : FAIL;
+        String countCorrectly = (demo.countNodes() == countForProblem3) ? PASS : FAIL;
         System.out.printf("\n\nProblem 3");
         System.out.printf("\nNode counting: %s", countCorrectly);
         countCorrectly = (zero.countNodes() == 0) ? PASS : FAIL;
@@ -110,7 +126,7 @@ public class Demo {
 
     public static void problem4() {
         // Testing reverse printing (Problem 4)
-        String reverseNonEmpty = (demo.toString().trim().equals("[E] [D] [C] [B] [A]")) ? PASS : FAIL;
+        String reverseNonEmpty = (demo.toString().trim().equals(stringForProblem4)) ? PASS : FAIL;
         String reverseEmpty = (zero.toString().equals("List is empty")) ? PASS : FAIL;
         System.out.printf("\n\nProblem 4");
         System.out.printf("\nList in reverse: %s", reverseNonEmpty);

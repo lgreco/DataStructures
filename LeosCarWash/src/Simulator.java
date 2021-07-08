@@ -5,7 +5,8 @@ public class Simulator {
     private static Random rng = new Random();
     private static WaitingArea w;
     private static int totalWaitTime = 0;
-    private static int carCount = 0;
+    private static int carsAccepted = 0;
+    private static int carsRejected = 0;
     private static int hours;
     private static int durationOfCarWash;
     private static double arrivalProbability;
@@ -58,7 +59,7 @@ public class Simulator {
      * and collects data about arrivals and departures at the car wash.
      *
      */
-    public void simulate() {
+    private void simulate() {
 
         boolean washingBayFree = true; // assume that the bay is free
         int minutesInSimulation = hours * MINUTES_PER_HOUR;
@@ -71,9 +72,11 @@ public class Simulator {
             if (carArriving(arrivalProbability)) {
                 String arrivingCar = String.format("Car_%06d",timeIndex);
                 if (w.addCar(arrivingCar)) {
-                    carCount++; // increase car count
+                    carsAccepted++; // increase car count
                     int waitingTimeForThisCar = w.getSize()*durationOfCarWash + (durationOfCarWash-carWashTimer);
                     totalWaitTime += waitingTimeForThisCar;
+                } else {
+                    carsRejected++;
                 }
             }
 
@@ -94,6 +97,23 @@ public class Simulator {
 
         }
 
+        avgWait = ((double) totalWaitTime) / ((double) carsAccepted);
+
     } // method simulate
+
+    public void report() {
+        simulate();
+        System.out.printf("\n\n==================== Simulation of a car wash ====================\n");
+        System.out.printf("\n%50s %6d", "Length of simulation (in minutes):", hours*MINUTES_PER_HOUR);
+        System.out.printf("\n%50s %6d", "Length of car wash cycle (in minutes):", durationOfCarWash);
+        System.out.printf("\n%50s %9.2f\n", "Arrival probability:", arrivalProbability);
+        System.out.printf("\n%50s %6d", "Capacity of waiting area (in cars):", w.getCapacity());
+        System.out.printf("\n%50s %6d", "Number of cars accepted in line:", carsAccepted);
+        System.out.printf("\n%50s %6d", "Cars turned away because line was full:", carsRejected);
+        System.out.printf("\n%50s %6d\n", "Total number of cars:", carsRejected+carsAccepted);
+        System.out.printf("\n%50s %9.2f", "Average waiting time to wash (in minutes):", avgWait);
+        System.out.printf("\n\n=================== End of car wash simulation ===================\n");
+
+    }
 
 }
