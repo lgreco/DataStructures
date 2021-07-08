@@ -287,12 +287,12 @@ public class DoubleLinkedList {
             the equivalent of traveling from Chicago to Summit to Joliet, and writing the names of the stations
             as we visit them on a piece of paper, but beginning from the bottom:
 
-            First            Second         Third
-            station          station        station
+            First            Second           Third
+            station          station          station
 
-                                            Joliet
-                             Summit         Summit
-            Chicago          Chicago        Chicago
+                                              Joliet
+                             Summit           Summit
+            Chicago          Chicago          Chicago
              */
             Node current = head;
             while (current.hasNext()) {
