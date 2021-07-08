@@ -73,7 +73,7 @@ public class Simulator {
                 String arrivingCar = String.format("Car_%06d",timeIndex);
                 if (w.addCar(arrivingCar)) {
                     carsAccepted++; // increase car count
-                    int waitingTimeForThisCar = w.getSize()*durationOfCarWash + (durationOfCarWash-carWashTimer);
+                    int waitingTimeForThisCar = w.getOccupancy()*durationOfCarWash + (durationOfCarWash-carWashTimer);
                     totalWaitTime += waitingTimeForThisCar;
                 } else {
                     carsRejected++;
@@ -81,7 +81,7 @@ public class Simulator {
             }
 
             if (washingBayFree) {
-                if (w.getSize() > 0){
+                if (w.getOccupancy() > 0){
                     washingBayFree = false; // occupy carwash bay
                     carWashTimer = 0; // reset carwash timer
                     String carBeingWashed = w.moveCartoWashingBay();
@@ -113,7 +113,6 @@ public class Simulator {
         System.out.printf("\n%50s %6d\n", "Total number of cars:", carsRejected+carsAccepted);
         System.out.printf("\n%50s %9.2f", "Average waiting time to wash (in minutes):", avgWait);
         System.out.printf("\n\n=================== End of car wash simulation ===================\n");
-
     }
 
 }

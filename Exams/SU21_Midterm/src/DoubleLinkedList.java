@@ -292,7 +292,7 @@ public class DoubleLinkedList {
 
                                             Joliet
                              Summit         Summit
-              Chicago        Chicago        Chicago
+            Chicago          Chicago        Chicago
              */
             Node current = head;
             while (current.hasNext()) {

@@ -5,16 +5,16 @@
 public class WaitingArea {
 
     private String[] waitingArea;
-    private int size;
+    private int occupancy; // cars currently in waiting
 
     public WaitingArea(int capacity) {
         waitingArea = new String[capacity];
-        size = 0;
+        occupancy = 0;
     }
 
     public int getCapacity() { return waitingArea.length; } ;
 
-    public int getSize() { return size; }
+    public int getOccupancy() { return occupancy; }
 
 
     /**
@@ -23,11 +23,11 @@ public class WaitingArea {
      * @return true is car added to waiting area; false otherwise
      */
     public boolean addCar(String carDescription) {
-        boolean success = (size < waitingArea.length);
+        boolean success = (occupancy < waitingArea.length);
         if ( success ) {
-            int endOfLinePosition = size;
+            int endOfLinePosition = occupancy;
             waitingArea[endOfLinePosition] = carDescription;
-            size++;
+            occupancy++;
         }
         return success;
     } // method addCar
@@ -40,13 +40,13 @@ public class WaitingArea {
      */
     public String moveCartoWashingBay() {
         String carToWash = null;
-        if (size>0) {
-            size--; // let's adjust the size
+        if (occupancy >0) {
+            occupancy--; // let's adjust the size
             carToWash = waitingArea[0]; // always remove from the front
-            for (int i = 0; i < size; i++) { // shift everyone towards the front
+            for (int i = 0; i < occupancy; i++) { // shift everyone towards the front
                 waitingArea[i] = waitingArea[i+1];
             }
-            waitingArea[size] = null; // vacate last position
+            waitingArea[occupancy] = null; // vacate last position
         }
         return carToWash;
     } // method moveCartoWashingBay
