@@ -283,7 +283,7 @@ public class DoubleLinkedList {
         } else {
             /*
             As we traverse the list forward, ie, following the next pointers, we write the nodes we are visiting,
-            beginnign at the end of the string. Every new node is added on top of the just visited node. This is
+            beginning at the end of the string. Every new node is added on top of the just visited node. This is
             the equivalent of traveling from Chicago to Summit to Joliet, and writing the names of the stations
             as we visit them on a piece of paper, but beginning from the bottom:
 
