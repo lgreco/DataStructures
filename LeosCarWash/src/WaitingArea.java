@@ -1,6 +1,8 @@
 /**
- * A simple data structure that behaves like a queue. The underlying data structure
- * is a simple String array.
+ * A simple data structure with FIFO behavior. The underlying data structure is a plain String array.
+ *
+ * FIFO (First-In First-Out) is a queue model where items exit the queue in the order that they enter it.
+ * FIFOs are the queues we experience at grocery store checkouts, waiting in line at a food counter, etc.
  */
 public class WaitingArea {
 
