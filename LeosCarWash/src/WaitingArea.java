@@ -85,5 +85,5 @@ public class WaitingArea {
         }
         return carToWash;
     } // method moveCartoWashingBay
-    
+
 } // class WaitingArea
