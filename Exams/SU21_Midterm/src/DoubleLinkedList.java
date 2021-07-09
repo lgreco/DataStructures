@@ -37,7 +37,7 @@ public class DoubleLinkedList {
      */
     public void add(String content) {
         Node newNode = new Node(content); // Create node with given content
-        if (head==null) { // List empty?
+        if (head==null) { // head node null means there is nothing yet in our list
             head = newNode; // new node becomes head
         } else { // List not empty?
             Node current = head; // Start at head; find last node
