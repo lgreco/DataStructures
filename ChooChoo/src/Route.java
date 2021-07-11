@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * A simple class that chains Station objects one-after-the-other to recreate
  * a train route. As in class Station, access modifiers are omitted, so that
@@ -27,7 +29,7 @@ public class Route {
     Station head;
 
     /** Reserved for future use. */
-    Station last; 
+    Station last;
 
 
     /**
@@ -119,4 +121,115 @@ public class Route {
         // At this point, boolean found has the answer to our search
         return found;
     } // method contains
+
+
+    /**
+     * Creates a string of with about int:limit characters per line. The method assume that the Route has at least
+     * two stations. Based on that assumption, the method makes calls to head.next without trying to prevent a
+     * null pointer exception.
+     *
+     * @param limit number of characters per line
+     * @return String with route narrative
+     */
+    public String toString(int limit) {
+        /* Fixed content is assigned to separate variables below. */
+        final String OPENING = "The route starts at";
+        final String CONTINUES = "and stops at";
+        final String ENDS = "and finally at";
+        String route, newContent; // Building blocks
+        int lineLength = 0;
+        if (head==null) { // If route is empty
+            route = "Line is empty.\n\n";
+        } else {
+            /*
+            Route is not empty. We begin by constructing the opening part of the String. But first we need to
+            determine if the length specified as int:limit is sufficient to allow the opening content on a
+            single line. In other cords, is
+               limit > OPENING.length() + CONTINUES.length() + head.town.length()
+            This is more of a style issue than anything else. I just want the openign content and the first
+            station of the route to be in the same line, e.g.,
+
+            Preferred:                                                   Instead of:
+            The route starts at Chicago and stops at ...                 The route starts at
+                                                                         Chicago and stops at ...
+
+            If we anticipate that the length of the opening part is longer than the limit of character per line,
+            then we adjust that limit up to accomodate the next station's town and the surrounding spaces and commas,
+            hence the +4 below.
+             */
+            if (limit < (OPENING + head.town + CONTINUES).length() ) {
+                limit = (OPENING + head.town + CONTINUES + head.next.town.length() + 4).length(); // Assume .next!=null
+            }
+            /*
+            Now we can begin to build the string to return. String:route is initialized to the contents of the
+            OPENING variable, followed by the town of the head Station, following by the contents of CONTINUES
+
+            The route starts at Chicago and stops at
+            -------------------^-------^------------
+            OPENING             head.   CONTINUES
+                                town
+            %s                  %s      %s
+             */
+            route = String.format("\n\n%s %s %s ", OPENING, head.town, CONTINUES);
+            lineLength = route.length(); // how long is this String:route?
+            Station current = head.next; // Start traversing from the next station. Again, assume head.next != null
+            while (current.next != null) {
+                newContent = String.format("%s, ", current.town); // stuff we need to add to the route string
+                route += newContent; // concatenate new content to existing string
+                lineLength += newContent.length(); // how long will is String:route now?
+                if (lineLength>limit) { // if allowed limit exceeded
+                    lineLength = 0; // reset counter
+                    route += "\n"; // add a new line to String:route
+                }
+                current = current.next; // move to the last station
+            }
+            route += String.format("%s %s.", ENDS, current.town); // add it to String; ok if length is exceeded a bit
+        }
+        return route;
+    } // method toString
+
+
+    /**
+     * Method that finds if a Station in a Route is located at a specified town and state
+     * @param town Town location of a station
+     * @param state State location of a station
+     * @return true if station present at town, state; false otherwise
+     */
+    public boolean contains(String town, String state) {
+        boolean found = false; // assume such station not found
+        if (head != null) {
+            Station current = head;
+            while (current != null && !found) {
+                if (current.town.equals(town) && current.state.equals(state)) {
+                    found = true;
+                }
+                current = current.next;
+            }
+        }
+        return found;
+    } // method contains
+
+
+    /**
+     * Method that counts the number of states a Route goes through. The method uses an Arraylist to hold the
+     * states a Route goes through. States are added to this list only if they have not been added before.
+     * The size of the Arraylist is the number of states traveled.
+     *
+     * @return non negative integer with the number of states traveled through
+     */
+    public int countStates() {
+        ArrayList<String> states = new ArrayList<>(); // Arraylist with states traveled
+        if (head!=null) { // if Route is not empty
+            Station current = head;
+            while (current!=null) { // traverse the list with no separate processing of last node
+                String state = current.state;
+                if (!states.contains(state)) { // have we been to this state before?
+                    states.add(state); // no? Added to the stated visited.
+                }
+                current = current.next; // move to the next station
+            }
+        }
+        return states.size();
+    } // method countStates
+
 } // class Route

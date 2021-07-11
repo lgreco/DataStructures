@@ -44,6 +44,12 @@ public class LincolnService {
         lincolnService.addElement(stl);
         // Route completed
 
-        System.out.println(lincolnService.contains("CHI"));
+        System.out.printf("\n\nDemo of the toString(65) method:\n%s", lincolnService.toString(65));
+
+        System.out.printf("\n\nDoes the route contain a station coded CHI? %b", lincolnService.contains("CHI"));
+        System.out.printf("\nDoes the route contain a station coded ORD? %b", lincolnService.contains("ORD"));
+        System.out.printf("\n\nDoes the route contain a station in Alton, IL? %b", lincolnService.contains("Alton", "IL"));
+        System.out.printf("\nDoes the route contain a station in Seattle, WA? %b", lincolnService.contains("Seaatle", "WA"));
+        System.out.printf("\n\nThe route goes through %d states.\n", lincolnService.countStates());
     }
 }

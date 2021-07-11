@@ -15,7 +15,7 @@ public class LeoCarWash {
                                         |   |   |
              capacity of waiting area   |   |   |
                                     |   |   |   |
-                                    |   |   |   |            */
+                                    |   |   |   |                                                */
         Simulator s = new Simulator(10, 10, 5, 1.0);
         s.report(); // invoke Simulator.report() which runs the simulation and reports its findings
     }
