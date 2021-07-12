@@ -51,4 +51,4 @@ An insert method that prevents duplicate tail numbers. You may want to consider 
 
 *Notice that we are not interested in resizing and rehashing the data structure, yet*.
 
-#### Notes for lab session: from Hash Maps to Tree Maps; use of generics.
+#### Notes for lab session: from Hash Maps to NFS_Tree Maps; use of generics.

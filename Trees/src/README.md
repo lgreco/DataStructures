@@ -1,6 +1,6 @@
-# Binary Search Tree
+# Binary Search NFS_Tree
 
-A binary search tree (BST) is a formidable data structure for storing information and searching through it. The fundamental unit in a BST is called a node. Tree nodes contain three items: some content, and two "children". The children are nodes connected to their parent node. A BST node can have up to two children: we call them left and right, respectively.
+A binary search tree (BST) is a formidable data structure for storing information and searching through it. The fundamental unit in a BST is called a node. NFS_Tree nodes contain three items: some content, and two "children". The children are nodes connected to their parent node. A BST node can have up to two children: we call them left and right, respectively.
 
 Class `BST` provides a basic tree node object with some String content.
 

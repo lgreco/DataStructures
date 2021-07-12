@@ -9,7 +9,7 @@ You only need to complete one of the two flavors.
   
 This exam uses the following classes.
 
-* [Node](Node.java): a class of nodes with pointers to their previous and next nodes. Think of nodes as a form of the train stations we used in our previous examples. The objects described by class `Node` have a pointer to their next node and also a pointer to their previous node.
+* [NFS_Node](NFS_Node.java): a class of nodes with pointers to their previous and next nodes. Think of nodes as a form of the train stations we used in our previous examples. The objects described by class `NFS_Node` have a pointer to their next node and also a pointer to their previous node.
 
 * [DoubleLinkedList](DoubleLinkedList.java): a class that assembles nodes in a bidirectional fashion.
 
@@ -31,9 +31,9 @@ Notice that the contents of each node appear inside a pair of square brackets th
 
 ## Problem 2 (6 points)
 
-Write a method `removeNode` with the signature shown in the `DoubleLinkedList` class. The method removes a Node from the list and returns it to the calling part of the program, e.g.
+Write a method `removeNode` with the signature shown in the `DoubleLinkedList` class. The method removes a NFS_Node from the list and returns it to the calling part of the program, e.g.
 
-`Node gone = removeNode("B");
+`NFS_Node gone = removeNode("B");
 `
 
 finds (if there is one) the node with content "B", removes it from the list, adn returns it as node `gone` for us to inspect it or ignore it. If the list, before the removal, had nodes `[A] [B] [C]`, after the removal has `[A] [C]`. And when traversed with the `display` method from the previous problem, the output will be
@@ -58,22 +58,22 @@ begin from the head node and examine every node:
   else
     no such node exist
 ```
-For every simple step that you identify, look at `class Node` to find if it provides a method that accomplishes the task. For example, if one of your simple steps is:
+For every simple step that you identify, look at `class NFS_Node` to find if it provides a method that accomplishes the task. For example, if one of your simple steps is:
 
 `make node with content "B" previous to node with "C"`
 
-the corresponding method is `Node.setPrevious` and the actual statement would look like:
+the corresponding method is `NFS_Node.setPrevious` and the actual statement would look like:
 
 ```java
 nodeWithB.setPrevious(nodeWithC);
 ```
-assuming `nodeWithB` and `nodeWithC` are `Node` objects that have been already assigned values, e.g.,
+assuming `nodeWithB` and `nodeWithC` are `NFS_Node` objects that have been already assigned values, e.g.,
 ```java
-Node nodeWithB = new Node("B");
-Node nodeWithC = new Node("C");
+NFS_Node nodeWithB = new NFS_Node("B");
+NFS_Node nodeWithC = new NFS_Node("C");
 ```
 
-**To summarize this hint:** conceptualize the process using simple design and study class `Node` very carefully!
+**To summarize this hint:** conceptualize the process using simple design and study class `NFS_Node` very carefully!
 
 ### Hint 2
 
