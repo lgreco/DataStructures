@@ -41,7 +41,7 @@ public class BinaryTree {
                             keepSearchingTheTree = false; // end the while loop
                         } else { // current node's left spot is occupied by another node; let's try our luck there
                             current = current.left; // Move to the left node and try again
-                        }
+                        } // left if
                     } else {  // newWord is "more" that current node's content: go right
                         if (current.right == null) { // Oh, goodie, right spot is available
                             current.right = newNode; // Make newNode the right spot of the current node
@@ -49,11 +49,11 @@ public class BinaryTree {
                             keepSearchingTheTree = false; // end the while loop
                         } else { // current node's right spot is occupied by another node; let's try our luck there
                             current = current.right; // Move to the left node and try again
-                        }
+                        } // right if
                     }
                 } else {
                     keepSearchingTheTree = false; // duplicate found; exit the loop and declare no insertion
-                } /
+                }
             } // while ... traversing the tree
         } // if tree empty
         return success;
