@@ -1,7 +1,16 @@
 public class BinaryTree {
 
+    /** The principal field of the class is its root node. Everything flows from it through left/right pointers */
     Node root;
 
+    
+    /**
+     * Method to insert a node to the tree. The method inserts only nodes with unique content, thus avoiding
+     * duplicates.
+     *
+     * @param newWord contents of the new node
+     * @return true if insertion was completed; false if node with newWord already exists in three
+     */
     public boolean addNode(String newWord) {
         /*
         If tree empty (root==null), so make new node and assign it as root;

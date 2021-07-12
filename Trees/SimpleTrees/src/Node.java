@@ -9,7 +9,7 @@ public class Node {
     /** Pointers to left and right children */
     Node left, right; // left and right children
 
-    
+
     /**
      * Basic constructor. Places a string in the node, and keeps both children null
      * */
