@@ -58,4 +58,12 @@ public class BinaryTree {
         } // if tree empty
         return success;
     } // method addNode
+
+
+/*
+Things to do on Tue 13JUL
+ inOrder traversals
+ discuss removals
+ discuss viz (very challenging)
+ */
 }
