@@ -60,10 +60,128 @@ public class BinaryTree {
     } // method addNode
 
 
-/*
-Things to do on Tue 13JUL
- inOrder traversals
- discuss removals
- discuss viz (very challenging)
- */
+    /**
+     * Helper method to call recursive traversal of a tree.
+     */
+    public void printAlphabetically() {
+        if (root == null ) { // Empty tree
+            System.out.printf("\nThe tree is empty.");
+        } else { // Tree not empty ... do something ...
+            traverseTree(root);
+        }
+    } // method printAlphabetically
+
+
+    /**
+     *
+     * Recursive implementation for in-order traversal of a tree. In-order means that we process nodes
+     * in the way to see them, from left-to-right.
+     *
+     * @param node
+     */
+    public void traverseTree(Node node) {
+        // explore left
+        if (node.left != null)
+            traverseTree(node.left);
+        // print node
+        System.out.printf("\n%s",node.word);
+        // explore right
+        if (node.right != null)
+            traverseTree(node.right);
+    } // method traverseTree
+
+
+    /**
+     * Method to return the successor of a node.
+     *
+     * @param node Node whose successor we are looking for
+     * @return successor Node
+     */
+    public Node successor(Node node) {
+        Node succ = null;
+        if (node != null) { // Make sure node whose successor we want, is not null
+            if (node.right != null) { // If node right child is not null, it has no successor
+                succ = node.right; // We need to begin traversing left-wise from top of node's right child
+                while (succ.left != null) { // as long as there is a left child ...
+                    succ = succ.left; // ... follow that left child.
+                } // we got it!
+            }
+        }
+        return succ;
+    } // method successor
+
+
+    /**
+     * Method to find the paren of a node. The method is iterative, for illustrative purposes.
+     * @param target Node whose parent we are seeking
+     * @return the parent of the target node; or null if no parent or if target null.
+     */
+    private Node findParent(Node target) {
+        Node parent = null; // Assume no parent node will be found.
+        if (root != null) { // Execute only if tree is not empty.
+            /*
+            Now that we now the tree is not empty, we'll traverse it from the top (root) to find the target node.
+            During this traversal, we keep track of the node that leads us to the next one. Because that node may
+            be the parent we are seeking. To visualize things:
+
+                  current node   <---------------- current node is the parent we seek if it has a left child
+                 /            \                    and that left child is the target node, or if it has a right
+                /              \                   child and that child is the target node.
+              left           right                    But how we decide which child to test? It depends on how
+                                                   Node:target compares with Node:current. That tells us if
+                                                   Node:target is expected to be to the left or to the right of
+                                                   Node:current. And we need to be ready for the possibility that
+             the Node:target cannot be found in the tree. In other words, we  are told to look for it to the left
+             (or the right) of the current node, only to find that child null. In that case we declare the search
+             as failed and we return a null. The search also fails when the target node is the current node.
+             */
+            Node current = root; // We start the search from top
+            boolean keepGoing = true; // Variable to control the while-loop
+            while (keepGoing) { // Traversal loop
+
+                if (current.word.compareTo(target.word) > 0) { // First, tests if we need to go left.
+                    if (current.left != null) { // The left child is present.
+                        if (current.left.equals(target)) { // The left child is the node we seek.
+                            parent = current; // Name the parent as the node that lead us here.
+                            keepGoing = false; // Flag to terminate the loop.
+                        } else { //The left child is not the node we seek.
+                            current = current.left; // Move one level down and try again.
+                        }
+                    }
+                } // endif for going left
+
+                if (current.word.compareTo(target.word) < 0) { // Maybe we need to go right.
+                    if (current.right != null) { // The right child is present.
+                        if (current.right.equals(target)) { // The right child is the node we seek.
+                            parent = current; // Name the parent as the node that lead us here.
+                            keepGoing = false; // Flag to terminate the loop.
+                        } else { //The right child is not the node we seek.
+                            current = current.right; // Move one level down and try again.
+                        }
+                    }
+                } // endif for going right
+
+                if (current.word.compareTo(target.word) == 0) { // if the current node is the target, fail.
+                    keepGoing = false; // end the while loop.
+                }
+
+            } // while loop traversing the tree
+        } // endif for empty tree
+        return parent;
+    } // method findParent
+
+
+    /** Driver method */
+    public static void main(String[] args) {
+        BinaryTree t = new BinaryTree();
+        t.addNode("elf");
+        t.addNode("audit");
+        t.addNode("apple");
+        t.addNode("noodle");
+        t.addNode("dollar");
+        t.addNode("hair");
+
+        t.printAlphabetically();
+    }
+
 }
