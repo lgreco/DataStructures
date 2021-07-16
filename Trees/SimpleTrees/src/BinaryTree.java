@@ -182,6 +182,12 @@ public class BinaryTree {
         t.addNode("hair");
 
         t.printAlphabetically();
+        // Simple test
+        System.out.printf("\n\nThe root node is %s and its parent should be null. Let's see: parent(%s) = %s", t.root.word, t.root.word, t.findParent(t.root));
+        // another test
+        System.out.printf("\nThe successor of root should be \"hair\". Is it? successor(%s) = %s", t.root.word, t.successor(t.root).word);
+        // another test
+        System.out.printf("\nThe parent of \"hair\" should be \"noodle\". Is it? parent(%s) = %s ", t.root.right.left.word, t.findParent(t.root.right.left).word);
     }
 
 }
