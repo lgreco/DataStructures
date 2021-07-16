@@ -5,19 +5,7 @@ public class BinaryTree {
      */
     Node root;
 
-    /**
-     * Driver method
-     */
-    public static void main(String[] args) {
-        BinaryTree t = new BinaryTree();
-        t.addNode("elf");
-        t.addNode("audit");
-        t.addNode("apple");
-        t.addNode("noodle");
-        t.addNode("dollar");
-        t.addNode("hair");
 
-    }
 
     /**
      * Method to insert a node to the tree. The method inserts only nodes with unique content, thus avoiding
@@ -103,5 +91,22 @@ public class BinaryTree {
         if (node.right != null)
             traverseTree(node.right);
     } // method traverseTree
+
+
+    /**
+     * Driver method
+     */
+    public static void main(String[] args) {
+        BinaryTree t = new BinaryTree();
+        t.addNode("elf");
+        t.addNode("audit");
+        t.addNode("apple");
+        t.addNode("noodle");
+        t.addNode("dollar");
+        t.addNode("hair");
+
+        t.printAlphabetically();
+
+    }
 
 }
