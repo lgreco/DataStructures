@@ -33,7 +33,7 @@ that returns the contents of the middleNode of a list. If the list has an even n
 
 ## Compare two lists
 
-Draft, but do not necessarily code, a method within `SimpleLinkedList' that compares a `SimpleLinkedList` object to another one, as follows:
+Draft, but do not necessarily code, a method within `SimpleLinkedList` that compares a `SimpleLinkedList` object to another one, as follows:
 
 ```java
 @Override
