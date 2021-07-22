@@ -72,6 +72,9 @@ public class SimpleLinkedList {
 
         SimpleLinkedList b = new SimpleLinkedList();
         b.addNode("Chicago");
-    }
+
+        a.displaySLL();
+        
+    } // main method
 
 } // class SimpleLinkedList
