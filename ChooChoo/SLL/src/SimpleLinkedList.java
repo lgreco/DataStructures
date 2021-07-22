@@ -9,6 +9,7 @@ public class SimpleLinkedList {
     public boolean isEmpty() {
         return head==null;
     }
+    public boolean isNotEmpty() { return head != null; }
 
     public void setHead(SimpleNode node) {
         this.head = node;
@@ -63,6 +64,42 @@ public class SimpleLinkedList {
     } // method displaySLL
 
 
+    /**
+     * Method to add list a at the end of list b. The method is static because it does not have to be invoked
+     * by a SimpleLinkedList object.
+     * @param a List to be appended
+     * @param b List to append to.
+     */
+    public static void join(SimpleLinkedList a, SimpleLinkedList b) {
+        if (a.isNotEmpty() && b.isNotEmpty()) { // (!a.isEmpty()) && (!b.isEmpty()))
+            // Find last node of b
+            SimpleNode current = b.getHead();
+            while (current.hasNext()) {
+                current = current.getNext();
+            }
+            // current is now the last node of b
+            current.setNext(a.getHead()); // last node of b now points to head of a.
+        }
+    } // method join
+
+
+    /*
+    If, for any reason, we prefer to invoke the join method from an existing SimpleLinkedList object, e.g.,
+       a.join(b)
+    we can implement the instance method below instead of the static method above.
+
+    public void join(SimpleLinkedList b) {
+        // Find last node of b
+        SimpleNode current = b.getHead();
+        while (current.hasNext()) {
+            current = current.getNext();
+        }
+        // current is now the last node of b
+        current.setNext(this.getHead());
+    }
+     */
+
+
     public static void main(String[] args) {
         SimpleLinkedList a = new SimpleLinkedList();
         a.addNode("Summit");
@@ -74,7 +111,11 @@ public class SimpleLinkedList {
         b.addNode("Chicago");
 
         a.displaySLL();
-        
+        b.displaySLL();
+
+        SimpleLinkedList.join(a,b); // join a and b
+        b.displaySLL(); // show the new b list
+
     } // main method
 
 } // class SimpleLinkedList

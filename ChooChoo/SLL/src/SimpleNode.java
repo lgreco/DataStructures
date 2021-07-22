@@ -7,7 +7,7 @@ public class SimpleNode {
     private String content;
 
     /** Pointer to next node */
-    SimpleNode next;
+    private SimpleNode next;
 
     /** Basic constructor
      *
