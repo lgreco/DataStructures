@@ -57,6 +57,11 @@ public class SimpleLinkedList {
         }
     } // method displaySLL
 
+
+    /**
+     * 
+     * @return
+     */
     public String getMiddleNodeContent() {
         String middle = "LIST IS EMPTY";
         if (this.isNotEmpty()) {
