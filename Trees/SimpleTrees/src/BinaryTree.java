@@ -23,7 +23,7 @@ public class BinaryTree {
 
     public boolean isNotEmpty() { return root != null; }
 
-    /** GETTERS for int fields. NO NEED FOR SETTERS BECAUSE FIELDS ARE CALCULATED ON THE GO */
+    /** GETTERS FOR int FIELDS. NO NEED FOR SETTERS BECAUSE FIELDS ARE CALCULATED ON THE GO */
 
     public int getNodesCount() { return nodesCount; }
     public int getLevelsCount() { return  levelsCount; }
