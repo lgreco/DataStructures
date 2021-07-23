@@ -59,7 +59,8 @@ public class SimpleLinkedList {
 
 
     /**
-     * Method to return the contents of a list's middle-ish node.
+     * Method to return the contents of a list's middle-ish node. If list has an even number of nodes, the returned
+     * node is the one left of center.
      * @return String with middle node content.
      */
     public String getMiddleNodeContent() {
