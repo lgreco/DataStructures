@@ -124,6 +124,8 @@ public class SimpleLinkedList {
      *    Even             Even           Same                  0
      *    Even             Odd            Larger                +1
      *
+     * Class SimpleLinkedListTest provided a simple framework for testing this method.
+     *
      * @param providedList list to compare present list with
      * @return -1 if present list has odd nodes and provided list has even;
      *          0 if present list has same parity nodes with provided list;
@@ -131,7 +133,7 @@ public class SimpleLinkedList {
      */
     public int compareTo(SimpleLinkedList providedList) {
         return 0; // YOU MUST RETURN A VALUE ACCORDING TO THE SPECS ABOVE;
-    }
+    } // method compareTo
 
 
     /** Simple driver */
