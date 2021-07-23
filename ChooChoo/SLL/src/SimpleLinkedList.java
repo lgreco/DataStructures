@@ -110,7 +110,7 @@ public class SimpleLinkedList {
         }
         // current is now the last node of b
         current.setNext(this.getHead());
-    }
+    } // method join
      */
 
 

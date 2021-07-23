@@ -33,9 +33,9 @@ class SimpleLinkedListTest {
         Assertions.assertEquals(-1, a.compareTo(d)); // ODD compared to empty list
         Assertions.assertEquals(0, a.compareTo(c));  // ODD compared to ODD
         Assertions.assertEquals(0, b.compareTo(d));  // EVEN compared to empty list
-        Assertions.assertEquals(1, b.compareTo(a)); // EVEN compared to ODD
-        Assertions.assertEquals(0, b.compareTo(b)); // EVEN compared to EVEN
-        Assertions.assertEquals(0, a.compareTo(a)); // ODD compared to ODD
+        Assertions.assertEquals(1, b.compareTo(a));  // EVEN compared to ODD
+        Assertions.assertEquals(0, b.compareTo(b));  // EVEN compared to EVEN
+        Assertions.assertEquals(0, a.compareTo(a));  // ODD compared to ODD
 
         /* In case we want to test for any negative number (not just -1), or any positive (not just +1) */
         Assertions.assertTrue(0>a.compareTo(b));
