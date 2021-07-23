@@ -63,6 +63,20 @@ public class SimpleLinkedList {
         }
     } // method displaySLL
 
+    public String getMiddleNodeContent() {
+        String middle = "LIST IS EMPTY";
+        if (this.isNotEmpty()) {
+            SimpleNode fast = this.getHead();
+            SimpleNode slow = this.getHead();
+            while (fast.hasNext() && fast.getNext().hasNext()) {
+                fast = fast.getNext().getNext();
+                slow = slow.getNext();
+            }
+            middle = String.format("MIDDLE NODE CONTENTS: %s",slow.getContent());
+        }
+        return middle;
+    }
+
 
     /**
      * Method to add list a at the end of list b. The method is static because it does not have to be invoked
@@ -112,9 +126,11 @@ public class SimpleLinkedList {
 
         a.displaySLL();
         b.displaySLL();
+        System.out.println(a.getMiddleNodeContent());
 
         SimpleLinkedList.join(a,b); // join a and b
         b.displaySLL(); // show the new b list
+        System.out.println(b.getMiddleNodeContent());
 
     } // main method
 
