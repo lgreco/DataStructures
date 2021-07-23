@@ -69,7 +69,7 @@ public class SimpleLinkedList {
         if (this.isNotEmpty()) {
             SimpleNode fast = this.getHead(); // Set up two traversing points, a fast one to skip every other node ...
             SimpleNode slow = this.getHead(); // and a slow one to move from node to node.
-            while (fast.getNext().hasNext() && fast.hasNext() ) {
+            while (fast.hasNext() && fast.getNext().hasNext()) {
                 fast = fast.getNext().getNext();
                 slow = slow.getNext();
             }
