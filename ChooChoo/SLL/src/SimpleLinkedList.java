@@ -154,12 +154,18 @@ public class SimpleLinkedList {
         SimpleLinkedList b = new SimpleLinkedList();
         b.addNode("Chicago");
 
+        // Let's view the lists.
         a.displaySLL();
         b.displaySLL();
-        System.out.println(a.getMiddleNodeContent());
 
+        // Add list a to the end of list b
         SimpleLinkedList.join(a,b); // join a and b
+
+        // Take a look at list b to verify successful join
         b.displaySLL(); // show the new b list
+
+        // Show middle nodes for both a and b. 
+        System.out.println(a.getMiddleNodeContent());
         System.out.println(b.getMiddleNodeContent());
 
     } // main method
