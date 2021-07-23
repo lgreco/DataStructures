@@ -70,8 +70,8 @@ public class SimpleLinkedList {
             SimpleNode fast = this.getHead(); // Set up two traversing points, a fast one to skip every other node ...
             SimpleNode slow = this.getHead(); // and a slow one to move from node to node.
             while (fast.hasNext() && fast.getNext().hasNext()) {
-                fast = fast.getNext().getNext();
-                slow = slow.getNext();
+                fast = fast.getNext().getNext(); // Skip every other node.
+                slow = slow.getNext(); // Move from node to node; when fast pointer at end, slow is at middle.
             }
             middle = String.format("MIDDLE NODE CONTENTS: %s",slow.getContent());
         }
