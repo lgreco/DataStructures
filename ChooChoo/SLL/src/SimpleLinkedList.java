@@ -132,8 +132,25 @@ public class SimpleLinkedList {
      *          1 if present list has even nodes and provided list has odd;
      */
     public int compareTo(SimpleLinkedList providedList) {
-        return 0; // YOU MUST RETURN A VALUE ACCORDING TO THE SPECS ABOVE;
-    } // method compareTo
+        int presentListCount = this.countNodes();
+        int providedListCount = providedList.countNodes();
+        int presentListRemainder = presentListCount % 2;
+        int providedListRemainder = providedListCount % 2;
+        return providedListRemainder-presentListRemainder;
+    }
+
+    private int countNodes() {
+        int count = 0;
+        if (isNotEmpty()) {
+            SimpleNode current = getHead();
+            while (current.hasNext()) {
+                count++;
+                current = current.getNext();
+            }
+            count++; // for last node
+        }
+        return count;
+    } // method countNodes
 
 
     /** Simple driver */
