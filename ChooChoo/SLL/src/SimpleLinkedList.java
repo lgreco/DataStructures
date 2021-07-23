@@ -59,7 +59,7 @@ public class SimpleLinkedList {
 
 
     /**
-     * Method to return
+     * Method to return the contents of a list's middle-ish node.
      * @return
      */
     public String getMiddleNodeContent() {
