@@ -60,7 +60,7 @@ public class SimpleLinkedList {
 
     /**
      * Method to return the contents of a list's middle-ish node.
-     * @return
+     * @return String with middle node content.
      */
     public String getMiddleNodeContent() {
         String middle = "LIST IS EMPTY";
