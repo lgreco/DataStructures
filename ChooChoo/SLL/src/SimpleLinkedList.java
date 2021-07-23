@@ -164,7 +164,7 @@ public class SimpleLinkedList {
         // Take a look at list b to verify successful join
         b.displaySLL(); // show the new b list
 
-        // Show middle nodes for both a and b. 
+        // Show middle nodes for both a and b.
         System.out.println(a.getMiddleNodeContent());
         System.out.println(b.getMiddleNodeContent());
 
