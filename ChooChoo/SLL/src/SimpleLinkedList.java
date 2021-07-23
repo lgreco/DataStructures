@@ -6,18 +6,12 @@ public class SimpleLinkedList {
     /** The beginning of the list */
     private SimpleNode head;
 
-    public boolean isEmpty() {
-        return head==null;
-    }
+    /* BOOLEANS, SETTER, and GETTER FOR head */
+
+    public boolean isEmpty() { return head==null; }
     public boolean isNotEmpty() { return head != null; }
-
-    public void setHead(SimpleNode node) {
-        this.head = node;
-    }
-
-    public SimpleNode getHead() {
-        return head;
-    }
+    public void setHead(SimpleNode node) { this.head = node; }
+    public SimpleNode getHead() { return head; }
 
 
     /**
@@ -96,8 +90,7 @@ public class SimpleLinkedList {
         }
     } // method join
 
-
-    /*
+        /*
     If, for any reason, we prefer to invoke the join method from an existing SimpleLinkedList object, e.g.,
        a.join(b)
     we can implement the instance method below instead of the static method above.
@@ -114,6 +107,34 @@ public class SimpleLinkedList {
      */
 
 
+    /**
+     * Method to compare the present list to a provided one and determine their relation based on a user-specified
+     * metric for smaller, equal, and larger. For this example, the metric is specified as follows: the lists are
+     * the "same" if their respective node counts are of same parity, e.g., a list with 10 nodes and a list with
+     * 1000 nodes are the "same" because they both have an even number of nodes. A list with odd number of nodes is
+     * "smaller" than a list with even number of nodes. This is summarized below.
+     *
+     *    number of        number of      Comparative
+     *    nodes in         nodes in       relation of
+     *    present          provided       present list          compareTo()
+     *    list             list           to provided list      return value
+     *    =========        =========      ================      ============
+     *    Odd              Even           Smaller               -1
+     *    Odd              Odd            Same                  0
+     *    Even             Even           Same                  0
+     *    Even             Odd            Larger                +1
+     *
+     * @param providedList list to compare present list with
+     * @return -1 if present list has odd nodes and provided list has even;
+     *          0 if present list has same parity nodes with provided list;
+     *          1 if present list has even nodes and provided list has odd;
+     */
+    public int compareTo(SimpleLinkedList providedList) {
+        return 0; // YOU MUST RETURN A VALUE ACCORDING TO THE SPECS ABOVE;
+    }
+
+
+    /** Simple driver */
     public static void main(String[] args) {
         SimpleLinkedList a = new SimpleLinkedList();
         a.addNode("Summit");
