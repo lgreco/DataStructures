@@ -81,7 +81,7 @@ public class SimpleLinkedList {
     @Override
     /**
      * Method that compares two SLL objects based on their number of nodes.
-     * 
+     *
      * @return a negative number if the argument SLL has more nodes than this object;
      *         zero if both lists have exactly the same number of nodes;
      *         a positive number if the argument SLL has fewer nodes than this object;
