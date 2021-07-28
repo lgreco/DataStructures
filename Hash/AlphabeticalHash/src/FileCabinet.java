@@ -51,7 +51,7 @@ public class FileCabinet {
 
 
     /**
-     * Add a file to one of the drawers in the cabinet. The method checks the underlying data structure to
+     * Add a student record to one of the drawers in the cabinet. The method checks the underlying data structure to
      * ensure there is no existing record, and then adds a new record.
      *
      * @param firstName
