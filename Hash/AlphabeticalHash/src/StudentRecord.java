@@ -24,9 +24,6 @@ public class StudentRecord {
         this.next = null;
     } // partial constructor
 
-    
-    /** Boolean for null node -- attention: this is not for a null next */
-    public boolean isNotNull() { return this.student != null; }
 
     /** Setters and getters */
 

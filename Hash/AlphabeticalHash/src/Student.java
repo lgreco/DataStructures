@@ -1,5 +1,5 @@
 /**
- * A basic student object. The object comprises three fields and it can be enhanced.
+ * A basic student object. The object comprises three fields for now.
  */
 public class Student {
 
