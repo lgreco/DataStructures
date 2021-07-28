@@ -13,12 +13,18 @@ public class FileCabinet {
     /** How many drawers are used? */
     private int size;
 
+    /** Captures the length of the longest last name -- useful for nicely formatted output */
+    private int longestLastname;
+
+
     /** Sole constructor based on capacity */
     public FileCabinet(int capacity) {
         this.capacity = capacity;
         drawer = new StudentRecord[capacity];
         size = 0;
+        longestLastname = 0;
     } // constructor FileCabinet
+
 
     /**
      * Principal hash function: it returns the integer division remainder for the passed value.
@@ -29,6 +35,7 @@ public class FileCabinet {
         return value % capacity;
     }
 
+
     /**
      * Overloaded hash function, using a string as input. The function finds the first letter of the passed
      * string and uses its numeric value (ASCII) to call the principal hash function.
@@ -37,6 +44,7 @@ public class FileCabinet {
      */
     private int hashOf(String string) { return hashOf((int) string.charAt(0)); }
 
+
     /**
      * Overloaded hash function, using a Student object as input. The function pulls the object's field
      * for last name and passes it to the string-based version of the hash method.
@@ -44,6 +52,7 @@ public class FileCabinet {
      * @return a call to method hash, with a String (firstName) as argument.
      */
     private int hashOf(Student student) { return hashOf(student.getFirstName()); }
+
 
     /**
      * Add a file to one of the drawers in the cabinet. The method checks the underlying data structure to
@@ -64,8 +73,13 @@ public class FileCabinet {
             int whichDrawer = hashOf(lastName); // Find what drawer this new record will go to
             Student newStudent = new Student(firstName, lastName, major); // Create a new Student object
             drawer[whichDrawer] = new StudentRecord(newStudent, drawer[whichDrawer]); // add new record to the list.
+            size++; // adjust size
+            if (lastName.length()>longestLastname) {
+                longestLastname = lastName.length();
+            }
         }
     } // method addStudentRecord
+
 
     /**
      * Tells if a student record already exists, based on first and last name matches.
@@ -119,9 +133,60 @@ public class FileCabinet {
                  */
                 if (current.getNext()!=null) {
                     current.setNext(current.getNext().getNext()); // Bypass found student record
+                    size--; // adjust size
                 }
             }
         }
     } // method remove
+
+
+    /**
+     * Method to display file cabinet
+     */
+    public void printContents() {
+        System.out.printf("\n\nYour file cabinet has %d drawers and a total of %d records.\n",capacity,size );
+        for (int i = 0; i < capacity; i++) {
+            StudentRecord current = drawer[i];
+            System.out.printf("\n Drawer [%02d]: ",i);
+            if (current==null) {
+                System.out.printf("is empty.");
+            } else {
+                while (current.getNext()!=null) {
+                    System.out.printf("%s. %s, ", current.getStudent().getFirstName().substring(0,1), current.getStudent().getLastName());
+                    current = current.getNext();
+                }
+                System.out.printf("%s. %s", current.getStudent().getFirstName().substring(0,1), current.getStudent().getLastName()); // fence post printout
+            }
+        }
+        System.out.printf("\n");
+    } // method printContents
+
+
+    /**
+     * Method to display hash values for the contents of each drawer
+     */
+    public void showHashes() {
+        System.out.printf("\n\nHASH VALUES. For each record in a drawer, we show the first letter of the student's last" +
+                "\nname, following by that letter's numeric code and the modulo function (%%) with the" +
+                "\ncapacity (%d) of the cabinet.\n", capacity);
+        for (int i = 0; i < capacity; i++) {
+            StudentRecord current = drawer[i];
+            System.out.printf("\n Drawer [%02d]: ",i);
+            if (current==null) {
+                System.out.printf("is empty.");
+            } else {
+                while (current.getNext()!=null) {
+                    int firstLetter = current.getStudent().getLastName().charAt(0);
+                    int hashValue = hashOf(firstLetter);
+                    System.out.printf("(%s): %d %% %d = %d,  ", ((char)firstLetter), firstLetter,capacity,hashValue);
+                    current = current.getNext();
+                }
+                int firstLetter = current.getStudent().getLastName().charAt(0);
+                int hashValue = hashOf(firstLetter);
+                System.out.printf("(%s): %d %% %d = %d ", ((char)firstLetter), firstLetter,capacity,hashValue); // fence post printout
+            }
+        }
+        System.out.printf("\n\n");
+    } // method printContents
 
 } // class FileCabinet
