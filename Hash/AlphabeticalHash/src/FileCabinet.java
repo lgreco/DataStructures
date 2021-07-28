@@ -68,6 +68,12 @@ public class FileCabinet {
         if (!contains(firstName, lastName)) { // search by first and last name.
             int whichDrawer = hashOf(lastName); // Find what drawer this new record will go to
             Student newStudent = new Student(firstName, lastName, major); // Create a new Student object
+            /*
+            Instead of adding the new student record to the and of the linked list whose head is at drawer[],
+            we make the record the new head of the list. This way we avoid traversing the list. And since
+            we do not impose a specific order along the list, it doesn't really matter where we place the new
+            record (beginning of end of the list).
+             */
             drawer[whichDrawer] = new StudentRecord(newStudent, drawer[whichDrawer]); // add new record to the list.
             size++; // adjust size
         }
