@@ -151,7 +151,7 @@ public class FileCabinet {
                 System.out.printf("is empty.");
             } else {
                 while (current.getNext()!=null) {
-                    System.out.printf("%s. %s, ", current.getStudent().getFirstName().substring(0,1), current.getStudent().getLastName());
+                    System.out.printf("%s. %s,  ", current.getStudent().getFirstName().substring(0,1), current.getStudent().getLastName());
                     current = current.getNext();
                 }
                 System.out.printf("%s. %s", current.getStudent().getFirstName().substring(0,1), current.getStudent().getLastName()); // fence post printout
@@ -175,14 +175,18 @@ public class FileCabinet {
                 System.out.printf("is empty.");
             } else {
                 while (current.getNext()!=null) {
-                    int firstLetter = current.getStudent().getLastName().charAt(0);
-                    int hashValue = hashOf(firstLetter);
-                    System.out.printf("(%s): %d %% %d = %d,  ", ((char)firstLetter), firstLetter,capacity,hashValue);
+                    System.out.printf("(%s): %d %% %d = %d,  ", current.getStudent().getLastName().charAt(0),
+                            ((int) current.getStudent().getLastName().charAt(0)),
+                            capacity,
+                            hashOf(current.getStudent().getLastName().charAt(0)));
                     current = current.getNext();
                 }
                 int firstLetter = current.getStudent().getLastName().charAt(0);
                 int hashValue = hashOf(firstLetter);
-                System.out.printf("(%s): %d %% %d = %d ", ((char)firstLetter), firstLetter,capacity,hashValue); // fence post printout
+                System.out.printf("(%s): %d %% %d = %d ", current.getStudent().getLastName().charAt(0),
+                        ((int) current.getStudent().getLastName().charAt(0)),
+                        capacity,
+                        hashOf(current.getStudent().getLastName().charAt(0))); // fence post printout
             }
         }
         System.out.printf("\n\n");
