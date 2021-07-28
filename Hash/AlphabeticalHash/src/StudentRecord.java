@@ -10,17 +10,23 @@ public class StudentRecord {
     /** A pointer to the next object in the chain */
     private StudentRecord next;
 
+
     /** Full constructor */
     public StudentRecord(Student student, StudentRecord next) {
         this.student = student;
         this.next = next;
     } // full constructor
 
+
     /** Partial constructor */
     public StudentRecord(Student student) {
         this.student = student;
         this.next = null;
     } // partial constructor
+
+    
+    /** Boolean for null node -- attention: this is not for a null next */
+    public boolean isNotNull() { return this.student != null; }
 
     /** Setters and getters */
 
