@@ -13,16 +13,12 @@ public class FileCabinet {
     /** How many drawers are used? */
     private int size;
 
-    /** Captures the length of the longest last name -- useful for nicely formatted output */
-    private int longestLastname;
-
 
     /** Sole constructor based on capacity */
     public FileCabinet(int capacity) {
         this.capacity = capacity;
         drawer = new StudentRecord[capacity];
         size = 0;
-        longestLastname = 0;
     } // constructor FileCabinet
 
 
@@ -74,9 +70,6 @@ public class FileCabinet {
             Student newStudent = new Student(firstName, lastName, major); // Create a new Student object
             drawer[whichDrawer] = new StudentRecord(newStudent, drawer[whichDrawer]); // add new record to the list.
             size++; // adjust size
-            if (lastName.length()>longestLastname) {
-                longestLastname = lastName.length();
-            }
         }
     } // method addStudentRecord
 
