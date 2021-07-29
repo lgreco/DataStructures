@@ -26,7 +26,7 @@ Before you begin coding, contemplate the design of your methods to determine whi
 
 ## Problem 2: Trees
 
-_For this problem, upload your `FinalTree` file on Sakai._
+_For this problem, upload your `FinalTree.java` file on Sakai._
 
 Modify the class `FinalTree` as follows, without changing the signatures of the provided methods or of the methods requested below.
 
