@@ -60,7 +60,7 @@ class FinalList {
      *             +---------------- invoking list
      *
      * @param finalList passed (as argument) list
-     * @return true is lists share at least one node; false otherwise.
+     * @return true if lists share at least one node; false otherwise.
      */
     boolean intersects(FinalList finalList) {
         boolean found = false; // Assume lists do not intersect.
