@@ -19,7 +19,7 @@ class FinalList {
        Node(String content) {
            this.content = content;
        }
-    } // inner class Node
+    } // Inner class Node
 
 
     /** The head of the FinalList */
