@@ -16,7 +16,7 @@ _For this problem, upload your `FinalList.java` file on Sakai._
 
 Modify the class `FinalList` as follows, without changing the signatures of the methods.
 
-* Complete the `boolean intersects` method to return true when two lists intersect and false otherwise. The lists intersect if one list has a node with the same `content` as a node from the other list.
+* Complete the `boolean intersects` method to return true when two lists intersect and false otherwise. The lists intersect if one list has at least one node with the same `content` as a node from the other list.
 
 * Complete the `int countCommon` method to return the number of common nodes between two lists.
 
@@ -38,7 +38,7 @@ Class `FinalTree` includes a main method with rudimentary testing, so that you c
 
 ## Problem 3: Looping lists
 
-_For this problem, upload a TEXT file (`.txt` extension) with just the requested method. Do not upload a `.java` file for this problem._
+_For this problem, upload a TEXT file (`.txt` extension) with just the requested method. Do not upload a `.java` file for this problem. Your final name should be `hasLoop.txt`_
 
 Consider a [simple link list](https://github.com/lgreco/DataStructures/tree/master/ChooChoo/SLL/src), similar to the one we studied in the `ChooChoo` class. Using classes `SimpleLinkedList` and `SimpleNode` as your starting point, write a method `boolean hasLoop()`, in class `SimpleLinkedList`, to tell if a linked list has a loop in it. Here're two examples of ... loopy list:
 
