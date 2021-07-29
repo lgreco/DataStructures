@@ -15,14 +15,7 @@ class FinalTree {
         }
 
         /**
-         *
          * A method that determines if the invoking node is a leaf or not. A leaf is a node without children.
-         *
-         * Usage:                Node n;
-         *                       n.isLeaf()
-         *                       ^
-         *                       |
-         *                       +---- invoking node
          *
          * @return true is node is leaf; false otherwise.
          */
@@ -93,5 +86,7 @@ class FinalTree {
         System.out.printf("\nNode with content [%s] is leaf: %B (should be true)", richardIII.root.left.left.content, (richardIII.root.left.left.isLeaf()));
         System.out.printf("\nNode with content [%s] is leaf: %B (should be true)", richardIII.root.right.left.right.content, (richardIII.root.right.left.right.isLeaf()));
 
+        boolean score = richardIII.root.isLeaf() && richardIII.root.left.isLeaf() && !richardIII.root.left.left.isLeaf() && !richardIII.root.right.left.right.isLeaf();
+        System.out.printf("\nScore for FinalTree: >>> %B <<<", score);
     }
 }
