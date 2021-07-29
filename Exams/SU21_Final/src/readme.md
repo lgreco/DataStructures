@@ -40,7 +40,7 @@ Class `FinalTree` includes a main method with rudimentary testing, so that you c
 
 _For this problem, upload a TEXT file (`.txt` extension) with just the requested method. Do not upload a `.java` file for this problem. Your final name should be `hasLoop.txt`_
 
-Consider a [simple link list](https://github.com/lgreco/DataStructures/tree/master/ChooChoo/SLL/src), similar to the one we studied in the `ChooChoo` class. Using classes `SimpleLinkedList` and `SimpleNode` as your starting point, write a method `boolean hasLoop()`, in class `SimpleLinkedList`, to tell if a linked list has a loop in it. Here're two examples of ... loopy list:
+Consider a [simple link list](https://github.com/lgreco/DataStructures/tree/master/ChooChoo/SLL/src), similar to the one we studied in the `ChooChoo` class. Using classes `SimpleLinkedList` and `SimpleNode` as your starting point, write a method `boolean hasLoop()`, in class `SimpleLinkedList`, to tell if a linked list has a loop in it. Here're two examples of ... loopy lists:
 
 `A --> B --> C --> D --> A` 
 
