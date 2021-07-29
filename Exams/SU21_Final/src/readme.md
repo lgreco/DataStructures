@@ -10,6 +10,8 @@ Bonus problems are available to everyone.
 
 Please make sure that you upload the correct files (the first two problems require `.java` files; the last problem requires a `.txt` file).
 
+To make things interesting: **you may use only one instance of ArrayList** and no other Java-supplied data structure.
+
 ## Problem 1: Lists
 
 _For this problem, upload your `FinalList.java` file on Sakai._
@@ -60,3 +62,10 @@ x.addNode("B");
 ...
 System.out.println(x.hasLoop()) // method invoked by an object of its class
 ```
+
+## Support for the exam 
+
+Given the short period for the exam, I may not be available to honor all requests for Zoom meetings. So let's take Zoom off the table for the exam. Instead, let's use Teams for urgent communications. 
+
+For questions specific to the behavior (or misbehavior) of code you write, attach the `.java` file to your message. Screenshots or cut-and-paste may not always work. When possible, please use a line reference to help me find something (e.g., Line 78 is giving me an exception).
+
