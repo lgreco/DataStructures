@@ -66,7 +66,7 @@ System.out.println(x.hasLoop()) // method invoked by an object of its class
 
 This problem asks you to demonstrate the logic and does not provide a testing framework for your method. In other words, unless you create a list with a loop, you cannot test the validity of your method. And that's ok, because all I want to see is the logic you plan to apply.
 
-Now, if you want to experiment with looping lists, I have published on GitHub the example we worked in class today.
+Now, if you want to experiment with looping lists, [I have published on GitHub the example we worked in class today](https://github.com/lgreco/DataStructures/tree/master/ChooChoo/Loopy/src).
 
 
 ## Support for the exam 
