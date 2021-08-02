@@ -1,4 +1,5 @@
-## Final Grades
+
+# Final Grades
 Grading is completed. Exam scores and tentative final grades are posted on Sakai.Bonus problems are shown as a separate item on Sakai's grade book. I will be turning final grades to the registrar tomorrow.
 
 If you notice a grade discrepancy, please let me know immediately. Grade discrepancies include missing grades or any concerns about your grade in the final exam.
