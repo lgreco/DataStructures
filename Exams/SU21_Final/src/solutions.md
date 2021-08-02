@@ -17,11 +17,11 @@ If your final grade is a **D** and you want to pursue a computing major and a ca
 
 Solutions for the final exam are available on GitHub. The comments in the code provide some narrative  about the technique used; I will be happy to answer any questions you may have.
 
-* [Problem 1](https://github.com/lgreco/DataStructures/blob/master/Exams/SU21_Final/src/FinalList.java):
+### [Problem 1](https://github.com/lgreco/DataStructures/blob/master/Exams/SU21_Final/src/FinalList.java):
 
-  * [method `intersect`](https://github.com/lgreco/DataStructures/blob/a2efd96911f745f672ddbec874964cceb62b697f/Exams/SU21_Final/src/FinalList.java#L50);
+* [method `intersect`](https://github.com/lgreco/DataStructures/blob/a2efd96911f745f672ddbec874964cceb62b697f/Exams/SU21_Final/src/FinalList.java#L50);
 
-  * [method `countCommon`](https://github.com/lgreco/DataStructures/blob/a2efd96911f745f672ddbec874964cceb62b697f/Exams/SU21_Final/src/FinalList.java#L104);
+* [method `countCommon`](https://github.com/lgreco/DataStructures/blob/a2efd96911f745f672ddbec874964cceb62b697f/Exams/SU21_Final/src/FinalList.java#L104);
 
   * [method `displayCommmonNodes`](https://github.com/lgreco/DataStructures/blob/a2efd96911f745f672ddbec874964cceb62b697f/Exams/SU21_Final/src/FinalList.java#L139).
 
