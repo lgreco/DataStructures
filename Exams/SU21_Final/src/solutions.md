@@ -2,7 +2,6 @@
 ## Final Grades
 
 
-
 Grading is completed. Exam scores and tentative final grades are posted on Sakai.Bonus problems are shown as a separate item on Sakai's grade book. I will be turning final grades to the registrar tomorrow.
 
 If you notice a grade discrepancy, please let me know immediately. Grade discrepancies include missing grades or any concerns about your grade in the final exam.
@@ -47,12 +46,7 @@ There are two solutions for your consideration. Both solutions implement a trave
 
 Something I noticed across most of your code is the casual use of the `==` operator. This operator is safe to use between primitives but not so safe with objects, such as String, Node, etc. For objects, we use the equals() and compareTo() methods. Using `==` between objects may disqualify you in a technical interview. To illustrate this point, consider the following code (which you can copy and paste in JShell):
 
-```
-String a = new String("Leo");
-String b = new String("Leo");
-System.out.println(a==b); // Will it print true or false?
-System.out.println(a.equals(b)); // True or false?
-```
+
 
 The `==` operator compares (memory) reference between two objects and answers a simple question: do they occupy the same address in memory, in other words are they the same object? Method `equals()` compares the contents of the object and determines if they are the same. The objects may be different, but the contents may be the same. For example, a person may have two residences: one in Chicago, one in Springfield. The addresses are different but the owner is the same -- that's what `equals` tells us.
 
