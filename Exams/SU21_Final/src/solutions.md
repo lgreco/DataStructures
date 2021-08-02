@@ -23,17 +23,19 @@ Solutions for the final exam are available on GitHub. The comments in the code p
 
 * [method `countCommon`](https://github.com/lgreco/DataStructures/blob/a2efd96911f745f672ddbec874964cceb62b697f/Exams/SU21_Final/src/FinalList.java#L104);
 
-  * [method `displayCommmonNodes`](https://github.com/lgreco/DataStructures/blob/a2efd96911f745f672ddbec874964cceb62b697f/Exams/SU21_Final/src/FinalList.java#L139).
+* [method `displayCommmonNodes`](https://github.com/lgreco/DataStructures/blob/a2efd96911f745f672ddbec874964cceb62b697f/Exams/SU21_Final/src/FinalList.java#L139).
 
-* [Problem 2](https://github.com/lgreco/DataStructures/blob/master/Exams/SU21_Final/src/FinalTree.java):
+### [Problem 2](https://github.com/lgreco/DataStructures/blob/master/Exams/SU21_Final/src/FinalTree.java):
 
-  * [method `isLeaf`](https://github.com/lgreco/DataStructures/blob/a2efd96911f745f672ddbec874964cceb62b697f/Exams/SU21_Final/src/FinalTree.java#L24);
+* [method `isLeaf`](https://github.com/lgreco/DataStructures/blob/a2efd96911f745f672ddbec874964cceb62b697f/Exams/SU21_Final/src/FinalTree.java#L24);
 
-  * adding a pointer to the parent of a node is done within the inner class `Node` ([line 10](https://github.com/lgreco/DataStructures/blob/a2efd96911f745f672ddbec874964cceb62b697f/Exams/SU21_Final/src/FinalTree.java#L10)) and operationalized in constructor `Node` (line [16](https://github.com/lgreco/DataStructures/blob/a2efd96911f745f672ddbec874964cceb62b697f/Exams/SU21_Final/src/FinalTree.java#L16)) and method `FinalTree.addNode` (lines [67](https://github.com/lgreco/DataStructures/blob/a2efd96911f745f672ddbec874964cceb62b697f/Exams/SU21_Final/src/FinalTree.java#L67) and [75](https://github.com/lgreco/DataStructures/blob/a2efd96911f745f672ddbec874964cceb62b697f/Exams/SU21_Final/src/FinalTree.java#L75)). One critical issue here is to assign a `parent` value to the newly *added* node. That newly added node is `current.left` (or `current.right`). So it is that node's parent that needs to be assigned as `current.left.parent = ...`.
+* adding a pointer to the parent of a node is done within the inner class `Node` ([line 10](https://github.com/lgreco/DataStructures/blob/a2efd96911f745f672ddbec874964cceb62b697f/Exams/SU21_Final/src/FinalTree.java#L10)) and operationalized in constructor `Node` (line [16](https://github.com/lgreco/DataStructures/blob/a2efd96911f745f672ddbec874964cceb62b697f/Exams/SU21_Final/src/FinalTree.java#L16)) and method `FinalTree.addNode` (lines [67](https://github.com/lgreco/DataStructures/blob/a2efd96911f745f672ddbec874964cceb62b697f/Exams/SU21_Final/src/FinalTree.java#L67) and [75](https://github.com/lgreco/DataStructures/blob/a2efd96911f745f672ddbec874964cceb62b697f/Exams/SU21_Final/src/FinalTree.java#L75)). One critical issue here is to assign a `parent` value to the newly *added* node. That newly added node is `current.left` (or `current.right`). So it is that node's parent that needs to be assigned as `current.left.parent = ...`.
 
-  * [method `isLeft`](https://github.com/lgreco/DataStructures/blob/a2efd96911f745f672ddbec874964cceb62b697f/Exams/SU21_Final/src/FinalTree.java#L29)
+* [method `isLeft`](https://github.com/lgreco/DataStructures/blob/a2efd96911f745f672ddbec874964cceb62b697f/Exams/SU21_Final/src/FinalTree.java#L29)
 
-* Problem 3: there are two solutions for your consideration. Both solutions implement a traversal of the linked list.
+### Problem 3: 
+
+There are two solutions for your consideration. Both solutions implement a traversal of the linked list.
 
   * A [simple (lazy) solution](https://github.com/lgreco/DataStructures/blob/a2efd96911f745f672ddbec874964cceb62b697f/ChooChoo/Loopy/src/LoopyList.java#L60) uses an array list to keep track of every node visited. If during its traversal the lazy method returns to a visited node, the linked list has a loop.
 
@@ -43,7 +45,7 @@ Solutions for the final exam are available on GitHub. The comments in the code p
 
 Something I noticed across most of your code is the casual use of the `==` operator. This operator is safe to use between primitives but not so safe with objects, such as String, Node, etc. For objects, we use the equals() and compareTo() methods. Using `==` between objects may disqualify you in a technical interview. To illustrate this point, consider the following code (which you can copy and paste in JShell):
 
-```java
+```
 String a = new String("Leo");
 String b = new String("Leo");
 System.out.println(a==b); // Will it print true or false?
