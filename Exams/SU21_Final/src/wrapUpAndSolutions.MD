@@ -46,7 +46,7 @@ There are two solutions for your consideration. Both solutions implement a trave
 
 Something I noticed across most of your code is the casual use of the `==` operator. This operator is safe to use between primitives but not so safe with objects, such as String, Node, etc. For objects, we use the equals() and compareTo() methods. Using `==` between objects may disqualify you in a technical interview. To illustrate this point, consider the following code (which you can copy and paste in JShell):
 
-```
+```java
 String a = new String("Leo");
 String b = new String("Leo");
 System.out.println(a==b); // Will it print true or false?
