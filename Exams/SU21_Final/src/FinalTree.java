@@ -7,11 +7,13 @@ class FinalTree {
     class Node {
         String content;
         Node left, right;
+        Node parent; // Parent node;
 
         /** Partial constructor */
         public Node(String content) {
             this.content = content;
             left = right = null;
+            parent = null; // setting parent to null as well
         }
 
         /**
@@ -20,8 +22,20 @@ class FinalTree {
          * @return true is node is leaf; false otherwise.
          */
         boolean isLeaf() {
-            return false; // REPLACE THIS LINE WITH YOUR CODE
+            return left==null && right==null;
         } // method isLeaf
+
+
+        /**
+         * Method to determine if a node is a left child. The method checks to make sure that the node is not the
+         * root node of the tree (because root has no parent), then checks if node's parent's left child is this
+         * node.
+         *
+         * @return true if node is left child; false otherwise.
+         */
+        boolean isLeft() {
+            return (!(this.equals(root))) && this.parent.left.equals(this);
+        } // method isLeft
 
     } // Inner class Node
 
@@ -50,6 +64,7 @@ class FinalTree {
                     if (content.compareTo(current.content) <0) { // go left
                         if (current.left == null) { // Found a spot for the new node ...
                             current.left = newNode; // ... place it here and ...
+                            current.left.parent = current; // ... assign its parent, then ...
                             keepTraversingTree = false; // ... signal to end the while loop.
                         } else { // If this spot is occupied ...
                             current = current.left; // .. go down and left and try again.
@@ -57,6 +72,7 @@ class FinalTree {
                     } else { // go right
                         if (current.right == null) { // Found a spot for the new node ...
                             current.right = newNode; // ... place it here and ...
+                            current.right.parent = current; // ... assign its parent, then ...
                             keepTraversingTree = false; // ... signal to end the while loop.
                         } else { // If this spot is occupied ...
                             current = current.right; // .. go down and right and try again.
@@ -87,6 +103,13 @@ class FinalTree {
         System.out.printf("\nNode with content [%s] is leaf: %B (should be true)", richardIII.root.right.left.right.content, (richardIII.root.right.left.right.isLeaf()));
 
         boolean score = !richardIII.root.isLeaf() && !richardIII.root.left.isLeaf() && richardIII.root.left.left.isLeaf() && richardIII.root.right.left.right.isLeaf();
-        System.out.printf("\nScore for FinalTree: >>> %B <<<", score);
+        System.out.printf("\nScore for FinalTree: >>> %B <<<\n", score);
+
+        System.out.printf("\nroot.left.isLeft()? %B", richardIII.root.left.isLeft());
+        System.out.printf("\nroot.left.left.isLeft()? %B", richardIII.root.left.left.isLeft());
+        System.out.printf("\nroot.isLeft()? %B", richardIII.root.isLeft());
+        System.out.printf("\nroot.right.leftisLeft()? %B", richardIII.root.right.left.isLeft());
+        System.out.printf("\nroot.right.isLeft()? %B\n", richardIII.root.right.isLeft());
+
     }
 }

@@ -28,6 +28,8 @@ public class Implementation {
         shorterBrownLine.addNode(quincy);
         shorterBrownLine.addNode(lasalle);
         shorterBrownLine.addNode(library);
+        shorterBrownLine.addNode(adams);
+        shorterBrownLine.addNode(washingtonWabash);
         shorterBrownLine.addNode(clark);
 
         /*
@@ -48,8 +50,25 @@ public class Implementation {
         modifier. As a result, we can write the following line of code that takes the last node added to the list
         (clark) and changes its next pointer (that was null up until now) to an existing node (merchantile).
          */
-        clark.next = merchantile;
+        clark.next = merchantile; // THIS IS THE OFFENSIVE LINE OF CODE
 
-        System.out.printf("\n\nHas loop? %B\n", shorterBrownLine.hasLoop());
+        System.out.printf("\n\nBrown Line\n\tHas loop? (lazy) %B", shorterBrownLine.hasLoop());
+        System.out.printf("\n\tHas loop? (fast/slow) %B\n", shorterBrownLine.hasLoop2());
+
+        // One node list
+        LoopyList tinyList = new LoopyList();
+        Node lonely = new Node("Just me!");
+        tinyList.addNode(lonely);
+        lonely.next = lonely;
+        System.out.printf("\n\nTiny List\n\tHas loop? (lazy) %B\n\tHas loop? (fast/slow) %B\n", tinyList.hasLoop(), tinyList.hasLoop2());
+
+        // Two node list
+        LoopyList twoNodeList = new LoopyList();
+        Node nodeOne = new Node("Node one");
+        Node nodeTwo = new Node("Node two");
+        twoNodeList.addNode(nodeOne);
+        twoNodeList.addNode(nodeTwo);
+        nodeTwo.next = nodeTwo;
+        System.out.printf("\n\nTwo-node List\n\tHas loop? (lazy) %B\n\tHas loop? (fast/slow) %B\n", twoNodeList.hasLoop(), twoNodeList.hasLoop2());
     }
 }

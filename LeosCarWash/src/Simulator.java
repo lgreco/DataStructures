@@ -146,7 +146,7 @@ public class Simulator {
      * constructors are also public but technically not methods).
      */
     public void report() {
-        simulate();
+        simulate(); // Invoke simulation engine first, then report the results
         System.out.printf("\n\n==================== Simulation of a car wash ====================\n");
         System.out.printf("\n%50s %6d", "Length of simulation (in minutes):", lengthOfSimulation *MINUTES_PER_HOUR);
         System.out.printf("\n%50s %6d", "Length of car wash cycle (in minutes):", durationOfCarWash);

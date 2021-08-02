@@ -64,14 +64,49 @@ class FinalList {
      */
     boolean intersects(FinalList finalList) {
         boolean found = false; // Assume lists do not intersect.
-        /* ADD YOUR CODE HERE */
+        if ( this.head != null && finalList.head != null ) { // make sure neither list is empty
+            /*
+            The search technique below involves two nested while loops. The outer loop traverses the invoking list,
+            one object at a time. The inner loop traversed the list passed to the method as an argument. The
+            traversed nodes are named invokingCurrent and passedCurrent, respectively.
+
+            For every node traversed in the outer loop, we traverse every node in the inner loop starting from its
+            head. In other words, we compare each node of the invoking list to every node of the passed list, until
+            we either find a match or we run out of nodes.
+
+            Each loop ends when at least of these two conditions is satisfied:
+              - the xCurrent node is null, i.e., we've reached the end of a list, or
+              - an intersection has been found.
+            Ending the loops when an intersection has been found allows us to save time. There is no reason to keep
+            scanning the lists once we find the first intersection.
+             */
+            Node invokingCurrent = this.head; // Start the scan of the invoking list
+            while (!found && invokingCurrent != null) { // The outer loop
+                Node passedCurrent = finalList.head; // Start the scan of the passed list
+                while (!found && passedCurrent != null) { // The inner loop
+                    found = invokingCurrent.content.equals(passedCurrent.content); // are we there yet?
+                    passedCurrent = passedCurrent.next; // move to the next node of passed list
+                }
+                invokingCurrent = invokingCurrent.next; // move to the next node of the invoking list
+            }
+        }
         return found;
+        /*
+        We could simplify this method to a single statement:
+        return countCommom(finalList) > 0;
+        that will return true if the count of common nodes is greater than 0. However, the count method has to go
+        through every combination of nodes between the two lists. Our method above ends as soon as it finds the
+        first common node, so it can be a bit faster.
+         */
     } // method intersects
 
 
     /**
      * Method to count the number of common nodes between two lists. Commonality is defined as two nodes with the
-     * same content.
+     * same content. The method is based on two nested loops. The outer loop traverses the invoking list. The
+     * inner loop traverses the passed list. For every node in the invoking list we perform one full traversal
+     * of the inner list. Then we move to the next node of the invoking list and start all over again with the
+     * passed list.
      *
      * Usage:      FinalList a; FinalList b
      *             a.countCommon(b)
@@ -85,8 +120,18 @@ class FinalList {
      * @return int with number of common nodes; 0 if none.
      */
     int countCommon(FinalList finalList) {
-        int count = -1; // Initialize count, expecting no common nodes between the lists.
-        /* ADD YOUR CODE HERE */
+        int count = 0; // Initialize count, expecting no common nodes between the lists.
+        Node invokingCurrent = this.head; // Start the scan of the invoking list
+        while (invokingCurrent != null) { // The outer loop
+            Node passedCurrent = finalList.head; // Start the scan of the passed list
+            while (passedCurrent != null) { // The inner loop
+                if (invokingCurrent.content.equals(passedCurrent.content)); {// are we there yet?
+                    count++;
+                }
+                passedCurrent = passedCurrent.next; // move to the next node of passed list
+            }
+            invokingCurrent = invokingCurrent.next; // move to the next node of the invoking list
+        }
         return count;
     } // method countCommon
 
@@ -105,8 +150,20 @@ class FinalList {
      * @param finalList passed (as argument) list
      */
     void displayCommmonNodes(FinalList finalList) {
-        /* REPLACE THE FOLLOWING LINE WITH YOUR CODE */
-        System.out.printf("\ndisplayCommonNodes method not completed.");
+        String toPrint = "";
+        Node invokingCurrent = this.head;
+        while (invokingCurrent != null) {
+            Node passedCurrent = finalList.head;
+            while (passedCurrent != null) {
+                if (invokingCurrent.content.equals(passedCurrent.content)) {
+                    toPrint = invokingCurrent.content + "\n" + toPrint;
+                }
+                passedCurrent = passedCurrent.next;
+            }
+            invokingCurrent = invokingCurrent.next;
+        }
+        toPrint = (toPrint.equals("")) ? "No common nodes found." : toPrint;
+        System.out.println(toPrint);
     } // method displayCommmonNodes
 
 

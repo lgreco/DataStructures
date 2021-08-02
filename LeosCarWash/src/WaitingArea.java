@@ -76,7 +76,7 @@ public class WaitingArea {
             carToWash = waitingArea[0]; // always remove from the front
             /*
             Loop below moves everything one step closer to the front of the line. Notice that if occupancy drops to 0
-            then the loop does't execute at all. This makes sense because there are no cars in line to move forward.
+            then the loop doesn't execute at all. This makes sense because there are no cars in line to move forward.
              */
             for (int i = 0; i < occupancy; i++) { // shift everyone towards the front
                 waitingArea[i] = waitingArea[i+1];
