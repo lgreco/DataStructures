@@ -79,3 +79,4 @@ The last thing you may need after an intense course is more reading. Nevertheles
 ## So long
 
 Above all, have a great time off. It has been a privilege working with you this term. Looking forward to seeing you around campus in a few weeks.
+
