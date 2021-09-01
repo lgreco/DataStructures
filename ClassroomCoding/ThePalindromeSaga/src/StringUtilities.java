@@ -6,18 +6,18 @@ public class StringUtilities {
      * The string is broken into pairs of letters symmetrically placed from its center. The pairs are compared to
      * determine if the letters are the same. If all pairs contain the same letters, the string is a palindrome.
      * For example "palindrome" is broken into the following pairs:
-     *   p == e ... false
-     *   a == m ... false
-     *   l == o ... false
-     *   i == r ... false
-     *   n == d ... false
+     *   p == e ... false     p alindrom e
+     *   a == m ... false      a lindro m
+     *   l == o ... false       l indr o
+     *   i == r ... false        i nd r
+     *   n == d ... false         n  d
      * And the string "deed" is broken into the following pairs
-     *   d == d ... true
-     *   e == e ... true
+     *   d == d ... true         d ee d
+     *   e == e ... true          e  e
      * And the string "racecar" is broken as follows
-     *   r == r ... true
-     *   a == a ... true
-     *   c == c ... true
+     *   r == r ... true       r aceca r
+     *   a == a ... true        a cec a
+     *   c == c ... true          c c
      * Notice that there is no pair containing the middle letter 'e' for strings with an odd number of letters.
      *
      * @param string String to test if it is palindrome
