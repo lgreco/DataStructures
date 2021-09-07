@@ -100,6 +100,7 @@ public class CSbS_Practice_And_Recap {
 
     /* The solution for the problem "Circle" can be found in the file
        Circle.java
+       https://github.com/lgreco/DataStructures/blob/master/CodeReview/src/Circle.java
        in the same folder as the present file. */
 
 
@@ -265,6 +266,7 @@ public class CSbS_Practice_And_Recap {
 
     /* The solution for problem "Student" can be found in file
        Student.java
+       https://github.com/lgreco/DataStructures/blob/master/CodeReview/src/Student.java
        in the same folder as this file */
 
 
