@@ -19,6 +19,12 @@ public class ProcessBook {
     /** Number of palindromes found using the while-loop-based method */
     static int palindromesFoundWithWhileLoop = 0;
 
+    /** Array to save Palindromes */
+    // static String[] palindromes = new String[16000];
+
+    /** Enchanted array to save palis */
+    static EnchantedArray uniquePalidromes = new EnchantedArray();
+
 
     /**
      * Method to create a scanner object for a web-based text from Project Gutenberg
@@ -58,10 +64,11 @@ public class ProcessBook {
             while (book.hasNext()) {
                 String word = book.next(); // parse the book word by word
                 wordsRead++; // update count of words read
-                if (StringUtilities.isPalindrome(word))
-                    palindromesFoundWithForLoop++; // update palindrome count for method with for-loop
-                if (StringUtilities.isPalindrome2(word))
+
+                if (StringUtilities.isPalindrome2(word)) {
                     palindromesFoundWithWhileLoop++; // update palindrome count for method with while-loop
+                    uniquePalidromes.addUnique(word);
+                }
             }
         }
     } // method findPalindromesIn
@@ -72,9 +79,8 @@ public class ProcessBook {
      */
     static void reportResults() {
         System.out.printf("\n\nScanned %,d words and found" +
-                "\n\t%,7d palindromes with the For-Loop-based method and" +
-                "\n\t%,7d palindromes with the While-Loop-based method",
-                wordsRead, palindromesFoundWithForLoop, palindromesFoundWithWhileLoop);
+                "\n\t%,7d palindromes",
+                wordsRead, uniquePalidromes.inUse);
     } // method reportResults
 
 
