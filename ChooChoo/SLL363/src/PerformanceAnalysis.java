@@ -37,7 +37,7 @@ public class PerformanceAnalysis {
     public static double probSameWord(int among, int length) {
         double amg = (double) among;
         double len = (double) length;
-        return 1.0 - Math.exp((-Math.pow(amg,2)/2.0*(Math.pow(26,len))));
+        return 1.0 - Math.exp((-Math.pow(amg,2)/(2.0*(Math.pow(26,len)))));
     }
 
     public static void collectData(int fromPower2, int toPower2, int stringLength, int smooth){
@@ -49,12 +49,12 @@ public class PerformanceAnalysis {
             double results[] = countSteps(listA, listB, smooth);
             double speedUp = 100.0*(results[0]-results[1])/results[1];
             double probability = probSameWord(listSize, stringLength);
-            System.out.printf("%5d %10.7f %10.0f %10.0f %10.6f\n", listSize, probability, results[0], results[1], speedUp);
+            System.out.printf("%5d %12.7f %10.0f %10.0f %20.6f%%\n", listSize, probability, results[0], results[1], speedUp);
             currentPower2++;
         }
     }
 
     public static void main(String[] args) {
-        collectData(0, 8, 5,100);
+        collectData(0, 12, 2,10);
     }
 }
