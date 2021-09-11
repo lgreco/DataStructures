@@ -42,6 +42,7 @@ public class PerformanceAnalysis {
 
     public static void collectData(int fromPower2, int toPower2, int stringLength, int smooth){
         int currentPower2 = fromPower2;
+        System.out.printf("%5s %12s   %10s   %10s %15s\n", "size", "prob", "elegance", "efficiency", "speedup");
         while (currentPower2 <= toPower2) {
             int listSize = (int) Math.pow(2,currentPower2);
             LinkedList listA = populateList(listSize,stringLength);
