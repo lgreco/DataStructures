@@ -1,3 +1,6 @@
+/**
+ * Chains Nodes in single direction.
+ */
 public class LinkedList {
 
     private Node head;
@@ -11,18 +14,26 @@ public class LinkedList {
         this.efficientSteps = 0;
     }
 
+    /**
+     * Adds new node to end of list.
+     * @param content String content of new node
+     */
     public void addNode(String content) {
         Node newNode = new Node(content);
-        if (head == null) {
+        if (head == null) { // If list is empty new node becomes its head.
             head = newNode;
-        } else {
+        } else { // If list is not empty, find last node
             Node current = head;
             while (current.getNext() != null)
                 current = current.getNext();
-            current.setNext(newNode);
+            current.setNext(newNode); // # New node goes after last node.
         }
-    }
+    } // method addNone
 
+
+    /**
+     * Prints contents of list
+     */
     public void printList() {
         if (head == null) {
             System.out.println("List is empty");
@@ -33,8 +44,13 @@ public class LinkedList {
                 current = current.getNext();
             }
         }
-    }
+    } // method printList
 
+
+    /**
+     * Reports number of nodes in present list
+     * @return int count of nodes in a list
+     */
     public int countNodes() {
         int count = 0;
         if (head != null) {
@@ -45,8 +61,20 @@ public class LinkedList {
             }
         }
         return count;
-    }
+    } // method countNodes
 
+
+    /**
+     * Counts common nodes between two lists.
+     *
+     *         The function returns the number of common nodes between the two
+     *         lists. It also returns the number of steps it took to count the
+     *         number of common nodes. We use that return value (steps) to measure
+     *         the performance of this function.
+     *
+     * @param other LinkedList to compare current list with
+     * @return int count of common nodes between this and othe list
+     */
     public int countCommonNodes(LinkedList other) {
         int count = 0;
         elegantSteps = 0;
@@ -64,12 +92,37 @@ public class LinkedList {
             }
         }
         return count;
-    }
+    } // method countCommonNodes
 
+
+    /**
+     * Determines intersection of lists by count of common nodes
+     *
+     *         The function returns true/false to indicate if the two lists
+     *         intersect. It also returns the number of steps it took its
+     *         helper method to count the number of common nodes between the
+     *         two lists. We use that return value (steps) to measure the
+     *         performance of this function.
+     *
+     * @param other LinkedList to compare with
+     * @return true if they intersect
+     */
     public boolean intersectionByCount(LinkedList other) {
         return countCommonNodes(other) > 0;
-    }
+    } // method intersectionByCount
 
+
+    /**
+     * Checks if present list intersects with other list.
+     *
+     *         The function returns true/false to indicate if the two lists
+     *         intersect. It also returns the number of steps it took to count
+     *         the number of common nodes between the two lists. We use that
+     *         return value (steps) to measure the performance of this function.
+     *
+     * @param other LinkedList to compare present list with
+     * @return true if they intersect
+     */
     public boolean intersects(LinkedList other) {
         efficientSteps = 0;
         boolean intersectionFound = false;
@@ -90,7 +143,9 @@ public class LinkedList {
             }
         }
         return intersectionFound;
-    }
+    } // method intersects
+
+    /* Automagically generated accessors */
 
     public int getElegantSteps() {
         return elegantSteps;
