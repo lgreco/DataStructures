@@ -49,12 +49,12 @@ public class PerformanceAnalysis {
             double results[] = countSteps(listA, listB, smooth);
             double speedUp = 100.0*(results[0]-results[1])/results[1];
             double probability = probSameWord(listSize, stringLength);
-            System.out.printf("%5d %10.6f %10.6f %10.6f %10.6f\n", listSize, probability, results[0], results[1], speedUp);
+            System.out.printf("%5d %10.7f %10.0f %10.0f %10.6f\n", listSize, probability, results[0], results[1], speedUp);
             currentPower2++;
         }
     }
 
     public static void main(String[] args) {
-        collectData(0, 8, 2,100);
+        collectData(0, 8, 5,100);
     }
 }
