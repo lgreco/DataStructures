@@ -23,27 +23,8 @@ public class Tree {
     public boolean contains(String content) {
         boolean result = false; // Assume content not present in tree
         if (root != null) { // If tree is not empty:
-            Node current = root;
-            boolean keepTraversing = true;
-            while (keepTraversing) {
-                if (content.equals(current.content)) {
-                    result = true;
-                    keepTraversing = false;
-                } else if (content.compareTo(current.content) < 0) { // try going left
-                    if (current.left == null) {
-                        keepTraversing = false; // Not going to find target
-                    } else {
-                        current = current.left;
-                    }
-                } else if (content.compareTo(current.content) > 0) { // try going to the right
-                    if (current.right == null) {
-                        keepTraversing = false;
-                    } else {
-                        current = current.right;
-                    }
-                }
-            }
         }
+        return result;
     } // method contains
 
 
