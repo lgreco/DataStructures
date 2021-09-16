@@ -11,21 +11,16 @@ import java.util.Scanner;
 public class ProcessBook {
 
     /** Number of words found in a book */
-    static int wordsRead = 0;
-
-    /** Number of palindromes found using the for-loop-based method */
-    static int palindromesFoundWithForLoop = 0;
+    private static int wordsRead = 0;
 
     /** Number of palindromes found using the while-loop-based method */
-    static int palindromesFoundWithWhileLoop = 0;
-
-    /** Array to save Palindromes */
-    // static String[] palindromes = new String[16000];
+    private static int palindromesFound = 0;
 
     /** Enchanted array to save palis */
-    static EnchantedArray uniquePalidromes = new EnchantedArray();
+    private static EnchantedArray uniquePalindromes = new EnchantedArray();
 
-    static Tree palindromesTree = new Tree();
+    /*** Binary search tree to save palindromes */
+    private static Tree palindromesTree = new Tree();
 
 
     /**
@@ -33,7 +28,7 @@ public class ProcessBook {
      * @param linkToProjectGutenberg String with URL to a plain text copy of a book
      * @return Scanner object for that web page; null if connection cannot be established
      */
-    static Scanner connectToBook(String linkToProjectGutenberg) {
+    private static Scanner connectToBook(String linkToProjectGutenberg) {
         /** Object to return */
         Scanner scanner = null;
         /* Establish a URL object, anticipating the possibility it may not work */
@@ -60,16 +55,15 @@ public class ProcessBook {
      *
      * @param linkedToProjectGutenberg String with URL to a plain text copy of a book
      */
-    static void findPalindromesIn(String linkedToProjectGutenberg) {
+    public static void findPalindromesIn(String linkedToProjectGutenberg) {
         Scanner book = connectToBook(linkedToProjectGutenberg);
         if (book != null) { // if connection failed scanner object would be null
             while (book.hasNext()) {
                 String word = book.next(); // parse the book word by word
                 wordsRead++; // update count of words read
-
                 if (StringUtilities.isPalindrome2(word)) {
-                    palindromesFoundWithWhileLoop++; // update palindrome count for method with while-loop
-                    uniquePalidromes.addUnique(word);
+                    palindromesFound++; // update palindrome count for method with while-loop
+                    uniquePalindromes.addUnique(word);
                     palindromesTree.add(word);
                 }
             }
@@ -80,18 +74,8 @@ public class ProcessBook {
     /**
      * Show results nicely formatted
      */
-    static void reportResults() {
-        System.out.printf("\n\nScanned %,d words and found" +
-                "\n\t%,7d palindromes.\n\n",
-                wordsRead, uniquePalidromes.inUse);
-        uniquePalidromes.reportPerformance();
+    public static void reportResults() {
+        // ... tbd
     } // method reportResults
 
-
-    /** Driver method */
-    public static void main(String[] args) {
-        findPalindromesIn("https://www.gutenberg.org/files/4300/4300-0.txt");
-        reportResults();
-        palindromesTree.reportPerformance();
-    }
 }
