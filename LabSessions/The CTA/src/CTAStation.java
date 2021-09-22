@@ -13,6 +13,13 @@ public class CTAStation extends CTALocation {
     /** Is the station accessible for people with disabilities? */
     private boolean isAccessible;
 
+
+    /**
+     * Basic constructor.
+     *
+     * Passes a station name to the superclass constructor, leaves everything else to mutators for assignment.
+     * @param name String with the name of the station we are creating.
+     */
     public CTAStation(String name) {
         super(name);
     }

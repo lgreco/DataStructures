@@ -6,7 +6,6 @@
  */
 public class CTALocation {
 
-    private static final String NOT_AVAILABLE = "Not available.";
 
     /** The name of the location, e.g., "95th Street" */
     private String name;
