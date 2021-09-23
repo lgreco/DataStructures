@@ -151,7 +151,7 @@ We write one accessor for every class field that we need to access from outside 
 
 ## Lab work
 
-* Review an [*actual* data set]() about CTA train stations. Make sure you understand what each field in the data set represents. If unsure, be ready to ask for clarifications.
+* Review an [*actual* data set](https://data.cityofchicago.org/Transportation/CTA-System-Information-List-of-L-Stops/8pix-ypme) about CTA train stations. Make sure you understand what each field in the data set represents. If unsure, be ready to ask for clarifications.
 * Propose how to modify class `CTAStation` so that it reflects the actual data set above accurately.
 * If your group's proposal is approved, then:
   * add the necessary fields in `CTAStation`;
