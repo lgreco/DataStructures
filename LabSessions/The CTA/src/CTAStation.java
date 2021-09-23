@@ -17,11 +17,13 @@ public class CTAStation extends CTALocation {
     /**
      * Basic constructor.
      *
-     * Passes a station name to the superclass constructor, leaves everything else to mutators for assignment.
+     * Passes a station name to the superclass constructor, leaves everything else (except hashTag) to mutators for
+     * assignment.
+     *
      * @param name String with the name of the station we are creating.
      */
     public CTAStation(String name) {
-        super(name);
-    }
+        super(name); // Hello super() call
+    } // constructor CTAStation
 
 }

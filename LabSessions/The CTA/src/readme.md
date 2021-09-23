@@ -13,3 +13,7 @@ These three classes are in the same directory (folder) as this `readme.md` file 
 ## Lab work
 
 In this lab session we'll explore the interplay between a superclass and the classes that extend it (Ch. 9 in BJP).
+
+We'll start with the user of he [super()](https://docs.oracle.com/javase/tutorial/java/IandI/super.html) keyword.
+
+Then we'll move to the obfuscation that Java causes when we privatize -- as we should -- the fields in each class. Thankfully, IDEs like IntelliJ come to the rescue. Try Alt-Ins on your Windows keyboard or Command-N on your Mac for some magical code writing.
