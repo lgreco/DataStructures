@@ -1,0 +1,3 @@
+STOP_ID,DIRECTION_ID,STOP_NAME,STATION_NAME,STATION_DESCRIPTIVE_NAME,MAP_ID,ADA,RED,BLUE,G,BRN,P,Pexp,Y,Pnk,O,Location
+30162,W,18th (54th/Cermak-bound),18th,18th (Pink Line),40830,true,false,false,false,false,false,false,false,true,false,"(41.857908, -87.669147)"
+30161,E,18th (Loop-bound),18th,18th (Pink Line),40830,true,false,false,false,false,false,false,false,true,false,"(41.857908, -87.669147)"
