@@ -170,4 +170,4 @@ We write one accessor for every class field that we need to access from outside 
   `... = pullCTAData("https://raw.githubusercontent.com/lgreco/DataStructures/master/data/stations.csv");`
   * Before using class `CTAUtilities`, you must finish its `pullCTAData` method. Specifically you need to decide, and justify what data structure you'll use.
   * To make things interesting, you cannot add or modify constructors in CTAStation.
-  * And, on that vain, you cannot have station duplicates in `CTAImplementation`.
+  * And, in that vein, you cannot have station duplicates in `CTAImplementation`.
