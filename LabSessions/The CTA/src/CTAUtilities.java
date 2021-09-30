@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class CTAUtilities {
 
+
     /**
      * Creates a scanner object for a given link to source data on the web.
      *
@@ -47,6 +48,7 @@ public class CTAUtilities {
         }
         return sc;
     } // method CTAScanner
+
 
     /**
      * This method is specific to the L Stations CSV file available from the Chicago Data Portal
@@ -92,21 +94,18 @@ public class CTAUtilities {
             while (sc.hasNext()) {
                 // Pull a line from the scanner.
                 line = sc.nextLine();
-                String[] token = line.split("(,(?=\\S))");  // Some awesome regex from Alex Sobiak
+                String[] token = line.split("(,(?=\\S))");  // Nice regex from Alex Sobiak
                 String stationName=token[3];
-                double latitude, longitude;
+                // Location is in the 17th column (index 16) and needs to be split into two parts.
                 String loc[] = token[16].split(",");
-                latitude = Double.valueOf(loc[0].replaceAll("[^.0-9]",""));
-                longitude = Double.valueOf(loc[1].replaceAll("[^.0-9]",""));
-            }
-        }
+                // Remove parethenses and quotes from strings with location information.
+                double latitude = Double.valueOf(loc[0].replaceAll("[^.0-9]",""));
+                double longitude = Double.valueOf(loc[1].replaceAll("[^.0-9]",""));
+                YOUR_AWESOME_CODE_HERE!!!
+            } // while loop
+        } // scanner not null
         return DATA_STRUCTURE;
-    }
+    } // method pullCTAData
 
 
-    public static void main(String[] args) {
-        //boolean success = scanFile("test.csv");
-        ??? demo = pullCTAData("https://raw.githubusercontent.com/lgreco/DataStructures/master/data/stations.csv");
-
-    }
-}
+} // class CTAUtilities
