@@ -1,30 +1,52 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class CTAUtilities {
 
     /**
-     * Creates a scanner object for a given filename.
+     * Creates a scanner object for a given link to source data on the web.
      *
-     * File is assumed to be in the "working directory" for this project.
-     *
-     * @param filename String with filename to capture
+     * @param linkToData String with link to file online
      * @return Scanner object for file; null if file not found
      */
-    private static Scanner fileScanner(String filename) {
-        Scanner sc;
-        File dataFile = new File(filename);
+    private static Scanner CTAScanner(String linkToData) {
+        /*
+        Build a URL object. If the link is wrong, the URL object will be null.
+         */
+        URL url;
         try {
-            sc = new Scanner(dataFile);
-        } catch (FileNotFoundException e) {
+            url = new URL(linkToData);
+        } catch (MalformedURLException e) {
+            url = null;
+        }
+        /*
+        Build a datastream (InputStream) object using the URL from above. If there is
+        anything wrong with the URL, the Inputstream object will be null.
+         */
+        InputStream conduit;
+        try {
+            conduit = url.openStream();
+        } catch (IOException e) {
+            conduit = null;
+        }
+        /*
+        Build a scanner to use the input stream based on the URL from above.
+        If an input stream was not established successfully, i.e., if that object
+        is null, the scanner will also be null. That will indicate, to the calling
+        code that the scanning cannot proceed.
+         */
+        Scanner sc;
+        try {
+            sc = new Scanner(conduit);
+        } catch (java.util.InputMismatchException e) {
             sc = null;
         }
         return sc;
-    } // method fileScanner
-
+    } // method CTAScanner
 
     /**
      * This method is specific to the L Stations CSV file available from the Chicago Data Portal
@@ -35,18 +57,18 @@ public class CTAUtilities {
      * verify that the CSV file has the following positional structure for every line (the positions
      * below report to the values returned by Matcher).
      *
-     *     [6] .... Station name (STATION_NAME)
-     *    [12] .... Accessible (ADA)
-     *    [14] .... Boolean for RED line
-     *    [16] .... Boolean for BLUE line
-     *    [18] .... Boolean for G (green) line
-     *    [20] .... Boolean for BRN (brown) line
-     *    [22] .... Boolean for P (purple) line
-     *    [24] .... Boolean for Pexp (purple express) line
-     *    [26] .... Boolean for Y (yellow) line
-     *    [28] .... Boolean for Pnk (pink) line
-     *    [30] .... Boolean for O (orange) line
-     *    [32] .... Latitude and longitude (part of LOCATION item)
+     *     [3] .... Station name (STATION_NAME)
+     *     [6] .... Accessible (ADA)
+     *     [7] .... Boolean for RED line
+     *     [8] .... Boolean for BLUE line
+     *     [9] .... Boolean for G (green) line
+     *    [10] .... Boolean for BRN (brown) line
+     *    [11] .... Boolean for P (purple) line
+     *    [12] .... Boolean for Pexp (purple express) line
+     *    [13] .... Boolean for Y (yellow) line
+     *    [14] .... Boolean for Pnk (pink) line
+     *    [15] .... Boolean for O (orange) line
+     *    [16] .... Latitude and longitude (part of LOCATION item)
      *
      * Quotes and parentheses from [16] must be removed
      *      [32] = "(41.857908, -87.669147)"
@@ -55,19 +77,14 @@ public class CTAUtilities {
      *      double longitude = -87.669147
      * before Loaded into objects. (Yes, this is poor-man's ETL)
      *
-     * @param filename String with file name we scan; the file is expected in the working
-     *                 directory of the project.
-     * @return true if scan successful
+     *
+     * @param linkToData String with URL to data source
+     * @return ArrayList with CTA Station objects
      */
-    private static boolean scanFile(String filename) {
-        boolean scanSuccessful = false;
-        Scanner sc = fileScanner(filename);
+    public static DECIDE_DATA_STRUCTURE pullCTAData(String linkToData) {
+        INITIALIZE_DATA_STRUCTURE
+        Scanner sc = CTAScanner(linkToData);
         if (sc != null) {
-            /*
-            Set up a regex pattern to parse csv lines across commas but preserve items
-            grouped together within double quotes.
-             */
-            Pattern pattern = Pattern.compile("\\s*(\"[^\"]*\"|[^,]*)\\s*");
             // Skip the header line; the if statement ensures we are not operating on empty file
             String line;
             if (sc.hasNext())
@@ -75,34 +92,21 @@ public class CTAUtilities {
             while (sc.hasNext()) {
                 // Pull a line from the scanner.
                 line = sc.nextLine();
-                // Parse it according to the pattern established to keep grouped items together
-                Matcher matcher = pattern.matcher(line);
-                // Pull the elements you need based on positional information
-                int position = 0;
-                String stationName="", location="";
+                String[] token = line.split("(,(?=\\S))");  // Some awesome regex from Alex Sobiak
+                String stationName=token[3];
                 double latitude, longitude;
-                while (matcher.find()) {
-                    System.out.printf("\nPosition: %d, value: %s", position, matcher.group(1));
-                    if (position == 6)
-                        stationName = matcher.group(1);
-                    if (position == 32)
-                        location = matcher.group(1);
-                    position++;
-                }
-                // Parse location to two strings; [0] is latitude, [1] is longitude
-                String loc[] = location.split(",");
-                // Clean up strings and convert to double values
+                String loc[] = token[16].split(",");
                 latitude = Double.valueOf(loc[0].replaceAll("[^.0-9]",""));
                 longitude = Double.valueOf(loc[1].replaceAll("[^.0-9]",""));
-                System.out.printf("%s | %s converted to %6.2f, %6.2f\n", stationName,location, latitude,longitude);
             }
-            scanSuccessful = true;
         }
-        return scanSuccessful;
+        return DATA_STRUCTURE;
     }
 
 
     public static void main(String[] args) {
-        boolean success = scanFile("test.csv");
+        //boolean success = scanFile("test.csv");
+        ??? demo = pullCTAData("https://raw.githubusercontent.com/lgreco/DataStructures/master/data/stations.csv");
+
     }
 }

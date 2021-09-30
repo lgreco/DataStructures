@@ -149,7 +149,7 @@ public String getName() {
 
 We write one accessor for every class field that we need to access from outside the class. These methods can be produced automatically by most IDEs.
 
-## Lab work
+## Lab work 23 SEP 2021
 
 * Review an [*actual* data set](https://data.cityofchicago.org/Transportation/CTA-System-Information-List-of-L-Stops/8pix-ypme) about CTA train stations. Make sure you understand what each field in the data set represents. If unsure, be ready to ask for clarifications.
 * Propose how to modify class `CTAStation` so that it reflects the actual data set above accurately.
@@ -157,3 +157,17 @@ We write one accessor for every class field that we need to access from outside 
   * add the necessary fields in `CTAStation`;
   * modify the constructor in `CTAStation` to include more fields that you feel confident you can assign at the creation of the object.
 * Assume that you have access to a [comma separated values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) file with the data from the actual data set. Discuss and propose a strategy to create `CTAStation` objects based on the information from that file. You need only one object per station. Your strategy shall be based on the data structures that we have covered in class so far: arrays, enchanted arrays (ok, ArrayLists), and Trees. You may use one of these data structures (_hint:_ not trees)
+
+
+## Lab work 30 2021
+
+* Modify class `CTALocation` as follows:
+  * add fields to include latitude and longitude information, justifying your choice for their data type;
+  * provide constructor to include these new fields in addition to the location's name. (Do not replace the basic constructor);
+  * include accessors (getters) for every field in the class.
+* Use the `main` method in class `CTAImplementation` to obtain a data structure of your choice with all the train stations in the CTA network captured as `CTAStation` objects. 
+  * You'll need to employ the methods of class `CTAUtilities`. The data file with the train station information is available online. Method `CTAUtilities.pullCTAData` can access the CSV file when invoked as\
+  `... = pullCTAData("https://raw.githubusercontent.com/lgreco/DataStructures/master/data/stations.csv");`
+  * Before using class `CTAUtilities`, you must finish its `pullCTAData` method. Specifically you need to decide, and justify what data structure you'll use.
+  * To make things interesting, you cannot add or modify constructors in CTAStation.
+  * And, on that vain, you cannot have station duplicates in `CTAImplementation`.
