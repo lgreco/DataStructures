@@ -166,7 +166,7 @@ We write one accessor for every class field that we need to access from outside 
   * provide constructor to include these new fields in addition to the location's name. (Do not replace the basic constructor);
   * include accessors (getters) for every field in the class.
 * Use the `main` method in class `CTAImplementation` to obtain a data structure of your choice with all the train stations in the CTA network captured as `CTAStation` objects. 
-  * You'll need to employ the methods of class `CTAUtilities`. The data file with the train station information is available online. Method `CTAUtilities.pullCTAData` can access the CSV file when invoked as\
+  * You'll need to employ the methods of class `CTAUtilities`. The data file with the train station information is [available online](https://github.com/lgreco/DataStructures/blob/master/data/stations.csv). Method `CTAUtilities.pullCTAData` can access the CSV file when invoked as\
   `... = pullCTAData("https://raw.githubusercontent.com/lgreco/DataStructures/master/data/stations.csv");`
   * Before using class `CTAUtilities`, you must finish its `pullCTAData` method. Specifically you need to decide, and justify what data structure you'll use.
   * To make things interesting, you cannot add or modify constructors in CTAStation.
