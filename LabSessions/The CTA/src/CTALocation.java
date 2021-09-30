@@ -17,8 +17,6 @@ public class CTALocation {
     /** Hashtag for social media use */
     private String hashTag;
 
-    /** Geographic coordinates */
-    private double latitude, longitude;
 
 
     /**
