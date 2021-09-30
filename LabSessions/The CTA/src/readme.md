@@ -159,7 +159,7 @@ We write one accessor for every class field that we need to access from outside 
 * Assume that you have access to a [comma separated values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) file with the data from the actual data set. Discuss and propose a strategy to create `CTAStation` objects based on the information from that file. You need only one object per station. Your strategy shall be based on the data structures that we have covered in class so far: arrays, enchanted arrays (ok, ArrayLists), and Trees. You may use one of these data structures (_hint:_ not trees)
 
 
-## Lab work 30 2021
+## Lab work 30 SEP 2021
 
 * Modify class `CTALocation` as follows:
   * add fields to include latitude and longitude information, justifying your choice for their data type;
