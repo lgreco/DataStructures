@@ -81,7 +81,7 @@ public class CTAUtilities {
      *
      *
      * @param linkToData String with URL to data source
-     * @return ArrayList with CTA Station objects
+     * @return ???
      */
     public static DECIDE_DATA_STRUCTURE pullCTAData(String linkToData) {
         INITIALIZE_DATA_STRUCTURE
