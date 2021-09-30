@@ -17,6 +17,10 @@ public class CTALocation {
     /** Hashtag for social media use */
     private String hashTag;
 
+    /** Geographic coordinates */
+    private double latitude, longitude;
+
+
     /**
      * Basic constructor. It assigns a name to a location and sets up a hashtag for it as well.
      *
@@ -28,4 +32,40 @@ public class CTALocation {
         this.hashTag = "#" + name.toLowerCase();
     } // constructor CTALocation
 
+
+    /**
+     *
+     * @param name
+     * @param latitude
+     * @param longitude
+     */
+    public CTALocation(String name, double latitude, double longitude) {
+        this.name = name;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    } // constructor CTALocation
+
+
+    /* Automagically generated code */
+
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getHashTag() {
+        return hashTag;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
 } // class CTALocation
