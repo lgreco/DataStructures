@@ -26,4 +26,7 @@ public class CTAStation extends CTALocation {
         super(name); // Hello super() call
     } // constructor CTAStation
 
+    public CTAStation(String stationName, double latitude, double longitude) {
+        super(stationName, latitude, longitude);
+    }
 }

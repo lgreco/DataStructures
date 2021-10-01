@@ -83,8 +83,8 @@ public class CTAUtilities {
      * @param linkToData String with URL to data source
      * @return ???
      */
-    public static DECIDE_DATA_STRUCTURE pullCTAData(String linkToData) {
-        INITIALIZE_DATA_STRUCTURE
+    public static ArrayList<CTAStation> pullCTAData(String linkToData) {
+        ArrayList<CTAStation> stations = new ArrayList<CTAStation>();
         Scanner sc = CTAScanner(linkToData);
         if (sc != null) {
             // Skip the header line; the if statement ensures we are not operating on empty file
@@ -98,13 +98,13 @@ public class CTAUtilities {
                 String stationName=token[3];
                 // Location is in the 17th column (index 16) and needs to be split into two parts.
                 String loc[] = token[16].split(",");
-                // Remove parethenses and quotes from strings with location information.
-                double latitude = Double.valueOf(loc[0].replaceAll("[^.0-9]",""));
-                double longitude = Double.valueOf(loc[1].replaceAll("[^.0-9]",""));
-                YOUR_AWESOME_CODE_HERE!!!
+                // Remove parentheses and quotes from strings with location information.
+                double latitude = Double.valueOf(loc[0].replaceAll("[^.0-9-]",""));
+                double longitude = Double.valueOf(loc[1].replaceAll("[^.0-9-]",""));
+                CTAStation newStation = new CTAStation(stationName, latitude, longitude);
             } // while loop
         } // scanner not null
-        return DATA_STRUCTURE;
+        return stations;
     } // method pullCTAData
 
 
