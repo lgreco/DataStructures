@@ -108,4 +108,78 @@ public class CTAUtilities {
     } // method pullCTAData
 
 
+
+    /**
+     * Compute Great Circle distance between two points on Earth.
+     *
+     * Usage:
+     *
+     *         double dist = distance(lat1, lon1, lat2, lon2)
+     *                                ----------  ----------
+     *                                     |           |
+     *                                     |           Geographic coordinates
+     *                                     |           of second point, in degrees
+     *                                     |           of latitude and longitude.
+     *                                     |
+     *                                     Geographic coordinates
+     *                                     of first point, in degrees
+     *                                     of latitude and longitude.
+     *
+     * Based on the haversine formula (https://en.wikipedia.org/wiki/Haversine_formula):
+     *
+     * d = 2 * r * arcsin(sqrt(
+     *                         hav(lat2-lat1) +
+     *                         cos(lat1)*cos(lat2)*hav(lon2-lon1)
+     *                         ))
+     *
+     * where hav is the haversine function, hav(x) = sin^2(x/2).
+     *
+     * The computed distance is subject to slight numerical errors because (a) the formula
+     * assumes that Earth is a sphere, when it is not, and; (b) Math's toRadians is prone
+     * to rounding errors.
+     *
+     * @param lat1 double Latitude of first point
+     * @param lon1 double Longitude of first point
+     * @param lat2 double Latitude of second point
+     * @param lon2 double Longitude of second point
+     * @return double distance between two points
+     */
+    static double distance(double lat1, double lon1, double lat2, double lon2) {
+
+        // Radius of earth, in miles. Use 6371 to compute in kilometers.
+        final double EARTH_RADIUS = 3958.8;
+
+        /*
+        Convert latitudes to radians (the unit used by Math's trig functions). No such conversion
+        is needed for the longitude values because they are not used individually in a trigonometric
+        function. Instead, convert their different to radians to use in the second hav() function.
+         */
+        lat1 = Math.toRadians(lat1);
+        lat2 = Math.toRadians(lat2);
+
+        // Latitude difference for hav function (they are already in radians)
+        double deltaLatitude = lat2-lat1;
+        // Longitude difference for hav function (converted to radians)
+        double deltaLongitude = Math.toRadians(lon2 - lon1);
+
+        /*
+        Build haversine formula step-by-step, for clarity. First compute the haversine functions
+        for latitude and longitude using the substitution hav(x) = sin^2(x/2). Next, assemble the
+        trig expression that goes the square root. And finally build the formula.
+         */
+
+        double latHav = Math.pow(Math.sin(deltaLatitude/2.0), 2.0);
+        double lonHav = Math.pow(Math.sin(deltaLongitude/2.0), 2.0);
+        double cosines = Math.cos(lat1)*Math.cos(lat2);
+        double underRoot = latHav + cosines*lonHav;
+
+        // Return value, assigned negative in case we fail to compute formula
+        double d = -1.0;
+        if (underRoot >= 0.0)
+            d = 2 * EARTH_RADIUS * Math.asin(Math.sqrt(underRoot));
+        return d;
+    } // method distance
+
+
+
 } // class CTAUtilities
