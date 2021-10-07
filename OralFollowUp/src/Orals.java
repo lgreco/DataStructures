@@ -27,21 +27,21 @@ public class Orals {
 
 
     public static void main(String[] args) {
-        // Initialize random number generator
+        // Initialize random number generator.
         Random rng = new Random();
         // How many students?
         int N = uvid.length;
-        // Invite a quarter of students for oral follow-ups
+        // Invite a quarter of students for oral follow-ups.
         int R = N / 4;
-        // Students to select from; once selected, remove from availability
+        // Students to select from; once selected, remove from availability.
         available = new ArrayList<>(Arrays.asList(uvid));
-        // Students selected for an oral follow-up
+        // Students selected for an oral follow-up.
         selected = new ArrayList<>();
-        // Randomly select R students
+        // Randomly select R students.
         while (selected.size() < R) {
-            // Select a student, at random, from those still available
+            // Select a student, at random, from those still available.
             int r = rng.nextInt(available.size());
-            // Move student to the selected group
+            // Move student to the selected group.
             selected.add(available.get(r));
             // And remove from pool of available students.
             available.remove(r);
