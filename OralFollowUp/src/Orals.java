@@ -41,11 +41,10 @@ public class Orals {
         while (selected.size() < R) {
             // Select a student, at random, from those still available.
             int r = rng.nextInt(available.size());
-            // Move student to the selected group.
-            selected.add(available.get(r));
-            // And remove from pool of available students.
-            available.remove(r);
+            // Move student to the selected group and remove from available pool
+            selected.add(available.remove(r));
         }
+        System.out.printf("Inviting %d/%d students for an oral follow-up.\n", R,N);
         System.out.println(selected.toString());
     }
 }
