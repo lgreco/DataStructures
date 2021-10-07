@@ -199,6 +199,9 @@ This class contains only one field, a `CTAStation` named `head`. The class is a 
 ### Lab tasks
 
 * Read the description for today's lab.
-* Familiarize yourselves with the code revisions described above.
+* Familiarize yourselves with the code revisions described above (read the comments).
 * In class `CTAStation`:
-  * Write a method that tells if an object points to another object. The method signature should be `boolean hasNext()`.
+  * Write a method -- with full documentation (comments) -- that tells if an object points to another object. The method signature should be `boolean hasNext()`.
+* In class `CTATrainRoute`:
+  * Finish the method `add`.
+  * Write a method with signature `boolean contains(String name)` to tell if a route contains a station, based on the name of the station.

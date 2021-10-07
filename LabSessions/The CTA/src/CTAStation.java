@@ -30,9 +30,20 @@ public class CTAStation extends CTALocation {
         this.next = null;
     } // constructor CTAStation
 
+
+    /**
+     * Constructor with name and geographic coordinates.
+     *
+     * This constructor is used when we are scanning data from the Chicago Data Portal
+     *
+     * @param stationName String with name of station
+     * @param latitude double latitude of station
+     * @param longitude double longitude of station
+     */
     public CTAStation(String stationName, double latitude, double longitude) {
         super(stationName, latitude, longitude);
-    }
+    } // constructor CTAStation
+
 
     /* Automatically generated code */
 
