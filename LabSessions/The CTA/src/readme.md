@@ -174,7 +174,9 @@ We write one accessor for every class field that we need to access from outside 
 
 ## Lab work for 07 OCT 2021
 
-This lab session includes the following revisions to the classes of this project. For this session assume and expect that **all class fields are private** and available only through setter and getter methods.
+This lab session includes the following revisions to the classes of the project. For this session, assume and expect that **all class fields are private** and available only through set and get methods.
+
+### Code revisions
 
 Class `CTALocation`:
 
