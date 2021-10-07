@@ -174,7 +174,7 @@ We write one accessor for every class field that we need to access from outside 
 
 ## Lab work for 07 OCT 2021
 
-This lab session includes the following revisions to the classes of the project. For this session, assume and expect that **all class fields are private** and available only through set and get methods.
+This lab session includes the following revisions to the classes of the project. For this session, assume and expect that **all class fields are private** and available only through set and get methods. The revised class diagram is show at the end of this note.
 
 ### Code revisions
 
@@ -207,3 +207,8 @@ This class contains only one field, a `CTAStation` named `head`. The class is a 
 * In class `CTATrainRoute`:
   * Finish the method `add`.
   * Write a method with signature `boolean contains(String name)` to tell if a route contains a station, based on the name of the station.
+
+### Revised class diagram
+
+
+![](../RevisedCTA.png)
