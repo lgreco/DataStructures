@@ -31,7 +31,7 @@ public class Orals {
         Random rng = new Random();
         // How many students?
         int N = uvid.length;
-        // Invite a quarter of them for oral follow-ups
+        // Invite a quarter of students for oral follow-ups
         int R = N / 4;
         // Students to select from; once selected, remove from availability
         available = new ArrayList<>(Arrays.asList(uvid));
