@@ -13,6 +13,9 @@ public class CTAStation extends CTALocation {
     /** Is the station accessible for people with disabilities? */
     private boolean isAccessible;
 
+    /** In the direction of travel, what is the next station? */
+    private CTAStation next;
+
 
     /**
      * Basic constructor.
@@ -24,9 +27,20 @@ public class CTAStation extends CTALocation {
      */
     public CTAStation(String name) {
         super(name); // Hello super() call
+        this.next = null;
     } // constructor CTAStation
 
     public CTAStation(String stationName, double latitude, double longitude) {
         super(stationName, latitude, longitude);
+    }
+
+    /* Automatically generated code */
+
+    public CTAStation getNext() {
+        return next;
+    }
+
+    public void setNext(CTAStation next) {
+        this.next = next;
     }
 }

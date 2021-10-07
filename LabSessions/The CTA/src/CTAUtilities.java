@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 public class CTAUtilities {
 
+    private static final double MADISON_STATE_LAT = 41.882067;
+    private static final double MADISON_STATE_LON = -87.6283605;
 
     /**
      * Creates a scanner object for a given link to source data on the web.
@@ -81,7 +83,7 @@ public class CTAUtilities {
      *
      *
      * @param linkToData String with URL to data source
-     * @return ???
+     * @return ArrayList with all the stations listed only once
      */
     public static ArrayList<CTAStation> pullCTAData(String linkToData) {
         ArrayList<CTAStation> stations = new ArrayList<CTAStation>();
@@ -98,15 +100,27 @@ public class CTAUtilities {
                 String stationName=token[3];
                 // Location is in the 17th column (index 16) and needs to be split into two parts.
                 String loc[] = token[16].split(",");
-                // Remove parentheses and quotes from strings with location information.
+                /*
+                 Remove parentheses and quotes from strings with location information. Also make sure that any
+                 minus signs (-) are preserved as they signify southern latitudes or western longitudes.
+                 */
                 double latitude = Double.valueOf(loc[0].replaceAll("[^.0-9-]",""));
                 double longitude = Double.valueOf(loc[1].replaceAll("[^.0-9-]",""));
                 CTAStation newStation = new CTAStation(stationName, latitude, longitude);
+                /*
+                Next, we need to find if the station is already in the list.
+                 */
+                boolean isStationListed = false;
+                for (CTAStation s:stations) {
+                    if (s.getName().equals(newStation.getName()))
+                        isStationListed = true;
+                }
+                if (!isStationListed)
+                    stations.add(newStation);
             } // while loop
         } // scanner not null
         return stations;
     } // method pullCTAData
-
 
 
     /**
@@ -144,7 +158,7 @@ public class CTAUtilities {
      * @param lon2 double Longitude of second point
      * @return double distance between two points
      */
-    static double distance(double lat1, double lon1, double lat2, double lon2) {
+    public static double distance(double lat1, double lon1, double lat2, double lon2) {
 
         // Radius of earth, in miles. Use 6371 to compute in kilometers.
         final double EARTH_RADIUS = 3958.8;
@@ -180,6 +194,16 @@ public class CTAUtilities {
         return d;
     } // method distance
 
-
+    /**
+     * When distance is called with only a single set of coordinates, it uses the coordinates for Madison and
+     * State.
+     *
+     * @param lat double latitude of location
+     * @param lon double longitude of location
+     * @return double Distance between the location passed and Madison & State
+     */
+    public static double distance(double lat, double lon) {
+        return distance(lat, lon, MADISON_STATE_LAT, MADISON_STATE_LON);
+    }
 
 } // class CTAUtilities

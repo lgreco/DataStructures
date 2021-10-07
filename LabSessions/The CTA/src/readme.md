@@ -1,4 +1,4 @@
-# The CTA
+_# The CTA
 
 The Chicago Transit Authority is the major mass transit operator for Chicago. Nearly half a billion passengers rely on CTA's trains and buses every year to get around. For all its complexity, the network of buses and trains can be conceptualized as sequences of locations forming routes. These locations are either bus stops or train stations. Some locations serve as both.
 
@@ -171,3 +171,34 @@ We write one accessor for every class field that we need to access from outside 
   * Before using class `CTAUtilities`, you must finish its `pullCTAData` method. Specifically you need to decide, and justify what data structure you'll use.
   * To make things interesting, you cannot add or modify constructors in CTAStation.
   * And, in that vein, you cannot have station duplicates in `CTAImplementation`. Each station must appear only once in the data structure that method `CTAUtilities.pullCTAData` returns.
+
+## Lab work for 07 OCT 2021
+
+This lab session includes the following revisions to the classes of this project. For this session assume and expect that **all class fields are private** and available only through setter and getter methods.
+
+Class `CTALocation`:
+
+* Added method `compareTo`, in implementation of the `Comparable` interface.
+* Added method `toString`.
+
+
+Class `CTAUtilities`:
+
+* Added method `distance` to compute distance between any two points on Earth, passed to the method as two pairs of longitude and latitude.
+* Overloaded method `distance` so that it computes the distance between a single location on Earth passed to the method as a single pair of lat/lot, and the location of Madison and State (the 0/0 point in Chicago).
+* Added private, static, final variables with coordinates for State and Madison.
+
+Class `CTAStation`:
+
+* Added new field `private CTAStation next`. This new field  serves as a pointer that allows us to chain `CTAStation` objects together in a linked list.
+
+**New** class `CTATrainRoute`
+
+This class contains only one field, a `CTAStation` named `head`. The class is a conceptual model of a train line. We only need to know where the line begins (its head station). From there we can board a train, that will follow the track to the next station. And the next. And so on. Until we reach the end of the line, and there is no next station from there.
+
+### Lab tasks
+
+* Read the description for today's lab.
+* Familiarize yourselves with the code revisions described above.
+* In class `CTAStation`:
+  * Write a method that tells if an object points to another object. The method signature should be `boolean hasNext()`.
