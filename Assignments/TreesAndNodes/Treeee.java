@@ -62,9 +62,51 @@ public class Treeee {
     public void add(String content) {
         Node nodeToInsert = new Node(content); // Prepare the new node to insert
         if (this.root == null) { // Tree is empty
-            /* WHAT DO WE DO IF THE TREE IS EMPTY? */
+            /*
+            WHAT DO WE DO IF THE TREE IS EMPTY?
+            ANSWER: we make the new node (nodeToInsert) the root of this tree and set the number of
+            nodes to 1.
+            */
+            this.root = nodeToInsert;
+            this.numberOfNodes = 1;
         } else { // Tree is not empty
-            /* WHAT DO WE DO IF THE TREE IS NOT EMPTY? WHERE WILL THE NEW NODE GO? */
+            /*
+            WHAT DO WE DO IF THE TREE IS NOT EMPTY? WHERE WILL THE NEW NODE GO?
+            ANSWER: starting from the root, we traverse the tree to find a place to store the
+            nodeToInsert. If there is already a node with the same content, we do not add the
+            new node.
+            */
+            Node current = this.root;  // Current position as we move about the tree.
+            boolean keepTraversing = true;  // Switch to turn off the traversal loop below, when done.
+            while (keepTraversing) {  // Traversal loop
+                // How does content of nodeToInsert compare to content of current node?
+                int direction = content.compareTo(current.content);
+                /*
+                Is new content more, same, or less than content of current node? Based on this
+                comparison output we'll determine our course of action. If less, we'll go left;
+                if more, we'll go right; if same, we'll take no action because there is already
+                a node with the current content.
+                 */
+                if (direction < 0) {  // Need to go left.
+                    if (current.left == null) {  // Left child available.
+                        current.left = nodeToInsert;  // Place new node here.
+                        numberOfNodes++;  // Increase the number of nodes.
+                        keepTraversing = false;  // Done! Turn off the while loop.
+                    } else { // Left child occupied.
+                        current = current.left;  // Move current position to left child and try again.
+                    }
+                } else if (direction > 0) {  // Need to go right.
+                    if (current.right == null) {  // Right child available.
+                        current.right = nodeToInsert;  // Place new node here.
+                        numberOfNodes++;  // Increase the number of nodes.
+                        keepTraversing = false;  // Done. Turn off the while loop.
+                    } else {  // Right child occupied.
+                        current = current.right;  // Move current position to right child and try again.
+                    }
+                } else { // only case left is direction == 0, so content exists; end loop
+                    keepTraversing = false;
+                }
+            }
         }
     } // method add
 
