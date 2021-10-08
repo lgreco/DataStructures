@@ -45,6 +45,15 @@ public class CTAStation extends CTALocation {
     } // constructor CTAStation
 
 
+    /**
+     * Tells if station has next or not
+     * @return true if there is a next object; false otherwise
+     */
+    public boolean hasNext() {
+        return this.next != null;
+    } // method hasNext
+
+
     /* Automatically generated code */
 
     public CTAStation getNext() {
