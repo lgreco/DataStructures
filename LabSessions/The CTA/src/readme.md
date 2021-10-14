@@ -261,5 +261,5 @@ Once you have a route build in one direction, it's very easy to build a route fo
 These are good topics to explore  but are not required for today's lab session.
 
 * Implement a `toString` method for class `CTATrainRoute`.
-* Discuss how to fix the `contains` deficiency in the arraylist with all the stations. Since the list includes `CTAStation` objects, we cannot simply invoke a `contains(String stationName)` on it, to find if a station exists or not before adding a new one. For starters, what *is* the deficiency?
-* Compute travel time between stations along a `CTATrainRoute` based on a given average speed for a train (`int averageSpeed`).
+* Discuss how to fix the `contains` deficiency in the arraylist with all the stations. Since the list includes `CTAStation` objects, we cannot simply invoke a `contains(String stationName)` on it, to find if a station exists or not before adding a new one. For starters, what *is* the deficiency?  (Challenging topic; associative arrays).
+* Estimate travel time between stations along a `CTATrainRoute` based on a given average speed for a train (`int averageSpeed`) and the Great Circle distance between the stations.
