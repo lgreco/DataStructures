@@ -16,7 +16,7 @@ public class CTAUtilities {
      * @param linkToData String with link to file online
      * @return Scanner object for file; null if file not found
      */
-    private static Scanner CTAScanner(String linkToData) {
+    public static Scanner CTAScanner(String linkToData) {
         /*
         Build a URL object. If the link is wrong, the URL object will be null.
          */

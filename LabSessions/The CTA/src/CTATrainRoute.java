@@ -3,8 +3,6 @@ public class CTATrainRoute {
     /** The first station of a train line */
     private CTAStation head;
 
-    /** And the line ends at ... */
-    private CTAStation last;
 
     /**
      * Method to add train stations to the line.
@@ -17,7 +15,6 @@ public class CTATrainRoute {
         if (head == null) {
             // Route is empty. Make new station the beginning of the line.
             head = ctaStation;
-            last = ctaStation;
         } else {
             /*
             Route is not empty!
@@ -51,6 +48,4 @@ public class CTATrainRoute {
         return success;
     } // method contains
 
-
-
-}
+} // class CTATRainRoute

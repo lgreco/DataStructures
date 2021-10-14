@@ -210,5 +210,48 @@ This class contains only one field, a `CTAStation` named `head`. The class is a 
 
 ### Revised class diagram
 
-
 ![](../RevisedCTA.png)
+
+
+## Lab work for 14 OCT 2021
+
+Today's last session is based on the class diagram shown above. Here's a quick summary of the tools we have developed so far.
+
+* Object classes `CTALocation`, `CTAStation`, and `CTAStop`.
+* A new object class `CTATrainRoute` with the ability to chain `CTAStation` objects together. This class is based on the *linked list* concept of a data structure. When we add train stations to this object, in the order traversed by a train, we end up with a very effective and kind-of-fun representation of an actual train route.
+* **CTAUtilities.pullCTAData:** A method that returns an arraylist of `CTAStation` objects for every train station in the CTA network.
+* **CTAUtilities.CTAScanner:** A method that returns a scanner for a text file identified by a URL.
+
+## Lab tasks
+
+Your code must be documented properly.
+
+### Populate a train route
+
+Assume you are given a [text file with the names train stations in a specific direction of travel](https://raw.githubusercontent.com/lgreco/DataStructures/master/data/RedLineSouthBound.txt), beginning with the first station. For example:
+
+```text
+Howard
+Jarvis
+Morse
+Loyola
+Granville
+Thorndale
+Bryn Mawr
+```
+
+Design (and build) a method that will read this file and for every station in it, find (**where?**) the corresponding `CTAStation` object and add it to a `CTATrainRoute` object. Your design will need to address the following questions:
+
+* What is the return type of the method?
+* Does the method require any parameters? If yes, what are they?
+* Where will the method reside (which class)?
+
+### Reverse a route
+
+All CTA train routes are two-way. For example, the Red Line runs southbound from Howard to 95th/Dan Ryan. And northbound from 95th/Dan Ryan to Howard. Even the Loop lines have two different directions. For example, the Brown line runs from Kimball to the Loop. Somewhere in the loop, the train changes direction. Let's say that the turning point is the Quincy station. Therefore the southbound Brown line is from Kimball to Quincy and the northbound from Quincy to Kimball.
+
+Once you have a route build in one direction, it's very easy to build a route for the opposite direction. Design a method to do that. The same questions apply here again:
+
+* What is the return type of the method?
+* Does the method require any parameters? If yes, what are they?
+* Where will the method reside (which class)?
