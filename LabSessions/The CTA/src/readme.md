@@ -248,7 +248,7 @@ Design (and build) a method that will read this file and for every station in it
 
 ### Reverse a route
 
-All CTA train routes are two-way. For example, the Red Line runs southbound from Howard to 95th/Dan Ryan. And northbound from 95th/Dan Ryan to Howard. Even the Loop lines have two different directions. For example, the Brown line runs from Kimball to the Loop. Somewhere in the loop, the train changes direction. Let's say that the turning point is the Quincy station. Therefore the southbound Brown line is from Kimball to Quincy and the northbound from Quincy to Kimball.
+All CTA train routes are two-way. For example, the Red Line runs southbound from Howard to 95th/Dan Ryan. And northbound from 95th/Dan Ryan to Howard. Even the Loop lines have two different directions. For example, the Brown line runs from Kimball to the Loop. Somewhere in the loop, the train changes direction. Let's say that the turning point is the Quincy station. Therefore, the southbound Brown line is from Kimball to Quincy and the northbound from Quincy to Kimball.
 
 Once you have a route build in one direction, it's very easy to build a route for the opposite direction. Design a method to do that. The same questions apply here again:
 
