@@ -13,7 +13,7 @@
 
 * Before submitting, check and double-check: does your work answer the question? If your answer includes computer code, test it. Ensure that it works as expected.
 
-* You are welcome to send a draft of your work to Leo for a quick review and feedback. Email (subject must include *COMP 363*) or Teams-chat, only. Review requests within 6-7 hours of the deadline may not be considered.
+* You are welcome to send a draft of your work to Leo for a quick review and feedback. Email (subject must include *COMP 271*) or Teams-chat, only. Review requests within 6-7 hours of the deadline may not be considered.
 
 * Student Hours have been extended. Please don't wait for an appointment if you have a pressing question. Use Email or Teams messaging to expedite things.
 
