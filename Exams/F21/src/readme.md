@@ -102,4 +102,44 @@ Looking at the code for the previous problem (on Inheritance), do you see any cl
 
 ## Implement an interface
 
-Using the [Node and Treeee classes](https://github.com/lgreco/DataStructures/tree/master/Assignments/TreesAndNodes), implement the ``Comparable`` interface on ``Node``. The implementation should allow node comparisons based on parity of the number of charactes in each ``Node``'s string, as follows:
+Using the [Node and Treeee classes](https://github.com/lgreco/DataStructures/tree/master/Assignments/TreesAndNodes), implement the ``Comparable`` interface on ``Node``. The implementation should allow node comparisons based on parity of the number of characters in each ``Node``'s string, as follows:
+
+
+
+| Node A | Node B | comparison |
+|--------|--------|------------|
+|   odd  | odd    |      0     |
+|   odd  | even   |     -1     |
+|   even | odd    |     +1     |
+|   even | even   |      0     |
+
+## Write a ``toString()``
+
+Write a ``String toString()`` method in ``Node`` to return the following output:
+
+```text
+This node contains "<content>" and has no children.
+```
+
+or
+```text
+This node contains "<content>" and has 1 child.
+```
+
+or
+```text
+This node contains "<content>" and has 2 children.
+```
+
+Where ``"<content>"`` above is the value of the node's field ``content``.
+
+
+## Deliverables
+For this exam, upload the following files to Sakai.
+
+| Problem | Material to submit |
+|---------|--------------|
+| Inheritance | Revised ``Country``, ``State``, ``County`` etc classes plus any additional class(es) you write. |
+| ``enum``    | text file with your answer. |
+| ``Comparable`` | Your revised ``Node.java`` file |
+| ``toString()`` | The revised file above, with one more revision! |
