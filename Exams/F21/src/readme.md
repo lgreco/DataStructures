@@ -32,22 +32,74 @@
 You are assigned to work on a project and you discover the following three classes in it. Do you keep them all? Do you change them a bit? Why and how?
 
 ```java
-public class MotorBoat {
-   private int lengthAtWaterLine;
-   private int beamWidth;
-   private int numberOfEngines;
-   private int horsePowerPerEngine;
-   private int accomodatesPersons;
-   private String hullNumber;
-   private String name;
-   private boolean diesel;
-   private boolean marineVHF;
-   private boolean marineSSB;
-   private boolean autoPilot;
-   private boolean radar;
-   private boolean airConditioning;
-   ...
+public class Country {
+    private String name;
+    private String capital;
+    private String typeOfGovernment;
+    private String currency;
+    private int population;
+    // Misc methods and constructors ...
+}
+
+private class State {
+    private String name;
+    private String capital;
+    private int population;
+    private String stateBird;
+    // Misc methods and constructors ...
+}
+
+private class County {
+    private String name;
+    private String Seat;
+    private int population;
+    // Misc methods and constructors ...
+}
+
+private class Town {
+    private String name;
+    private int population;
+    private int yearEstablish;
+    private String typeOfRule;
+    // Misc methods and constructors ...
+}
+private class Province {
+    private String name;
+    private String capital;
+    private int population;
+    // Misc methods and constructors ...
+}
 ```
 
 
 
+## Learn something new
+
+Java offers a [special data type called **enum**](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html) that allows a variable to be assigned to predetermined constant values. This is a great tool, if you want to restrict choices and avoid typos that may result from typing information. In practical terms ``enum`` (short for enumerations) are the equivalent of a pull down menu on an app. 
+
+Consider the following simple example where enumeration ``Major`` contains all the degree programs offered by the (not so) highly selective *Leo University*.
+
+```java
+public enum Major {
+    Computer Science, Aviation, Physics, Diving 
+}
+```
+
+We can use this enumeration as a data type to define a class field like so:
+
+```java
+public class Student {
+    private String firstName,
+    private String lastName,
+    private Major fieldOfStudy;
+    // etc
+}
+```
+
+By making variable ``fieldOfStudy`` above a ``Major`` we restrict it to the values listed in ``enum Major``. And so, if a setter method tries to change the ``fieldOfStudy`` for a ``Student`` object to, say, ``Mathematics`` (which is not included in ``enum Major`` ), the program will not accept the change. Enumerations are one of the way that Java can protect data integrity.
+
+Looking at the code for the previous problem (on Inheritance), do you see any class fields that could be converted to an enumerated type? What would you call those ``enum`` types and what will be their content?
+
+## Implement an interface
+
+Using the [Node and Treeee classes](https://github.com/lgreco/DataStructures/tree/master/Assignments/TreesAndNodes), implement the ``Comparable`` interface on ``Node``. The implementation should allow node comparisons based on parity of the number of charactes in each ``Node``'s string, as follows:
