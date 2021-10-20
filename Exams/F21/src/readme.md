@@ -26,3 +26,28 @@
 * Problem-level bonus points are awarded only if the main problem solution is correct (or correct-ish).
 
 * Neatness matters, a lot. At this stage of your studies, **your work must reflect your knowledge and your professionalism.** Code must look need and clean, easy to read, and well documented with comments. Code that doesn't compile will not be graded.
+
+## Inheritance (Cleaning up someone else's mess)
+
+You are assigned to work on a project and you discover the following three classes in it. Do you keep them all? Do you change them a bit? Why and how?
+
+```java
+public class MotorBoat {
+   private int lengthAtWaterLine;
+   private int beamWidth;
+   private int numberOfEngines;
+   private int horsePowerPerEngine;
+   private int accomodatesPersons;
+   private String hullNumber;
+   private String name;
+   private boolean diesel;
+   private boolean marineVHF;
+   private boolean marineSSB;
+   private boolean autoPilot;
+   private boolean radar;
+   private boolean airConditioning;
+   ...
+```
+
+
+
