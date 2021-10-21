@@ -41,7 +41,7 @@ public class Country {
     // Misc methods and constructors ...
 }
 
-private class State {
+public class State {
     private String name;
     private String capital;
     private int population;
@@ -49,21 +49,21 @@ private class State {
     // Misc methods and constructors ...
 }
 
-private class County {
+public class County {
     private String name;
     private String Seat;
     private int population;
     // Misc methods and constructors ...
 }
 
-private class Town {
+public class Town {
     private String name;
     private int population;
     private int yearEstablish;
     private String typeOfRule;
     // Misc methods and constructors ...
 }
-private class Province {
+public class Province {
     private String name;
     private String capital;
     private int population;
