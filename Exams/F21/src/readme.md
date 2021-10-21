@@ -139,7 +139,7 @@ For this exam, upload the following files to Sakai.
 
 | Problem | Material to submit |
 |---------|--------------|
-| Inheritance | Revised ``Country``, ``State``, ``County`` etc classes plus any additional class(es) you write. |
+| Inheritance | Revised ``Country``, ``State``, ``County`` etc classes plus any additional class(es) you write. **OK to put everything in a single file.** |
 | ``enum``    | text file with your answer. |
 | ``Comparable`` | Your revised ``Node.java`` file |
 | ``toString()`` | The revised file above, with one more revision! |
