@@ -7,7 +7,7 @@
 
 * Each problem is worth up to 2 points: 0 if no viable solution is observed; 1 if an incomplete/partial but possibly viable solution is shown; 2 if a complete solution is present.
 
-* The exam has 3 problems, listed from the most challenging to the least so.
+* The exam has 4 problems, listed from the most challenging to the least so.
 
 * Show and narrate/explain/justify all derivations and assumptions. (Narrating/explaining/justifying is not the same as describing. Describing alone is not enough).
 
@@ -29,7 +29,7 @@
 
 ## Inheritance (Cleaning up someone else's mess)
 
-You are assigned to work on a project and you discover the following three classes in it. Do you keep them all? Do you change them a bit? Why and how?
+You are assigned to work on a project and you discover the following five classes in it. Do you keep them all? Do you change them a bit? Why and how?
 
 ```java
 public class Country {
