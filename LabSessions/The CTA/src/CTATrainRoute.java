@@ -11,7 +11,6 @@ public class CTATrainRoute {
     /** The first station of a train line */
     private CTAStation head;
 
-
     /**
      * Method to add train stations to the line.
      *
@@ -95,39 +94,13 @@ public class CTATrainRoute {
 
 
     /**
-     * Method to invert an existing route.
-     *
-     * @return
-     */
-    public CTATrainRoute invertRoute(CTATrainRoute oppositeRoute) {
-        CTATrainRoute inverted = new CTATrainRoute();
-        inverted.add(oppositeRoute.head);
-        System.out.println("New inverted head added");
-        CTAStation current = oppositeRoute.head.getNext();
-        System.out.println(current.getName());
-        System.out.println(inverted.head.getName());
-        while (current.hasNext()) {
-            System.out.println(current.getName());
-            CTAStation copyCurrent = current;
-            copyCurrent.setNext(inverted.head);
-            inverted.head = copyCurrent;
-            current = current.getNext();
-        }
-
-        return inverted;
-    } // method invertRoute
-
-
-    /**
      *
      * @return
      *
      */
     public String toString() {
-        String result;
-        if (head == null) {
-            result = "This line is empty.";
-        } else {
+        String result = "This line is empty.";
+        if (head != null) {
             // String result = "This route starts at " + head.getName() + " and continues to:";
             result = String.format("\nThis route starts at %s and continues to:", head.getName());
             // bad bad bad decision ...
@@ -143,14 +116,34 @@ public class CTATrainRoute {
         return result;
     } // method toString
 
+
+    public CTATrainRoute invertRoute() {
+        CTATrainRoute inverted = this;
+        // Pointers to retain previous station and following station
+        CTAStation previous = null, following = null, buffer = null;
+        // Traverse the route
+        CTAStation current = inverted.head;
+        while (current != null) {
+            // What's the following station ?
+            following = current.getNext();
+            // Flip current's next pointer to previous station
+            current.setNext(previous);
+            previous = current;
+            // Slide to the next station
+            current = following;
+        }
+        inverted.head = previous;
+        return inverted;
+    }
+
+
     /** Driver method for quick testing */
     public static void main(String[] args) {
         CTATrainRoute redLineSouthBound = new CTATrainRoute();
         redLineSouthBound = redLineSouthBound.buildRoute(RED_LINE_SOUTHBOUND_TXT);
-        // System.out.println(redLineSouthBound);
 
-        CTATrainRoute redLineNorthBound = redLineSouthBound.invertRoute(redLineSouthBound);
-        //System.out.println(redLineNorthBound);
+        CTATrainRoute redLineNorthBound = redLineSouthBound.invertRoute();
+        System.out.println(redLineNorthBound);
     }
 
 } // class CTATRainRoute

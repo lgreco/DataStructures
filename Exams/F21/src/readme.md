@@ -23,8 +23,6 @@
 
 * You are responsible for an on-time submission. Verify that Sakai has accepted your submission. Solutions will be published right after the deadline. No late work will be accepted after solutions are posted.
 
-* Problem-level bonus points are awarded only if the main problem solution is correct (or correct-ish).
-
 * Neatness matters, a lot. At this stage of your studies, **your work must reflect your knowledge and your professionalism.** Code must look need and clean, easy to read, and well documented with comments. Code that doesn't compile will not be graded.
 
 ## Inheritance (Cleaning up someone else's mess)
