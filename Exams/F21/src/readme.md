@@ -207,11 +207,22 @@ public class Node implements Comparable<Node>{
         this.left = null;
         this.right = null;
     } // constructor Node
-    
+
+
+    /**
+     * Implementation of Comparable.
+     * @param node Node to compare this node with.
+     * @return -1 for even/odd, 0 for same parity, 1 for odd/even
+     */
     public int compareTo(Node node) {
         return this.content.length()%2 - node.content.length()%2;
-    }
-    
+    } // method compareTo
+
+
+    /**
+     * Creates a string representation of Node.
+     * @return String with Node information.
+     */
     public String toString() {
         String output = "This node is empty";
         if (this.content != null) {
@@ -225,7 +236,7 @@ public class Node implements Comparable<Node>{
            }
         }
         return output;
-    }
+    } // method toString
 
 } // class Node
 ```
