@@ -141,3 +141,91 @@ For this exam, upload the following files to Sakai.
 | ``enum``    | text file with your answer. |
 | ``Comparable`` | Your revised ``Node.java`` file |
 | ``toString()`` | The revised file above, with one more revision! |
+
+## Solutions
+
+### Inheritance
+
+
+Create a superclass ``Location`` to be extended by every other class.
+
+```java
+
+public class Location{
+    private String name;
+    private int population;
+}
+public class Country extends Location {
+    private String capital;
+    private String typeOfGovernment;
+    private String currency;
+    // Misc methods and constructors ...
+}
+
+public class State extends Location {
+    private String capital;
+    private String stateBird;
+    // Misc methods and constructors ...
+}
+
+public class County extends Location {
+    private String Seat;
+    // Misc methods and constructors ...
+}
+
+public class Town extends Location {
+    private int yearEstablish;
+    private String typeOfRule;
+    // Misc methods and constructors ...
+}
+public class Province extends Location  {
+    private String capital;
+    // Misc methods and constructors ...
+}
+```
+
+### Enumerations
+
+There are several candidate fields to be converted to ``enum`` types: ``typeOfRule``, ``Country.name``, and maybe ``Country.currency``.
+
+### ``compareTo`` and ``toString``
+
+```java
+public class Node implements Comparable<Node>{
+
+    String content;
+    Node left;
+    Node right;
+
+    /**
+     * Basic constructor.
+     *
+     * @param content String to place in node.
+     */
+    public Node(String content) {
+        this.content = content;
+        this.left = null;
+        this.right = null;
+    } // constructor Node
+    
+    public int compareTo(Node node) {
+        return this.content.length()%2 - node.content.length()%2;
+    }
+    
+    public String toString() {
+        String output = "This node is empty";
+        if (this.content != null) {
+           output = String.format("This node contains \"%s\" and has ", this.content);
+           if (this.left != null && this.right != null) {
+               output += "2 children.";
+           } else if (this.left==null && this.right==null) {
+               output += "0 children";
+           } else {
+               output += "1 child.";
+           }
+        }
+        return output;
+    }
+
+} // class Node
+```
