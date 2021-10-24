@@ -240,3 +240,69 @@ public class Node implements Comparable<Node>{
 
 } // class Node
 ```
+
+## Grading notes
+
+### Inheritance
+
+Most of you recognized the need to create some superclass that will be extended by other classes in the problem. 
+The most common mistake was have some form of hierarchical extension, e.g.
+
+```java
+State extends Country
+County extends State
+Town extends County
+```
+
+``Town`` ends up inheriting all ``County`` fields, including those ``County`` inherits from ``State`` which include those ``State`` inherits from ``Country``. As a result, a ``Town`` objects has four names, four populations, one currency, and two capitals! 
+
+When deadling with classes that have similar fields, we should try to move these fields into a superclass. Then have the classes extend that superclass. For this problem, the common fields were ``name`` and ``population``.
+
+### Enumerations
+
+The most popular field to convert to an ``enum`` was ``typeOfRule``.
+
+There were some good arguments in favor of enumerating ``Country.name``, ``Country.currency``, and ``Country.capital``. These are also good choices. The UN lists 193 member countries and 2 additional observer entities, so the total count for an enumeration would be 195. That's quite reasonable. There are several [open source enumerations for countries](https://github.com/TakahikoKawasaki/nv-i18n/blob/master/src/main/java/com/neovisionaries/i18n/CountryCode.java) available, some on GitHub.
+
+### Implement ``compareTo``
+
+The most common mistake I observed here was multiple return statements. The second most common was the omission of the ``implements`` declaration at the class header, or an incomplete declaration instead of ``implements Comparable<Node>``.
+
+
+
+### Implement ``toString``
+
+The most common mistake I observed here was multiple return statements. 
+
+The second most common mistake was to forget to check for ``content==null``, that would prevent a null pointer exception.
+
+The third mistake that I noticed, was repetitive code like so:
+
+```java
+String result  = "";
+if (this.left == null && this.right == null)
+   result = String.format("This node contains \"%s\" and has 0 children.");
+else if (this.left != null && this.right != null)
+   result = String.format("This node contains \"%s\" and has 2 children.");
+else
+   result = String.format("This node contains \"%s\" and has 1 child.");
+```
+
+All three ``result`` assignments above have a common part. It's always a good idea to factor common parts out:
+
+```java
+String result  = String.format("This node contains \"%s\" and has ");
+```
+
+and then augment things as needed:
+```java
+if (this.left ==  null && this.right == null)
+   result += "0 children.";
+else if (this.left != null && this.right != null)
+   result += "2 children.";
+else
+   result += "has 1 child.";
+```
+   
+
+I noticed a few implementations that included ``println`` statements. Method ``toString`` is not supposed to print. It creates a string representation of the object. In general, it is **good practice** to avoid any printing from methods that have a return type.
