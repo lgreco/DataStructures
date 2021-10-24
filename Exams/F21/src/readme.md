@@ -256,7 +256,9 @@ Town extends County
 
 ``Town`` ends up inheriting all ``County`` fields, including those ``County`` inherits from ``State`` which include those ``State`` inherits from ``Country``. As a result, a ``Town`` objects has four names, four populations, one currency, and two capitals! 
 
-When deadling with classes that have similar fields, we should try to move these fields into a superclass. Then have the classes extend that superclass. For this problem, the common fields were ``name`` and ``population``.
+When dealing with classes that have similar fields, we should try to move these fields into a superclass. Then have the classes extend that superclass. For this problem, the common fields were ``name`` and ``population``.
+
+Upon closer inspection, we may even discover that ``Country``, ``State``, ``Province``, ``County``, and ``Town``, fall into two different superclasses: a ``LargeGeographicEntity`` that can be extended by ``Country``, ``State``, and ``Province``; and a ``SmallGeographicEntity`` that can be extended by ``County`` and ``Town``. 
 
 ### Enumerations
 
