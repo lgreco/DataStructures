@@ -3,11 +3,6 @@ import java.util.Scanner;
 
 public class CTATrainRoute {
 
-    private static final String ALL_STATIONS_CSV =
-            "https://raw.githubusercontent.com/lgreco/DataStructures/master/data/stations.csv";
-    private static final String RED_LINE_SOUTHBOUND_TXT =
-            "https://raw.githubusercontent.com/lgreco/DataStructures/master/data/RedLineSouthBound.txt";
-
     /** The first station of a train line */
     private CTAStation head;
 
@@ -134,16 +129,6 @@ public class CTATrainRoute {
         }
         inverted.head = previous;
         return inverted;
-    }
-
-
-    /** Driver method for quick testing */
-    public static void main(String[] args) {
-        CTATrainRoute redLineSouthBound = new CTATrainRoute();
-        redLineSouthBound = redLineSouthBound.buildRoute(RED_LINE_SOUTHBOUND_TXT);
-
-        CTATrainRoute redLineNorthBound = redLineSouthBound.invertRoute();
-        System.out.println(redLineNorthBound);
     }
 
 } // class CTATRainRoute
