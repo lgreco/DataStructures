@@ -49,7 +49,7 @@ public class CTATrainRoute {
      * @return CTATrainRoute object with the station in the order specified; returns null if
      *         access to sequence data cannot be established
      */
-    public CTATrainRoute buildRoute(String linkToSequenceFile) {
+    public CTATrainRoute buildRoute(String linkToSequenceFile, String linkToAllStations) {
         // Set up the train route object we'll be returning.
         CTATrainRoute ctaTrainRoute = new CTATrainRoute();
         // Set up a scanner to the file with the station sequence.
@@ -57,7 +57,7 @@ public class CTATrainRoute {
         // If null, we can't connect to file.
         if (sequence != null) {
             // Pull all stations into an array list.
-            ArrayList<CTAStation> allStations = CTAUtilities.pullCTAData(ALL_STATIONS_CSV);
+            ArrayList<CTAStation> allStations = CTAUtilities.pullCTAData(linkToAllStations);
             // Go through the sequence file, line by line.
             while(sequence.hasNext()) {
                 // Each line in the sequence file is the name of a station.
@@ -79,18 +79,62 @@ public class CTATrainRoute {
     /**
      * Method that tells if a route contains a station, based on the name of it.
      *
-     * @param name String with name of station we are looking for
+     * @param nameLookingFor String with name of station we are looking for
      * @return true if station exists in route
      */
-    public boolean contains(String name) {
+    public boolean contains(String nameLookingFor) {
         boolean success = false;
+        // Traverse the route only if it is not empty0
+        if (head != null) {
+            CTAStation current = head;
+            while (current != null && !success) {
+               success = current.getName().equals(nameLookingFor);
+               current = current.getNext();
+            }
+        }
         return success;
     } // method contains
 
 
     /**
+     * Method to remove a train station from the present route.
      *
-     * @return
+     * @param String with name of the station to remove
+     * @return CTAStation removed, or null if station name not found
+     */
+    public CTAStation removeStation(String nameOfStationToRemove) {
+        // Prepare the object that will be returned
+        CTAStation removedStation = null;
+        // Ensure that route is not empty
+        if (head != null) {
+            // Setup route traversal
+            CTAStation current = head;
+            boolean continueLoop = true;
+            while (current != null && continueLoop) {
+                // Check if current station is right before station to delete.
+                if (current.getNext().getName().equals(nameOfStationToRemove)) {
+                    CTAStation previous = current;
+                    // Station to remove is after current
+                    removedStation = current.getNext();
+                    // Station after station to remove
+                    CTAStation following = current.getNext().getNext();
+                    // Connect previous to following, bypassing station to remove
+                    previous.setNext(following);
+                    // Switch off loop.
+                    continueLoop = false;
+                }
+                // Slide to the next station
+                current = current.getNext();
+            }
+        }
+        return removedStation;
+    } // method removeStation
+
+
+    /**
+     * String representation of a train route
+     *
+     * @return String with nicely formatted contents from the train route.
      *
      */
     public String toString() {
@@ -112,7 +156,12 @@ public class CTATrainRoute {
     } // method toString
 
 
-    public CTATrainRoute invertRoute() {
+    /**
+     * Creates a new train route in the opposite direction.
+     *
+     * @return CTATrainRoute with stations in opposite direction.
+     */
+    public CTATrainRoute reverseRoute() {
         CTATrainRoute inverted = this;
         // Pointers to retain previous station and following station
         CTAStation previous = null, following = null, buffer = null;
@@ -129,7 +178,7 @@ public class CTATrainRoute {
         }
         inverted.head = previous;
         return inverted;
-    }
+    } // method reverseRoute
 
 } // class CTATRainRoute
 

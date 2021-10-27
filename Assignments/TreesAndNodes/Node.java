@@ -15,4 +15,15 @@ public class Node {
         this.right = null;
     } // constructor Node
 
+    public static void main(String[] args) {
+        Node demo = null;
+    }
+
+    public String toString() {
+        String s = new String("Nothing to see here folks!");
+        if (this!=null&& this.content != null) {
+            // ...
+        }
+    }
+
 } // class Node
