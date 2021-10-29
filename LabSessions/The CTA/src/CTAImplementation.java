@@ -7,7 +7,7 @@ public class CTAImplementation {
     private static final String BROWN_LINE_SOUTHBOUND_TXT =
             "https://raw.githubusercontent.com/lgreco/DataStructures/master/data/BrownLineSouthBound.txt";
     private static final String YELLOW_LINE_SOUTHBOUND_TXT =
-            "https://raw.githubusercontent.com/lgreco/DataStructures/master/data/BrownLineSouthBound.txt";
+            "https://raw.githubusercontent.com/lgreco/DataStructures/master/data/YellowLineSouthBound.txt";
 
 
     /** Driver code */

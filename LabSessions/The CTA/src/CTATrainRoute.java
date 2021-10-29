@@ -107,24 +107,24 @@ public class CTATrainRoute {
         CTAStation removedStation = null;
         // Ensure that route is not empty
         if (head != null) {
-            // Setup route traversal
-            CTAStation current = head;
-            boolean continueLoop = true;
-            while (current != null && continueLoop) {
-                // Check if current station is right before station to delete.
-                if (current.getNext().getName().equals(nameOfStationToRemove)) {
-                    CTAStation previous = current;
-                    // Station to remove is after current
-                    removedStation = current.getNext();
-                    // Station after station to remove
-                    CTAStation following = current.getNext().getNext();
-                    // Connect previous to following, bypassing station to remove
-                    previous.setNext(following);
-                    // Switch off loop.
-                    continueLoop = false;
+            // Are we removing the head node by any chance?
+            if (head.getName().equals(nameOfStationToRemove)) {
+                // Remove the head station (and remember to assign removedStation for return)
+                // ...
+            } else {
+                // Remove any other station
+                CTAStation current = head;
+                CTAStation previous = null;
+                while (current != null && !current.getName().equals(nameOfStationToRemove)) {
+                    previous = current;
+                    current = current.getNext();
                 }
-                // Slide to the next station
-                current = current.getNext();
+                /*
+                At this point, the while loop above delivers either the ctation to delete and its previous station,
+                or at the of the list and the station doesn't exist. If the station to delete doesnt exist, then
+                current==null. What do we do next?
+                */
+                // ...
             }
         }
         return removedStation;
@@ -132,28 +132,21 @@ public class CTATrainRoute {
 
 
     /**
-     * String representation of a train route
+     * Method to detect intersection between two route.
      *
-     * @return String with nicely formatted contents from the train route.
+     * Usage:
      *
+     *    routeA.intersects(routeB)
+     *
+     * @param other CTATrainRoute to compare with.
+     * @return true if invoking route intersects other route.
      */
-    public String toString() {
-        String result = "This line is empty.";
-        if (head != null) {
-            // String result = "This route starts at " + head.getName() + " and continues to:";
-            result = String.format("\nThis route starts at %s and continues to:", head.getName());
-            // bad bad bad decision ...
-            CTAStation current = head.getNext();
-            // While not at the last station ...
-            while (current.hasNext()) {
-                result = result + String.format("\n\t%15s", current.getName());
-                current = current.getNext();
-            }
-            // current is now the last station
-            result = result + String.format("\nand ends at: %s", current.getName());
-        }
-        return result;
-    } // method toString
+    public boolean intersects(CTATrainRoute other) {
+        boolean intersection = false;
+        CTAStation thisCurrent = this.head;
+        // traverse this route and compare each station to every station from the other route.
+        return intersection;
+    } // method intersects
 
 
     /**
@@ -180,5 +173,33 @@ public class CTATrainRoute {
         return inverted;
     } // method reverseRoute
 
+
+    /**
+     * String representation of a train route
+     *
+     * @return String with nicely formatted contents from the train route.
+     *
+     */
+    public String toString() {
+        String result = "This line is empty.";
+        if (head != null) {
+            result = String.format("\nThis route starts at %s", head.getName());
+            // Set up to print the rest of the route (if there are stations after the head station
+            if (head.hasNext()) {
+                result +=  " and continues to:";
+                CTAStation current = head.getNext();
+                // While not at the last station ...
+                while (current.hasNext()) {
+                    result = result + String.format("\n\t%15s", current.getName());
+                    current = current.getNext();
+                }
+                // current is now the last station
+                result = result + String.format("\nand ends at: %s", current.getName());
+            } else {
+                result += " and that as far as it goes.";
+            }
+        }
+        return result;
+    } // method toString
 } // class CTATRainRoute
 

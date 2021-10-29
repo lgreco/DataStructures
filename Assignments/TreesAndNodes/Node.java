@@ -23,7 +23,6 @@ public class Node {
         String s = new String("Nothing to see here folks!");
         if (this!=null&& this.content != null) {
             // ...
-        }
-    }
+        }}
 
 } // class Node

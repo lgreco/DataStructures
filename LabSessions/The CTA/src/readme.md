@@ -263,3 +263,11 @@ These are good topics to explore  but are not required for today's lab session.
 * Implement a `toString` method for class `CTATrainRoute`.
 * Discuss how to fix the `contains` deficiency in the arraylist with all the stations. Since the list includes `CTAStation` objects, we cannot simply invoke a `contains(String stationName)` on it, to find if a station exists or not before adding a new one. For starters, what *is* the deficiency?  (Challenging topic; associative arrays?).
 * Estimate travel time between stations along a `CTATrainRoute` based on a given average speed for a train (`int averageSpeed`) and the Great Circle distance between the stations. Is there a way to make these travel times part of the CTATrainRoute object? How?
+
+## Lab work 28 OCT 2021
+
+* Write code to identify the following cases:
+  * Train route has only 1 station
+  * Train route has only 2 stations
+  * Train route has 3 or more stations
+* Then write code to remove a station from a route in the first two cases.
