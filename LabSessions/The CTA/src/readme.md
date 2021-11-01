@@ -256,13 +256,6 @@ Once you have a route build in one direction, it's very easy to build a route fo
 * Does the method require any parameters? If yes, what are they?
 * Where will the method reside (which class)?
 
-### What to expect next
-
-These are good topics to explore  but are not required for today's lab session.
-
-* Implement a `toString` method for class `CTATrainRoute`.
-* Discuss how to fix the `contains` deficiency in the arraylist with all the stations. Since the list includes `CTAStation` objects, we cannot simply invoke a `contains(String stationName)` on it, to find if a station exists or not before adding a new one. For starters, what *is* the deficiency?  (Challenging topic; associative arrays?).
-* Estimate travel time between stations along a `CTATrainRoute` based on a given average speed for a train (`int averageSpeed`) and the Great Circle distance between the stations. Is there a way to make these travel times part of the CTATrainRoute object? How?
 
 ## Lab work 28 OCT 2021
 
@@ -271,3 +264,16 @@ These are good topics to explore  but are not required for today's lab session.
   * Train route has only 2 stations
   * Train route has 3 or more stations
 * Then write code to remove a station from a route in the first two cases.
+
+### What to expect next
+
+These are good topics to explore  but are not required for today's lab session.
+
+* Discuss how to fix the `contains` deficiency in the arraylist with all the stations. Since the list includes `CTAStation` objects, we cannot simply invoke a `contains(String stationName)` on it, to find if a station exists or not before adding a new one. For starters, what *is* the deficiency?  (Challenging topic; associative arrays?).
+* Estimate travel time between stations along a `CTATrainRoute` based on a given average speed for a train (`int averageSpeed`) and the Great Circle distance between the stations. Is there a way to make these travel times part of the CTATrainRoute object? How?
+* Enhance class with size field.
+* Overload ``add`` to insert a station after a specific station.
+* Reevaluate how stations are compared for similarity (Nirma's observation about different locations with same name, e.g. Grand is on different locations on Blue and Red).
+* Write method to tell if route has loop.
+* Connect two routes
+* Create a junction for two routes (need special station object that allows that.)

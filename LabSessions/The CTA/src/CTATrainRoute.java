@@ -34,7 +34,6 @@ public class CTATrainRoute {
             The while-loop above lands you at the last station of the line. What do you need to do?
              */
             current.setNext(ctaStation);
-
         }
     } // method add
 
@@ -103,28 +102,32 @@ public class CTATrainRoute {
      * @return CTAStation removed, or null if station name not found
      */
     public CTAStation removeStation(String nameOfStationToRemove) {
-        // Prepare the object that will be returned
+        // Prepare the object that will be returned ...
         CTAStation removedStation = null;
         // Ensure that route is not empty
         if (head != null) {
             // Are we removing the head node by any chance?
             if (head.getName().equals(nameOfStationToRemove)) {
-                // Remove the head station (and remember to assign removedStation for return)
-                // ...
+                // Capture what to return
+                removedStation = head;
+                // Assign head value using ternary operator 'cause it's cool to use
+                head = (head.hasNext()) ? head.getNext() : null;
             } else {
-                // Remove any other station
+                // We are not removing the head, so let's traverse.
                 CTAStation current = head;
                 CTAStation previous = null;
+                // Loop below exits at station to delete or end of route if such station not present
                 while (current != null && !current.getName().equals(nameOfStationToRemove)) {
                     previous = current;
                     current = current.getNext();
                 }
-                /*
-                At this point, the while loop above delivers either the ctation to delete and its previous station,
-                or at the of the list and the station doesn't exist. If the station to delete doesnt exist, then
-                current==null. What do we do next?
-                */
-                // ...
+                // If station to delete is present, remove it
+                if (current != null) {
+                    // Capture what to return
+                    removedStation = current;
+                    // Even if station to remove is the last one, the assignment below ensures a proper setNext
+                    previous.setNext(current.getNext());
+                }
             }
         }
         return removedStation;
@@ -143,8 +146,11 @@ public class CTATrainRoute {
      */
     public boolean intersects(CTATrainRoute other) {
         boolean intersection = false;
-        CTAStation thisCurrent = this.head;
-        // traverse this route and compare each station to every station from the other route.
+        CTAStation current = this.head;
+        while (!intersection && current != null) {
+            intersection = other.contains(current.getName());
+            current = current.getNext();
+        }
         return intersection;
     } // method intersects
 

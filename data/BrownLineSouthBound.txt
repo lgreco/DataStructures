@@ -25,3 +25,4 @@ Adams/Wabash
 Washington/Wabash
 State/Lake
 Clark/Lake
+Clark/Lake
