@@ -1,7 +1,7 @@
 /**
  * A simple class to implement queues and stacks.
  */
-public class QS {
+public class Stack {
 
     /** Constant to return instead of nulls */
     private static final String NOTHING = "*NOTHING TO REMOVE*";
@@ -12,16 +12,16 @@ public class QS {
     /** How many of the array elements are used? */
     private int usage;
 
-    
+
     /**
      * Basic constructor. Initializes underlying array and sets usage to 0.
      *
      * @param capacity int size of underlying array.
      */
-    public QS(int capacity) {
+    public Stack(int capacity) {
         this.foundation = new String[capacity];
         this.usage = 0;
-    } // constructor QS
+    } // constructor Stack
 
 
     /**
@@ -64,9 +64,9 @@ public class QS {
 
 
     /**
-     * Method to represent QS object as a string.
+     * Method to represent Stack object as a string.
      *
-     * @return String with QS content.
+     * @return String with Stack content.
      */
     public String toString() {
         // Introducing StringBuilder
@@ -84,7 +84,7 @@ public class QS {
 
     /** Driver code */
     public static void main(String[] args) {
-        QS ourFirstStack = new QS(4);
+        Stack ourFirstStack = new Stack(4);
         System.out.println(ourFirstStack);
         ourFirstStack.push("Alex");
         ourFirstStack.push("Paolo");
