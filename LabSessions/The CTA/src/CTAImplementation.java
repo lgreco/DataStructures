@@ -18,8 +18,10 @@ public class CTAImplementation {
         redSB = redSB.buildRoute(RED_LINE_SOUTHBOUND_TXT, ALL_STATIONS_CSV);
         brownSB = brownSB.buildRoute(BROWN_LINE_SOUTHBOUND_TXT, ALL_STATIONS_CSV);
         yellowSB = yellowSB.buildRoute(YELLOW_LINE_SOUTHBOUND_TXT, ALL_STATIONS_CSV);
-        System.out.println(yellowSB.removeStation("Oakton-Skokie"));
-        System.out.println(yellowSB.removeStation("Dempster-Skokie"));
-        System.out.println(yellowSB.removeStation("Howard"));
+        //System.out.println(yellowSB.removeStation("Oakton-Skokie"));
+        //System.out.println(yellowSB.removeStation("Dempster-Skokie"));
+        //System.out.println(yellowSB.removeStation("Howard"));
+        System.out.println(brownSB);
+        //System.out.println(redSB.intersects(brownSB));
     }
 }  //class CTAImplementation

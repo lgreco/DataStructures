@@ -66,6 +66,7 @@ public class CTATrainRoute {
                     // If a CTAStation has the same name as what we get from sequence, add the object to the route.
                     if(station.getName().equals(nameFromSequence)) {
                         ctaTrainRoute.add(station);
+                        System.out.printf("\n *** Adding %s with next set to %s", station.getName(), station.getNext());
                     }
                 }
             }
@@ -84,11 +85,13 @@ public class CTATrainRoute {
     public boolean contains(String nameLookingFor) {
         boolean success = false;
         // Traverse the route only if it is not empty0
-        if (head != null) {
-            CTAStation current = head;
+        if (this.head != null) {
+            CTAStation current = this.head;
             while (current != null && !success) {
                success = current.getName().equals(nameLookingFor);
+                System.out.printf("\nIs \"%s\" equal to \"%s\"? %s", nameLookingFor,current.getName(), success);
                current = current.getNext();
+                System.out.printf("\nGoing to next station: %s", current.getName());
             }
         }
         return success;
@@ -145,6 +148,7 @@ public class CTATrainRoute {
      * @return true if invoking route intersects other route.
      */
     public boolean intersects(CTATrainRoute other) {
+
         boolean intersection = false;
         CTAStation current = this.head;
         while (!intersection && current != null) {
@@ -152,6 +156,45 @@ public class CTATrainRoute {
             current = current.getNext();
         }
         return intersection;
+        /*
+        boolean intersection = false; // boolean we return
+        int check = 0; // used to end while loops
+        CTAStation thisCurrent = this.head; // used to cycle through initial train route stations
+        CTAStation otherCurrent = other.head; //used to cycle through other train route stations
+        while(check == 0) { // run indefinitely until line below returns true
+            System.out.println("while(check == 0)");
+            if(other.contains(thisCurrent.getName())) { // check if  the other train route has a station by the same name as the current station
+                System.out.println("\tif(other.contains(thisCurrent.getName()) == true)");
+                check++; // we then break the loop and continue
+                while(check == 1) { // while the check is at this value
+                    System.out.println("\t\twhile(check == 1)");
+                    if(otherCurrent.getName().equals(thisCurrent.getName())) { // indefinitely look to see if otherCurrent has the same name as thisCurrent
+                        check++; // if they share a name, we break the loop and move on
+                    }
+                    else {
+                        otherCurrent = otherCurrent.getNext(); // otherwise we cycle through the route to find the station with the same name
+                    }
+                }
+            }
+            System.out.println("...");
+            if(thisCurrent.getLatitude() == otherCurrent.getLatitude() && thisCurrent.getLongitude() == otherCurrent.getLongitude()) {
+                System.out.println("\tif(thisCurrent.getLatitude() == otherCurrent.getLatitude() && ...");
+                intersection = true; // then compare the latitudes and longitudes of both to see if they intersect. assuming they match set the boolean to true
+            }
+            else { // if the current station's name isn't found on the other route
+                if(thisCurrent.getNext() != null) { // and if the next station on the current route isn't empty
+                    System.out.println("\t\tif(thisCurrent.getNext() != null)");
+                    thisCurrent = thisCurrent.getNext(); // we cycle through the current train route until it ends or finds a match
+                }
+                else {
+                    check++; // if the route ends or a station is empty, we break the while loop
+                    System.out.println("\t\t\tcheck++");
+                }
+                System.out.println("Still while");
+            }
+            System.out.println("endif");
+        }// traverse this route and compare each station to every station from the other route.
+        return intersection; //we return our variable */
     } // method intersects
 
 
