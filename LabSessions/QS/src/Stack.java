@@ -1,5 +1,5 @@
 /**
- * A simple class to implement queues and stacks.
+ * A simple class to implement a stack.
  */
 public class Stack {
 

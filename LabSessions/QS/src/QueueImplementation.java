@@ -17,5 +17,6 @@ public class QueueImplementation {
         System.out.println(ourFirstQueue);
         ourFirstQueue.dequeue();
         System.out.println(ourFirstQueue);
+        System.out.println(ourFirstQueue.dequeue());
     }
 }
