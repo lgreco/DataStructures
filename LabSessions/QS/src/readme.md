@@ -36,3 +36,11 @@ In a stack we insert and remove data from the same side of the storage container
         return sb.toString();
     } // method toString
 ```
+
+## Homework assignment due Monday 11/8
+
+Proper comments and clean code are essential.
+
+1. Write a method `peek` in the `Queue` class that returns the value of the element that is first-in line to leave the structure -- but without removing it from the structure.
+2. Write a method `peek` in the `Stack` class, with the same functionality.
+3. Write methods in both classes that will return the utilization of the underlying array. For example an array with 4 elements that has 3 of them used, has a utilization of 75%.
