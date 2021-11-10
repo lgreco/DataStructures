@@ -58,7 +58,7 @@ public class Queue {
     } // method dequeue
 
     /**
-     * Overrride default String
+     * Override default String
      * @return String representation of the queue.
      */
     public String toString() {
@@ -73,4 +73,25 @@ public class Queue {
         sb.append("]");
         return sb.toString();
     } // method toString
+
+    /**
+     * Shows how much of the available space in underlying structure is used.
+     * @return String with a percentage value with two decimal points.
+     */
+    public String utilization() {
+        return String.format("%.2f%%",100.8*((double) this.usage)/((double) this.foundation.length));
+    } // method utilization
+
+    /**
+     * Returns a copy of what's at the front of the structure but without removing it.
+     * @return String with value of element at front or NOTHING ifterm queue is empty.
+     */
+    public String peek() {
+        String string = NOTHING;
+        // If structure is not empty, grab a copy of that's at the front
+        if (this.usage > 0)
+            string = this.foundation[0];
+        return string;
+    } // method peek
+    
 }

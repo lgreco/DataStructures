@@ -81,4 +81,25 @@ public class Stack {
         return sb.toString();
     } // method toString
 
+    /**
+     * Shows how much of the available space in underlying structure is used.
+     * @return String with a percentage value with two decimal points.
+     */
+    public String utilization() {
+        return String.format("%.2f%%",100.8*((double) this.usage)/((double) this.foundation.length));
+    } // method utilization
+
+
+    /**
+     * Returns a copy of what's at the front of the structure but without removing it.
+     * @return String with value of element at top or NOTHING if stack is empty.
+     */
+    public String peek() {
+        String string = NOTHING;
+        // If there is data in the stack, copy the topmost one and return it.
+        if (usage > 0)
+            string = this.foundation[this.foundation.length - this.usage];
+        return string;
+    } // method peek
+
 }
