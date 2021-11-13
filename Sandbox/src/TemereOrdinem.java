@@ -13,8 +13,11 @@ public class TemereOrdinem {
      */
     public static int[] creare(int magnitudine) {
         Random random = new Random();
+        // Declare and initialize array to return
         int[] ordo = new int[magnitudine];
+        // Populate array with random values
         for (int i = 0; i < magnitudine; i++)
+            // Range of random values is 0 to magnitudine^2 
             ordo[i] = random.nextInt(magnitudine*magnitudine);
         return ordo;
     } // method creare
