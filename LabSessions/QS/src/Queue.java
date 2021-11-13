@@ -93,5 +93,5 @@ public class Queue {
             string = this.foundation[0];
         return string;
     } // method peek
-    
+
 }
