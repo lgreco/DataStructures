@@ -17,7 +17,7 @@ public class TemereOrdinem {
         int[] ordo = new int[magnitudine];
         // Populate array with random values
         for (int i = 0; i < magnitudine; i++)
-            // Range of random values is 0 to magnitudine^2 
+            // Range of random values is 0 to magnitudine^2
             ordo[i] = random.nextInt(magnitudine*magnitudine);
         return ordo;
     } // method creare
@@ -49,7 +49,9 @@ public class TemereOrdinem {
     public static int[] temere(int[] ordo) {
         Random random = new Random();
         for (int i = 0; i < ordo.length; i++) {
+            // Select an element at random to swap with current element
             int randomIndex = random.nextInt(ordo.length);
+            // Swap [i] with [randomIndex]
             int temp = ordo[i];
             ordo[i] = ordo[randomIndex];
             ordo[randomIndex] = temp;
@@ -65,6 +67,7 @@ public class TemereOrdinem {
      * @return int how many reshuffles it took to sort the array
      */
     public static int tempto(int[] ordo) {
+        // Counter: how many attempts before getting a sorted array?
         int numeratio = 0;
         while (!ordinem(ordo)) {
             temere(ordo);
