@@ -1,22 +1,22 @@
-public class Node {
+public class TreeNode {
 
     String content;
-    Node left;
-    Node right;
+    TreeNode left;
+    TreeNode right;
 
     /**
      * Basic constructor.
      *
      * @param content String to place in node.
      */
-    public Node(String content) {
+    public TreeNode(String content) {
         this.content = content;
         this.left = null;
         this.right = null;
     } // constructor Node
 
     public static void main(String[] args) {
-        Node demo = null;
+        TreeNode demo = null;
     }
 
 

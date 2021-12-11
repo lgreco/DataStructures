@@ -18,7 +18,7 @@ _For this problem, upload your `FinalList.java` file on Sakai._
 
 Modify the class `FinalList` as follows, without changing the signatures of the methods.
 
-* Complete the `boolean intersects` method to return true when two lists intersect and false otherwise. The lists intersect if one list has at least one node with the same `content` as a node from the other list.
+* Complete the `boolean intersects` method to return true when two lists intersect and false otherwise. The lists intersect if one list has at least one LLNode with the same `content` as a LLNode from the other list.
 
 * Complete the `int countCommon` method to return the number of common nodes between two lists.
 
@@ -32,9 +32,9 @@ _For this problem, upload your `FinalTree.java` file on Sakai._
 
 Modify the class `FinalTree` as follows, without changing the signatures of the provided methods or of the methods requested below.
 
-* Complete `boolean isLeaf` in inner class `Node`.
-* Modify inner class `Node` to include a pointer to the parent of the node. Consequently modify method `addNode` to assign a value to the parent pointer, upon successful insertion of a new node to the tree.
-* (BONUS) Write a `boolean isLeft()` in inner class `Node` that returns `true` if the invoking node is the left child of its parent and false otherwise.
+* Complete `boolean isLeaf` in inner class `LinkedList271`.
+* Modify inner class `LinkedList271` to include a pointer to the parent of the LLNode. Consequently modify method `addNode` to assign a value to the parent pointer, upon successful insertion of a new LLNode to the tree.
+* (BONUS) Write a `boolean isLeft()` in inner class `LinkedList271` that returns `true` if the invoking LLNode is the left child of its parent and false otherwise.
 
 Class `FinalTree` includes a main method with rudimentary testing, so that you can verify your solutions (except the BONUS question).
 

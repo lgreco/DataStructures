@@ -21,7 +21,7 @@ public void join
 ```
 and justify your choice.
 
-## Find the middle-ish node
+## Find the middle-ish LLNode
 
 Write a method with signature
 
@@ -29,7 +29,7 @@ Write a method with signature
 public String getMiddleNodeContent(SimpleLinkedList a)
 ```
 
-that returns the contents of the middleNode of a list. If the list has an even number of nodes, it is up to you to determine which of the two possible nodes will be the middle node. You are allowed to traverse the list once.
+that returns the contents of the middleNode of a list. If the list has an even number of nodes, it is up to you to determine which of the two possible nodes will be the middle LLNode. You are allowed to traverse the list once.
 
 ## Compare two lists
 

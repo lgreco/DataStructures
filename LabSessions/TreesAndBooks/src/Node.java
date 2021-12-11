@@ -1,3 +1,5 @@
+package LabSessions.TreesAndBooks.src;
+
 /**
  * A simple node object for a binary tree.
  *

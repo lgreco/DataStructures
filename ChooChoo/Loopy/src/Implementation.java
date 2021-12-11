@@ -1,16 +1,18 @@
+package ChooChoo.Loopy.src;
+
 public class Implementation {
     public static void main(String[] args) {
 
         /* All the stations in CTA's Brown Line. */
-        Node kimball = new Node("Kimball"); Node kedzie = new Node("Kedzie"); Node francisco = new Node("Francisco");
-        Node rockwell = new Node("Rockwell"); Node western = new Node("Western"); Node damen = new Node("Damen");
-        Node montrose = new Node("Montrose"); Node irving = new Node("Irving Park"); Node addison = new Node("Addison");
-        Node paulina = new Node("Paulina"); Node southport = new Node("Southport"); Node belmont = new Node("Belmont");
-        Node wellington = new Node("Wellington"); Node diversey = new Node("Diversey"); Node fullerton = new Node("Fullerton");
-        Node armitage = new Node("Armitage"); Node sedgwick = new Node("Sedgwick"); Node chicago = new Node("Chicago");
-        Node merchantile = new Node("Merchantile Mart"); Node washingtonWells = new Node("Washington/Wells"); Node quincy = new Node("Quincy");
-        Node lasalle = new Node("LaSalle/Van Buren"); Node library = new Node("Harold Washington Library"); Node adams = new Node("Adams/Wabash");
-        Node washingtonWabash = new Node("Washington/Wabash"); Node stateLake = new Node("State/Lake"); Node clark = new Node("Clark/Lake");
+        LLNode kimball = new LLNode("Kimball"); LLNode kedzie = new LLNode("Kedzie"); LLNode francisco = new LLNode("Francisco");
+        LLNode rockwell = new LLNode("Rockwell"); LLNode western = new LLNode("Western"); LLNode damen = new LLNode("Damen");
+        LLNode montrose = new LLNode("Montrose"); LLNode irving = new LLNode("Irving Park"); LLNode addison = new LLNode("Addison");
+        LLNode paulina = new LLNode("Paulina"); LLNode southport = new LLNode("Southport"); LLNode belmont = new LLNode("Belmont");
+        LLNode wellington = new LLNode("Wellington"); LLNode diversey = new LLNode("Diversey"); LLNode fullerton = new LLNode("Fullerton");
+        LLNode armitage = new LLNode("Armitage"); LLNode sedgwick = new LLNode("Sedgwick"); LLNode chicago = new LLNode("Chicago");
+        LLNode merchantile = new LLNode("Merchantile Mart"); LLNode washingtonWells = new LLNode("Washington/Wells"); LLNode quincy = new LLNode("Quincy");
+        LLNode lasalle = new LLNode("LaSalle/Van Buren"); LLNode library = new LLNode("Harold Washington Library"); LLNode adams = new LLNode("Adams/Wabash");
+        LLNode washingtonWabash = new LLNode("Washington/Wabash"); LLNode stateLake = new LLNode("State/Lake"); LLNode clark = new LLNode("Clark/Lake");
 
         /* Create a list for a few stations */
         LoopyList shorterBrownLine = new LoopyList();
@@ -57,18 +59,18 @@ public class Implementation {
 
         // One node list
         LoopyList tinyList = new LoopyList();
-        Node lonely = new Node("Just me!");
+        LLNode lonely = new LLNode("Just me!");
         tinyList.addNode(lonely);
         lonely.next = lonely;
         System.out.printf("\n\nTiny List\n\tHas loop? (lazy) %B\n\tHas loop? (fast/slow) %B\n", tinyList.hasLoop(), tinyList.hasLoop2());
 
         // Two node list
         LoopyList twoNodeList = new LoopyList();
-        Node nodeOne = new Node("Node one");
-        Node nodeTwo = new Node("Node two");
-        twoNodeList.addNode(nodeOne);
-        twoNodeList.addNode(nodeTwo);
-        nodeTwo.next = nodeTwo;
+        LLNode LLNodeOne = new LLNode("Node one");
+        LLNode LLNodeTwo = new LLNode("Node two");
+        twoNodeList.addNode(LLNodeOne);
+        twoNodeList.addNode(LLNodeTwo);
+        LLNodeTwo.next = LLNodeTwo;
         System.out.printf("\n\nTwo-node List\n\tHas loop? (lazy) %B\n\tHas loop? (fast/slow) %B\n", twoNodeList.hasLoop(), twoNodeList.hasLoop2());
     }
 }

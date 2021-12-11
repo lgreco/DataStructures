@@ -1,3 +1,5 @@
+package LabSessions.TreesAndBooks.src;
+
 public class Tree {
 
     /** The entry point to the tree */

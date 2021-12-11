@@ -1,3 +1,5 @@
+package ReviewExamples.Inheritance.src;
+
 public class Student extends Person {
 
     private int classOf;
@@ -5,6 +7,14 @@ public class Student extends Person {
     public Student(String name, int classOf) {
         super(name);
         this.classOf = classOf;
+    }
+
+    /**
+     * 
+     */
+    public void showName(){
+        // does SOMEthing
+        System.out.println(this.getName());
     }
 
     public void setClassOf(int classOf) {

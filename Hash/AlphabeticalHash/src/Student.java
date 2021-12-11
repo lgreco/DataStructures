@@ -1,3 +1,5 @@
+package Hash.AlphabeticalHash.src;
+
 /**
  * A basic student object. The object comprises three fields for now.
  */

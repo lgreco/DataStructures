@@ -1,3 +1,5 @@
+package Exams.SU21_Midterm.src;
+
 /**
  * A Node with two pointers and a String value.
  *

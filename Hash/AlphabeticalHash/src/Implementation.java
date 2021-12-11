@@ -1,3 +1,5 @@
+package Hash.AlphabeticalHash.src;
+
 public class Implementation {
     public static void main(String[] args) {
 

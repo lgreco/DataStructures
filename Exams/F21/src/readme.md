@@ -100,11 +100,11 @@ Looking at the code for the previous problem (on Inheritance), do you see any cl
 
 ## Implement an interface
 
-Using the [Node and Treeee classes](https://github.com/lgreco/DataStructures/tree/master/Assignments/TreesAndNodes), implement the ``Comparable`` interface on ``Node``. The implementation should allow node comparisons based on parity of the number of characters in each ``Node``'s string, as follows:
+Using the [LinkedList271 and Treeee classes](https://github.com/lgreco/DataStructures/tree/master/Assignments/TreesAndNodes), implement the ``Comparable`` interface on ``LinkedList271``. The implementation should allow LLNode comparisons based on parity of the number of characters in each ``LinkedList271``'s string, as follows:
 
 
 
-| Node A | Node B | comparison |
+| LinkedList271 A | LinkedList271 B | comparison |
 |--------|--------|------------|
 |   odd  | odd    |      0     |
 |   odd  | even   |     -1     |
@@ -113,23 +113,23 @@ Using the [Node and Treeee classes](https://github.com/lgreco/DataStructures/tre
 
 ## Write a ``toString()``
 
-Write a ``String toString()`` method in ``Node`` to return the following output:
+Write a ``String toString()`` method in ``LinkedList271`` to return the following output:
 
 ```text
-This node contains "<content>" and has no children.
+This LLNode contains "<content>" and has no children.
 ```
 
 or
 ```text
-This node contains "<content>" and has 1 child.
+This LLNode contains "<content>" and has 1 child.
 ```
 
 or
 ```text
-This node contains "<content>" and has 2 children.
+This LLNode contains "<content>" and has 2 children.
 ```
 
-Where ``"<content>"`` above is the value of the node's field ``content``.
+Where ``"<content>"`` above is the value of the LLNode's field ``content``.
 
 
 ## Deliverables
@@ -139,7 +139,7 @@ For this exam, upload the following files to Sakai.
 |---------|--------------|
 | Inheritance | Revised ``Country``, ``State``, ``County`` etc classes plus any additional class(es) you write. **OK to put everything in a single file.** |
 | ``enum``    | text file with your answer. |
-| ``Comparable`` | Your revised ``Node.java`` file |
+| ``Comparable`` | Your revised ``LinkedList271.java`` file |
 | ``toString()`` | The revised file above, with one more revision! |
 
 ## Solutions
@@ -191,42 +191,42 @@ There are several candidate fields to be converted to ``enum`` types: ``typeOfRu
 ### ``compareTo`` and ``toString``
 
 ```java
-public class Node implements Comparable<Node>{
+public class LinkedList271 implements Comparable<LinkedList271>{
 
     String content;
-    Node left;
-    Node right;
+    LinkedList271 left;
+    LinkedList271 right;
 
     /**
      * Basic constructor.
      *
-     * @param content String to place in node.
+     * @param content String to place in LLNode.
      */
-    public Node(String content) {
+    public LinkedList271(String content) {
         this.content = content;
         this.left = null;
         this.right = null;
-    } // constructor Node
+    } // constructor LinkedList271
 
 
     /**
      * Implementation of Comparable.
-     * @param node Node to compare this node with.
+     * @param LLNode LinkedList271 to compare this LLNode with.
      * @return -1 for even/odd, 0 for same parity, 1 for odd/even
      */
-    public int compareTo(Node node) {
-        return this.content.length()%2 - node.content.length()%2;
+    public int compareTo(LinkedList271 LLNode) {
+        return this.content.length()%2 - LLNode.content.length()%2;
     } // method compareTo
 
 
     /**
-     * Creates a string representation of Node.
-     * @return String with Node information.
+     * Creates a string representation of LinkedList271.
+     * @return String with LinkedList271 information.
      */
     public String toString() {
-        String output = "This node is empty";
+        String output = "This LLNode is empty";
         if (this.content != null) {
-           output = String.format("This node contains \"%s\" and has ", this.content);
+           output = String.format("This LLNode contains \"%s\" and has ", this.content);
            if (this.left != null && this.right != null) {
                output += "2 children.";
            } else if (this.left==null && this.right==null) {
@@ -238,7 +238,7 @@ public class Node implements Comparable<Node>{
         return output;
     } // method toString
 
-} // class Node
+} // class LinkedList271
 ```
 
 ## Grading notes
@@ -268,7 +268,7 @@ There were some good arguments in favor of enumerating ``Country.name``, ``Count
 
 ### Implement ``compareTo``
 
-The most common mistake I observed here was multiple return statements. The second most common was the omission of the ``implements`` declaration at the class header, or an incomplete declaration instead of ``implements Comparable<Node>``.
+The most common mistake I observed here was multiple return statements. The second most common was the omission of the ``implements`` declaration at the class header, or an incomplete declaration instead of ``implements Comparable<LinkedList271>``.
 
 
 
@@ -283,17 +283,17 @@ The third mistake that I noticed, was repetitive code like so:
 ```java
 String result  = "";
 if (this.left == null && this.right == null)
-   result = String.format("This node contains \"%s\" and has 0 children.");
+   result = String.format("This LLNode contains \"%s\" and has 0 children.");
 else if (this.left != null && this.right != null)
-   result = String.format("This node contains \"%s\" and has 2 children.");
+   result = String.format("This LLNode contains \"%s\" and has 2 children.");
 else
-   result = String.format("This node contains \"%s\" and has 1 child.");
+   result = String.format("This LLNode contains \"%s\" and has 1 child.");
 ```
 
 All three ``result`` assignments above have a common part. It's always a good idea to factor common parts out:
 
 ```java
-String result  = String.format("This node contains \"%s\" and has ");
+String result  = String.format("This LLNode contains \"%s\" and has ");
 ```
 
 and then augment things as needed:

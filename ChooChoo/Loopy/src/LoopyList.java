@@ -1,3 +1,5 @@
+package ChooChoo.Loopy.src;
+
 import java.util.ArrayList;
 
 /**
@@ -7,7 +9,7 @@ import java.util.ArrayList;
 public class LoopyList {
 
     /** The list's head node. Every node can be found by traversing the list from the head */
-    Node head;
+    LLNode head;
 
     /**
      * BAD DESIGN CHOICE. Allowing users to add node objects to the list. This method may be necessary for the
@@ -16,15 +18,15 @@ public class LoopyList {
      * be able to specify the value of the pointer next.
      *
      */
-    void addNode(Node node) {
+    void addNode(LLNode LLNode) {
         if (head==null) {
-            head = node;
+            head = LLNode;
         } else {
-            Node current = head;
+            LLNode current = head;
             while (current.next != null) {
                 current = current.next;
             }
-            current.next = node;
+            current.next = LLNode;
         }
     } // method addNode
 
@@ -36,7 +38,7 @@ public class LoopyList {
      * @param content
      */
     void addNode(String content) {
-        addNode(new Node(content,null));
+        addNode(new LLNode(content,null));
     } // method addNode
 
 
@@ -47,7 +49,7 @@ public class LoopyList {
         if (head==null) {
             System.out.printf("\n\nYour list is empty.");
         } else {
-            Node current = head;
+            LLNode current = head;
             System.out.printf("\n\nThe contents of your list are:");
             while (current.next != null) {
                 System.out.printf("\n%s", current.content);
@@ -72,8 +74,8 @@ public class LoopyList {
     boolean hasLoop() {
         boolean loopFound = false; // Result of the search; let's be hopeful and expect no loop to be found
         if (head != null) { // List is not empty.
-            ArrayList<Node> visited = new ArrayList<>(); // Keeps track of traversed nodes
-            Node current = head; // Start scanning the list from its head
+            ArrayList<LLNode> visited = new ArrayList<>(); // Keeps track of traversed nodes
+            LLNode current = head; // Start scanning the list from its head
             while (!loopFound && current != null) { // Traverse until loop found or reach end of linked list.
                 if (visited.contains(current)) { // if current node has been visited before ...
                     loopFound = true; // ... signal that a loop has been found ...
@@ -99,8 +101,8 @@ public class LoopyList {
     boolean hasLoop2() {
         boolean loopFound = false; // Being optimistic, we assume no loop is expected
         if (head!=null && head.next !=null) { // Perform the search if the list is not empty and its head points somewhere
-            Node tortoise = head; // slow moving traversal
-            Node hare = head.next; // fast moving traversal
+            LLNode tortoise = head; // slow moving traversal
+            LLNode hare = head.next; // fast moving traversal
             while (!loopFound && tortoise != null && hare.next.next != null) {
                 loopFound = tortoise.equals(hare); // If slow and fast parts catch up it's time to end the while loop.
                 tortoise = tortoise.next; // slow moving part advances one node at a time.

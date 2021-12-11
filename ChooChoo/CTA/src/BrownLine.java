@@ -1,3 +1,5 @@
+package ChooChoo.CTA.src;
+
 /**
  * An implementation class for Brown Line
  */

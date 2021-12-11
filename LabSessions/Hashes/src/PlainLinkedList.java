@@ -9,23 +9,32 @@ public class PlainLinkedList {
     /** Tail node allows us to make O(1) insertions */
     private PlainNode tail;
 
+    /** Count of nodes in currently present in this list */
+    private int countOfNodes;
+
 
     /**
      * Adds a new node at the end of the linked list
      * @param data String with data to include in the new node
      */
-    public void add(String data) {
+    public void addToLinkedList(String data) {
         // Instantiate the new node
         PlainNode newNode = new PlainNode(data);
         // Determime where to place it
-        if (this.head == null)
+        if (this.head == null) {
             this.head = newNode;
-        else
+            this.countOfNodes = 1;
+        } else {
             tail.setNext(newNode);
+            this.countOfNodes++;
+        }
         // Update the last node of the list
         this.tail = newNode;
-    } // method add
+    } // method addToLinkedList
 
+    public int getCountOfNodes() {
+        return countOfNodes;
+    }
 
     /**
      * Method to get the head node of a list
