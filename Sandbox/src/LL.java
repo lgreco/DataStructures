@@ -98,8 +98,8 @@ public class LL {
 
         list4.add(x);   list5.add(y);
 
-        // Create a loop in list 2: P points back to L
-        p.setNext(l);
+        // Create a loop in list 2: O points back to K
+        o.setNext(k);
         // Create a loop in list 5: Y points back to itself
         y.setNext(y);
 
