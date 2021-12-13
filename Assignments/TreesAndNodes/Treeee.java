@@ -1,3 +1,5 @@
+import org.w3c.dom.Node;
+
 /**
  * A basic binary search tree.
  *      (intentionally misspelled to avoid any confusion with more serious and reliable code)
@@ -7,7 +9,7 @@
 public class Treeee {
 
     /** The root node of the tree. Everything begins here! */
-    GraphNode root;
+    TreeNode root;
 
     /** Number of nodes in the tree */
     int numberOfNodes;
@@ -25,7 +27,7 @@ public class Treeee {
     public boolean contains(String target) {
         boolean found = false; // Assume target doesn't exist.
         if (this.root != null) { // Tree is not empty; let's traverse it.
-            GraphNode current = root; // Node current tells us where we are while traversing the tree
+            TreeNode current = root; // Node current tells us where we are while traversing the tree
             boolean keepTraversal = true; // Switch to stop traversal when target found or certain it doesn't exist
             while (keepTraversal) {
                 if (target.compareTo(current.content) == 0) {
@@ -60,7 +62,7 @@ public class Treeee {
      * @param content String to include in node.
      */
     public void add(String content) {
-        GraphNode nodeToInsert = new GraphNode(content); // Prepare the new node to insert
+        TreeNode nodeToInsert = new TreeNode(content); // Prepare the new node to insert
         if (this.root == null) { // Tree is empty
             /*
             WHAT DO WE DO IF THE TREE IS EMPTY?
@@ -76,7 +78,7 @@ public class Treeee {
             nodeToInsert. If there is already a node with the same content, we do not add the
             new node.
             */
-            GraphNode current = this.root;  // Current position as we move about the tree.
+            TreeNode current = this.root;  // Current position as we move about the tree.
             boolean keepTraversing = true;  // Switch to turn off the traversal loop below, when done.
             while (keepTraversing) {  // Traversal loop
                 // How does content of nodeToInsert compare to content of current node?
