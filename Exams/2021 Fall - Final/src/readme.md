@@ -1,7 +1,7 @@
 # Solutions to Final Exam COMP 271 F21
 *Leo Irakliotis* -- leo@cs.luc.edu
 
-Coding solutions are available in this directory. Grading comments and a brief write up for problem 3 are below.
+Coding solutions are available in this directory (scroll up). Grading comments and a brief write up for problem 3 are below.
 
 ## Problem 1: loopy linked lists
 
