@@ -1,9 +1,11 @@
+import Exams.SU21_Midterm.src.Node;
+
 public class Traversals extends DoubleLinkedList {
 
     public void traverseByNext() {
         if (head != null) {
             System.out.println("\n\nTraversing by looking ahead to check if next is null.\n");
-            GraphNode current = head;
+            Node current = head;
             while (current.hasNext()) {
                 System.out.println(current.getContent());
                 current = current.getNext();
@@ -18,7 +20,7 @@ public class Traversals extends DoubleLinkedList {
     public void traverseByLocal() {
         if (head !=null) {
             System.out.println("\n\nTraversing by checking if current node is null.\n");
-            GraphNode current = head;
+            Node current = head;
             while (current != null) {
                 System.out.println(current.getContent());
                 current = current.getNext();

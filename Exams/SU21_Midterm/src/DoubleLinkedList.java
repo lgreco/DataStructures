@@ -1,3 +1,5 @@
+import Exams.SU21_Midterm.src.Node;
+
 /**
  * A simple double-linked list.
  *
@@ -23,7 +25,7 @@ public class DoubleLinkedList {
 
 
     /** The head node of a double linked list */
-    GraphNode head;
+    Exams.SU21_Midterm.src.Node head;
 
 
     /**
@@ -36,11 +38,11 @@ public class DoubleLinkedList {
      * @param content The string content of the new node to add
      */
     public void add(String content) {
-        GraphNode newNode = new GraphNode(content); // Create node with given content
+        Exams.SU21_Midterm.src.Node newNode = new Node(content); // Create node with given content
         if (head==null) { // head node null means there is nothing yet in our list (ie list is empty)
             head = newNode; // new node becomes head
         } else { // List not empty?
-            GraphNode current = head; // Start at head; find last node
+            Node current = head; // Start at head; find last node
             while (current.hasNext()) { // Keep going while current node has a next one
                 current = current.getNext(); // Advance to the next node
             } // Loop exits when node has null next pointer: we are at the last node!
@@ -92,7 +94,7 @@ public class DoubleLinkedList {
         if (head == null) { // is list empty?
             System.out.println("\nThe list is empty.\n");
         } else { // list is not empty
-            GraphNode current = head; // start at the top
+            Node current = head; // start at the top
             /*
             We use a single while-loop to move forward and backwards. The loop
             is controlled by boolean:traverse. It remains true until the
@@ -152,8 +154,8 @@ public class DoubleLinkedList {
      * @param whatWeAreLookingFor Contents of node to remove
      * @return removed Node object; null if no such node exists in list
      */
-    public GraphNode removeNode(String whatWeAreLookingFor) {
-        GraphNode removedNode = null; // assign null because we may not find what we are looking for
+    public Node removeNode(String whatWeAreLookingFor) {
+        Node removedNode = null; // assign null because we may not find what we are looking for
         /*
         Determine if the list is empty. If it is empty, skip to the end of the method
         and return Node:removeNode which, right now, is null.
@@ -207,7 +209,7 @@ public class DoubleLinkedList {
                   The first scenario is when we declare our search unsuccessful. There is no node in the list with what
                   we are looking for.
                  */
-                GraphNode current = head;
+                Node current = head;
                 while (current.hasNext() && !current.getContent().equals(whatWeAreLookingFor)) {
                     current = current.getNext();
                 }
@@ -258,7 +260,7 @@ public class DoubleLinkedList {
     public int countNodes() {
         int count = 0;
         if (head != null) { // count only if list not empty
-            GraphNode current = head;
+            Node current = head;
             while (current.hasNext()) {
                 count++;
                 current = current.getNext();
@@ -294,7 +296,7 @@ public class DoubleLinkedList {
                              Summit           Summit
             Chicago          Chicago          Chicago
              */
-            GraphNode current = head;
+            Node current = head;
             while (current.hasNext()) {
                 listInReverse = String.format("[%s] %s", current.getContent(),listInReverse);
                 /* if the use of String.format() is confusing, the line above is the equivalent of
@@ -319,7 +321,7 @@ public class DoubleLinkedList {
      */
     public boolean addUnique(String s) {
         boolean success = false, exists = false;
-        GraphNode newNode = new GraphNode(s);
+        Node newNode = new Node(s);
         /*
         Our strategy here has two parts: first, we check to see if the head node is empty (null). If it is,
         we just create a new node and make it head. No need to check for uniqueness, because the list is
@@ -336,7 +338,7 @@ public class DoubleLinkedList {
             head = newNode; // anything we add is unique
             success = true; // that was easy!
         } else {
-            GraphNode current = head;
+            Node current = head;
             /*
             Scan the list to see if there is already a node with the content we wish to add.
              */

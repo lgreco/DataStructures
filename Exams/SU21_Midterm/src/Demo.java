@@ -1,4 +1,3 @@
-package Exams.SU21_Midterm.src;
 
 /**
  * Implementation class with double-linked lists.

@@ -37,7 +37,7 @@ public class SimpleLinkedList {
      */
     public void displaySLL() {
         final String NEWLINE = "\n";
-        final String TAB = "\t";
+        final String TABB = "\t";
         final String STRING_DIRECTIVE = "%s";
         if (this.isEmpty()) {
             System.out.printf("\n\nThe list is empty.\n\n");
@@ -49,7 +49,7 @@ public class SimpleLinkedList {
             while (current.hasNext()) {
                 System.out.printf(style, current.getContent());
                 current = current.getNext();
-                style = NEWLINE + TAB.repeat(count) + STRING_DIRECTIVE;
+                style = NEWLINE + TABB + STRING_DIRECTIVE;
                 count++;
             }
             style += NEWLINE+NEWLINE;

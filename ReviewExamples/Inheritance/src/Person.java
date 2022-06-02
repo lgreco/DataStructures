@@ -1,4 +1,3 @@
-package ReviewExamples.Inheritance.src;
 
 public class Person {
 

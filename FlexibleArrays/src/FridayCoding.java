@@ -59,7 +59,7 @@ public class FridayCoding {
             String s = file.get(i);
             int len = s.length();
             int padding = maxLineLength-len;
-            System.out.println( s + SPACE.repeat(padding) + MIRROR + SPACE.repeat(padding) + reflect(s));
+            System.out.println( s + SPACE + MIRROR + SPACE + reflect(s));
         }
     } // method mirrorOutput
 
