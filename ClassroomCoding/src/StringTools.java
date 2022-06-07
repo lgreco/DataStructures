@@ -2,6 +2,7 @@ public class StringTools {
 
     /**
      * Tells if a string is a palindrome.
+     *
      * Preconditions: empty string is not a palindrome; case insensitive;
      *                string must comprise letter characters only;
      *
@@ -13,14 +14,27 @@ public class StringTools {
      * @return true if palindrome; false otherwise
      */
     public static boolean isPalindrome(String s) {
-        boolean result = s.length() > 0;
-        s = s.toLowerCase();
-        int i = 0;
-        while (result && i <= s.length()/2) {
-            char charFromLeft = s.charAt(i);
-            char charFromRight = s.charAt(s.length()-1-i);
-            result = (charFromLeft == charFromRight);
-            i++;
+        // Initialize return variable
+        boolean result = false;
+        // Assess preconditions
+        if (s.length() > 0) {
+            // Preconditions met, assume string is a palindrome.
+            result = true;
+            // Initialize string cursor.
+            int i = 0;
+            // Get a lowercase copy of the input string
+            String lc = s.toLowerCase();
+            // Cursor never goes past half-length of string. Loop continues as long
+            // as it finds matching characters from left and right ends of the string.
+            while (i <= s.length()/2 && result) {
+                // Explicit string positions from left and right (makes code more illustrative)
+                int fromLeft = i;
+                int fromRight = lc.length()-1-i;
+                // Check is the corresponding characters from left and right match
+                result = lc.charAt(fromLeft) == lc.charAt(fromRight);
+                // Advance cursor
+                i++;
+            }
         }
         return result;
     }  // method isPalindrome
@@ -36,6 +50,7 @@ public class StringTools {
         // WRITE YOUR CODE HERE
     }  // method hasLettersOnly
 
+
     /** Drive/test code, aka main method */
     public static void main(String[] args) {
         boolean t1 = hasLettersOnly("60605 is a Chicago zip code");
@@ -49,5 +64,4 @@ public class StringTools {
         else
             System.out.println("\n\nFailed simple testing");
     }
-
 }
