@@ -13,14 +13,12 @@ public class MR {
      * @return true if String word is a palindrome; false otherwise
      */
     public static boolean isPalindrome(String word) {
-        // Declare the return variable
-        boolean result;
         // Evaluate the precondition
         boolean preconditionMet = word.length() > 0 && hasLettersOnly(word);
+        // Initialize the return variable
+        boolean result = preconditionMet;
         // If precondition has been met
         if (preconditionMet) {
-            // Initialize return variable
-            result = true;
             // Initialize string cursor
             int i = 0;
             // Loop to check pairs of characters from both ends
@@ -29,7 +27,7 @@ public class MR {
                 result = result && (word.charAt(i) == word.charAt(word.length()-1-i));
                 // Increment string cursor
                 i++;
-                // Continue while maching pairs are found and we have not reached middle of word
+                // Continue while matching pairs are found, and we have not reached middle of word
             } while (result && i < word.length()/2);
         }
         return result;
@@ -38,6 +36,7 @@ public class MR {
 
     /**
      * Checks is a string comprises letters only
+     *
      * @param s String to check
      * @return true is string comprises letters only
      */
@@ -60,8 +59,15 @@ public class MR {
 
 
     public static void main(String[] args) {
-        System.out.println(isPalindrome("did"));
-        System.out.println(isPalindrome("Leo"));
-        System.out.println(isPalindrome("racecar"));
+        boolean t1 = hasLettersOnly("60605 is a Chicago zip code");
+        boolean t2 = hasLettersOnly("door");
+        boolean t3 = hasLettersOnly("dOOr");
+        boolean t4 = hasLettersOnly("DOOR");
+        boolean t5 = hasLettersOnly("DOOR3");
+        boolean t6 = hasLettersOnly("Lake Michigan");
+        if (!t1 && t2 && t3 && t4 && !t5 && !t6)
+            System.out.println("\n\nPassed simple testing");
+        else
+            System.out.println("\n\nFailed simple testing");
     }
 }
