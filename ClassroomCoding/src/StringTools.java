@@ -55,7 +55,7 @@ public class StringTools {
         boolean allLetters = true;
         // Create a string cursor;
         int i = 0;
-        // check every character until a non-letter one is found or we ready the end of the string
+        // check every character until a non-letter one is found or we reach the end of the string
         while (allLetters && i < lc.length()) {
             allLetters = lc.charAt(i) >= firstLetter && lc.charAt(i) <= lastLetter;
             i++;
