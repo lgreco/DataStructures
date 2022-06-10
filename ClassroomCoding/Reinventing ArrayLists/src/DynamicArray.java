@@ -1,5 +1,5 @@
 /**
- * An instantiable class to store strings.
+ * An instantiable class to store strings in a resizable storage mechanism.
  */
 public class DynamicArray {
 
