@@ -4,7 +4,6 @@
  */
 public class Pascal {
 
-
     /**
      * Method to draw a Pascal Triangle with a specified number of lines.
      *

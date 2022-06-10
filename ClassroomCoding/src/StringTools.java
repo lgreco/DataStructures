@@ -47,7 +47,21 @@ public class StringTools {
      * @return true if string has letter characters only; false otherwise
      */
     public static boolean hasLettersOnly(String s) {
-        // WRITE YOUR CODE HERE
+        // Constants with first and last letter of alphabet
+        final char firstLetter = 'a', lastLetter = 'z';
+        // Convert street to lowercase -- so we wont have to check for both upper and lower case letters
+        String lc = s.toLowerCase();
+        // Assume it's all letters
+        boolean allLetters = true;
+        // Create a string cursor;
+        int i = 0;
+        // check every character until a non-letter one is found or we ready the end of the string
+        while (allLetters && i < lc.length()) {
+            allLetters = lc.charAt(i) >= firstLetter && lc.charAt(i) <= lastLetter;
+            i++;
+        }
+        // Return our finding.
+        return allLetters;
     }  // method hasLettersOnly
 
 
