@@ -87,4 +87,17 @@ public class DynamicArray {
     }  // method resize
 
 
+    /**
+     * Creates a string with basic information about the dynamic array object.
+     * @return String with descriptive information about the dynamic array.
+     */
+    public String describe() {
+        // Introducing the all too useful StringBuilder
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("This dynamic array has room for %d elements with %d occupied.",
+                aHumbleArray.length, nextAvailable));
+        return sb.toString();
+    }  // method describe
+
+
 }  // class DynamicArray
