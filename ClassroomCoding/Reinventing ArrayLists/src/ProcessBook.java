@@ -77,10 +77,14 @@ public class ProcessBook {
      * Driver code
      */
     public static void main(String[] args) {
-        String link = "https://www.gutenberg.org/files/4300/4300-0.txt";
-        // ulysses = bookToArray(connectToBook(link));
-        Scanner s = connectToBook(link);
-        DynamicArray ulysses = bookToArray(s);
-        System.out.println(ulysses.describe());
+        // Link to a book in the Project Gutenberg website. https://www.gutenberg.org/
+        // You may choose a different one; here I am pointing to Verne's 20,000 Leagues under the Sea
+        String linkToBook = "https://www.gutenberg.org/cache/epub/164/pg164.txt";
+        // Get a scanner connected to the book we wish to examine.
+        Scanner s = connectToBook(linkToBook);
+        // Use the scanner to pull the book's words into a dynamic array.
+        DynamicArray wordsFromTheBook = bookToArray(s);
+        // Print some basic information about the dynamic array object
+        System.out.println(wordsFromTheBook.describe());
     }
 }
