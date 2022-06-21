@@ -56,16 +56,16 @@ public class ProcessBook {
         // Declare the object as null for now, in case scanner is also null.
         DynamicArray words = null;
         if (bookToScan != null) {
-            // Scanner is legit, assign a new dynamic array to object words
+            // Scanner is legit, initialize object words to a new dynamic array.
             words = new DynamicArray();
             // Scan the book.
             while (bookToScan.hasNext()) {
-                // Obtain the next token from the scanner
+                // Obtain the next token from the scanner.
                 String word = bookToScan.next();
-                // Strip everything but letters, using POSIX regex and Pattern class
+                // Strip everything but letters, using POSIX regex and Pattern class.
                 word = word.replaceAll("\\P{L}+", "");
-                // if there is anything left in the token, let's add it to the dynamic array.
-                if (word.length() > 0)
+                // if there is anything left in the token, and not already in the dynamic array, let's add it.
+                if (word.length() > 0 && !words.contains(word))
                     words.add(word);
             }
         }

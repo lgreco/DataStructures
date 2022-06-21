@@ -100,4 +100,29 @@ public class DynamicArray {
     }  // method describe
 
 
+    /**
+     * Finds if a string is already stored in the underlying array.
+     *
+     * @param string to search for
+     * @return true if string present, false otherwise
+     */
+    public boolean contains(String string) {
+        // Assume string doesn't exist
+        boolean found = false;
+        // Initialize an array cursor
+        int i = 0;
+        /*
+        Use a while loop to traverse the array, so that we can exit the loop as soon as
+        a match is found. There is no need to traverse all the way to the end of the array
+        (ie m < aHumbleArray.length) because we know that only elements up to i < nextAvailable
+        are assigned values.
+         */
+        while (!found && i < nextAvailable) {
+            found = aHumbleArray[i].equalsIgnoreCase(string);
+            i++;
+        }
+        return found;
+    }  // method found
+
+
 }  // class DynamicArray
