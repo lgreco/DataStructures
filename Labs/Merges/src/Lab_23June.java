@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Lab_23June {
 
