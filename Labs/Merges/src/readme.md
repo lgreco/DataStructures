@@ -2,7 +2,7 @@
 
 Let's develop a method,called ``merge`` that:
 
-* accept two integer arrays that are sorted in ascending order;
+* accepts two integer arrays which are both sorted in ascending order;
 * merges them in an array that is also sorted in ascending order, and;
 * returns the merged array.
 
