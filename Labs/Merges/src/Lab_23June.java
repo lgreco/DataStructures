@@ -47,7 +47,10 @@ public class Lab_23June {
     }  // method merge
 
     public static void main(String[] args) {
-
+        int[] testA = {2, 22, 222, 2222};
+        int[] testB = {1,  3,   4, 3333};
+        int[] merged = merge(testA, testB);
+        System.out.println(Arrays.toString(merged));
     }
     
     
