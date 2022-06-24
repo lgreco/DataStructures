@@ -23,13 +23,22 @@ public class Lab_23June {
         int aCursor = 0, bCursor = 0;
         // Populate merged array from left ([0]) to right ([merged.length-1])
         for (int i = 0; i < merged.length; i++) {
+            /*
+            For every position [i] in the merged array, check to see if
+            either of the inputs a[] or b[] have any remaining elements
+            to process. If one of them is out of elements, copy the
+            remaining elements of the other input array into the merged
+            array directly. But if both a[] and b[] have unprocessed elements,
+            compare their leftmost ones, find the smallest, and place it at
+            the i-th position in the merged array.
+             */
             if (aCursor == a.length) {
-                // array a is fully processed, just copy the remaining of b to merged[]
+                // array a is fully processed, just copy the remaining of b[] to merged[]
                 merged[i] = b[bCursor];
                 // Move leftmost cursor to the next element.
                 bCursor++;
             } else if (bCursor == b.length) {
-                // array b is fully processed, just copy the remaining of a to merged[]
+                // array b is fully processed, just copy the remaining of a[] to merged[]
                 merged[i] = a[aCursor];
                 // Move leftmost cursor to the next element.
                 aCursor++;
