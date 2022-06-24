@@ -19,28 +19,26 @@ public class Lab_23June {
     public static int[] merge(int[] a, int[] b) {
         // Initialize array to return; its length equals the total length of input arrays.
         int[] merged = new int[a.length+b.length];
-        if (verifySorting(a) == 1 && verifySorting(b) == 1) {
-            // Setup leftmost points for a, b:
-            int aCursor = 0, bCursor = 0;
-            // Populate merged array from left ([0]) to right ([merged.length-1])
-            for (int i = 0; i < merged.length; i++) {
-                if (aCursor == a.length) {
-                    // array a is fully processed, just copy the remaining of b to merged[]
-                    merged[i] = b[bCursor];
-                    bCursor++;
-                } else if (bCursor == b.length) {
-                    // array b is fully processed, just copy the remaining of a to merged[]
+        // Setup leftmost points for a, b:
+        int aCursor = 0, bCursor = 0;
+        // Populate merged array from left ([0]) to right ([merged.length-1])
+        for (int i = 0; i < merged.length; i++) {
+            if (aCursor == a.length) {
+                // array a is fully processed, just copy the remaining of b to merged[]
+                merged[i] = b[bCursor];
+                bCursor++;
+            } else if (bCursor == b.length) {
+                // array b is fully processed, just copy the remaining of a to merged[]
+                merged[i] = a[aCursor];
+                aCursor++;
+            } else {
+                // Both a, b have elements to process, so compare their leftmost elements:
+                if (a[aCursor] < b[bCursor]) {
                     merged[i] = a[aCursor];
                     aCursor++;
                 } else {
-                    // Both a, b have elements to process, so compare their leftmost elements:
-                    if (a[aCursor] < b[bCursor]) {
-                        merged[i] = a[aCursor];
-                        aCursor++;
-                    } else {
-                        merged[i] = b[bCursor];
-                        bCursor++;
-                    }
+                    merged[i] = b[bCursor];
+                    bCursor++;
                 }
             }
         }
@@ -54,6 +52,6 @@ public class Lab_23June {
         int[] merged = merge(testA, testB);
         System.out.println(Arrays.toString(merged));
     }
-    
-    
+
+
 } 
