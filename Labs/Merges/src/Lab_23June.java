@@ -19,31 +19,38 @@ public class Lab_23June {
     public static int[] merge(int[] a, int[] b) {
         // Initialize array to return; its length equals the total length of input arrays.
         int[] merged = new int[a.length+b.length];
-        // Setup leftmost points for a, b:
+        // Setup cursors to track the leftmost elements for a, b:
         int aCursor = 0, bCursor = 0;
         // Populate merged array from left ([0]) to right ([merged.length-1])
         for (int i = 0; i < merged.length; i++) {
             if (aCursor == a.length) {
                 // array a is fully processed, just copy the remaining of b to merged[]
                 merged[i] = b[bCursor];
+                // Move leftmost cursor to the next element.
                 bCursor++;
             } else if (bCursor == b.length) {
                 // array b is fully processed, just copy the remaining of a to merged[]
                 merged[i] = a[aCursor];
+                // Move leftmost cursor to the next element.
                 aCursor++;
             } else {
                 // Both a, b have elements to process, so compare their leftmost elements:
                 if (a[aCursor] < b[bCursor]) {
+                    // between a and b, smallest element in in a
                     merged[i] = a[aCursor];
+                    // Move leftmost cursor to the next element.
                     aCursor++;
                 } else {
+                    // Smallest element is in b
                     merged[i] = b[bCursor];
+                    // Move leftmost cursor to the next element.
                     bCursor++;
                 }
             }
         }
         return merged;
     }  // method merge
+
 
 
     public static void main(String[] args) {
