@@ -57,7 +57,7 @@ The `==` operator compares (memory) reference between two objects and answers a 
 
 ## Course summary
 
-In this course you looked at the fundamental mechanisms of data structures. You built data structures from scratch: how to build dynamic arrays (which are the basis for class `ArrayList`), linkable objects (the basis for classes `LinkedList` and `Tree`), first-in first-out processes (that define the interface `Queue`), mapping a binary tree to an array to build a priority queue, as well as hash-based structures.
+In this course you looked at the fundamental mechanisms of data structures. You built data structures from scratch: how to build dynamic arrays (which are the basis for class `ArrayList`), linkable objects (the basis for classes `LinkedList271` and `Tree`), first-in first-out processes (that define the interface `Queue`), mapping a binary tree to an array to build a priority queue, as well as hash-based structures.
 
 As you explored the foundations for these structures, you learned a bit more about interfaces, inheritance, and polymorphism. You looked at sequential structures like linked list and trees, random access structures like arraylists, hybrids like hash-lists, and data structures that behave like mathematical sets, rejecting duplicate values like the binary search tree. And you developed a basic understanding of performance complexity, i.e., why some data structures are fast to create and slow to search or vice versa.
 
