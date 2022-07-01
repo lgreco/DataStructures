@@ -17,7 +17,7 @@ public class LengthLess {
         boolean pass3 = (arraySize(test3) == test3.length);
         boolean pass4 = (arraySize(test4) == test4.length);
 
-        if (pass1 && pass2 && pass3)
+        if (pass1 && pass2 && pass3 && pass4)
             System.out.println("\n\nYour code passes all four tests.\n");
         else
             System.out.println("\n\nYour code failed at least one test.\n");
