@@ -11,10 +11,20 @@ public class LengthLess {
         int len = 0;
         // Controller for the while loop
         boolean thereAreElements = true;
+
         /*
         If array position [len] is out of bounds, an exception will stop the loop,
-        otherwise, len will increment by one and repeat the loop.
+        otherwise, len will increment by one and repeat the loop. The method uses
+        try/catch to detect an exception. To trigger an out-of-bounds exception we
+        attempt to access the position [len] of the array; and the safest way to
+        do so is with a boolean operation that evaluates always to true when position
+        [len] is within bounds:
+           if (array[len] == null || array[len] != null)
+        In this case, value of [len] increases and we try again. But if [len] is
+        out of bounds, the exception will occur and it will activate the catch part
+        of the try/catch block, ending the loop.
          */
+
         while (thereAreElements) {
             try {
                 if (array[len] == null || array[len] != null)
