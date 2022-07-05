@@ -32,4 +32,30 @@ public class LinkedList271SU22 {
         }
     }  // method add
 
+
+    /**
+     * Computes the number of nodes in the linked list.
+     *
+     * @return count of nodes
+     */
+    public int length() {
+        // Assume list is empty
+        int len = 0;
+        // An empty list has a null head
+        if (this.head != null) {
+            // List is not empty, so it must have at least one node
+            len = 1;
+            // Set up cursor for traversal from node to node
+            Node current = this.head;
+            // Keep traversing as long as node has a next one
+            while (current.hasNext()) {
+                // Increment counter
+                len++;
+                // Slide to the next node
+                current = current.getNext();
+            }
+        }
+        return len;
+    }  // method length
+
 }

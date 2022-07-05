@@ -1,7 +1,30 @@
 public class LengthLess {
 
-    /***************   W R I T E   Y O U R   C O D E   H E R E    ***************/
-
+    /**
+     * Finds the size of an array without using its length variable.
+     *
+     * @param array to evaluate
+     * @return size of the array
+     */
+    public static int arraySize(String[] array) {
+        // Assume array is empty
+        int len = 0;
+        // Controller for the while loop
+        boolean thereAreElements = true;
+        /*
+        If array position [len] is out of bounds, an exception will stop the loop,
+        otherwise, len will increment by one and repeat the loop.
+         */
+        while (thereAreElements) {
+            try {
+                if (array[len] == null || array[len] != null)
+                    len++;
+            } catch (Exception e) {
+                thereAreElements = false;
+            }
+        }
+        return len;
+    }  // method arraySize
 
 
     /** Driver code to test your method ** Do not edit below this line ** Updated 01JUL22 **/
