@@ -9,6 +9,10 @@ public class LinkedList271SU22 {
         this.head = null;
     }
 
+    /** Simple accessor for the list's head */
+    public Node getHead() {
+        return head;
+    }
 
     /**
      * Adds a node to the end of the linked list. If list is empty, new node
