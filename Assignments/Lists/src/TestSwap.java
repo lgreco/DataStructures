@@ -38,7 +38,7 @@ public class TestSwap {
         test5.add(aln);
         test5.add(stl);
 
-        // Invove the swapNodes method for Dwight and Springfield
+        // Invoke the swapNodes method for Dwight and Springfield
         test5.swapNodes(dwi, spi);
         //    =========
         //    You must create this method prior to testing here.

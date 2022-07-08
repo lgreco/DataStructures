@@ -15,6 +15,12 @@ public class Node {
         this.next = null;
     }
 
+    /** Copy constructor */
+    public Node(Node another) {
+        this.data = another.data;
+        this.next = another.next;
+    }
+
     /* Accessor for the content part of the node */
     public String getData() {
         return this.data;
