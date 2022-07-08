@@ -118,7 +118,8 @@ public class LinkedList271SU22 {
 
     /**
      * Deletes a node from a linked list. The method assumes that the list has 4 or more nodes
-     * and that the node to delete is either the first nor any of its last two nodes.
+     * and that the node to delete is either the first nor any of its last two nodes. This
+     * assumption allows us to reach two nodes ahead when it's time to bypass the deleted node.
      *
      * @param nodeToDelete node to delete.
      */
@@ -134,6 +135,7 @@ public class LinkedList271SU22 {
                 if (cursor.getNext() == nodeToDelete) {
                     // Safe to look for .next.next because we are not deleting either of last two nodes.
                     cursor.setNext(cursor.getNext().getNext());
+                    // Stop the loop
                     nodeFound = true;
                 }
                 cursor = cursor.getNext();
