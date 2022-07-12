@@ -70,14 +70,16 @@ public class XIFO {
      * Adds an element at the first position (`[0]`) of array values.
      * Method checks to ensure that there is room for the new element.
      *
-     * @param String to add to the array.
+     * @param string to add to the array.
      */
     public void firstElement(String string) {
         if (this.usage < this.values.length) {
             // There is room to add the new string
-            // DUE THU 7/14: First, move everything one position to the right
-            // Second:
+            // DUE THU 7/14:
+            // Move everything one position to the right
             this.values[0] = string;
+            // Increment usage
+            this.usage++;
         }
-    }
+    }  // method firstElement
 }
