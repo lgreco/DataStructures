@@ -9,10 +9,12 @@ public class LinkedList271SU22 {
         this.head = null;
     }
 
+
     /** Simple accessor for the list's head */
     public Node getHead() {
         return head;
-    }
+    }  // method getHead
+
 
     /**
      * Adds a node to the end of the linked list. If list is empty, new node
@@ -35,6 +37,71 @@ public class LinkedList271SU22 {
             cursor.setNext(newNode);
         }
     }  // method add
+
+
+    /**
+     * Adds a node after a specific node.
+     *
+     * @param newNode new node to add
+     * @param afterNode node to add after
+     */
+    public void add(Node newNode, Node afterNode) {
+        // Operate on a non-empty list
+        if (this.head != null) {
+            // Traverse the list to find the node after which we are inserting
+            Node cursor = this.head;
+            boolean keepGoing = true;
+            while (cursor.hasNext() && keepGoing) {
+                if (cursor == afterNode) {
+                    // execute the insertion and stop the loop
+                    Node nodeFollowing = cursor.getNext();
+                    cursor.setNext(newNode);
+                    newNode.setNext(nodeFollowing);
+                    keepGoing = false;
+                }
+                cursor = cursor.getNext();
+            }
+            // Just in case the node we are looking for, is the last node
+            if (keepGoing && cursor == afterNode) {
+                cursor.setNext(newNode);
+                // Make the inserted node, the last node.
+                newNode.setNext(null);
+            }
+        }
+    }  // method add
+
+
+    /**
+     * Sets a new head for the list.
+     *
+     * @param newHead node to become new head
+     */
+    public void setHead(Node newHead) {
+        if (this.head == null) {
+            this.head = newHead;
+        } else if (this.head != newHead) {
+            // condition to ensure that head doesn't point to itself -- will cause infinite loop
+            // when other methods try to traverse the list.
+            newHead.setNext(this.head);
+            this.head = newHead;
+        }
+    }  // method setHead
+
+
+    /**
+     * Removes and returns the head node of a list and labels the next node as the list's new head.
+     * If the removed node is the last one, the method sets the head to null, rendering the list empty.
+     *
+     * @return removed node.
+     */
+    public Node removeHead() {
+        Node removed = null;
+        if (this.head != null) {
+            removed = this.head;
+            this.head = (this.head.hasNext()) ? this.head.getNext() : null;
+        }
+        return removed;
+    }  // method removeHead
 
 
     /**
@@ -115,6 +182,7 @@ public class LinkedList271SU22 {
         }
         return reversed;
     }
+
 
     /**
      * Deletes a node from a linked list. The method assumes that the list has 4 or more nodes
