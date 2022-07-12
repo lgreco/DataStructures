@@ -10,5 +10,6 @@ The objective of this lab is to create a class that utilizes a String array whic
 * Method to add an element at the first position (`[0]`) of `values`.
 * Method to add an element at the *first available* position of `values`.
 * Method to remove and return the first element of `values`.
+* Method to return `values` utilization as a floating number.
 
 In designing class `XIFO` to these specifications, you may have to consider if you need additional class variables, how to place data safely in the array, etc. To that end, you may have to develop tests that validate your assumptions for safe addition and removal of data from the array.
