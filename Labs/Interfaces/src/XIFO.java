@@ -32,7 +32,7 @@ public class XIFO {
         if (this.usage > 0) {
             // Array is not empty
             removed = this.values[0];
-            // write a loop to move remaining elements one position to the left, and null at the end.
+            // DUE THU 7/14: write a loop to move remaining elements one position to the left, and null at the end.
         }
         return removed;
     }  // method remove
@@ -51,7 +51,7 @@ public class XIFO {
     public void firstElement(String string) {
         if (this.usage < this.values.length) {
             // There is room to add the new string
-            // First, move everything one position to the right
+            // DUE THU 7/14: First, move everything one position to the right
             // Second:
             this.values[0] = string;
         }
