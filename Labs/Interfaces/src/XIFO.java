@@ -47,4 +47,13 @@ public class XIFO {
     }  // method add
 
 
+    /** FATEHA: Method to add an element at the first position (`[0]`) of `values`. */
+    public void firstElement(String string) {
+        if (this.usage < this.values.length) {
+            // There is room to add the new string
+            // First, move everything one position to the right
+            // Second:
+            this.values[0] = string;
+        }
+    }
 }
