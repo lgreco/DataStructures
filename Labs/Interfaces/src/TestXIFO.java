@@ -18,7 +18,7 @@ public class TestXIFO {
         boolean b7 = s.remove().equals("A") ;
         boolean b8 = s.remove() == null;
         if (b5 && b6 && b7 && b8)
-            System.out.println("\nfirstElemeng and remove methods seem to be working ok.");
+            System.out.println("\nfirstElement and remove methods seem to be working ok.");
         else
             System.out.println("\nfirstElement and remove methods are not working as expected.");
     }
