@@ -45,9 +45,14 @@ public class XIFO {
         if (this.usage > 0) {
             // Array is not empty
             removed = this.values[0];
-            // DUE THU 7/14:
-            // write a loop to move remaining elements one position to the left,
-            // and null at the end.
+            // Move everything one position to the left   //  * This block of code was part of the
+            for (int i = 0; i < this.usage - 1; i++) {    //  * assignment that was due 7/14. It is
+                this.values[i] = this.values[i+1];        //  * also the cause that removals from
+            }                                             //  * an array-based queue take as many
+            // Mark last occupied position as null        //  * steps as the number of items presently
+            this.values[this.usage-1] = null;             //  * stored in the queue. Speeding up
+            // Decrease usage                             //  * removals is the topic of the next
+            usage--;                                      //  * assignment, due 7/18/22
         }
         return removed;
     }  // method remove
@@ -60,9 +65,11 @@ public class XIFO {
      * @param string to add to the array
      */
     public void add(String string) {
-        if (this.usage < this.values.length)
+        if (this.usage < this.values.length) {
             // There is room: add the element and increment usage
-           this.values[this.usage++] = string;
+            this.values[this.usage] = string;
+            this.usage++;
+        }
     }  // method add
 
 
@@ -73,10 +80,13 @@ public class XIFO {
      * @param string to add to the array.
      */
     public void firstElement(String string) {
-        if (this.usage < this.values.length) {
-            // There is room to add the new string
-            // DUE THU 7/14:
-            // Move everything one position to the right
+        // Operate only if there is room in the array
+        if (this.usage < this.values.length) {                            //  * This block
+            // Move everything one position to the right                  //  * of code was
+            for (int i = 0; i < this.usage; i++) {                        //  * part of the
+                this.values[this.usage-i] = this.values[this.usage-1-i];  //  * assignment that
+            }                                                             //  * was due 7/14.
+            // Write the new value at [0]
             this.values[0] = string;
             // Increment usage
             this.usage++;
