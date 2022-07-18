@@ -3,7 +3,7 @@ _Lab of July 12, 2022_
 
 The objective of this lab is to create a class that utilizes a String array which accepts new data at select positions and allows the removal of data from a select position. These are the specifications for today's lab:
 
-* Class name `XIFO`.
+* Class name `XIFO_ConstantTime`.
 * Suggested name for the underlying array `values`.
 * Default size of array: `4`.
 * Customized constructor for any array size.
@@ -12,4 +12,4 @@ The objective of this lab is to create a class that utilizes a String array whic
 * CHRI: Method to remove and return the first element of `values`.
 * ZACH: Method to return `values` utilization as a floating number.
 
-In designing class `XIFO` to these specifications, you may have to consider if you need additional class variables, how to place data safely in the array, etc. To that end, you may have to develop tests that validate your assumptions for safe addition and removal of data from the array.
+In designing class `XIFO_ConstantTime` to these specifications, you may have to consider if you need additional class variables, how to place data safely in the array, etc. To that end, you may have to develop tests that validate your assumptions for safe addition and removal of data from the array.

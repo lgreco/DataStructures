@@ -1,6 +1,6 @@
 public class TestXIFO {
     public static void main(String[] args) {
-        XIFO q = new XIFO(4);
+        XIFO_ConstantTime q = new XIFO_ConstantTime(4);
         q.add("A"); q.add("B"); q.add("C");
         boolean b1 = q.remove().equals("A");
         boolean b2 = q.remove().equals("B");
@@ -11,7 +11,7 @@ public class TestXIFO {
         else
             System.out.println("\nadd and remove methods are not working as expected.");
 
-        XIFO s = new XIFO(4);
+        XIFO_ConstantTime s = new XIFO_ConstantTime(4);
         s.firstElement("A"); s.firstElement("B"); s.firstElement("C");
         boolean b5 = s.remove().equals("C");
         boolean b6 = s.remove().equals("B");
