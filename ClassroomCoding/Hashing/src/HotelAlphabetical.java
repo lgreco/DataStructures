@@ -86,4 +86,5 @@ public class HotelAlphabetical {
         // return room number or -1 if guest not present
         return roomFound;
     }  // method whereIs
-}
+
+}  // class HotelAlphabetical
