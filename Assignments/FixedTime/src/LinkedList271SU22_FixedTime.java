@@ -1,3 +1,15 @@
+/**
+ * A variation of the linked list class developed in COMP 271,
+ * that guarantees constant time insertions. To accomplish this,
+ * we introduce a second class variable to point to the tail of
+ * the list. Each new node is added after the tail and becomes
+ * the new tail. We always know which node is the tail, so there
+ * is no need to traverse the list to find its last node.
+ *
+ * Thus a traversal that was done in O(n) is replaced by an O(1)
+ * operation that updates the tail node of the list.
+ *
+ */
 public class LinkedList271SU22_FixedTime {
 
     /** Only the head and tail nodes are visible; everything else by sequential access */
