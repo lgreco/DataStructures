@@ -55,7 +55,8 @@ public class XIFO_ConstantTime {
         if (this.usage > 0) {
             // remove from the front of the array
             removed = this.values[this.front];
-            // Move the front marker to the next position (eventually moving to [0] and repeat)
+            // Move the front marker to the next position
+            // (wrapping around when reaching the end of the array.)
             this.front = (this.front+1)%this.values.length;
             // Decrease usage
             this.usage--;
