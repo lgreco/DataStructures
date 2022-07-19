@@ -21,6 +21,12 @@ public class Node {
         this.next = another.next;
     }
 
+    /** Chain constructor */
+    public Node(String data, Node next) {
+        this.data = data;
+        this.next = next;
+    }
+
     /* Accessor for the content part of the node */
     public String getData() {
         return this.data;

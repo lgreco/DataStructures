@@ -90,6 +90,6 @@ public class XIFO_ConstantTime {
      * @param string to add to the array.
      */
     public void firstElement(String string) {
-        // Will finish this later
+        // Not related to assignment due 7/18; omitted for clarity.
     }  // method firstElement
 }
