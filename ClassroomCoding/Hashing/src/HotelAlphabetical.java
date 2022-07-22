@@ -53,9 +53,9 @@ public class HotelAlphabetical {
         // find the room number for this guest
         int tentativeRoom = this.room(lastName);
         // if room available, assign guest to room
-        if (!assigned(tentativeRoom, lastName))
-            // If room unavailable, try next room
-            assigned((tentativeRoom+1) % LETTERS, lastName);
+        if (!assigned(tentativeRoom, lastName))               /* simplify by  */
+            // If room unavailable, try next room             /* reducing     */
+            assigned((tentativeRoom+1) % LETTERS, lastName);  /* redundancies */
     }  // method assignRoom
 
 
