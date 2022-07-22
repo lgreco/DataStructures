@@ -85,9 +85,9 @@ public class HotelAlphabetical {
         // Based on guest's last name, this is the room we expect to find them.
         int roomExpected = room(lastName);
         // Variable to return; Is the guest in the room we expect them?
-        int roomFound = found(roomExpected, lastName);
-        if (roomFound == -1)
-            roomFound = found((roomExpected+1)%LETTERS, lastName);
+        int roomFound = found(roomExpected, lastName);             /* simplify     */
+        if (roomFound == -1)                                       /* by removing  */
+            roomFound = found((roomExpected+1)%LETTERS, lastName); /* redundancies */
         // return room number or -1 if guest not present
         return roomFound;
     }  // method whereIs
