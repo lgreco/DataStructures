@@ -15,6 +15,7 @@ public class HotelAlphabetical {
     /** Underlying array for this class */
     private String[] hotel = new String[LETTERS];
 
+
     /**
      * Map a guest's last name to a room number
      *
@@ -52,15 +53,26 @@ public class HotelAlphabetical {
         // find the room number for this guest
         int tentativeRoom = this.room(lastName);
         // if room available, assign guest to room
-        if (!isOccupied(tentativeRoom)) {
-            hotel[tentativeRoom] = lastName;
-        } else {
-            // if room not available, follow collision resolution; % to wrap around array
-            tentativeRoom = (tentativeRoom+1)%LETTERS;
-            if (!isOccupied(tentativeRoom))
-                hotel[tentativeRoom] = lastName;
-        }
+        if (!assigned(tentativeRoom, lastName))
+            // If room unavailable, try next room
+            assigned((tentativeRoom+1) % LETTERS, lastName);
     }  // method assignRoom
+
+
+    /**
+     * Helper method to assign guest to room, if room is available. The method
+     * returns an indication if the assignment was successful or not.
+     *
+     * @param room int room number
+     * @param string String guest name
+     * @return true if assignment successful; false if room was occupied and
+     *         could not be assigned to new guest.
+     */
+        public boolean assigned(int room, String string) {
+        if (!isOccupied(room))
+            this.hotel[room] = string;
+        return isOccupied(room);
+    }  // method assigned
 
 
     /**
@@ -70,21 +82,25 @@ public class HotelAlphabetical {
      * @return int with room number; -1 if guest not present at hotel.
      */
     public int whereIs(String lastName) {
-        // Variable to return; initial value assumes guest not present at hotel.
-        int roomFound = -1;
         // Based on guest's last name, this is the room we expect to find them.
         int roomExpected = room(lastName);
-        // Is the guest in the room we expect them?
-        if (this.hotel[roomExpected].equals(lastName)) {
-            roomFound = roomExpected;
-        } else {
-            // If not, follow collision resolution to see if guest is nearby
-            roomExpected = (roomExpected+1)%LETTERS;
-            if (this.hotel[roomExpected].equals(lastName))
-                roomFound = roomExpected;
-        }
+        // Variable to return; Is the guest in the room we expect them?
+        int roomFound = found(roomExpected, lastName);
+        if (roomFound == -1)
+            roomFound = found((roomExpected+1)%LETTERS, lastName);
         // return room number or -1 if guest not present
         return roomFound;
     }  // method whereIs
+
+
+    /**
+     * Returns the hotel room number if occupied by the specified guest, -1 otherwise
+     * @param room int room to check
+     * @param string String with guest name
+     * @return room number if occupied by guest, -1 otherwise
+     */
+    private int found(int room, String string) {
+        return (this.hotel[room].equals(string)) ? room : -1;
+    }  // method found
 
 }  // class HotelAlphabetical
