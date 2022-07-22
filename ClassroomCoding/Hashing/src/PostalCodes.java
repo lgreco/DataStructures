@@ -16,6 +16,10 @@ public class PostalCodes {
         this.usage = 0;
     }  // basic constructor
 
+    /** Simple accessor */
+    public Zip[] getCodes() {
+        return codes;
+    }
 
     /**
      * The object's hashFunction with respect to the size of the underlying
