@@ -21,7 +21,12 @@ public class Node {
         this.next = another.next;
     }
 
-    /** Chain constructor */
+    /**
+     * Chain constructor: creates a node and places in front of another node
+     *
+     * @param data String to store in the node
+     * @param next becomes the new node's next node.
+     */
     public Node(String data, Node next) {
         this.data = data;
         this.next = next;
