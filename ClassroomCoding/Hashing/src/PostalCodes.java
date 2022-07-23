@@ -1,6 +1,6 @@
 /**
  * A simple mapping class between zipcodes (keys) and towns (values).
- * @version 2207221223
+ * @version 2207231210
  *
  */
 public class PostalCodes {
@@ -82,11 +82,15 @@ public class PostalCodes {
                 sb.append("no data.");
             } else {
                 while (cursor.hasNext()) {
-                    sb.append(String.format("(%05d, %s),  ", cursor.getZipCode(), cursor.getTown()));
+                    sb.append(String.format("(%05d, %s),  ",
+                            cursor.getZipCode(),
+                            cursor.getTown()));
                     cursor = cursor.getNext();
                 }
                 // Fencepost: last node
-                sb.append(String.format("(%05d, %s)", cursor.getZipCode(), cursor.getTown()));
+                sb.append(String.format("(%05d, %s)",
+                        cursor.getZipCode(),
+                        cursor.getTown()));
             }
         }
         return sb.toString();
