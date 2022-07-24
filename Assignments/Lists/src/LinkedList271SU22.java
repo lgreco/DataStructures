@@ -39,6 +39,19 @@ public class LinkedList271SU22 {
     }  // method add
 
 
+
+    public void add(String data) {
+        if (this.head == null) {
+            this.head = new Node(data);
+        } else {
+            Node cursor = this.head;
+            while (cursor.hasNext())
+                cursor = cursor.getNext();
+            cursor.setNext(new Node(data));
+        }
+    }
+
+
     /**
      * Adds a node after a specific node.
      *
