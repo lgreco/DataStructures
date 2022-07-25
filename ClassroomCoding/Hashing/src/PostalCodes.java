@@ -1,6 +1,6 @@
 /**
  * A simple mapping class between zipcodes (keys) and towns (values).
- * @version 2207251138
+ * @version 2207251415
  *
  */
 public class PostalCodes {
@@ -62,6 +62,45 @@ public class PostalCodes {
         // Update usage
         this.usage++;
     }  // method put
+
+
+    /**
+     * Helper method to add a unique zip object to the underlying array.
+     *
+     * @param zipCode int zip code for the new zip object
+     * @param town String with the town corresponding to that zip code
+     *
+     * @return true if insertion successful; false if insertion was rejected
+     *         because of a duplicate zip code present.
+     */
+    public boolean putUnique(int zipCode, String town) {
+        boolean unique = !contains(zipCode);
+        if (unique)
+            put(zipCode, town);
+        return unique;
+    }  // method putUnique
+
+
+    /**
+     * Tells if an element in the underlying array contains a given zip code
+     *
+     * @param zipCode int zip code to search for
+     * @return true if zip code present in the element it is expected to be.
+     */
+    public boolean contains(int zipCode) {
+        boolean found = false;
+        /*
+        We only need to search the element where the zip code is going to
+        be hashed at.
+         */
+        Zip element = this.codes[hashFunction(zipCode)];
+        // Traverse the list at this position
+        while (element != null && !found) {
+            found = element.getZipCode() == zipCode;
+            element = element.getNext();
+        }
+        return found;
+    }  // method contains
 
 
     /**
