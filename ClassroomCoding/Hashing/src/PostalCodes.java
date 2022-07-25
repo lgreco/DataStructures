@@ -1,6 +1,6 @@
 /**
  * A simple mapping class between zipcodes (keys) and towns (values).
- * @version 2207241630
+ * @version 2207242000
  *
  */
 public class PostalCodes {
