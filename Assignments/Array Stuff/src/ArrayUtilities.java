@@ -5,9 +5,14 @@ public class ArrayUtilities {
     /** Complete this method below @version 202207261000 */
     public static int[] removeDuplicates(int[] a) {
         return a;
-    }
+    }  // method removeDuplicates
 
-    /** Simple test code for removeDuplicates*/
+
+    /** Simple test code for removeDuplicates
+     *
+     * DO NOT MODIFY THE CODE IN METHOD main
+     *
+     */
     public static void main(String[] args) {
         int[] test = {0,0,0,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,6,6,6,7,7,7};
         int[] result = removeDuplicates(test);

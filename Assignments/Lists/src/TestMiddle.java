@@ -1,10 +1,15 @@
 public class TestMiddle {
 
-    /* Driver code to test assignment results @version 202207261100*/
+    /*
+    Driver code to test assignment results @version 202207261100
+
+    DO NOT MODIFY THE CODE IN THIS CLASS
+
+    */
 
     public static void main(String[] args) {
 
-        LinkedList271SU22 test = NFS_LinkedList271SU22();
+        LinkedList271SU22 test = LinkedList271SU22();
 
         Node chi = new Node("Chicago");
         Node smt = new Node("Summit");

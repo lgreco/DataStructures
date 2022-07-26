@@ -1,6 +1,12 @@
 public class TestComparable {
 
-    /* Driver code to test final assignment results*/
+    /*
+
+    Driver code to test final assignment results @version 202207261300
+
+    DO NOT MODIFY THE CODE IN THIS CLASS.
+
+    */
 
     public static void main(String[] args) {
         LinkedList271SU22 test1 = new LinkedList271SU22();
