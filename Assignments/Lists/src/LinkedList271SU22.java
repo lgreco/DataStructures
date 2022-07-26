@@ -244,7 +244,6 @@ public class LinkedList271SU22 implements Comparable<LinkedList271SU22> {
 
 
 
-
     // ================ dummies to satisfy test classes ===============
     public boolean contains(String string) { return true; }
     public void swapNodes(Node a, Node b) {}
