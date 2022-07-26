@@ -1,4 +1,18 @@
-public class LinkedList271SU22 {
+/*
+Note 2022 07 26: class is modified to implement Comparable, in preparation for
+the final exam for COMP 271 SU 22.
+ */
+public class LinkedList271SU22 implements Comparable<LinkedList271SU22> {
+    /*                         ========================================
+                               This is our contract that the class will
+                               fulfill the requirements of the Comparable
+                               interface.
+
+             The comparable interface is described below:
+             https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html
+
+             It's a quite simple interface, requiring only one method.
+     */
 
     /** Only the head is visible; everything else by sequential access */
     private Node head;
@@ -39,7 +53,11 @@ public class LinkedList271SU22 {
     }  // method add
 
 
-
+    /**
+     * Adds a node on the list, constructed with the supplied string.
+     *
+     * @param data String to store in node
+     */
     public void add(String data) {
         if (this.head == null) {
             this.head = new Node(data);
@@ -49,7 +67,7 @@ public class LinkedList271SU22 {
                 cursor = cursor.getNext();
             cursor.setNext(new Node(data));
         }
-    }
+    }  // method add
 
 
     /**
@@ -223,7 +241,6 @@ public class LinkedList271SU22 {
             }
         }
     }  // method simpleDelete
-
 
 
 
