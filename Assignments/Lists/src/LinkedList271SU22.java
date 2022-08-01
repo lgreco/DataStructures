@@ -243,6 +243,66 @@ public class LinkedList271SU22 implements Comparable<LinkedList271SU22> {
     }  // method simpleDelete
 
 
+    /**
+     * Compares this list with another list, based on their length, in
+     * implementation of the Comparable interface.
+     *
+     * @param other the list to be compared.
+     *
+     * @return neg int if this list is shorter, 0 if both lists have same
+     * length, or positive int if this list is longer.
+     *
+     */
+    public int compareTo(LinkedList271SU22 other) {
+        return this.length() - other.length();
+    }  // method compareTo
+
+
+    /**
+     * Finds the middle node of a list and returns its data string.
+     *
+     * The method employs two cursors: a slow cursor that advances one node at
+     * a time and a fast one that advances two nodes at a time. We move the
+     * cursors together. Effectively, the fast cursor travels twice as fast as
+     * teh slow one. Therefore, by the time the fast cursor is at the end of the
+     * list, the slow cursor is in its middle.
+     *
+     * @return String with middle node's data.
+     */
+    public String middleNode() {
+        // Return string
+        String data = null;
+        // Operate on a non-empty array
+        if (this.head != null) {
+            // Traversal cursors, both start at the beginning.
+            Node slowCursor = this.head;
+            Node fastCursor = this.head;
+            /*
+            The fastCursor needs to advance to its .next.next node. If the fast
+            cursor does not have a next, in other words, if the fast cursor is
+            at the end of the list, attempting to reach its .next.next will
+            result to a null pointer exception. That's why we need to check if
+            the fast cursor has a next
+              fastCursor.hasNext()
+            If this assessment is false, the evaluation of the boolean condition
+            will stop there and the while loop will stop. If it is true, the
+            evaluation will continue with the text condition
+              fastCursor.getNext().hasNext()
+            to ensure that the cursor can advance to its .next.next.
+             */
+            while ( slowCursor.hasNext() &&
+                    fastCursor.hasNext() &&
+                    fastCursor.getNext().hasNext()) {
+                slowCursor = slowCursor.getNext();
+                fastCursor = fastCursor.getNext().getNext();
+            }
+            // Loop ends with fastCursor is at end; slowCursor must be at middle
+            data = slowCursor.getData();
+        }
+        return data;
+    }  // method middleNode
+
+
 
     // ================ dummies to satisfy test classes ===============
     public boolean contains(String string) { return true; }

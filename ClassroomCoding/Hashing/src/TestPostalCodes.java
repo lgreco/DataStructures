@@ -2,15 +2,13 @@ public class TestPostalCodes  {
 
     private static int count(int zipCode, PostalCodes postalCodes) {
         int counter = 0;
-        for (Zip zip:
-                postalCodes.getCodes()) {
-            if (zip != null) {
-                Zip cursor = zip;
-                while (cursor != null) {
-                    if (cursor.getZipCode() == zipCode)
-                        counter++;
-                    cursor = cursor.getNext();
-                }
+        Zip[] codes = postalCodes.getCodes();
+        if (codes[zipCode%codes.length] != null) {
+            Zip current = codes[zipCode%codes.length];
+            while (current != null) {
+                if (current.getZipCode() == zipCode)
+                    counter++;
+                current = current.getNext();
             }
         }
         return counter;
