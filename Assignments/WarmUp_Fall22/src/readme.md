@@ -63,7 +63,7 @@ days after reference date = diff % 7
 ### Design considerations
 The strategy above is simple, but we need to put it to code. And without using any assistance from Java utilities or date/time classes. To do so, we must answer the following questions:
 
-* what's the simplest way to represent a date in a Java program? (We cannot use the Date, DateTime, or any other class, really, other than String).
+* what's the simplest way to represent a date in a Java program? (We cannot use the Date, DateTime, or any other class).
 * How to advance a date representation by one day? Here, we have to be careful and mont and year boundaries. For example, what is the date after July 31? Or December 31?
 * How to compute the difference between two date representations? Remember that we have to take into consideration that some years have an extra day, some months have 30 days, others 31, and, a nasty one has 28 or 29 days.
 * How to translate the result of the modulo operation to an actual day name?
