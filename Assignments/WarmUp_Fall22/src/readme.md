@@ -19,6 +19,9 @@ As you are preparing for the fall term, please consider reviewing Chapters 2, 4,
 * Chapter 5: programming project 1 (pig latin). While you can accomplish everything in one method only (in main()), try building a program that has at least three methods, including main().
 * Chapter 7: programming project 1 (add large positive numbers), but with the following twist: instead of using arrays, use two strings, one for each number. The numbers are positive only (ie, don’t worry about representing negative numbers). While you can accomplish everything in one method only (in main()), try building a program that has at least two methods, including main().
 
+
+These three programming projects will take some time. They are within your COMP 170 programming skills. You can solve them with static methods and without any external classes except for String. In fact you should not use any external classes (except for String and the System.out print commands).
+
 To help you started with each programming project, consider the following tips and suggestions.
 
 ## Chapter 4, programming project 2
@@ -86,7 +89,7 @@ The textbook problem requires that we use arrays to represent integer numbers be
 9223372036854775807L + 1L
 ```
 
-will return the wrong value (try this on Jshell for yourself). So, how can we add numbers that are greater than the largest `long` value that Java can represent? In this analysis we'll use smallest numbers, to keep the examples simple and brief.
+will return the wrong value (try this on Jshell for yourself). So, how can we add numbers that are greater than the largest `long` value that Java can represent? In this analysis we'll use small numbers, to keep the examples simple and brief.
 
 ### Problem analysis
 
