@@ -1,5 +1,7 @@
 # Warm up exercises for COMP 271, Fall 2022
 
+
+
 The course assumes that you have completed COMP 170 or equivalent course, and that you are taking or have taken COMP 163. At the very least, you need to be familiar with the following topics (numbers in parentheses are the corresponding chapters from the textbook; we are using the same textbook as COMP 170).
 
 * How to use JSheel (2)
