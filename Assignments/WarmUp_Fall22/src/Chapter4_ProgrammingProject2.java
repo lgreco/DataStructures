@@ -30,6 +30,12 @@ value tells us which day after Monday, the target date falls on. If counter%7 is
 0 then the target date is on a Monday,  if counter%7 is 1, the target date is on
 a Tuesday, and so on.
 
+In general,
+                0 ≤ (counter % 7) ≤ 6
+And so,  if we map 0  to the day of the week  for the base date,  we can use the
+value of  counter%7 to tell which day of the week is the target date. Simply  by
+counting  counter%7  days after Monday  --  the day of the week for Jan 1, 1601.
+
 This seemingly simple pseudocode presents some implementation challenges. First,
 let's consider that the test date is December 31, 2020.  And we add 1 day to it.
 What will  be the new date?  December  32, 2020?  Of course  not!  We need to be
