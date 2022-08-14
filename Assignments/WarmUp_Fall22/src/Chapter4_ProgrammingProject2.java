@@ -2,7 +2,9 @@
 
 Delivers Programming Project 2, Chapter 4, from BJP/5e.
 
-The objective of this project is to count how many days have passed since a base
+Objective: given a date, find what day of the week it falls on.
+
+The essence of  this project is to  count how many days have passed since a base
 date whose  day-of-week is known.  The reference date can be any date as long as
 we know its day-of-week.  For this project we select January 1, 1601 as our base
 date. The base date fell on a Monday.
@@ -32,6 +34,7 @@ a Tuesday, and so on.
 
 In general,
                 0 ≤ (counter % 7) ≤ 6
+
 And so,  if we map 0  to the day of the week  for the base date,  we can use the
 value of  counter%7 to tell which day of the week is the target date. Simply  by
 counting  counter%7  days after Monday  --  the day of the week for Jan 1, 1601.
