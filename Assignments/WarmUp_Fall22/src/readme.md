@@ -82,6 +82,7 @@ The problem specifies how to replace the consonant *sounds* that a word begins w
 
 * How to tell is the beginning of a word is a vowel or a consonant *sound*?
 * How to parse a sentence, word-by-word and translate each word to Pig Latin?
+* To make things simpler, let's assume that the input string comprises words separated by single spaces; and that there are no numbers or punctuation marks.
 
 ## Chapter 7, programming project 1
 
