@@ -16,6 +16,19 @@ can represent with a long primitive is  9,223,372,036,854,775,807. That's a very
 big number indeed, about nine million trillions.  But even adding one to it will
 result to a negative value instead of 9,223,372,036,854,775,808.
 
+To handle numbers larger than the largest int or long, we must represent them as
+Strings. And then we must find a way to add strings
+
+"9223372036854775807"  and  "1" to produce string  "9223372036854775808". Notice
+that if we simply executed
+
+    "9223372036854775807" + "1"
+
+we will get "92233720368547758071".
+
+Let's start with simple operations: if we add "1" and "1" we want to get "2"; if
+we add "3" and "4" we want to get "7"; etc. If we add "8" and "9" we want to get
+"17". So we need to explore a little bit what it means to add two numbers.
  */
 
 public class Chapter7_ProgrammingProject1 {
