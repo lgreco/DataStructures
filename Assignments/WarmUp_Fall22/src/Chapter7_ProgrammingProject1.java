@@ -33,7 +33,28 @@ we add "3" and "4" we want to get "7"; etc. If we add "8" and "9" we want to get
 When we add two single-digit numbers  we essentially produce  two values:  their
 sum and their carry.  If the operands  (the numbers we are adding together)  are
 sufficiently small, their carry is  0. For example, the carry for  3+5 is  0 and
-their sum is 8. But for 9+8, the carry is 1 and the sum is 7.
+their sum is 8. But for 9+8, the carry is 1 and the sum is 7. In essence, when
+we add numbers with multiple digit each, we add pairwise digits together with
+the carry from the addition of the previous digits. For example, adding the
+numbers 28 and 39 involves the following steps.
+
+    initialize carry to 0
+    start with the least significant digits  // rightmost digits
+    add 8 + 9 + carry:
+        carry = 1
+        sum = 7
+    move to the next pair of digits to the left
+    add 2 + 3 + carry
+        carry = 0
+        sum = 6
+    return:
+        last carry
+        sum digits from most to least significant
+        // 0 6 7 = 28+39
+
+The process above suggests that there is  a loop  to execute as long as the  two
+numbers have digits to add.
+
  */
 
 public class Chapter7_ProgrammingProject1 {
