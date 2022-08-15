@@ -115,6 +115,39 @@ And then we add pairs of equal significant digits, writing their sum to the corr
   1  <--- carry digit
 ```
 
+We continue by adding the next pair of digits, to the left:
+
+```text
+  99
+ + 1
+----
+   0 <--- (previous) sum digit
+  1 <---- (previous) carry digit
+  0 <---- new sum digit
+ 1 <----- new carry digit
+```
+
+There are no more digits to add, but since there is a carry, we need to perform one more addition, imagining that the two operands (the numbers we are adding) are zero-padded to the left, i.e., 99 is actually 099 and 1 i actually 001:
+
+```text
+ 099
++001
+----
+   0 <--- (previous) (previous) sum digit
+  1 <---- (previous) (previous) carry digit
+  0 <---- (previous) new sum digit
+ 1 <----- (previous) new carry digit
+ 1 <----- new sum digit
+0 <------ new carry digit
+```
+
+Now we can assemble the result of the addition, starting with the final value of carry (here, 0), and placing the sum digits after it:
+
+```new carry, new sum, previous sum, previous previous sum```
+
+or just `0100` which can be simplified to `100`, the result of adding 99+1.
+
+
 In reality, each addition of pairwise digits is an addition of three digits: the original pair and the carry from the previous pair's addition. For the first pair, the least significant one, the carry is set to 0. 
 
 The addition of two single-digit numbers can be expressed as a pair of single digit numbers as well: a carry and a sum digit. The carry can be either 0 or 1. The sum digit can be 0, 1, 2, 3, 4, 5, 6, 7, 8, or 9.
