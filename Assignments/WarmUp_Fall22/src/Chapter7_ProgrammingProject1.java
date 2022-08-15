@@ -28,7 +28,12 @@ we will get "92233720368547758071".
 
 Let's start with simple operations: if we add "1" and "1" we want to get "2"; if
 we add "3" and "4" we want to get "7"; etc. If we add "8" and "9" we want to get
-"17". So we need to explore a little bit what it means to add two numbers.
+"17". So we need to explore what it means to add two single-digit numbers.
+
+When we add two single-digit numbers  we essentially produce  two values:  their
+sum and their carry.  If the operands  (the numbers we are adding together)  are
+sufficiently small, their carry is  0. For example, the carry for  3+5 is  0 and
+their sum is 8. But for 9+8, the carry is 1 and the sum is 7.
  */
 
 public class Chapter7_ProgrammingProject1 {
