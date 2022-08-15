@@ -58,5 +58,4 @@ come up with our own representation. What will that be?
 
 public class Chapter4_ProgrammingProject2 {
 
-
-}
+}  // class Chapter4_ProgrammingProject2

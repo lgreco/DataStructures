@@ -67,4 +67,4 @@ can use the familiar Scanner class:
 
 public class Chapter5_ProgrammingProject1 {
 
-}
+}  // class Chapter5_ProgrammingProject1
