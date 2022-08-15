@@ -40,11 +40,11 @@ numbers 28 and 39 involves the following steps.
 
     initialize carry to 0
     start with the least significant digits  // rightmost digits
-    add 8 + 9 + carry:
+    add 8 + 9 + carry, results to:
         carry = 1
         sum = 7
     move to the next pair of digits to the left
-    add 2 + 3 + carry
+    add 2 + 3 + carry, results to:
         carry = 0
         sum = 6
     // keep moving left-wise, repeating the process above
