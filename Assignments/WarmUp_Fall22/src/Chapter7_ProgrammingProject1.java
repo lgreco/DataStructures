@@ -47,6 +47,7 @@ numbers 28 and 39 involves the following steps.
     add 2 + 3 + carry
         carry = 0
         sum = 6
+    // keep moving left-wise, repeating the process above
     return:
         last carry
         sum digits from most to least significant
