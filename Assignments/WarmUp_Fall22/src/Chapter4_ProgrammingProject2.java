@@ -11,7 +11,7 @@ date. The base date fell on a Monday.
 
 The problem  now becomes  how to count how many  days have passed from  the base
 date until a target date. For example, if the target date is 1/9/1601, there are
-8 days. And therefore, 1/9/1601 falls on a Tuesday. T o count the number of days
+8 days. And therefore, 1/9/1601 falls on a Tuesday.  To count the number of days
 between  the base and the target dates, we start with the base date.  We add one
 day at a time to the base date. Everytime we add a day, we update a counter. And
 we also check the new date.  If the new date matches the target date, we end the
