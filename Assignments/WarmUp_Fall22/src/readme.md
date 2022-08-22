@@ -22,7 +22,7 @@ As you are preparing for the fall term, please consider reviewing Chapters 2, 4,
 * Chapter 7: programming project 1 (add large positive numbers), but with the following twist: instead of using arrays, use two strings, one for each number. The numbers are positive only (ie, don’t worry about representing negative numbers). While you can accomplish everything in one method only (in main()), try building a program that has at least two methods, including main().
 
 
-These three programming projects will take some time. They are within your COMP 170 programming skills. You can solve them with static methods and without any external classes except for String. **In fact, you should not use any external classes (except for String and the System.out print commands).**
+These three programming projects will take some time. They are within your COMP 170 programming skills. You can solve them with static methods and without any external classes except for String. **In fact, you should not use any external classes (except for String, the System.out print commands, and Scanner).**
 
 To help you started with each programming project, consider the following tips and suggestions.
 
