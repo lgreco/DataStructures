@@ -107,6 +107,12 @@ public class Chapter4_ProgrammingProject2 {
      * below is self-explanatory and in this case the use of magic numbers may
      * be tolerated.
      *
+     * The if conditions below can also be simplified, for example
+     *
+     * if ( (month31(month) && day==31) ||
+     *      (month30(month) && day==30) ||
+     *      ... etc leapYear and Feb 28/29...
+     *
      * @return true if date falls on last day of a month, false otherwise.
      */
     public static boolean isLastDayOfMonth(int year, int month, int day) {
@@ -347,7 +353,8 @@ public class Chapter4_ProgrammingProject2 {
                 System.out.printf("\n        ");
             // End testing when we reach today's date or as soon as our method
             // doesn't match Java's result.
-        } while (success && !equal(testYear,testMonth,testDay,nowYear,nowMonth,nowDay));
+        } while (success && !equal(testYear,testMonth,testDay,
+                nowYear,nowMonth,nowDay));
         // Report
         System.out.printf("\n\nTest report:\n\t" +
                         "After %,d comparisons, your method %s the test.\n\n",
@@ -357,7 +364,8 @@ public class Chapter4_ProgrammingProject2 {
             System.out.printf("\nThe offending date is %4d-%02d-%02d.\n" +
                             "\tJava's method says it's a %s.\n" +
                             "\t  Your method days it's a %s.\n\n",
-                    testYear, testMonth, testDay, whatJavaSays, whatOurMethodSays);
+                    testYear, testMonth, testDay,
+                    whatJavaSays, whatOurMethodSays);
     }  // method main
 
 }  // class Chapter4_ProgrammingProject2
