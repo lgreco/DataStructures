@@ -1,6 +1,5 @@
 import java.util.Arrays;
 import java.util.Random;
-import java.util.zip.ZipEntry;
 
 /*
   Add two large int represented as array (or strings).
