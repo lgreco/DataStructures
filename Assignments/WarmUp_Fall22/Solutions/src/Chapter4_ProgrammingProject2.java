@@ -321,7 +321,6 @@ public class Chapter4_ProgrammingProject2 {
             // Day of the week for test date, according to Java
             whatJavaSays = LocalDate.of(testYear,testMonth,testDay).getDayOfWeek().
                     getDisplayName(TextStyle.FULL, Locale.US);
-
             // Day of the week for test date, according to our method
             whatOurMethodSays = dayOfWeek(testYear,testMonth,testDay);
             // Our method must agree with Java's result.
