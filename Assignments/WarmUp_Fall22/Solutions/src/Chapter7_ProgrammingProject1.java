@@ -63,12 +63,12 @@ public class Chapter7_ProgrammingProject1 {
         for (int i = 0; i < longest.length(); i++) {
             // Obtain a digit from the longest string, from the back
             // moving forward.
-            digitL = ((int) longest.charAt(longest.length()-1-i))-ASCII_ZERO;
+            digitL = digit(longest,i);
             // Check to see if we are within range of the shortest string
             if (i < shortest.length()) {
                 // Obtain a digit from shortest string, also from the back
                 // and moving forward.
-                digitS = ((int) shortest.charAt(shortest.length()-1-i))-ASCII_ZERO;
+                digitS = digit(shortest,i);
             } else {
                 // We are out of range for the shortest string, assume it has
                 // a zero at this position, e.g, "123" same as "000123".
@@ -90,6 +90,17 @@ public class Chapter7_ProgrammingProject1 {
             sumString = "1" + sumString;
         return sumString;
     }  // method addLargeInt
+
+
+    /**
+     * Obtain the arithmetic value of the digit in a string
+     * @param inString String with number
+     * @param fromPosition position of digit we want to obtain arithmetic value
+     * @return arithmetic value of digit at given position
+     */
+    public static int digit(String inString, int fromPosition) {
+        return inString.charAt(inString.length()-1-fromPosition) - ASCII_ZERO;
+    }  // method digit
 
 
     /**
