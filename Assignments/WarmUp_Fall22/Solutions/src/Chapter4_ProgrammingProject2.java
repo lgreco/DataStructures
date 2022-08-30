@@ -35,6 +35,9 @@ public class Chapter4_ProgrammingProject2 {
      * For example 2022, 4, 31 is not a valid group of numbers because April
      * has only 30 days.
      *
+     * This is useful for when we prompt user to enter a date, as it will
+     * reject entries like 2022 17 42 or 2022 06 31 etc.
+     *
      * @param year  )
      * @param month )  Group of values to check if they form valid date.
      * @param day   )
