@@ -102,6 +102,11 @@ public class Chapter4_ProgrammingProject2 {
      * return statement, we use the ternary operator to tell if it's a leap
      * year, and determine when February should end.
      *
+     * In future revision month values below can be replaced with constants to
+     * eliminate the use of magic numbers 1,2,3,4, etc. However, as is the code
+     * below is self-explanatory and in this case the use of magic numbers may
+     * be tolerated.
+     *
      * @return true if date falls on last day of a month, false otherwise.
      */
     public static boolean isLastDayOfMonth(int year, int month, int day) {
