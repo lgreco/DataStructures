@@ -22,7 +22,7 @@ public class Chapter4_ProgrammingProject2 {
     /** How may days in the week */
     private static final int DAYS_IN_WEEK = 7;
     /** What's the int value for last month of the year */
-    private static final int LAST_MONTH = 12;
+    private static final int DECEMBER = 12;
 
     /** Array index for method that returns date as an array */
     private static final int YEAR_INDEX = 0;
@@ -135,7 +135,7 @@ public class Chapter4_ProgrammingProject2 {
      * @return true if month is December (12)
      */
     public static boolean isLastMonthOfYear(int month) {
-        return month == LAST_MONTH;
+        return month == DECEMBER;
     }  // method isLastMonthOfYear
 
 
