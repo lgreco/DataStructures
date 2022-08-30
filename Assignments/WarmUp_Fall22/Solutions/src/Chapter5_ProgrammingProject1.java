@@ -71,6 +71,8 @@ public class Chapter5_ProgrammingProject1 {
         } else {
             // Word begins with consonant; is it a 1 or 2 letter sound?
             int consonantSound = initialConsonantSound(word);
+            // Knowing if it's 1 or 2 letters allow us to pull the correct
+            // substring from the beginning of the word and add it the back
             pig = word.substring(consonantSound) +
                     DASH +
                     word.substring(0,consonantSound) +
