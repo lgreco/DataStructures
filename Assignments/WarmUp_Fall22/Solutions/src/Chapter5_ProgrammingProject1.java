@@ -12,6 +12,8 @@ public class Chapter5_ProgrammingProject1 {
     private static final String TWO_LETTER_CONSONANTS = "shphthchbl";
     /** Class constant with length of two-letter consonant */
     private static final int TWO_LETTER_LENGTH = 2;
+    /** Space string to avoid use of magic variable " " in code */
+    private static final String SPACE_STRING = " ";
 
 
     /**
@@ -83,10 +85,12 @@ public class Chapter5_ProgrammingProject1 {
      * @return translation to Pig Latin in a string
      */
     public static String translateString(String string) {
-        String output = "";
         Scanner s = new Scanner(string);
+        String output = "";
+        // Process the input string, one word at a time
         while (s.hasNext())
-            output = output + toPigLatin(s.next()) + " ";
+            // Translate the current word to pig latin and add it to output
+            output = output + toPigLatin(s.next()) + SPACE_STRING;
         return output;
     }  // method translateString
 
