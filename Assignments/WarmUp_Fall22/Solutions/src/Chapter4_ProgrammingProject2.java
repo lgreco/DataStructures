@@ -354,5 +354,6 @@ public class Chapter4_ProgrammingProject2 {
                             "\tJava's method says it's a %s.\n" +
                             "\t  Your method days it's a %s.\n\n",
                     testYear, testMonth, testDay, whatJavaSays, whatOurMethodSays);
-    }
-}
+    }  // method main
+
+}  // class Chapter4_ProgrammingProject2
