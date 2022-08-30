@@ -146,7 +146,7 @@ public class Chapter4_ProgrammingProject2 {
      * Determines order between two dates.
      *
      * @param yearA  )
-     * @param monthA ) Elements of one date
+     * @param monthA ) Elements of first date
      * @param dayA   )
      *
      * @param yearB  )
@@ -171,7 +171,7 @@ public class Chapter4_ProgrammingProject2 {
      * that dates A and B are the same.
      *
      * @param yearA  )
-     * @param monthA ) Elements of one date
+     * @param monthA ) Elements of first date
      * @param dayA   )
      *
      * @param yearB  )
@@ -190,7 +190,7 @@ public class Chapter4_ProgrammingProject2 {
      * Counts the number of days between two dates.
      *
      * @param yearA  )
-     * @param monthA ) Elements of one date
+     * @param monthA ) Elements of first date
      * @param dayA   )
      *
      * @param yearB  )
