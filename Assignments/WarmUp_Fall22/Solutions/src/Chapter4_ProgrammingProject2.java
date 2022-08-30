@@ -310,8 +310,6 @@ public class Chapter4_ProgrammingProject2 {
         boolean success = true;
         // Count the testing comparisons.
         int counter = 0;
-        // RNG to advance the testing date
-        Random rng = new Random();
         // String with day of the week obtain by Java and by our methods.
         String whatJavaSays, whatOurMethodSays;
         // Begin displaying test progress.
