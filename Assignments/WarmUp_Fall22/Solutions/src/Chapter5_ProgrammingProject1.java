@@ -69,6 +69,7 @@ public class Chapter5_ProgrammingProject1 {
             // Word begins with a vowel, just append extension
             pig = word + DASH + LATIN_EXTENSION;
         } else {
+            // Word begins with consonant; is it a 1 or 2 letter sound?
             int consonantSound = initialConsonantSound(word);
             pig = word.substring(consonantSound) +
                     DASH +
