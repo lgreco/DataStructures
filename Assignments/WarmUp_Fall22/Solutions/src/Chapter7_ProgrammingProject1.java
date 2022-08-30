@@ -6,6 +6,7 @@ import java.util.Random; // Use only for testing
  */
 public class Chapter7_ProgrammingProject1 {
 
+    /* Class constants; purpose is self-explanatory */
     private static final String EMPTY_STRING = "";
     private static final char MINUS = '-';
     private static final int ASCII_ZERO = (int) '0';
