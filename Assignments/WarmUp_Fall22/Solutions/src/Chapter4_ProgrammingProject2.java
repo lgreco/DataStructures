@@ -1,7 +1,6 @@
 import java.time.LocalDate; // Use only for testing
 import java.time.format.TextStyle; // Use only for testing
 import java.util.Locale; // Use only for testing
-import java.util.Random;
 
 public class Chapter4_ProgrammingProject2 {
 
