@@ -296,15 +296,16 @@ public class Chapter4_ProgrammingProject2 {
     }  // method dayOfWeek
 
 
+    /** Test code */
     public static void main(String[] args) {
         // We start testing from this January 1, 1601.
         int testYear = BASE_YEAR;
         int testMonth = BASE_MONTH;
         int testDay = BASE_DAY;
+        // Use today as the date to find its day-of-the-week
         int nowYear = LocalDate.now().getYear();
         int nowMonth = LocalDate.now().getMonthValue();
         int nowDay = LocalDate.now().getDayOfMonth();
-
         // Tracking the success of testing;
         boolean success = true;
         // Count the testing comparisons.
@@ -320,7 +321,6 @@ public class Chapter4_ProgrammingProject2 {
         mismatched dates or until we get passed today's date.
          */
         do {
-
             // Day of the week for test date, according to Java
             whatJavaSays = LocalDate.of(testYear,testMonth,testDay).getDayOfWeek().
                     getDisplayName(TextStyle.FULL, Locale.US);
