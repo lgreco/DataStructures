@@ -61,13 +61,11 @@ public class Chapter7_ProgrammingProject1 {
         }
         // Traverse the length of the longest string
         for (int i = 0; i < longest.length(); i++) {
-            // Obtain a digit from the longest string, from the back
-            // moving forward.
+            // Obtain digit from longest string, from the back moving forward.
             digitL = digit(longest,i);
             // Check to see if we are within range of the shortest string
             if (i < shortest.length()) {
-                // Obtain a digit from shortest string, also from the back
-                // and moving forward.
+                // Obtain digit from shortest string, from back moving forward.
                 digitS = digit(shortest,i);
             } else {
                 // We are out of range for the shortest string, assume it has
