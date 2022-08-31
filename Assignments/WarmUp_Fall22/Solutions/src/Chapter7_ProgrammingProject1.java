@@ -79,8 +79,6 @@ public class Chapter7_ProgrammingProject1 {
             carry = (digitL+digitS+carry) / BASE;
             // Place the sum digit at the beginning of the output string.
             sumString = (char) (ASCII_ZERO+sum) + sumString;
-            //System.out.printf("\ni=%d\n\tL=%d\n\tS=%d\n\t\tsum=%d, carry=%d",
-            //        i,digitL,digitS, sum, carry);
         }
         // If there is a carry after we are done, place it to the front of the
         // output string.
