@@ -105,6 +105,7 @@ public class Chapter7_ProgrammingProject1 {
 
     /**
      * String version of addLargeInt method above.
+     * (THIS IS NOT ONE OF THE THREE REQUIRED METHOD. HERE FOR FUTURE USE)
      * @param first int array with first number to add
      * @param second int array with second number to add
      * @return array with sum of first and second arrays
