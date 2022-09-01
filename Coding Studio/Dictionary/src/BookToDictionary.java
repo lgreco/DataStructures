@@ -6,6 +6,10 @@ public class BookToDictionary {
 
     /**
      * Produces a Scanner connected to a text file accessible via the web.
+     *
+     * The method expects a link to a text file. When accessing material from
+     * Project Gutenberg it is import to use the plain text version of a book.
+     *
      * DO NOT MODIFY THIS METHOD.
      *
      * @param link String with URL to text file.
