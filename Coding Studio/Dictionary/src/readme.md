@@ -8,6 +8,7 @@ This project leads to the "discovery" of a data structure similar to arrays but 
 * The file to process is a plain text file, not an HTML, or ePub, or PDF, etc.
 * The dictionary must contain no duplicates. Each word must appear only once. For now it's ok to treat singular and plural forms as *different* words. E.g., dog/dogs are treated as different words, as do child/children, etc.
 * Use a String array to store the words of the dictionary.
+* No external classes may be used without Leo's approval.
 * Follow the Programmer's Pact. (You can find it in module 1 of Sakai, as well as in this repository.)
 
 You may use class BookToDictionary in this repository to build your code.
