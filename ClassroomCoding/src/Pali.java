@@ -1,17 +1,12 @@
+/*
+A class with methods that process Palindromes.
+ */
+
 public class Pali {
 
-   /*
-
-   Finds palindromes.
-   Specs:
-        Case insensitive
-        Letters only -- ignore everything else
-
-   Workflow: given a string s:
-   - convert to lc                              )
-   - remove everything but letter characters    )
-   - while loop from both ends of string, ends when pair not same
-   */
+    /* Class constants */
+    private static final int LOWER_A = (int) 'a';
+    private static final int LOWER_Z = (int) 'z';
 
 
     /**
@@ -20,42 +15,84 @@ public class Pali {
      * @param s String to convert
      * @return A string with only the letter characters of s in lowercase.
      */
-    public static String lettersOnly(String s) {
+    public static String sanitize(final String s) {
+        // Initialize the output string
         String result = "";
-        // Suppress to lower case
-        String sLowerCase = s.toLowerCase();
-        // Loop to remove non letters
-        for (int i = 0; i < sLowerCase.length(); i++) {
-            if (((int) sLowerCase.charAt(i) > 96) && sLowerCase.charAt(i) < 123)
-                result = result + sLowerCase.charAt(i);
+        // Obtain a lower-case version of the input string
+        String lowerCase = s.toLowerCase();
+        // Loop to remove non letters from lower case string
+        for (int i = 0; i < lowerCase.length(); i++) {
+            // Put the character at current position and convert to int
+            int currentCharacter = (int) lowerCase.charAt(i);
+            if (currentCharacter >= LOWER_A && currentCharacter <= LOWER_Z) {
+                // If current character within letter range, add to output
+                result = result+lowerCase.charAt(i);
+            }
         }
         return result;
-    }  // method lettersOnly
+    }  // method sanitize
 
 
     /**
-     * Tells if a string is a palindrome, after it removes all non letter characters
-     * and supresses it to lower case.
+     * Tells if a string is a palindrome.
      *
-     * @param s
-     * @return
+     * @param s String to evaluate
+     * @return true if string is palindrome, false otherwise.
      */
-    public static boolean isPalindrome(String s) {
-        String cleanedString = lettersOnly(s);
+    public static boolean isPalindrome(final String s) {
+        // Initialize the return output
         boolean result = true;
-        int index = 0;
-        while (result && index < (cleanedString.length())/2) {
-            if (cleanedString.charAt(index) != cleanedString.charAt(cleanedString.length()-1-index))
+        // Obtain a sanitized version with lower case letters only
+        String sanitized = sanitize(s);
+        // Initialize cursor to traverse the string from left to right
+        int fromLeft = 0;
+        /*
+        Loop traverses the string from both ends, comparing pairs  of characters
+        at  positions that  are symmetric  to the  string's middle  point.  This
+        traversal  ends when  one of  two conditions  occurs:  we  have  reached
+        the  middle of the string  or we have found a pair of characters that do
+        not match and therefore the string is not a palindrome.
+         */
+        while (result && fromLeft < sanitized.length()/2) {
+            // Cursor traversing the string from right to left
+            int fromRight = sanitized.length()-1-fromLeft;
+            if (sanitized.charAt(fromLeft) != sanitized.charAt(fromRight))
                 result = false;
-            index++;
+            fromLeft++;
         }
         return result;
     }  // method isPalindrome
 
 
-    public static void main(String[] args) {
-        System.out.println(lettersOnly("123Leo!"));
-        System.out.println(isPalindrome("A man, a plan, a canal: Panama!"));
-    }
+    /**
+     * A more compact version of isPalindrome, without the if statement inside
+     * the while loop.
+     *
+     * @param s String to evaluate for palindrome
+     * @return true if s is a palindrome; false otherwise
+     */
+    public static boolean isPalindromeCompact(final String s) {
+        boolean result = true;
+        String t = s.toLowerCase().replaceAll("[^a-z]", "");
+        int i = 0;
+        while (result && i < t.length()/2)
+            result = (t.charAt(i) >= LOWER_A) && (t.charAt(t.length()-1-i++) <= LOWER_Z);
+        return result;
+    }  // method isPalindromeCompact
 
-}
+
+    /** Test code */
+    public static void main(String[] args) {
+        // Expect "comp"
+        System.out.println(sanitize("COMP271!"));
+        // Expect true
+        System.out.println(isPalindrome("A man, a plan, a canal: Panama!"));
+        // Expect true
+        System.out.println(isPalindromeCompact("A man, a plan, a canal: Panama!"));
+        // Expect false
+        System.out.println(isPalindrome("Lake Michigan"));
+        // Expect false ... and yet ... what's going on here?
+        System.out.println(isPalindrome("3.14159"));
+    }  // method main
+
+}  // class Pali
