@@ -19,4 +19,4 @@ You may use class BookToDictionary in this repository to build your code.
 * Add a word in the dictionary array only if that word is not already in the array.
 * When checking the array to see if it contains a word, it suffices to check only the occupied elements of the array.
 * ``main()`` should have 4-6 lines of code *at most,* calling other methods.
-* No need to worry about skipping over a text files preliminary material (such as copyright notices, tables of contents, etc).
+* No need to worry about skipping over a text file's preliminary material (such as copyright notices, tables of contents, etc).
