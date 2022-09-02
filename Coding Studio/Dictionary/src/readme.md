@@ -12,3 +12,11 @@ This project leads to the "discovery" of a data structure similar to arrays but 
 * Follow the Programmer's Pact. (You can find it in module 1 of Sakai, as well as in this repository.)
 
 You may use class BookToDictionary in this repository to build your code.
+
+## Summary of coding studio
+
+* Make the array too small and we'll run out of space, probably leading to an ``ArrayIndexOutOfBounds`` exception crashing the program. Make the array too large and we may waste memory resources or even run out of memory in the computer.
+* Add a word in the dictionary array only if that word is not already in the array.
+* When checking the array to see if it contains a word, it suffices to check only the occupied elements of the array.
+* ``main()`` should have 4-6 lines of code *at most,* calling other methods.
+* No need to worry about skipping over a text files preliminary material (such as copyright notices, tables of contents, etc).
