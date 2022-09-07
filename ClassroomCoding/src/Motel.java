@@ -19,7 +19,7 @@ public class Motel {
      * If all rooms are occupied, guest is not admitted. Otherwise, the guest is
      * added to first available room.
      *
-     * @param guestName
+     * @param guestName String with name of arriving guest
      */
     public static void arrival(String guestName) {
         // if there are rooms available:
@@ -46,10 +46,23 @@ public class Motel {
         if (COUNT_OCCUPIED > 0) {
             // goodbye guest
             System.out.println("Goodbye " + guests[COUNT_OCCUPIED - 1]);
+            // Remove guest name from room
+            guests[COUNT_OCCUPIED-1] = null;
             // count of occupied rooms --
             COUNT_OCCUPIED--;
         }
     }  // method departure
+
+
+    /**
+     * Displays the hotel registry.
+     */
+    public static void displayGuests() {
+        for (int i = 0; i < guests.length; i++) {
+            String guestName = guests[i] == null ? "No guest" : guests[i];
+            System.out.printf("\nRoom[%d]: %s", i, guestName);
+        }
+    }  // method displayGuests
 
 
     /**
@@ -61,7 +74,9 @@ public class Motel {
         arrival("Zach");
         arrival("Andrew");
         departure();
+        departure();
         arrival("Kevin");
+        displayGuests();
     }  // method main
 
 }  // class Motel
