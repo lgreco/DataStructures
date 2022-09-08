@@ -1,4 +1,5 @@
 /**
+ *
  * A simple class that simulates arrivals and departures at a motel.
  *
  */
@@ -8,7 +9,7 @@ public class Motel {
     static int CAPACITY = 4;
 
     // Motel registry with guest names
-    static String[] guests = new String[CAPACITY];
+    static String[] guestBook = new String[CAPACITY];
 
     // Number of occupied rooms
     static int COUNT_OCCUPIED = 0;
@@ -27,7 +28,7 @@ public class Motel {
             // welcome guest
             System.out.println("Welcome " + guestName + "!");
             // Add guest to registry
-            guests[COUNT_OCCUPIED] = guestName;
+            guestBook[COUNT_OCCUPIED] = guestName;
             // count of occupied rooms ++
             COUNT_OCCUPIED++;
         } else {
@@ -45,9 +46,9 @@ public class Motel {
         // if there are guest to depart
         if (COUNT_OCCUPIED > 0) {
             // goodbye guest
-            System.out.println("Goodbye " + guests[COUNT_OCCUPIED - 1]);
+            System.out.println("Goodbye " + guestBook[COUNT_OCCUPIED - 1]);
             // Remove guest name from room
-            guests[COUNT_OCCUPIED-1] = null;
+            guestBook[COUNT_OCCUPIED-1] = null;
             // count of occupied rooms --
             COUNT_OCCUPIED--;
         }
@@ -58,8 +59,8 @@ public class Motel {
      * Displays the hotel registry.
      */
     public static void displayGuests() {
-        for (int i = 0; i < guests.length; i++) {
-            String guestName = guests[i] == null ? "No guest" : guests[i];
+        for (int i = 0; i < guestBook.length; i++) {
+            String guestName = guestBook[i] == null ? "No guest" : guestBook[i];
             System.out.printf("\nRoom[%d]: %s", i, guestName);
         }
     }  // method displayGuests
