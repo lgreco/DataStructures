@@ -31,7 +31,7 @@ public class Motel {
             // count of occupied rooms ++
             COUNT_OCCUPIED++;
         } else {
-            System.out.println("Sorry.");
+            System.out.println("Sorry, no room at the inn.");
         }
     }  // method arrival
 
