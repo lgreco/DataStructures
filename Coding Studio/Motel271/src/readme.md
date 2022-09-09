@@ -19,11 +19,12 @@ The functionality of `Motel` is limited. If every room is occupied, we cannot ad
 
 Like arrays, motels are very rigid constructs. Once we built a motel with only 4 rooms we are stuck with it for a while. Surely we can extend it, if we can afford the time and the expense. 
 
-Let's look at a more flexible scenario: a dresser with 4 drawers that is completely full. We cannot make room by throwing some stuff away, nor is there space for a second dresser. Our only option, as we discussed in class, is to replace the old dresser with a new dresser that has more drawers. The replacement process involves moving the contents of the old drawers to the same drawers in the new dresser.  
+Let's look at a more flexible scenario: a dresser with 4 drawers that is completely full. We cannot make room by throwing some stuff away, nor is there space for a second dresser. Our only option, as we discussed in class, is to replace the old dresser with a new dresser that has more drawers. The replacement process involves moving the contents of the old drawers to the same drawers in the new dresser.
+
+Like clas Motel earlier, class Drawer here has three principal variables: the total number of drawers in the dresser, the number of used drawers, and the contents for each drawer. There is a method to add items to a drawer, if there is an available drawer. A method to clear out a drawer. And a method to display the contents of the dresser. We assume, for simplicity that only one kind of items can go to each drawer. 
 
 The practical questions to consider here are:
 * when do we know that it is time to get a new dresser?
 * how much larger the new dresser should be?
 * how to move the contents from the old dresser to the new dresser?
-
 Answer this questions by improving the provided class Dresser in this repository.
