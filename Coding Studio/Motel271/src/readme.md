@@ -28,4 +28,4 @@ The practical questions to consider here are:
 * how much larger the new dresser should be?
 * how to move the contents from the old dresser to the new dresser?
 
-Answer these questions by improving the provided class Dresser in this repository.
+These questions are addressed in the Dresser class in this repository.
