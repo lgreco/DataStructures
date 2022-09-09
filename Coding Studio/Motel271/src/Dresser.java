@@ -28,18 +28,18 @@ public class Dresser {
 
     /**
      * Clears the most recently used drawer.
-     *
+     * <p>
      * Method checks first that there is at least one drawer used.
      */
-    public static void removeFromDrawer() {
+    public static void clearDrawer() {
         // Make sure that there is at least one drawer used.
         if (usedDrawers > 0) {
             // Empty the contents of the most recently used drawer
-            drawerContents[usedDrawers-1] = null;
+            drawerContents[usedDrawers - 1] = null;
             // Reduce the number of used drawers
             usedDrawers--;
         }
-    }  // method removeFromDrawer
+    }  // method clearDrawer
 
 
     /**
@@ -48,11 +48,13 @@ public class Dresser {
     public static void showContents() {
         System.out.printf("\n\nYour dresser has %d drawers with the following items:\n", totalDrawers);
         for (int i = 0; i < drawerContents.length; i++) {
-            System.out.printf("\tDrawer %d: %s\n",i+1,drawerContents[i]);
+            System.out.printf("\tDrawer %d: %s\n", i + 1, drawerContents[i]);
         }
     }  // method showContents
 
-    /** Test code */
+    /**
+     * Test code
+     */
     public static void main(String[] args) {
         addToDrawer("Socks");
         addToDrawer("Tee-shirts");
@@ -61,4 +63,4 @@ public class Dresser {
         showContents();
     }  // method main
 
-}  // class Dresser
+} // class Dresser
