@@ -2,6 +2,7 @@
  * Dresser as a metaphor for a dynamically sized array.
  *
  * @version 20220909.1700
+ * 
  */
 
 public class Dresser {
