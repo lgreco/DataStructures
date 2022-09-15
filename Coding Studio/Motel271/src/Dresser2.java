@@ -5,7 +5,7 @@
  * 
  */
 
-public class Dresser {
+public class Dresser2 {
 
     /** Upgrade factor: multiplier for old dresser size */
     public static final int UPGRADE_FACTOR = 2;

@@ -1,4 +1,4 @@
-# Coding Studio for August 2, 2022
+# Coding Studio for September 2, 2022
 
 ## Building a dictionary
 
