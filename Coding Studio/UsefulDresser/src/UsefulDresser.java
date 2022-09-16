@@ -133,4 +133,45 @@ public class UsefulDresser {
         }
     }  // method showContents
 
-} // class Dresser
+
+    /**
+     * Constructor for testing purposes, creates a dresser with given number of
+     * drawers and assigns a value for the number of used drawers.
+     *
+     * DO NOT MODIFY THIS CODE
+     */
+    public UsefulDresser(int totalDrawers, int usedDrawers) {
+        this.totalDrawers = totalDrawers;
+        this.usedDrawers = (usedDrawers > totalDrawers) ? 0 : usedDrawers;
+    }  // testing constructor
+
+
+    /**
+     * TEST CODE. DO NOT MODIFY THIS CODE
+     *
+     */
+    public static void main(String[] args) {
+        // Set up a few sample dressers
+        NFS_Solutions_UsefulDresser a = new NFS_Solutions_UsefulDresser(10,5);
+        NFS_Solutions_UsefulDresser b = new NFS_Solutions_UsefulDresser(4,2);
+        NFS_Solutions_UsefulDresser c = new NFS_Solutions_UsefulDresser(3,2);
+        NFS_Solutions_UsefulDresser d = new NFS_Solutions_UsefulDresser(4,0);
+        NFS_Solutions_UsefulDresser e = new NFS_Solutions_UsefulDresser(3,3);
+        // Test a few cases
+        boolean sizeAB = a.compareTo(b) > 0;
+        boolean sizeBA = b.compareTo(a) < 0;
+        boolean sizeBD = b.compareTo(d) == 0;
+        boolean fullAB = a.fullerThan(b) == 0;
+        boolean fullAC = a.fullerThan(c) < 0;
+        boolean fullEB = e.fullerThan(b) > 0;
+        // Final outcome of tests
+        boolean pass = sizeAB && sizeBA && sizeBD && fullAB && fullAC && fullEB;
+        // Report results
+        if (pass) {
+            System.out.println("\n\nAll tests completed successfully.\n\n");
+        } else {
+            System.out.println("\n\nSome tests did not complete successfully.\n\n");
+        }
+    }  // method main
+
+}  // class UsefulDresser
