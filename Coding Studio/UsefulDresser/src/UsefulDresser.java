@@ -1,5 +1,6 @@
 /**
  * Dresser as a metaphor for objects.
+ * @version 220220916.1600
  *
  */
 
@@ -152,11 +153,11 @@ public class UsefulDresser {
      */
     public static void main(String[] args) {
         // Set up a few sample dressers
-        NFS_Solutions_UsefulDresser a = new NFS_Solutions_UsefulDresser(10,5);
-        NFS_Solutions_UsefulDresser b = new NFS_Solutions_UsefulDresser(4,2);
-        NFS_Solutions_UsefulDresser c = new NFS_Solutions_UsefulDresser(3,2);
-        NFS_Solutions_UsefulDresser d = new NFS_Solutions_UsefulDresser(4,0);
-        NFS_Solutions_UsefulDresser e = new NFS_Solutions_UsefulDresser(3,3);
+        UsefulDresser a = new UsefulDresser(10,5);
+        UsefulDresser b = new UsefulDresser(4,2);
+        UsefulDresser c = new UsefulDresser(3,2);
+        UsefulDresser d = new UsefulDresser(4,0);
+        UsefulDresser e = new UsefulDresser(3,3);
         // Test a few cases
         boolean sizeAB = a.compareTo(b) > 0;
         boolean sizeBA = b.compareTo(a) < 0;
