@@ -2,10 +2,10 @@
  * Dresser as a metaphor for a dynamically sized array.
  *
  * @version 20220909.1700
- * 
+ *
  */
 
-public class Dresser2 {
+public class Solutions_Dresser {
 
     /** Upgrade factor: multiplier for old dresser size */
     public static final int UPGRADE_FACTOR = 2;
@@ -21,7 +21,7 @@ public class Dresser2 {
 
 
     /**
-     * Adds an item to a drawer; each drawer can contain only one kind of items.
+     * Adds an item to THE FIRST AVAILABLE drawer.
      *
      * @param item String with kind of items contained in drawer.
      */
@@ -31,8 +31,15 @@ public class Dresser2 {
             // upgrade dresser
             upgradeDresser();
         }
-        // add the new item to a drawer
-        ourDresser[usedDrawers] = item;
+        // Find the first available drawer, start looking from the top
+        int drawer = 0;
+        // If a drawer is not empty
+        while (ourDresser[drawer] != null) {
+            // Move to the next drawer
+            drawer++;
+        }
+        // At the end of the loop, we are at an empty drawer. Fill it.
+        ourDresser[drawer] = item;
         // increment the count of used drawers
         usedDrawers++;
     }  // method addToDrawer
@@ -40,7 +47,6 @@ public class Dresser2 {
 
     /**
      * Resizes the dresser.
-     *
      */
     public static void upgradeDresser() {
         // Create a new dresser that is larger than the old dresser
@@ -71,6 +77,25 @@ public class Dresser2 {
 
 
     /**
+     * Empties a specific drawer.
+     *
+     * The method executes only if there is at least one drawer used. And only
+     * if the specified drawer is not empty.
+     *
+     * @param drawer int of drawer to empty. Must be within range of drawers.
+     *
+     */
+    public static void clearDrawer(int drawer) {
+        if (usedDrawers > 0 &&
+                drawer >= 0 && drawer < ourDresser.length &&
+                ourDresser[drawer] != null) {
+            ourDresser[drawer] = null;
+            usedDrawers--;
+        }
+    }  // method clearDrawer
+
+
+    /**
      * Displays contents of dresser
      */
     public static void showContents() {
@@ -90,6 +115,7 @@ public class Dresser2 {
         addToDrawer("Cufflinks");
         addToDrawer("Bowties");
         addToDrawer("Neckties");
+        clearDrawer(1);
         showContents();
     }  // method main
 
