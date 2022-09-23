@@ -5,13 +5,18 @@
 
 public class DresserBlueprint {
 
-    static final int DEFAULT_DRAWERS = 4;
-    static final int DEFAULT_COLUMNS = 1;
-    static final String DEFAULT_WOOD = "Pine";
-    static final String DEFAULT_COLOR = "Natural Stain";
 
-    /** Upgrade factor: multiplier for old dresser size */
-    public static final int UPGRADE_FACTOR = 2;
+    /** Number of drawers for default dresser */
+    private static final int DEFAULT_DRAWERS = 4;
+    /** Number of drawer columns for default dresser */
+    private static final int DEFAULT_COLUMNS = 1;
+    /** Default upgrade factor for dresser */
+    private static final int UPGRADE_FACTOR = 2;
+    /** Wood material for default dresser */
+    private static final String DEFAULT_WOOD = "Pine";
+    /** Color of default dresser */
+    private static final String DEFAULT_COLOR = "Natural Stain";
+
 
     /** Number of drawers */
     private int totalDrawers;
@@ -28,11 +33,23 @@ public class DresserBlueprint {
 
 
     /**
-     *
-     * @param totalDrawers
-     * @param numberOfColumns
-     * @param typeOfWood
-     * @param color
+     * Default constructor. Calls full constructor with default values as
+     * arguments.
+     */
+    public DresserBlueprint() {
+        this(DEFAULT_DRAWERS,
+                DEFAULT_COLUMNS,
+                DEFAULT_WOOD,
+                DEFAULT_COLOR);
+    }  // default constructor
+
+
+    /**
+     * Full constructor
+     * @param totalDrawers int total number of drawers in dresser
+     * @param numberOfColumns int how many columns of drawers
+     * @param typeOfWood String type of wood the dresser is made off
+     * @param color String the color of the dresser.
      */
     public DresserBlueprint(int totalDrawers,
                             int numberOfColumns,
@@ -42,31 +59,12 @@ public class DresserBlueprint {
         this.numberOfColumns = numberOfColumns;
         this.typeOfWood = typeOfWood;
         this.color = color;
+        this.ourDresser = new String[totalDrawers];
     }  // full constructor
 
-    /**
-     *
-     * @return
-     */
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        if (color.equals("Puke Green")) {
-            this.color = "Maroon";
-        } else {
-            this.color = color;
-        }
-    }
-
-    public DresserBlueprint() {
-        // for every attribute in this object:
-        //   initialize attribute to its default value.
-    }
 
     /**
-     * Adds an item to a drawer; each drawer can contain only one kind of items.
+     * Adds an item to the first available drawer
      *
      * @param item String with kind of items contained in drawer.
      */
@@ -76,8 +74,19 @@ public class DresserBlueprint {
             // upgrade dresser
             upgradeDresser();
         }
-        // add the new item to a drawer
-        ourDresser[usedDrawers] = item;
+        // Start from the top drawer and find the first empty drawer
+        int drawer = 0;
+        /*
+        If drawer is not empty, try the next one. The loop is guaranteed to find
+        an empty drawer, before the index [drawer] runs pasts the end of the
+        array. There will always be an empty drawer because the method upgrades
+        the dresser if necessary, before running this loop.
+         */
+        while (ourDresser[drawer] != null) {
+            drawer++;
+        }
+        // At the end of the loop, we are at an empty drawer; add item
+        ourDresser[drawer] = item;
         // increment the count of used drawers
         usedDrawers++;
     }  // method addToDrawer
@@ -101,13 +110,22 @@ public class DresserBlueprint {
 
 
     /**
-     * Clears the most recently used drawer.
+     * Clears the specified drawer.
      *
-     * Method checks first that there is at least one drawer used.
+     * Preconditions:
+     * Prior to emptying the drawer, the method ensures that the dresser has at
+     * least one used drawer (no point of emptying a drawer in an unused
+     * dresser), that the specified drawer is within the array range (to avoid
+     * an index out of bounds exception), and that the target drawer is not
+     * already empty.
+     *
+     * @param drawer int the drawer to empty
      */
-    void clearDrawer() {
-        // Make sure that there is at least one drawer used.
-        if (usedDrawers > 0) {
+    void clearDrawer(int drawer) {
+        // Check for preconditions
+        if (usedDrawers > 0 &&
+                drawer >= 0 && drawer < ourDresser.length &&
+                ourDresser[drawer] != null) {
             // Empty the contents of the most recently used drawer
             ourDresser[usedDrawers-1] = null;
             // Reduce the number of used drawers

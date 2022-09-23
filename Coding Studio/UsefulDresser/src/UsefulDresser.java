@@ -146,6 +146,15 @@ public class UsefulDresser {
         this.usedDrawers = (usedDrawers > totalDrawers) ? 0 : usedDrawers;
     }  // testing constructor
 
+    /** Dummy placeholder */
+    int compareTo(UsefulDresser usefulDresser) {
+        return 0;
+    }
+    /** Dummy placeholder */
+    int fullerThan(UsefulDresser usefulDresser) {
+        return 0;
+    }
+
 
     /**
      * TEST CODE. DO NOT MODIFY THIS CODE
