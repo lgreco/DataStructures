@@ -37,17 +37,17 @@ public class SortingPractice {
 
 
     /**
-     * Returns a slice of an array from position start up to, but not including
+     * Returns a slice of an array from position start upto, but not including,
      * position end.
      *
      * @param array int array to slice
      * @param start int beginning of slice
      * @param end int end of slice
-     * @return slice of array from start up to end. Method returns an array of
-     * length 0 if start or end are out of bounds.
+     * @return int array with slice of array from start upto end. If parameters
+     * start or end are out of bounds, method returns an array of length 0.
      */
     static int[] slice(int[] array, int start, int end) {
-        // Initialize empty array to return if start, end out of bounds
+        // Initialize empty array to return if start or end are out of bounds
         int[] slicedArray = {};
         // Validate start, end
         if (start >=0 && end < array.length) {
