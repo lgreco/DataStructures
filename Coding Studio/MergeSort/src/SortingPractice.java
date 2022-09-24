@@ -103,7 +103,7 @@ public class SortingPractice {
      *   merge(slice(arr,0,1), slice(arr,1,2))
      *
      * will send arrays [7] and [6] into merge and the method will return
-     * their merged and sorted array [6,6].
+     * their merged and sorted array [6,7].
      *
      * After placing these sorted 2-element arrays back into proper positions in
      * the original array, it will look like:
