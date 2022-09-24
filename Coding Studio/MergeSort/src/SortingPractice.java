@@ -126,7 +126,7 @@ public class SortingPractice {
      *
      *   arr = [4,5,6,7,0,1,2,3]
      *
-     * For here, we have only one pair of 4-element sorted arrays that can be
+     * From here, we have only one pair of 4-element sorted arrays that can be
      * merged into an array with 8 elements. And we are done.
      *
      * Of course your method must work with arrays of any size -- not just 8.
