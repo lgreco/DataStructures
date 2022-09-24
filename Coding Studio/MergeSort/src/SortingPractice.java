@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -171,7 +170,7 @@ public class SortingPractice {
      * DO NOT MODIFY THIS METHOD WITHOUT DISCUSSING IT WITH LEO FIRST.
      *
      * */
-    public static void test() {
+    static void test() {
         // To generate random sized arrays with random values
         Random random = new Random();
         // Presume all will end well
@@ -210,9 +209,9 @@ public class SortingPractice {
         }
         // Report results
         if (testOutcome) {
-            System.out.printf("\n\nYour method iterativeMergeSort passed all %d tests.\n", TESTS);
+            System.out.printf("\n\nYour method iterativeMergeSort passed all %d tests.\n\n", TESTS);
         } else {
-            System.out.printf("\n\nYour method iterativeMergeSort failed some or all of %d tests.\n", TESTS);
+            System.out.printf("\n\nYour method iterativeMergeSort failed some or all of %d tests.\n\n", TESTS);
         }
     }  // method test
 
@@ -225,7 +224,7 @@ public class SortingPractice {
      * @param array int[] array to evaluate
      * @return true if in ascending or descending order
      */
-    public static boolean isSorted(int[] array) {
+    static boolean isSorted(int[] array) {
         // Assume array is will be sorted, one way or another
         boolean asc = true;
         boolean des = true;
