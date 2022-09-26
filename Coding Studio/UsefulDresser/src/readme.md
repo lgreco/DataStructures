@@ -2,7 +2,7 @@
 
 ## A useful dresser
 
-In this studio session, we'll improve the functionality of the Dresser class we developed earlier in the week. The cleaned up java class, called `NFS_Solutions_UsefulDresser.java`, is in this repository. Our objective is to "instruct" the class so that its objects can size each other up.
+In this studio session, we'll improve the functionality of the Dresser class we developed earlier in the week. The cleaned up java class, called `Solutions_UsefulDresser.java`, is in this repository. Our objective is to "instruct" the class so that its objects can size each other up.
 
 To appreciate how objects compare themselves to other objects of the same class, let's look at Strings. So far we'use the method `equals` to tell if two strings have the same content. Imagine a scenario, however, when we need to tell is a string is bigger than another string. What are the possible comparison outcomes between two strings `a` and `b`?
 
@@ -29,7 +29,7 @@ In Java, we cannot use the relational operators `<` and `>` between objects. The
 
 ### Studio task
 
-Write a `compareTo` method in the `UsefulDrawer` class. First, propose how two dressers are to be compared: what characteristics do you plan to use to establish a ranking system for dressers? Then write the method that, given two `NFS_Solutions_UsefulDresser` objects, say `dresserA` and `dresserB`, is called as
+Write a `compareTo` method in the `UsefulDrawer` class. First, propose how two dressers are to be compared: what characteristics do you plan to use to establish a ranking system for dressers? Then write the method that, given two `Solutions_UsefulDresser` objects, say `dresserA` and `dresserB`, is called as
 
 ```java
 dresserA.compareTo(dresserB)
