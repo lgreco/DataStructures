@@ -1,4 +1,4 @@
-public class IllinoisTrains {
+public class CTA_RedLine_SB {
 
     public static void main(String[] args) {
 
@@ -37,6 +37,7 @@ public class IllinoisTrains {
         redLine.addStation("87th");
         redLine.addStation("95th/Dan Ryan");
 
+        redLine.insertBefore("Irakliotis", "Davis");
     }
 
 }

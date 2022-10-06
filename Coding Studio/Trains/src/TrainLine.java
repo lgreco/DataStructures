@@ -62,4 +62,171 @@ public class TrainLine {
         return found;
     }  // method lineHasStation
 
+
+    /**
+     * Inserts a new station before a specific station.
+     *
+     * The method assumes that station with beforeName exists and therefore does
+     * not offer any protection against a null pointer exception that may occur
+     * in the while loop.
+     *
+     * @param beforeName name of the station where the new station will be
+     *                   inserted before.
+     * @param newName name of new station to insert
+     */
+    public void insertBefore(String beforeName, String newName) {
+        // Create the new object to insert
+        TrainStation newStation = new TrainStation(newName);
+        // Inserting before the head station requires separate handling
+        if (beforeName.equals(head.getName())) {
+            // Have the new station point to head
+            newStation.setNext(head);
+            // And move the head label to the new station
+            head = newStation;
+        } else {
+            // If we are not inserting before the head, prepare to traverse the list
+            TrainStation current = this.head;
+            // Looking for a station whose next station is the one we are inserting prior to
+            while (!current.getNext().getName().equals(beforeName)) {
+                current = current.getNext();
+            }
+            newStation.setNext(current.getNext());
+            current.setNext(newStation);
+        }
+    }  // method insertBefore
+
+    /**
+     * Inserts a new station after a specific station.
+     *
+     * The method assumes that station with afterName exists and therefore does
+     * not offer any protection against a null pointer exception that may occur
+     * in the while loop. Method also assumes that there is no station with
+     * newName in the train line, and therefore does not offer any protection
+     * against a duplicate train station object.
+     *
+     * @param afterName name of the station where the new station will be
+     *                   inserted before.
+     * @param newName name of new station to insert
+     */
+    public void insertAfter(String afterName, String newName) {
+        TrainStation newStation = new TrainStation(newName);
+        TrainStation current = this.head;
+        while (!current.getName().equals(afterName)) {
+            System.out.printf("\nAt %s looking for %s", current.getName(), newName);
+            current = current.getNext();
+        }
+        newStation.setNext(current.getNext());
+        current.setNext(newStation);
+    }  // method insertAfter
+
+
+    /**
+     * Deletes a station specified by name.
+     *
+     * @param name String with name of station to delete.
+     */
+    public void delete(String name) {
+        if (this.head.getName().equals(name)) {
+            // Remember what's after the head; we'll need it.
+            TrainStation oldHeadPointedTo = this.head.getNext();
+            // Make the current head point to nowhere.
+            this.head.setNext(null);
+            // Re-designate the head to the station after the old head.
+            this.head = oldHeadPointedTo;
+        } else {
+            // Traverse line and fine station prior to one to be deleted
+            TrainStation previous = this.head;
+            /*
+            Traverse the list with a cursor called "previous" to signify that
+            we are looking for the station prior to the one we wish to delete.
+            Assume that d is the station to delete. Then
+               d = previous.next
+            To remove d, we need to connect the station before d (that would be
+            the previous station) to the station after d (that would be d.next).
+            Therefore, we want the assignment:
+               previous.next = d.next
+            Replacing d with previous.next above, we get
+               previous.next = previous.next.next
+            Or, using the get/set methods for the TrainStation object:
+               previous.setNext(previous.getNext().getNext())
+             */
+            while ((!previous.getNext().getName().equals(name)) && previous.hasNext()) {
+                previous = previous.getNext();
+            }
+            // Assign a new next station for station previous
+            previous.setNext(previous.getNext().getNext());
+        }
+    }  // method delete
+
+
+    /**
+     * String representation of the TrainLine.
+     *
+     * @return String with stations neatly arranged
+     */
+    public String toString() {
+        // Introducing the use of StringBuilder objects
+        StringBuilder sb = new StringBuilder();
+        if (this.head == null) {
+            // If head is null, the train line is empty.
+            sb.append("This train line has no stations.");
+        } else {
+            // There are stations. Prepare to traverse the line.
+            TrainStation current = this.head;
+            // Get the name of every station and add it to the StringBuilder object.
+            while (current.hasNext()) {
+                sb.append(String.format("%s --> ", current.getName()));
+                // The "-->" needs to be a class constant not a "magic" value,
+                // and I'll fix it later.
+                current = current.getNext();
+            }
+            // The loop ends at the last station, which is very useful because
+            // it allows us to omit the "-->" decoration after it.
+            sb.append(current.getName());
+        }
+        // Convert the StringBuilder object to a String, using the StringBuilder
+        // class's toString method, and return it.
+        return sb.toString();
+    }  // method toString
+
+
+    /*
+    For illustration only. A simple method to create a string representation of
+    a TrainLine object, using just strings.
+     */
+    public String plainToString() {
+        String string = new String();
+        if (this.head == null) {
+            string = "This train line has no stations.";
+        } else {
+            TrainStation current = this.head;
+            while (current.hasNext()) {
+                string = string + current.getName() + " --> ";
+                current = current.getNext();
+            }
+            string = string + current.getName();
+        }
+        return string;
+    }  // method plainToString
+
+
+    /*
+    For illustration only. The same simple method from above, slightly modified
+    to use the format() method of the String class.
+     */
+    public String formattedToString() {
+        String string = new String();
+        if (this.head == null) {
+            string = "This train line has no stations.";
+        } else {
+            TrainStation current = this.head;
+            while (current.hasNext()) {
+                string = String.format("%s --> ", current.getName());
+                current = current.getNext();
+            }
+            string = string + current.getName();
+        }
+        return string;
+    }  // method formattedToString
+
 }
