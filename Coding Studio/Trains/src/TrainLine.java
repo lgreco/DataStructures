@@ -112,7 +112,6 @@ public class TrainLine {
         TrainStation newStation = new TrainStation(newName);
         TrainStation current = this.head;
         while (!current.getName().equals(afterName)) {
-            System.out.printf("\nAt %s looking for %s", current.getName(), newName);
             current = current.getNext();
         }
         newStation.setNext(current.getNext());

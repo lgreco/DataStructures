@@ -1,4 +1,4 @@
-# Coding Studio for October 6, 2022
+# Coding Studio for October 7, 2022
 
 ## Demolishing Train Stations!
 
