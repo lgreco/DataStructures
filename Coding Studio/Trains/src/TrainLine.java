@@ -134,7 +134,7 @@ public class TrainLine {
             this.head = oldHeadPointedTo;
         } else {
             // Traverse line and fine station prior to one to be deleted
-            TrainStation previous = this.head;
+            TrainStation X = this.head;
             /*
             Traverse the list with a cursor called "previous" to signify that
             we are looking for the station prior to the one we wish to delete.
@@ -149,11 +149,15 @@ public class TrainLine {
             Or, using the get/set methods for the TrainStation object:
                previous.setNext(previous.getNext().getNext())
              */
-            while ((!previous.getNext().getName().equals(name)) && previous.hasNext()) {
-                previous = previous.getNext();
+            while ( X.hasNext() && (!X.getNext().getName().equals(name)) ) {
+                System.out.printf("\nWe are at %s", X.getName());
+                X = X.getNext();
             }
-            // Assign a new next station for station previous
-            previous.setNext(previous.getNext().getNext());
+            System.out.printf("\nThe while loop has brought us to %s", X.getName());
+            // Assign a new next station for station previous, if search successful
+            if (X.hasNext()) {  // If X is not at the last station
+                X.setNext(X.getNext().getNext());
+            }
         }
     }  // method delete
 
