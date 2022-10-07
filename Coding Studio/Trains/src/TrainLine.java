@@ -134,7 +134,7 @@ public class TrainLine {
             this.head = oldHeadPointedTo;
         } else {
             // Traverse line and fine station prior to one to be deleted
-            TrainStation X = this.head;
+            TrainStation prior = this.head;
             /*
             Traverse the list with a cursor called "previous" to signify that
             we are looking for the station prior to the one we wish to delete.
@@ -149,14 +149,22 @@ public class TrainLine {
             Or, using the get/set methods for the TrainStation object:
                previous.setNext(previous.getNext().getNext())
              */
-            while ( X.hasNext() && (!X.getNext().getName().equals(name)) ) {
-                System.out.printf("\nWe are at %s", X.getName());
-                X = X.getNext();
+            while ( prior.hasNext() && (!prior.getNext().getName().equals(name)) ) {
+                prior = prior.getNext();
             }
-            System.out.printf("\nThe while loop has brought us to %s", X.getName());
-            // Assign a new next station for station previous, if search successful
-            if (X.hasNext()) {  // If X is not at the last station
-                X.setNext(X.getNext().getNext());
+            /*
+            Loop ends when it cannot find a station whose next station is the one
+            to delete, or when it finds that station. We don't know which of the
+            two conditions terminated the loop. The if statement below finds out.
+            If the while loop delivers us to the last station, then there is no
+            station to delete. Because to delete a station, the loop must deliver
+            us to the station prior. The last station, by definition, is not prior
+            to any station.
+             */
+            if (prior.hasNext()) {
+                // Pointer prior has a non null next, so it is not the last station.
+                // Deletion can proceed.
+                prior.setNext(prior.getNext().getNext());
             }
         }
     }  // method delete
