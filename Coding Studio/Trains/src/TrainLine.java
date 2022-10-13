@@ -149,7 +149,7 @@ public class TrainLine {
             Or, using the get/set methods for the TrainStation object:
                previous.setNext(previous.getNext().getNext())
              */
-            while ( prior.hasNext() && (!prior.getNext().getName().equals(name)) ) {
+            while (prior.hasNext() && (!prior.getNext().getName().equals(name))) {
                 prior = prior.getNext();
             }
             /*
