@@ -41,6 +41,9 @@ public class LinkedList {
      */
     public String deleteFirst() {
         String deletedPayload = null;
+        /*
+        Finish the method here!
+         */
         return deletedPayload;
     }  // method deleteFirst
 
@@ -58,11 +61,18 @@ public class LinkedList {
             // If list is empty, make this the head node.
             this.head = nodeToAdd;
         } else {
-            // List is not empty.
+            /*
+            List is not empty.
+            Finish the method here!
+             */
         }
     }  // method addFirst
 
 
+    /**
+     * String representation of the object.
+     * @return String representation of the object.
+     */
     public String toString() {
         StringBuilder sb = new StringBuilder();
         if (this.head == null) {
@@ -77,5 +87,5 @@ public class LinkedList {
             sb.append(current.getPayload());
         }
         return sb.toString();
-    }
+    }  // method toString
 }
