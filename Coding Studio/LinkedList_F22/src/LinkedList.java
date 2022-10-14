@@ -37,13 +37,22 @@ public class LinkedList {
 
     /**
      * Removes the first node from a list and returns its payload contents.
-     * @return String with payload of deleted node.
+     *
+     * @return String with payload of deleted node or null if list is empty.
      */
     public String deleteFirst() {
         String deletedPayload = null;
-        /*
-        Finish the method here!
-         */
+        // Make sure the list is not empty
+        if (this.head != null) {
+            // get payload of node to remove
+            deletedPayload = this.head.getPayload();
+            // Node after present head.
+            Node aftedHead = this.head.getNext();
+            // Break the pointer before head (to be deleted) and its next node
+            this.head.setNext(null);
+            // Make the node after the head we are deleting, the new head
+            this.head = aftedHead;
+        }
         return deletedPayload;
     }  // method deleteFirst
 
@@ -61,10 +70,11 @@ public class LinkedList {
             // If list is empty, make this the head node.
             this.head = nodeToAdd;
         } else {
-            /*
-            List is not empty.
-            Finish the method here!
-             */
+            // List already has a head. Make that head the next node from the
+            // new node we are adding.
+            nodeToAdd.setNext(this.head);
+            // Designate that new node as the head of the list.
+            this.head = nodeToAdd;
         }
     }  // method addFirst
 
