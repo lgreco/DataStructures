@@ -19,7 +19,7 @@ public class LinkedList {
         // This may be the first node in the list.
         if (this.head == null) {
             // If list is empty, make this the head node.
-            head = nodeToAdd;
+            this.head = nodeToAdd;
         } else {
             // List is not empty. Find where it ends by traversing it.
             Node current = this.head;
@@ -37,7 +37,7 @@ public class LinkedList {
 
     /**
      * Removes the first node from a list and returns its payload contents.
-     * @return
+     * @return String with payload of deleted node.
      */
     public String deleteFirst() {
         String deletedPayload = null;
