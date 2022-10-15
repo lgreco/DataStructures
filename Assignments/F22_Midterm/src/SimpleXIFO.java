@@ -57,6 +57,8 @@ public class SimpleXIFO {
      * are added, they move closer and closer to the end fo the array.
      *
      * @param string String value to the end of the array
+     *
+     * DO NOT MODIFY THIS METHOD
      */
     public void addLast(String string) {
         // Check that there is room in the array
@@ -65,7 +67,7 @@ public class SimpleXIFO {
             // Update usage
             usage++;
         }
-    }  // method addLast
+    }  // method addLast ... DO NOT MODIFY
 
 
     /**
