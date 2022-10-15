@@ -145,7 +145,7 @@ public class SimpleXIFO {
         } else if (!symmetry) {
             System.out.printf("\nYour addFirst method is not quite there yet.\n");
         } else {
-            System.out.printf("\nYour removeFirst is not quite there yet.\n");
+            System.out.printf("\nYour removeFirst method is not quite there yet.\n");
         }
     }  // method main ... DO NOT MODIFY
 }
