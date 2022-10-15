@@ -1,8 +1,9 @@
 import java.util.Arrays;
 import java.util.Random;
 
-/*
-An array-based demonstration for FIFO and LIFO operations
+/**
+ * An array-based demonstration for FIFO and LIFO operations
+ * @version 202210142330
  */
 
 public class SimpleXIFO {
