@@ -3,14 +3,14 @@ import java.util.Random;
 
 /**
  * An array-based demonstration for FIFO and LIFO operations
- * @version 202210142330
+ * @version 202210151800
  */
 
 public class SimpleXIFO {
 
     /**
      * An array that stores strings added to it either on a first-available
-     * basis (using the addLast) method; or inserted as the first element
+     * basis (using the addLast method); or inserted as the first element
      * (using the addFirst method).
      */
     private String[] xifo;
