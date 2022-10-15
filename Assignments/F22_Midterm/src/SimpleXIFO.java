@@ -120,7 +120,7 @@ public class SimpleXIFO {
      * CODE WORKS AS EXPECTED.
      */
     public static void main(String[] args) {
-        int testSize = 10;
+        int testSize = 1024;
         int ascii_A = (int) 'A';
         int letters = 26;
         Random rng = new Random();
