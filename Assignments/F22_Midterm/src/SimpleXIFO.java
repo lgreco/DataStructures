@@ -3,7 +3,7 @@ import java.util.Random;
 
 /**
  * An array-based demonstration for FIFO and LIFO operations
- * @version 202210151800
+ * @version 202210181100
  */
 
 public class SimpleXIFO {
@@ -65,7 +65,7 @@ public class SimpleXIFO {
         if (this.usage < this.xifo.length) {
             this.xifo[usage] = string;
             // Update usage
-            usage++;
+            this.usage++;
         }
     }  // method addLast ... DO NOT MODIFY
 
@@ -82,6 +82,10 @@ public class SimpleXIFO {
         /*
         COMPLETE THIS METHOD
          */
+        if (this.usage > 0) {
+            // write some awesome code here, and then ...
+            this.usage--;
+        }
         return removed;
     }  // method removeFirst
 
