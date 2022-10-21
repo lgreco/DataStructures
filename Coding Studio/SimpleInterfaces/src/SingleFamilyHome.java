@@ -1,2 +1,3 @@
-public class SingleFamilyHome extends Building implements ResidentialUse{
+public class SingleFamilyHome extends Building implements ResidentialUse {
+
 }
