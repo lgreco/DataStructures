@@ -11,6 +11,11 @@ public interface ResidentialUse{
      */
     public boolean hasGarage();
 
+    /**
+     * @return int, number of space in garage
+     */
+    public int numberOfSpacesInGarage();
+
 
     /**
      * @return int, count of bedrooms in the place
@@ -19,9 +24,15 @@ public interface ResidentialUse{
 
 
     /**
-     * @return double, number of bathrooms
+     * @return double, count of full bathrooms
      */
-    public double numberOfBathrooms();
+    public int numberOfFullBathrooms();
+
+
+    /**
+     * @return int, count of half bathrooms
+     */
+    public int numberOfHalfBathrooms();
 
 
     /**
