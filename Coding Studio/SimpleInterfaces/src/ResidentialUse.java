@@ -7,13 +7,13 @@ public interface ResidentialUse{
 
 
     /**
-     * @return int with number of full bathrooms in the object
+     * @return int with count of full bathrooms in the object
      */
     public int numberOfFullBathrooms();
 
 
     /**
-     * @return int with number of half bathrooms in the object
+     * @return int with count of half bathrooms in the object
      */
      public int numberOfHalfBathrooms();
 
