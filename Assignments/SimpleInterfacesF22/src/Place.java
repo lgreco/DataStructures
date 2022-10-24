@@ -1,6 +1,8 @@
 /**
  * A simple class to represent a place. A place can be any geographical entity:
  * a town, a country, a national forest, etc.
+ *
+ * @version 20221021.1500
  */
 public class Place {
 
@@ -15,20 +17,6 @@ public class Place {
 
     /** The altitude of the place */
     private int elevation;
-
-
-    /**
-     * Basic constructor. Instantiates an object place with the given name and
-     * sets its geographic parameters to 0.
-     *
-     * @param name String with the name of the place
-     */
-    public Place(String name) {
-        this.name = name;
-        this.longitude = 0.0;
-        this.latitude = 0.0;
-        this.elevation = 0;
-    }  // basic constructor
 
 
     // Standard accessors and mutators
