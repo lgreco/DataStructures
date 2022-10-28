@@ -33,6 +33,7 @@ public class WeirdAlphaHotel {
         this.numberOfRooms = numberOfRooms;
         this.probingLength = probingLength;
         this.usage = 0;
+        this.hotel = new String[numberOfRooms];
     }  // constructor WeirdAlphaHotel
 
 
