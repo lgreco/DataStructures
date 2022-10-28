@@ -1,7 +1,12 @@
 import java.util.Arrays;
 import java.util.Random;
 
-public class Solution_SimpleXIFO {
+/**
+ * An array-based demonstration for FIFO and LIFO operations
+ *
+ */
+
+public class XIFO implements LIFO, FIFO {
 
     /**
      * An array that stores strings added to it either on a first-available
@@ -24,7 +29,7 @@ public class Solution_SimpleXIFO {
      *
      * DO NOT MODIFY THIS CONSTRUCTOR
      */
-    public Solution_SimpleXIFO() {
+    public XIFO() {
         this(DEFAULT_SIZE);
     }  // Default constructor ... DO NOT MODIFY
 
@@ -37,7 +42,7 @@ public class Solution_SimpleXIFO {
      *
      * DO NOT MODIFY THIS CONSTRUCTOR
      */
-    public Solution_SimpleXIFO(int size) {
+    public XIFO(int size) {
         this.xifo = new String[size];
         this.usage = 0;
     }  // Basic constructor ... DO NOT MODIFY
@@ -52,15 +57,17 @@ public class Solution_SimpleXIFO {
      * are added, they move closer and closer to the end fo the array.
      *
      * @param string String value to the end of the array
+     *
+     * DO NOT MODIFY THIS METHOD
      */
     public void addLast(String string) {
         // Check that there is room in the array
         if (this.usage < this.xifo.length) {
             this.xifo[usage] = string;
             // Update usage
-            usage++;
+            this.usage++;
         }
-    }  // method addLast
+    }  // method addLast ... DO NOT MODIFY
 
 
     /**
@@ -71,12 +78,12 @@ public class Solution_SimpleXIFO {
      * @return String with the value of the first element in the array.
      */
     public String removeFirst() {
-        String removed = this.xifo[0];
+        String removed = null;
+        /*
+        COMPLETE THIS METHOD
+         */
         if (this.usage > 0) {
-            for (int i = 0; i < this.xifo.length-1; i++) {
-                this.xifo[i] = this.xifo[i+1];
-            }
-            xifo[xifo.length-1] = null;
+            // write some awesome code here, and then ...
             this.usage--;
         }
         return removed;
@@ -94,18 +101,9 @@ public class Solution_SimpleXIFO {
      * @param string String value to add to the beginning of the array.
      */
     public void addFirst(String string) {
-        // Check that there is room in the array
-        if (this.usage < this.xifo.length) {
-            // Move everything one position back,
-            // beginning with last used and moving to the front
-            for (int i = usage; i > 0; i--) {
-                this.xifo[i] = this.xifo[i-1];
-            }
-            // Place new string at beginning
-            this.xifo[0] = string;
-            // Update usage
-            this.usage++;
-        }
+        /*
+        COMPLETE THIS METHOD
+         */
     }  // method addFirst
 
 
@@ -120,41 +118,4 @@ public class Solution_SimpleXIFO {
         return Arrays.toString(this.xifo);
     }  // method toString ... DO NOT MODIFY
 
-
-    /**
-     * TEST CODE. DO NOT MOFIFY THE MAIN METHOD BUT USE IT TO TEST IF YOUR
-     * CODE WORKS AS EXPECTED.
-     */
-    public static void main(String[] args) {
-        int testSize = 1_024;
-        int ascii_A = (int) 'A';
-        int letters = 26;
-        Random rng = new Random();
-        Solution_SimpleXIFO fifo = new Solution_SimpleXIFO(testSize);
-        Solution_SimpleXIFO lifo = new Solution_SimpleXIFO(testSize);
-        for (int i = 0; i < testSize; i++) {
-            String dataToAdd = String.valueOf((char) (ascii_A+rng.nextInt(letters)));
-            fifo.addFirst(dataToAdd);
-            lifo.addLast(dataToAdd);
-        }
-        String[] ofif = fifo.getXifo().clone();
-        String[] ofil = lifo.getXifo().clone();
-        boolean fifoTest = true;
-        boolean lifoTest = true;
-        for (int i = 0; i < testSize; i++) {
-            fifoTest = fifoTest && fifo.removeFirst().equals(ofif[i]);
-            lifoTest = lifoTest && lifo.removeFirst().equals(ofil[i]);
-        }
-        boolean symmetry = true;
-        for (int i = 0; i < testSize; i++) {
-            symmetry = symmetry && ofil[i].equals(ofif[ofif.length-1-i]);
-        }
-        if (symmetry && fifoTest && lifoTest) {
-            System.out.printf("\nYour code seems to be working as expected.\n");
-        } else if (!symmetry) {
-            System.out.printf("\nYour addFirst method is not quite there yet.\n");
-        } else {
-            System.out.printf("\nYour removeFirst is not quite there yet.\n");
-        }
-    }  // method main ... DO NOT MODIFY
 }
