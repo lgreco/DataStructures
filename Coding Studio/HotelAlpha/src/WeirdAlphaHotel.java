@@ -122,7 +122,7 @@ public class WeirdAlphaHotel {
                     assignedRoom = (designatedRoom+1)%this.numberOfRooms;
                     this.hotel[assignedRoom] = guestName;
                     this.usage++;
-                } else if (this.isAvailable((designatedRoom+1)%this.numberOfRooms)) {
+                } else if (this.isAvailable((designatedRoom+2)%this.numberOfRooms)) {
                     // Place guest here and update assignedRoom and usage
                     assignedRoom = (designatedRoom+2)%this.numberOfRooms;
                     this.hotel[assignedRoom] = guestName;
