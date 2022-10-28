@@ -204,7 +204,7 @@ public class WeirdAlphaHotel {
         int randomStringLength = 5;
         WeirdAlphaHotel test = new WeirdAlphaHotel(testHotelSize, testProbingLength);
         // Assume there are as many guests arriving as rooms: not all of them will be admitted;
-        // Possible homework idea: what's the max number of hotel guests we can admit in this
+        // Idea for possible exam question: what's the max number of hotel guests we can admit in this
         // scheme and why?
         ArrayList<Integer> occupiedRooms = new ArrayList<>();
         for (int guest = 0; guest < testHotelSize; guest++) {
