@@ -147,7 +147,7 @@ public class WeirdAlphaHotel {
      */
     public String remove(int room) {
         String departingGuest = null;
-        // TBD
+        // Write this method to fulfill the functionality described in its Javadoc
         return departingGuest;
     }  // method remove
 
