@@ -79,6 +79,15 @@ public class WeirdAlphaHotel {
 
 
     /**
+     * Accessor for this.usage
+     * @return int this.usage
+     */
+    public int getUsage() {
+        return this.usage;
+    }
+
+
+    /**
      * Returns the name of the guest in the specified room. If the room is empty
      * or if the specified room is out of range method returns null.
      *
@@ -108,26 +117,22 @@ public class WeirdAlphaHotel {
         if (this.hasVacancy()) {
             // Determine which room this guest should go to
             int designatedRoom = this.hash(guestName);
-            // Check if that room is available
-            if (this.isAvailable(designatedRoom)) {
-                // Place guest here and update assignedRoom and usage
-                assignedRoom = designatedRoom;
-                this.hotel[assignedRoom] = guestName;
-                this.usage++;
-            } else {
-                // Designated room is not available, try nearby rooms, using %
-                // to wrap around if we are near the last room in the array.
-                if (this.isAvailable((designatedRoom+1)%this.numberOfRooms)) {
-                    // Place guest here and update assignedRoom and usage
-                    assignedRoom = (designatedRoom+1)%this.numberOfRooms;
+            // Probe this room as well rooms allowed by probing policy to
+            // determine if the guest can be accommodated.
+            int probe = 0;
+            while (probe < this.probingLength && assignedRoom == -1) {
+                // Room to consider:
+                int roomToCheck = (designatedRoom+probe)%this.numberOfRooms;
+                if (this.isAvailable(roomToCheck)) {
+                    // Room is available; update assignedRoom so that we can terminate the loop
+                    assignedRoom = roomToCheck;
+                    // Assign guest to the room
                     this.hotel[assignedRoom] = guestName;
-                    this.usage++;
-                } else if (this.isAvailable((designatedRoom+2)%this.numberOfRooms)) {
-                    // Place guest here and update assignedRoom and usage
-                    assignedRoom = (designatedRoom+2)%this.numberOfRooms;
-                    this.hotel[assignedRoom] = guestName;
+                    // Update usage of hotel rooms
                     this.usage++;
                 }
+                // Try  with the next probe value allowed by probing policy
+                probe++;
             }
         }
         return assignedRoom;
@@ -235,6 +240,7 @@ public class WeirdAlphaHotel {
             String departingGuest = test.remove(roomToVacate);
             successfulRemoval = guest.equals(departingGuest);
         }
+        successfulRemoval = successfulRemoval && (test.getUsage()==0);
         String removalTest = (successfulRemoval) ? PASSED : FAILED;
         System.out.printf("\n     Method remove test: %s\n\n", removalTest);
     }  // method main ... DO NOT MODIFY
