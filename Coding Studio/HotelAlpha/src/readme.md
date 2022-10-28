@@ -16,4 +16,41 @@ So we decided to handle *collisions,* i.e., two (or more) guests matched to the 
 
 The policy, and technique, to consider nearby rooms is called probing. The probing length is the number of rooms to consider -- in this example 3, including the ideal room.
 
-The code implementing probing is a bit redundant. Can you improve it?
+In class ``WeirdAlphaHotel``, probing is implemented in lines 98-110. The code is repetitive, therefore redundant. Repetitive code is not usually a good thing because it introduces multiple points of maintenance.
+
+Repetitive code can be avoided with loops. For example, when we see code like the following:
+
+```java
+System.out.println(128);
+System.out.println(256);
+System.out.println(512);
+System.out.println(1024);
+System.out.println(2048);
+System.out.println(4096);
+```
+
+we tend to replace it with a for-loop
+
+```java
+for (int n=7; n<13; n++) {
+    System.out.println((int) Math.pow(2,n))
+}
+```
+
+or a while-loop:
+
+```java
+int value = 128
+while (value < 8192) {
+    System.out.println(value);
+    value = value*2;
+}
+```
+
+## Your task
+
+* Identify the repetitive code. 
+* What are the repeating statements? 
+* How many times they repeat?
+* Are the repetitions connected to a property of the code, i.e., a local or a class variable?
+* Replace the repeating code with an appropriate loop that delivers the same functionality.
