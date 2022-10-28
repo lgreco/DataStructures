@@ -1,5 +1,5 @@
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.ArrayList;  // For testing only. Not be used in homework solutions
+import java.util.Random;  // For testing only. Not be used in homework solutions
 
 public class WeirdAlphaHotel {
 
@@ -157,7 +157,7 @@ public class WeirdAlphaHotel {
      */
     public int whichRoom(String guestNane) {
         int room = -1;
-        // TBD
+        // Write this method to fulfill the functionality described in its Javadoc
         return room;
     }  // method isGuestHere
 
@@ -199,8 +199,8 @@ public class WeirdAlphaHotel {
     public static void main(String[] args) {
         String PASSED = "Passed";
         String FAILED = "Failed";
-        int testHotelSize = 128;
-        int testProbingLength = 3;
+        int testHotelSize = 64;
+        int testProbingLength = 5;
         int randomStringLength = 5;
         WeirdAlphaHotel test = new WeirdAlphaHotel(testHotelSize, testProbingLength);
         // Assume there are as many guests arriving as rooms: not all of them will be admitted;
