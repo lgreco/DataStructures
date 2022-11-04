@@ -142,27 +142,80 @@ public class HammockHotel {
         return sb.toString();
     }  // method toString
 
+    /*
+                        METHODS FOR THE ASSIGNMENT DUE 11/11/22
+     */
 
-    /** Demo code, aka main() */
-    public static void main(String[] args) {
-        // Build a hotel with 2 rooms, load factor threshold of 2.0, and double its size when rehashing.
-        HammockHotel demo = new HammockHotel(4, 2.0, 2);
-        demo.add("AADVARK");
-        demo.add("ANISE");
-        demo.add("APPLES");
-        demo.add("AERODROME");
-        demo.add("ANATHEMA");
-        demo.add("AIRSHOW");
-        demo.add("AMATEUR");
-        demo.add("ADDITION");
-        demo.add("ALARM");
-        demo.add("ANXIETY");
-        demo.add("BURGERS");
-        demo.add("BROOMS");
-        demo.add("BEETS");
-        demo.add("BALL");
-        demo.add("BREAK");
-        System.out.println(demo);
-    } // method main
+    /**
+     * Checks if the specified guest is found in one of the rooms.
+     *
+     * @param guestName String with name of guest to search for
+     *
+     * @return true if guest is present on one of the hammocks, false otherwise.
+     */
+    public boolean contains(String guestName) {
+        // Initialize return variable
+        boolean found = false;
+        // Room where guest should be found
+        int assignedRoom = this.hashCode(guestName);
+        // Explore the hammocks at this room.
+        Node hammock = this.rooms[assignedRoom];
+        // If the room is empty, the loop won't even run.
+        while (!found && hammock != null) {
+            // Is the guest in this hammock? If yes, the !found above will break the loop.
+            found = hammock.data.equals(guestName);
+            // Move to the next hammock, in case we need to try; if null, the loop will end.
+            hammock = hammock.next;
+        }
+        return found;
+    }  // method contains
+
+
+    /**
+     * Adds a guest to the hotel if no other guest with the same name is present.
+     * The method returns true if the guest has been successfully added; false otherwise.
+     *
+     * @param guestName String with name of guest to try adding to the hotel
+     *
+     * @return true if guest was successfully added.
+     */
+    public boolean addUnique(String guestName) {
+        return false; // Dummy code ... to be replaced by your code
+    }  // method addUnique
+
+    /**
+     * Are there any guests in the hotel?
+     *
+     * @return true if there are absolutely no guests in the hotel and false otherwise.
+     */
+    public boolean isEmpty() {
+        return false; // Dummy code ... to be replaced by your code
+    }  // method isEmpty
+
+
+    /**
+     * Create a String array with the guest names as its elements.
+     *
+     * @return String array with the names of all the guest.
+     */
+    public String[] toArray() {
+        return new String[1]; // Dummy code ... to be replaced by your code
+    }  // method toArray
+
+
+    /**
+     * Empty the hotel of all guests.
+     */
+    public void clear() {}  //  method clear
+
+
+    /**
+     * Create an array with the number of guests in each hotel room
+     * @return int array with how many guests are in each room
+     */
+    public int[] stats() {
+        return new int[1]; // Dummy code ... to be replaced by your code
+    }  // method stats
+
 
 }  // class HammockHotel
