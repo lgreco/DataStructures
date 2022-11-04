@@ -14,7 +14,7 @@ public class HammockHotel {
     private Node[] rooms;
     private static final int DEFAULT_ROOMS_SIZE = 4;
 
-    /** The number of rooms currently occupied in The Hammock Hotel */
+    /** The number of guests currently hanging for dear life in The Hammock Hotel */
     private int usage;
 
     /** The desired utilization (load factor) threshold for rehashing and its default */

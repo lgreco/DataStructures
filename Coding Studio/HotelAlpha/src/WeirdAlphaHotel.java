@@ -96,7 +96,7 @@ public class WeirdAlphaHotel {
      */
     public String getGuestName(int room) {
         String name = null;
-        if (room>=0 && room < this.hotel.length) {
+        if (room >= 0 && room < this.hotel.length) {
             name = this.hotel[room];
         }
         return name;
@@ -171,7 +171,7 @@ public class WeirdAlphaHotel {
      * Tells if a guest is present in the hotel.If there are multiple guests with
      * the same name, method returns the room of the first guest with that name.
      *
-     * @param guestname String with guest name to look up
+     * @param guestName String with guest name to look up
      * @return true if guest is found, false otherwise.
      */
     public boolean isGuestHere(String guestname) {
