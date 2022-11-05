@@ -1,3 +1,6 @@
+/**
+ * @version 20221104.2130
+ */
 public class HammockHotel {
 
     /** A simple nested class for linkable Nodes */
