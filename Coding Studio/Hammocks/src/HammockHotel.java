@@ -146,6 +146,10 @@ public class HammockHotel {
                         METHODS FOR THE ASSIGNMENT DUE 11/11/22
      */
 
+    public int getUsage() {
+        return this.usage;
+    }
+
     /**
      * Checks if the specified guest is found in one of the rooms.
      *
