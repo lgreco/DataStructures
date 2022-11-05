@@ -76,6 +76,7 @@ public class TestHammockHotel {
         for (int i = 0; i < counts.length; i++) {
             sum = sum+counts[i];
         }
+        statsTest = sum == test.getUsage();
 
         if (statsTest) {
             System.out.println("stats() passed the test");
