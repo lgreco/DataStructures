@@ -1,12 +1,15 @@
 import java.util.Arrays;
 
-public class TestHammockHotel {
+    /**
 
-    /*
-
-    TESTING WILL BE AVAILABLE AFTER 11 AM SATURDAY 11/5/22
+    THIS IS THE TESTING CODE FOR THE ENHANCED HAMMOCK HOTEL.
+    @version 20221104.2130
 
      */
+
+public class TestHammockHotel {
+
+
 
     public static void main(String[] args) {
 
