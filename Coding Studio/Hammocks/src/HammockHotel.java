@@ -142,13 +142,22 @@ public class HammockHotel {
         return sb.toString();
     }  // method toString
 
+
     /*
+
                         METHODS FOR THE ASSIGNMENT DUE 11/11/22
+
      */
 
+
+    /**
+     * Accessor for this.usage
+     * @return int this.usage
+     */
     public int getUsage() {
         return this.usage;
-    }
+    }  // method getUsage
+
 
     /**
      * Checks if the specified guest is found in one of the rooms.

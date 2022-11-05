@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class TestHammockHotel {
@@ -12,7 +11,7 @@ public class TestHammockHotel {
     public static void main(String[] args) {
 
         // Create the test object   *** REFACTOR TO NON NFS CLASS FOR 11/5 RELEASE
-        NFS_HammockHotel test = new NFS_HammockHotel(2, 2.0, 2);
+        HammockHotel test = new HammockHotel(2, 2.0, 2);
 
         // Guest list
         String[] guests = {"HARRY", "RON", "HERMIONE", "DRACO", "SEVERUS",
@@ -53,7 +52,6 @@ public class TestHammockHotel {
         }
 
 
-
         boolean toArrayTest = true;
         Arrays.sort(guests);
         String[] arrayNames = test.toArray();
@@ -73,11 +71,38 @@ public class TestHammockHotel {
         int[] counts = test.stats();
         int sum = 0;
         for (int i = 0; i < counts.length; i++) {
-            sum = sum+ counts[i];
+            sum = sum+counts[i];
         }
-        statsTest = sum == test.
+
+        if (statsTest) {
+            System.out.println("stats() passed the test");
+        } else {
+            System.out.println("stats() failed the test");
+        }
+
 
         boolean isEmptyTest = true;
+        isEmptyTest = isEmptyTest && !test.isEmpty();
+
+
+        boolean clearTest = true;
+        test.clear();
+        clearTest = test.isEmpty();
+
+
+        isEmptyTest = isEmptyTest && test.isEmpty();
+
+        if (clearTest) {
+            System.out.println("isEmpty() passed the test");
+        } else {
+            System.out.println("isEmpty() failed the test");
+        }
+
+        if (clearTest) {
+            System.out.println("clear() passed the test");
+        } else {
+            System.out.println("clear() failed the test");
+        }
     }
 
 }
