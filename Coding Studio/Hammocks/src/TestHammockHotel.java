@@ -3,7 +3,7 @@ import java.util.Arrays;
     /**
 
     THIS IS THE TESTING CODE FOR THE ENHANCED HAMMOCK HOTEL.
-    @version 20221104.2130
+    @version 20221105.1430 -- stats() test updated.
 
      */
 
