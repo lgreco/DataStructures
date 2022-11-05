@@ -9,8 +9,6 @@ import java.util.Arrays;
 
 public class TestHammockHotel {
 
-
-
     public static void main(String[] args) {
 
         // Create the test object   *** REFACTOR TO NON NFS CLASS FOR 11/5 RELEASE
@@ -19,6 +17,8 @@ public class TestHammockHotel {
         // Guest list
         String[] guests = {"HARRY", "RON", "HERMIONE", "DRACO", "SEVERUS",
                 "SEAMUS", "MINERVA", "RUBIUS", "SIRIUS", "REMUS", "ARTHUR", "ALBUS"};
+
+        // Begin obscure testing
 
         for (int i = 0; i < guests.length; i++) {
             if (i%2==0) {
