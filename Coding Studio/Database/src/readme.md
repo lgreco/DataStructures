@@ -2,7 +2,7 @@
 
 ![](TT271.png)
 
-The Traffic Ticket Management System (TTMS) comprises eight classes, as shown above. Four classes are used for `Driver`, `Vehicle`, `Violation`, and `TrafficTicket` objects. The interactions between these classes are orchestrated by class `TrafficTicketManagement`. This class is supported by three more class that provide auxiliary operations, file operations, and menu operations.
+The Traffic Ticket Management System (TTMS) comprises eight classes, as shown above. Four classes are used for `Driver`, `Vehicle`, `Violation`, and `TrafficTicket` objects. The interactions between these classes are orchestrated by class `TrafficTicketManagement`. This class is supported by three more classes that provide auxiliary operations, file operations, and menu operations.
 
 Because of so many cooperating classes, you'll notice that static methods that are outsid  class `TrafficTicketManagement` are called with their class name. For example,
 ```java
