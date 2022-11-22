@@ -1,4 +1,4 @@
-public class Building implements Comparable<Building> {
+public abstract class Building implements Comparable<Building> {
 
     /** Description of the building */
     protected String buildingDescription;
@@ -92,4 +92,9 @@ public class Building implements Comparable<Building> {
     public void setEntranceMaterial(String entranceMaterial) {
         this.entranceMaterial = entranceMaterial;
     }
+
+    public int compareTo(Building other) {
+        return 0;
+    }
+
 }

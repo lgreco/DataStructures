@@ -1,4 +1,4 @@
-public class ResidentialCarGarage extends Building{
+public class ResidentialCarGarage extends Building  {
 
     /** Number of cars accommodated */
     private int cars;
@@ -15,5 +15,9 @@ public class ResidentialCarGarage extends Building{
         String noun = (this.cars > 1) ? "cars" : "car";
         System.out.printf("\nThis %s can accommodate %d %s.",
                 this.buildingDescription, this.cars, noun);
+    }
+
+    public int compareTo(ResidentialCarGarage other) {
+        return 0;
     }
 }

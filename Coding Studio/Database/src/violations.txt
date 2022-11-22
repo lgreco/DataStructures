@@ -1,0 +1,5 @@
+1,Speeding,150.0
+2,Driving While Intoxicated,200.0
+3,Illegal Parking,100.0
+4,Running Red Light,150.0
+5,Improper Lane Change, 100.0
