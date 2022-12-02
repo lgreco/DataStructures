@@ -24,6 +24,7 @@ public class FileOperations {
     protected static int violationDescriptionMaxLength = 0;
     protected static int addressMaxLength = 0;
     protected static int licensePlateMaxLength = 0;
+    protected static int driverLicenseMaxLength = 0;
 
 
     /**
@@ -57,6 +58,10 @@ public class FileOperations {
                 String driverLicenseNumber = record[0];
                 String firstName = record[1];
                 String lastName = record[2];
+                // Adjust variable with longest driver license number (for formatting purposes)
+                if (driverLicenseNumber.length() > driverLicenseMaxLength) {
+                    driverLicenseMaxLength = driverLicenseNumber.length();
+                }
                 // Create a new driver object
                 Driver newDriver = new Driver(driverLicenseNumber, firstName, lastName);
                 // Add this driver to the drivers hashmap using the driverLicenseNumber as key
