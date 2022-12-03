@@ -141,7 +141,7 @@ public class TrafficTicketManagement {
             int ticketCounter = 0;
             // Search every ticket in the database but look for the ones that match the license plate
             for (Map.Entry<Integer,TrafficTicket> trafficTicketEntry: trafficTickets.entrySet()) {
-                // Get the value V of the <K,V> pair sotred in the trafficTickets hashmap;
+                // Get the value V of the <K,V> pair stored in the trafficTickets hashmap;
                 // Remember it's a trafficTicket object
                 TrafficTicket trafficTicket = trafficTicketEntry.getValue();
                 // Is this ticket matching the plate we are searching for?
